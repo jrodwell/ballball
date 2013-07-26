@@ -55,7 +55,7 @@
 
 
 					<nav role="navigation">
-						<?php bones_main_nav(); ?>
+					  <?php wp_nav_menu(array('theme_location' => 'primary', 'menu_class' => 'nav-menu')); ?>
 					</nav>
 
 				</div> <!-- end #inner-header -->
