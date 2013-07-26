@@ -1,0 +1,60 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop. 
+
+******************************************************************/
+.header {
+	height: 247px;
+	padding-top: 127px;
+	background: url(../images/pattern_geometric-green.png) repeat;
+	#inner-header {
+		position: relative;
+		left: 50%;
+		margin-left: -($deskWidth/2);
+		height: 120px;
+		width: $deskWidth;
+		padding: 0 $deskPadding;
+	}
+}
+.hero {
+	background: url(../images/pattern_geometric-dark.png) repeat;
+	.hero {
+		position: relative;
+		left: 50%;
+		margin-left: -($deskWidth/2);
+		width: $deskWidth;
+		padding: 0 $deskPadding;
+	}
+}
+#content {
+	background: url(../images/pattern_geometric-light.png) repeat;
+	#inner-content {
+		position: relative;
+		left: 50%;
+		margin-left: -($deskWidth/2);
+		width: $deskWidth;
+		padding: 0 $deskPadding;
+	}
+}
+#main, .sidebar {
+	position: relative;
+	float: left;
+}
+.sidebar {
+	width: 300px;
+	margin-left: 20px;
+}
+.footer {
+	#inner-footer {
+		position: relative;
+		left: 50%;
+		margin-left: -($deskWidth/2);
+		width: $deskWidth;
+		padding: 0 $deskPadding;
+	}
+}

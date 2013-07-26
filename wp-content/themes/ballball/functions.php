@@ -48,11 +48,16 @@ require_once('library/bones.php'); // if you remove this, bones will break
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
+/*
 add_image_size( 'bones-thumb-600', 600, 150, true );
 add_image_size( 'bones-thumb-300', 300, 100, true );
+*/
 
 /* Custom image sizes here */
 
+add_image_size('small', 140, 92, false);
+add_image_size('stream', 220, 144, false);
+add_image_size('article', 620, 413, false);
 
 /*
 to add more sizes, simply copy a line from above
@@ -79,9 +84,9 @@ you like. Enjoy!
 // Sidebars & Widgetizes Areas
 function bones_register_sidebars() {
 	register_sidebar(array(
-		'id' => 'sidebar1',
-		'name' => __('Sidebar 1', 'bonestheme'),
-		'description' => __('The first (primary) sidebar.', 'bonestheme'),
+		'id' => 'sidebar',
+		'name' => __('Sidebar', 'ballball'),
+		'description' => __('The primary sidebar.', 'ballball'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -166,31 +171,58 @@ function bones_wpsearch($form) {
 } // don't remove this bracket!
 
 
-/* Include meta box class */
+/* Include meta box class (J.R.) */
 
 require_once("library/meta-box-class/my-meta-box-class.php");
 
+/* Enqueue admin scripts (J.R.) */
+
+add_action('admin_enqueue_scripts', 'ballball_queue_admin_scripts');
+
+function ballball_queue_admin_scripts() {
+  wp_enqueue_script('jquery-ui-core');
+  wp_enqueue_script('jquery-ui-datepicker');
+  wp_enqueue_script('jquery-ui-datetimepicker', get_stylesheet_directory_uri().'/library/js/libs/jquery-timepicker/jquery-ui-timepicker-addon.js', array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker'));     
+  wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+  wp_enqueue_style('jquery-style', get_stylesheet_directory_uri().'/library/js/libs/jquery-timepicker/jquery-ui-timepicker-addon.css');
+}
+
+/* Register menu (J.R.) */
+
+add_action('init', 'ballball_register_menu');
+
+function ballball_register_menu() {
+  register_nav_menu('main-menu',__( 'Main Menu', 'ballball'));
+}
+
+/* Custom excerpt 'read more' text */
+
+add_filter('excerpt_more', 'ballball_excerpt_more');
+
+function ballball_excerpt_more($more) {
+	return ' <a class="read-more" href="'.get_permalink(get_the_ID()).'">'.__('Continue Reading &raquo;', 'ballball').'</a>';
+}
+
 /* Custom post types (J.R.) */
 
-/*
 add_action('init', 'ballball_add_post_types');
 
 function ballball_add_post_types() {
 
   $labels = array(
-    'name' => 'Video Posts',
-    'singular_name' => 'Video Post',
+    'name' => 'Post Sets',
+    'singular_name' => 'Post Set',
     'add_new' => 'Add New',
-    'add_new_item' => 'Add New Video Post',
-    'edit_item' => 'Edit Video Post',
-    'new_item' => 'New Video Post',
-    'all_items' => 'All Video Posts',
-    'view_item' => 'View Video Post',
-    'search_items' => 'Search Video Posts',
-    'not_found' =>  'No video posts found',
-    'not_found_in_trash' => 'No video posts found in Trash', 
+    'add_new_item' => 'Add New Post Set',
+    'edit_item' => 'Edit Post Set',
+    'new_item' => 'New Post Set',
+    'all_items' => 'All Post Sets',
+    'view_item' => 'View Post Set',
+    'search_items' => 'Search Post Sets',
+    'not_found' =>  'No post sets found',
+    'not_found_in_trash' => 'No post sets found in Trash', 
     'parent_item_colon' => '',
-    'menu_name' => 'Video Posts'
+    'menu_name' => 'Post Sets'
   );
 
   $args = array(
@@ -200,60 +232,80 @@ function ballball_add_post_types() {
     'show_ui' => true, 
     'show_in_menu' => true, 
     'query_var' => true,
-    'rewrite' => array('slug' => 'video_post'),
+    'rewrite' => array('slug' => 'post_set'),
     'capability_type' => 'post',
     'has_archive' => true, 
     'hierarchical' => false,
     'menu_position' => null,
-    'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
+    'supports' => array('title', 'editor', 'author', 'thumbnail'),
     'menu_position' => 5,
-    'taxonomies' => array('post_tag', 'category')
+    'taxonomies' => array('post_tag', 'category', 'league', 'team', 'match')
   ); 
 
-  register_post_type('video_post', $args);
+  register_post_type('post_set', $args);
   
 }
-*/
 
 /* Custom fields (J.R.) */
 
 add_action('add_meta_boxes', 'ballball_add_custom_fields');
-add_action('save_post', 'ballball_save_postdata');
+add_action('save_post', 'ballball_save_videoid');
+add_action('save_post', 'ballball_save_hideflag');
 
 function ballball_add_custom_fields() {
   add_meta_box(
     'ballball_videoid',
-    __('Ooyala video ID', 'ballball_textdomain' ),
+    __('Ooyala video ID', 'ballball'),
     'ballball_draw_videoid',
     'post'
+  );
+  add_meta_box(
+    'ballball_hideflag',
+    __('Hide from home page', 'ballball'),
+    'ballball_draw_hideflag',
+    'post'
+  );
+  add_meta_box(
+    'ballball_hideflag',
+    __('Hide from home page', 'ballball'),
+    'ballball_draw_hideflag',
+    'post_set'
   );   
 }
 
 function ballball_draw_videoid($post) {  
-  wp_nonce_field(plugin_basename( __FILE__ ), 'ballball_noncename'); // Use nonce for verification
-  $value = get_post_meta($post->ID, 'ballball_videoid', true);
-  echo '<input type="hidden" name="videoid_nonce" id="videoid_nonce" value="'.wp_create_nonce('post_theme').'" />';
-  echo '<label for="ballball_videoid">';
-       _e("Ooyala video ID", 'ballball_textdomain' );
-  echo '</label> ';
+  wp_nonce_field('set_videoid', 'videoid_nonce'); // Use nonce for verification
+  $value = get_post_meta($post->ID, 'ballball_videoid', true); 
   echo '<input type="text" id="ballball_videoid" name="ballball_videoid" value="'.esc_attr($value).'" />';
 }
 
-function ballball_save_postdata($post_id) {
+function ballball_save_videoid($post_id) {
   // Check permissions
-  if ( 'page' == $_POST['post_type'] ) {
-    if ( ! current_user_can( 'edit_page', $post_id ) )
-        return;
-  } else {
-    if ( ! current_user_can( 'edit_post', $post_id ) )
-        return;
-  }
-  // Verify
-  if ( ! isset( $_POST['videoid_nonce'] ) || ! wp_verify_nonce( $_POST['videoid_nonce'], plugin_basename( __FILE__ ) ) )
-      return;
-  $post_ID = $_POST['post_ID'];
+  if (!current_user_can('edit_post', $post_id))
+    return;
+  // Verify action      
+  if (!isset($_POST['videoid_nonce'])||!wp_verify_nonce($_POST['videoid_nonce'], 'set_videoid'))
+    return;
   $mydata = sanitize_text_field($_POST['ballball_videoid']);
-  add_post_meta($post_ID, '_my_meta_value_key', $mydata, true) or update_post_meta($post_ID, '_my_meta_value_key', $mydata);
+  add_post_meta($post_id, 'ballball_videoid', $mydata, true) or update_post_meta($post_id, 'ballball_videoid', $mydata);
+}
+
+function ballball_draw_hideflag($post) {  
+  wp_nonce_field('set_hideflag', 'hideflag_nonce'); // Use nonce for verification
+  $check = get_post_meta($post->ID, 'ballball_hideflag', true);
+  echo "CHECK = $check<br /><br />"; 
+  echo '<input type="checkbox" id="my_meta_box_check" name="my_meta_box_check" value="on" '.checked($check, 'on').' />';  
+}
+
+function ballball_save_hideflag($post_id) {
+  // Check permissions
+  if (!current_user_can('edit_post', $post_id))
+    return;
+  // Verify action      
+  if (!isset($_POST['hideflag_nonce'])||!wp_verify_nonce($_POST['hideflag_nonce'], 'set_hideflag'))
+    return;
+  $mydata = sanitize_text_field($_POST['ballball_hideflag']);
+  add_post_meta($post_id, 'ballball_hideflag', $mydata, true) or update_post_meta($post_id, 'ballball_hideflag', $mydata);
 }
 
 
@@ -286,7 +338,7 @@ function ballball_create_taxonomies() {
 		'rewrite'           => array('slug' => 'league')
 	);
 	
-	register_taxonomy('league', array('post', 'video_post'), $args);
+	register_taxonomy('league', array('post', 'post_set'), $args);
 	
 	$labels = array(
 		'name'              => _x('Teams', 'taxonomy general name'),
@@ -311,7 +363,7 @@ function ballball_create_taxonomies() {
 		'rewrite'           => array('slug' => 'team')
 	);
 	
-	register_taxonomy('team', array('post', 'video_post'), $args);
+	register_taxonomy('team', array('post', 'post_set'), $args);
   
   $labels = array(
 		'name'              => _x('Matches', 'taxonomy general name'),
@@ -336,32 +388,7 @@ function ballball_create_taxonomies() {
 		'rewrite'           => array('slug' => 'match')
 	);
 	
-	register_taxonomy('match', array('post', 'video_post'), $args);
-	
-	$labels = array(
-		'name'              => _x('Sets', 'taxonomy general name'),
-		'singular_name'     => _x('Set', 'taxonomy singular name'),
-		'search_items'      => __('Search Sets'),
-		'all_items'         => __('All Sets'),
-		'parent_item'       => null,
-		'parent_item_colon' => null,
-		'edit_item'         => __('Edit Set'),
-		'update_item'       => __('Update Set'),
-		'add_new_item'      => __('Add New Set'),
-		'new_item_name'     => __('New Set Name'),
-		'menu_name'         => __('Sets')
-	);
-
-	$args = array(
-		'hierarchical'      => false,
-		'labels'            => $labels,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array('slug' => 'set')
-	);
-	
-	register_taxonomy('set', array('post', 'video_post'), $args);
+	register_taxonomy('match', array('post', 'post_set'), $args);
   
 }
 
@@ -377,16 +404,16 @@ function ballball_add_league_fields($tag) {
   $term_meta = get_option("taxonomy_$t_id");
   ?>
   <tr class="form-field">
-    <th scope="row" valign="top"><label for="ballball_league_optaid"><?php _e("Opta league ID", 'ballball_textdomain' ); ?></label></th>
+    <th scope="row" valign="top"><label for="ballball_league_optaid"><?php _e("Opta league ID", 'ballball'); ?></label></th>
     <td>
-      <input type="text" name="term_meta[optaid]" id="term_meta[optaid]" style="width: 60%;" value="<?php echo $term_meta['optaid'] ? $term_meta['optaid'] : ''; ?>"><br />
+      <input type="text" name="term_meta[optaid]" id="ballball_league_optaid" style="width: 150px;" value="<?php echo $term_meta['optaid'] ? $term_meta['optaid'] : ''; ?>"><br />
     </td>
   </tr>
   <?php
 }
 
 add_action('team_edit_form_fields', 'ballball_add_team_fields', 10, 2);
-add_action('edited_team_', 'ballball_save_taxonomy_fields', 10, 2); 
+add_action('edited_team', 'ballball_save_taxonomy_fields', 10, 2); 
 
 function ballball_add_team_fields($tag) {  
   //check for existing taxonomy meta for term ID
@@ -394,12 +421,108 @@ function ballball_add_team_fields($tag) {
   $term_meta = get_option("taxonomy_$t_id");
   ?>
   <tr class="form-field">
-    <th scope="row" valign="top"><label for="ballball_team_optaid"><?php _e("Opta team ID", 'ballball_textdomain' ); ?></label></th>
+    <th scope="row" valign="top"><label for="ballball_team_optaid"><?php _e("Opta team ID", 'ballball'); ?></label></th>
     <td>
-      <input type="text" name="term_meta[optaid]" id="term_meta[optaid]" style="width: 60%;" value="<?php echo $term_meta['optaid'] ? $term_meta['optaid'] : ''; ?>"><br />
+      <input type="text" name="term_meta[optaid]" id="ballball_team_optaid" style="width: 150px;" value="<?php echo $term_meta['optaid'] ? $term_meta['optaid'] : ''; ?>"><br />
+    </td>
+  </tr>  
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_team_league"><?php _e("League", 'ballball'); ?></label></th>
+    <td>
+      <?php wp_dropdown_categories('id=ballball_team_league&name=term_meta[league]&selected='.$term_meta['league'].'&show_option_none=No League&show_count=0&echo=1&hide_empty=0&taxonomy=league'); ?>
+    </td>
+  </tr>  
+  <?php
+}
+
+add_action('match_edit_form_fields', 'ballball_add_match_fields', 10, 2);
+add_action('edited_match', 'ballball_save_taxonomy_fields', 10, 2); 
+
+function ballball_add_match_fields($tag) {  
+  //check for existing taxonomy meta for term ID
+  $t_id = $tag->term_id;
+  $term_meta = get_option("taxonomy_$t_id");
+  ?>
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_league"><?php _e("League", 'ballball'); ?></label></th>
+    <td>
+      <?php wp_dropdown_categories('id=ballball_match_league&name=term_meta[league]&selected='.$term_meta['league'].'&show_option_none=No League&show_count=0&echo=1&hide_empty=0&taxonomy=league'); ?>
+    </td>
+  </tr> 
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_home_team"><?php _e("Home Team", 'ballball'); ?></label></th>
+    <td>
+      <?php wp_dropdown_categories('id=ballball_match_home_team&name=term_meta[home_team]&selected='.$term_meta['home_team'].'&show_option_none=No Team&show_count=0&echo=1&hide_empty=0&taxonomy=team'); ?>
     </td>
   </tr>
-  <?php
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_away_team"><?php _e("Away Team", 'ballball'); ?></label></th>
+    <td>
+      <?php wp_dropdown_categories('id=ballball_match_away_team&name=term_meta[away_team]&selected='.$term_meta['away_team'].'&show_option_none=No Team&show_count=0&echo=1&hide_empty=0&taxonomy=team'); ?>
+    </td>
+  </tr>
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_kickoff_time"><?php _e("Kickoff Time", 'ballball'); ?></label></th>
+    <td>
+      <input type="text" name="term_meta[kickoff_time]" id="ballball_match_kickoff_time" style="width: 150px;" value="<?php echo $term_meta['kickoff_time'] ? $term_meta['kickoff_time'] : ''; ?>"><br />
+    </td>
+  </tr>
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_date"><?php _e("Date", 'ballball'); ?></label></th>
+    <td>
+      <input type="text" name="term_meta[date]" id="ballball_match_date" style="width: 150px;" value="<?php echo $term_meta['date'] ? $term_meta['date'] : ''; ?>"><br />
+    </td>
+  </tr>
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_venue"><?php _e("Venue", 'ballball'); ?></label></th>
+    <td>
+      <input type="text" name="term_meta[venue]" id="ballball_match_venue" style="width: 150px;" value="<?php echo $term_meta['venue'] ? $term_meta['venue'] : ''; ?>"><br />
+    </td>
+  </tr>
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_optaid"><?php _e("Opta ID", 'ballball'); ?></label></th>
+    <td>
+      <input type="text" name="term_meta[optaid]" id="ballball_match_optaid" style="width: 150px;" value="<?php echo $term_meta['optaid'] ? $term_meta['optaid'] : ''; ?>"><br />
+    </td>
+  </tr>
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_livefireid"><?php _e("LiveFyre ID", 'ballball'); ?></label></th>
+    <td>
+      <input type="text" name="term_meta[livefireid]" id="ballball_match_livefireid" style="width: 150px;" value="<?php echo $term_meta['livefireid'] ? $term_meta['livefireid'] : ''; ?>"><br />
+    </td>
+  </tr>
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_live_start_time"><?php _e("Live Start Time", 'ballball'); ?></label></th>
+    <td>
+      <input type="text" name="term_meta[live_start_time]" id="ballball_match_live_start_time" style="width: 150px;" value="<?php echo $term_meta['live_start_time'] ? $term_meta['live_start_time'] : ''; ?>"><br />
+    </td>
+  </tr>
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_live_end_time"><?php _e("Live Start Time", 'ballball'); ?></label></th>
+    <td>
+      <input type="text" name="term_meta[live_end_time]" id="ballball_match_live_end_time" style="width: 150px;" value="<?php echo $term_meta['live_end_time'] ? $term_meta['live_end_time'] : ''; ?>"><br />
+    </td>
+  </tr>
+  <script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery('#ballball_match_kickoff_time').datetimepicker({
+      dateFormat : 'dd-mm-yy',
+      timeformat : 'hh:mm z'
+    });
+    jQuery('#ballball_match_live_start_time').datetimepicker({
+      dateFormat : 'dd-mm-yy',
+      timeformat : 'hh:mm z'
+    });
+    jQuery('#ballball_match_live_end_time').datetimepicker({
+      dateFormat : 'dd-mm-yy',
+      timeformat : 'hh:mm z'
+    });
+    jQuery('#ballball_match_date').datepicker({
+      dateFormat : 'dd-mm-yy'
+    });    
+  });
+  </script> 
+  <?php 
 }
 
 function ballball_save_taxonomy_fields($term_id) {
