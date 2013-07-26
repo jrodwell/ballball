@@ -16,7 +16,7 @@ GENERAL STYLES
 *********************/
 
 body {
-	font-family: $serif;
+	font-family: $sans-serif;
 	font-size: 100%;
 	line-height: 1.5;
 	color: #565656;
@@ -67,10 +67,42 @@ style a page via class
 LAYOUT & GRID STYLES
 *********************/
 
-.wrap {
+/*.wrap {
 	width: 96%;
 	margin: 0 auto;
+}*/
+
+.header {
+	height: 90px;
+	overflow: hidden;
+	#inner-header {
+		width: $mobWidth;
+		padding: 0 $mobPadding;
+		background: $bbGreen;
+		margin: 0 auto;		
+	}
 }
+.hero {
+	height: 494px;
+	.hero {
+		width: $mobWidth;
+		padding: 0 $mobPadding;
+		background: #bbGrey;
+		margin: 0 auto;		
+	}
+}
+#content {
+	#inner-content {
+		background: $white;
+		width: $mobWidth;
+		padding: 0 $mobPadding;
+		margin: 0 auto;		
+	}
+}
+
+
+
+
 
 /*********************
 LINK STYLES
@@ -105,9 +137,11 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-	font-family: $sans-serif;
+	font-family: $header;
 	text-rendering: optimizelegibility;
-	font-weight: 500;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0 0 1rem 0;
 	/*
 	if you're going to use webfonts, be sure to check your weights
 	http://css-tricks.com/watch-your-font-weight/
@@ -116,18 +150,18 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	/* removing text decoration from all headline links */
 	a {
 		text-decoration: none;
+		color: black;
 	}
 }
 
 h1, .h1 {
-	font-size: 2.5em;
-	line-height: 1.333em;
+	font-size: 22px;
+	line-height: 1.18;
 }
 
 h2, .h2 {
-	font-size: 1.75em;
-	line-height: 1.4em;
-	margin-bottom: 0.375em;
+	font-size: 22px;
+	line-height: 1.18;
 }
 
 h3, .h3 {
@@ -150,9 +184,12 @@ h5, .h5 {
 HEADER STYLES
 *********************/
 
-.header {}
+.header {
+	#inner-header {
+	}
+}
 
-	#logo {}
+#logo { }
 
 /*********************
 NAVIGATION STYLES
@@ -169,7 +206,6 @@ and more scalable.
 .nav {
 	border: 1px solid #ccc;
 	border-bottom: 0;
-
 	li {
 
 		a {
@@ -242,115 +278,67 @@ and more scalable.
 POSTS & CONTENT STYLES
 *********************/
 
-#content {
-	margin-top: 2.2em;
+/* Stream articles */
+.hentry {
+	border-bottom: 4px solid $lightGrey;
+	margin-bottom: 20px;
+	}
+.text-article {
+	.featured-image {
+		display: none;
+	}
+}
+.image-article {
+	.h2, .article-excerpt {
+		float: right;
+		width: 140px;
+		margin-left: 20px;
+	}
+	.featured-image {
+		float: left;
+		width: 140px;
+	}
+}
+.video-article {
+	.featured-image {
+		width: 300px;
+		height: 169px;
+		margin-bottom: 1rem;
+	}
 }
 
-		.hentry {
-
-			header {}
-
-			footer {}
-
-		} /* end .hentry */
-
-		.single-title,
-		.page-title {}
-
-		.single-title {}
-
-		.page-title {}
-
-		.archive-title { }
-
-		/* want to style individual post classes? Booya! */
-		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
-		.page {}            /* general article on a page style */
-		.attachment {}      /* general style on an attatchment */
-		.sticky {}          /* sticky post style */
-		.hentry {}          /* hentry class */
-		.category-slug {}   /* style by category (i.e. category-videos) */
-		.tag-slug {}        /* style by tag (i.e. tag-news) */
-
-		/* post meta */
-		.byline {
-			color: #999;
-
-			time {}
-		}
-
-		/* entry content */
-		.entry-content {
-
-			p {}
-
-
-			ul, ol, table, dl {}
-
-			ul, ol {
-
-				li {}
-
-			}
-
-			ul {
-
-				li {}
-
-			}
-
-			ol {
-
-				li {}
-
-			}
-
-			blockquote {
-
-				&:before {}
-
-			}
-
-			dl {}
-
-			dt {}
-
-			dd {
-				margin-left: 0;
-				font-size: 0.9em;
-				color: #787878;
-				margin-bottom: 1.5em;
-			}
-
-			img {
-				margin: 0 0 1.5em 0;
-				max-width: 100%;
-				height: auto;
-			}
-
-			/*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/
-			.alignleft, img.alignleft {}
-			.alignright, img.alignright {}
-			.aligncenter, img.aligncenter {}
-
-			video, object {
-				max-width: 100%;
-				height: auto;
-			}
-
-			pre {
-				background: #eee;
-				border: 1px solid #cecece;
-				padding: 10px;
-			}
-
-		} /* end .entry-content */
+/* post meta */
+.article-footer {
+	margin-top: 1rem;
+	border-top: 2px solid $lightGrey;
+}
+.byline {
+	color: #bbGrey;
+	width: 100px;
+	float: left;
+	margin-right: 20px;
+}
+.tags {
+	display: none;
+}
+.share {
+	width: 60px;
+	float: right;
+	margin-left: 20px;
+}
+.entry-content {
+	p {
+		margin: 0 0 1rem 0;
+	}
+	img {
+		margin: 0 0 1rem 0;
+		max-width: 100%;
+		height: auto;
+	}
+	video, object {
+		max-width: 100%;
+	}
+} /* end .entry-content */
 
 		.wp-caption {
 			max-width: 100%;
@@ -372,38 +360,13 @@ POSTS & CONTENT STYLES
 
 		} /* end .wp-caption */
 
-		/* image gallery styles */
-		.gallery {
-
-			dl {
-
-				a {}
-
-				img {}
-
-			}
-
-			dt {}
-
-			dd {}
-
-		} /* end .gallery */
-
-		/* gallery caption styles */
-		.gallery-caption {}
-
-		.size-full {}
-		.size-large {}
-		.size-medium {}
-		.size-thumbnail {}
-
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
 
 .page-navigation,
 .wp-prev-next {
-	margin: 1.1em 0 2.2em;
+	margin: 0 0 $mobVHeight 0;
 }
 	.bones_page_navi {
 
@@ -811,18 +774,14 @@ FOOTER STYLES
 *********************/
 
 .footer {
-	clear: both;
+		background: $bbGrey;
+		clear: both;
+	#inner-footer {
+		width: $mobWidth;
+		padding: 0 $mobPadding;
+		margin: 0 auto;		
+	}
 }
-
-	/*
-	if you checked out the link above:
-	http://www.alistapart.com/articles/organizing-mobile/
-	you'll want to style the footer nav
-	a bit more in-depth. Remember to keep
-	it simple because you'll have to
-	override these styles for the desktop
-	view.
-	*/
 	.footer-links {
 
 		ul {

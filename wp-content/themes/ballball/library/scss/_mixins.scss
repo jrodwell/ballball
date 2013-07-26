@@ -62,51 +62,81 @@ $white:             #fff;
 $bones-pink:        #f01d4f;
 $bones-blue:        #1990db;
 
-$link-color:        $bones-pink;
+$bbGreen: #B0E403;
+$bbGrey: #2c2e2f;
+$lightGrey: #ededed;
+
+$link-color:        $bbGreen;
 $link-hover:        darken($link-color, 9%);
 
-/*
-Here's a great tutorial on how to
-use color variables properly:
-http://sachagreif.com/sass-color-variables/
-*/
 
+$mobWidth: 340px;
+$mobPadding: 20px;
+$mobVHeight: 20px;
+$tabBreak: 700px;
+$tabWidth: 700px;
+$tabPadding: 40px;
+$tabVHeight: 40px;
+$deskBreak: 940px;
+$deskWidth: 1080px;
+$deskPadding: 70px;
 
 /*********************
 TYPOGRAPHY
 *********************/
 
-$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+$sans-serif: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header: "Alternate Gothic", $sans-serif;
 
-
-/* 	To embed your own fonts, use this syntax
-	and place your fonts inside the
-	library/fonts folder. For more information
-	on embedding fonts, go to:
-	http://www.fontsquirrel.com/
-	Be sure to remove the comment brackets.
-*/
-
-/*	@font-face {
-    	font-family: 'Font Name';
-    	src: url('library/fonts/font-name.eot');
-    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('library/fonts/font-name.woff') format('woff'),
-             url('library/fonts/font-name.ttf') format('truetype'),
-             url('library/fonts/font-name.svg#font-name') format('svg');
-    	font-weight: normal;
-    	font-style: normal;
-	}
-*/
-
-/*
-use the best ampersand
-http://simplebits.com/notebook/2008/08/14/ampersands-2/
-*/
-span.amp {
-  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
-  font-style: italic;
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-regular-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-semibold-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.svg#sourcesanspro-semibold-webfont') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.svg#sourcesanspro-semibolditalic-webfont') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-italic-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.svg#source_sans_pro_italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Alternate Gothic';
+    src: url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.eot');
+    src: url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.woff') format('woff'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.ttf') format('truetype'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.svg#web-Alternate-Gothic-No3-Regular') format('svg');
+    font-weight: bold;
+    font-style: normal;
 }
 
 // text alignment

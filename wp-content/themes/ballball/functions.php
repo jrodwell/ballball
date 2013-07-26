@@ -195,6 +195,17 @@ function ballball_register_menu() {
   register_nav_menu('main-menu',__( 'Main Menu', 'ballball'));
 }
 
+<<<<<<< HEAD
+=======
+/* Custom excerpt 'read more' text */
+
+add_filter('excerpt_more', 'ballball_excerpt_more');
+
+function ballball_excerpt_more($more) {
+	return ' <a class="read-more" href="'.get_permalink(get_the_ID()).'">'.__('Continue Reading &raquo;', 'ballball').'</a>';
+}
+
+>>>>>>> f132313597cbaca834aabab79ad0eeb45e982dbc
 /* Custom post types (J.R.) */
 
 add_action('init', 'ballball_add_post_types');
@@ -285,9 +296,14 @@ function ballball_save_videoid($post_id) {
 function ballball_draw_hideflag($post) {  
   wp_nonce_field('set_hideflag', 'hideflag_nonce'); // Use nonce for verification
   $check = get_post_meta($post->ID, 'ballball_hideflag', true);
+<<<<<<< HEAD
   echo '<input type="checkbox" id="ballball_hideflag" name="ballball_hideflag" value="on" ';
   if($check=='on') echo 'checked="checked"';
   echo ' />';  
+=======
+  echo "CHECK = $check<br /><br />"; 
+  echo '<input type="checkbox" id="my_meta_box_check" name="my_meta_box_check" value="on" '.checked($check, 'on').' />';  
+>>>>>>> f132313597cbaca834aabab79ad0eeb45e982dbc
 }
 
 function ballball_save_hideflag($post_id) {
