@@ -73,12 +73,14 @@ LAYOUT & GRID STYLES
 }*/
 
 .header {
-	height: 90px;
+	height: 58px;
 	overflow: hidden;
+	background: $headerBG;
 	#inner-header {
+		height: 58px;
 		width: $mobWidth;
 		padding: 0 $mobPadding;
-		background: $bbGreen;
+		background: url(../images/mobBG.png) repeat-y 50% 0;
 		margin: 0 auto;		
 	}
 }
@@ -141,7 +143,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
 	font-weight: bold;
 	text-transform: uppercase;
-	margin: 0 0 1rem 0;
+	margin: 0 0 10px 0;
 	/*
 	if you're going to use webfonts, be sure to check your weights
 	http://css-tricks.com/watch-your-font-weight/
@@ -150,7 +152,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	/* removing text decoration from all headline links */
 	a {
 		text-decoration: none;
-		color: black;
+		color: $bbGrey;
 	}
 }
 
@@ -280,7 +282,7 @@ POSTS & CONTENT STYLES
 
 /* Stream articles */
 .hentry {
-	border-bottom: 4px solid $lightGrey;
+	border-bottom: 4px solid $bodyText;
 	margin-bottom: 20px;
 	}
 .text-article {
@@ -297,12 +299,14 @@ POSTS & CONTENT STYLES
 	.featured-image {
 		float: left;
 		width: 140px;
+		margin-top: 4px;
 	}
 }
 .video-article {
 	.featured-image {
 		width: 300px;
 		height: 169px;
+		margin-top: 4px;
 		margin-bottom: 1rem;
 	}
 }
@@ -310,13 +314,13 @@ POSTS & CONTENT STYLES
 /* post meta */
 .article-footer {
 	margin-top: 1rem;
-	border-top: 2px solid $lightGrey;
+	border-top: 2px solid $bodyText;
 }
 .byline {
 	color: #bbGrey;
-	width: 100px;
+	width: 80px;
 	float: left;
-	margin-right: 20px;
+	margin-right: 9px;
 }
 .tags {
 	display: none;
@@ -328,7 +332,9 @@ POSTS & CONTENT STYLES
 }
 .entry-content {
 	p {
+		line-height: 1.43;
 		margin: 0 0 1rem 0;
+		color: $bodyText;
 	}
 	img {
 		margin: 0 0 1rem 0;
@@ -339,7 +345,13 @@ POSTS & CONTENT STYLES
 		max-width: 100%;
 	}
 } /* end .entry-content */
-
+.readmore {
+	margin: 20px 0;
+	background: url(../images/arrowSmallRight.png) no-repeat right 50%;
+	padding-right: 15px;
+	font-weight: bold;
+	text-decoration: none;
+}
 		.wp-caption {
 			max-width: 100%;
 			background: #eee;
@@ -366,110 +378,33 @@ PAGE NAVI STYLES
 
 .page-navigation,
 .wp-prev-next {
+	font-size: 22px;
+	font-family: $header;
+	text-rendering: optimizelegibility;
+	font-weight: bold;
+	text-transform: uppercase;
 	margin: 0 0 $mobVHeight 0;
-}
-	.bones_page_navi {
-
-		li {
-			float: left;
-			margin-left: 10px;
-
-			a {
-				padding: 3px 6px;
-				display: block;
-				text-decoration: none;
-				position: relative;
-
-				&:hover,
-				&:focus {
-					color: #f01d4f;
-					text-decoration: underline;
-				}
-			}
-
-		}
-
-		/* current page link */
-		li.bpn-current {
-			padding: 3px 6px;
-			border-bottom: 2px solid #f01d4f;
-			position: relative;
-
-			a {
-				/* hovering on current page link */
-				&:hover,
-				&:focus {}
-
-			}
-
-		} /* end .bones_page_navi .bpn-current */
-
-		/* common styles for page-navi links */
-		li.bpn-prev-link,
-		li.bpn-next-link {
-			font-weight: 700;
-
-			a {
-				padding: 0;
-			}
-		}
-
-		/* remove the bg on end links */
-		li.bpn-prev-link a:hover,
-		li.bpn-next-link a:hover,
-		li.bpn-first-page-link a:hover,
-		li.bpn-last-page-link a:hover {
-			background: none;
-		}
-
-		/* previous link */
-		li.bpn-prev-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
-
-		/* next page link */
-		li.bpn-next-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
-
-		/* first page link */
-		li.bpn-first-page-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
-
-		/* last page link */
-		li.bpn-last-page-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
-
-	} /* end .bones_page_navi */
-
-	/* fallback previous & next links */
-	.wp-prev-next {
-
-		ul {}
-
-		.prev-link {
-			float: left;
-		}
-
-		.next-link {
-			float: right;
-		}
-
-	} /* end .wp-prev-next */
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	.prev-link {
+		float: left;
+		background: url(../images/arrowBigLeft.png) no-repeat left 50%;
+		padding-left: 20px;
+	}
+	.next-link {
+		float: right;
+		background: url(../images/arrowBigRight.png) no-repeat right 50%;
+		padding-right: 20px;
+	}
+	a {
+		text-decoration: none;
+	}
+	.article-word {
+		display: none;
+	}
+} /* end .wp-prev-next */
 
 /******************************************************************
 COMMENT STYLES

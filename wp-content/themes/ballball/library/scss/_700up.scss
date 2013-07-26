@@ -32,11 +32,13 @@ HEADER STYLES
 *********************/
 
 .header {
-	height: 90px;
+	height: 145px;
 	overflow: hidden;
 	#inner-header {
 		width: $tabWidth;
 		padding: 0 $tabPadding;
+		height: 145px;
+		background: url(../images/tabBG.png) repeat-y 50% 0;
 	}
 }
 .hero {
@@ -194,24 +196,28 @@ h2, .h2 {
 	}
 }
 
-.byline {
-	border-right: 2px solid $lightGrey;
-	margin-right: 18px;
-}
 .tags {
-	display: block;
-	width: 420px;
 	float: left;
+	display: block;
+	width: 430px;
+	padding-left: 19px;
+	border-left: 2px solid $bodyText;
 	text-transform: uppercase;
 	a {
-		text-decoration: none;
-		margin-right: 1rem;
-		display: block;
 		float: left;
+		display: block;
+		margin-right: 1rem;
+		font-weight: bold;
+		text-decoration: none;
 	}
 }
 
-
+.page-navigation,
+.wp-prev-next {
+	.article-word {
+		display: inline;
+	}
+}
 
 /*********************
 SIDEBARS & ASIDES
