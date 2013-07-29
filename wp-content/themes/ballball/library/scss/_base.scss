@@ -80,7 +80,6 @@ LAYOUT & GRID STYLES
 		height: 58px;
 		width: $mobWidth;
 		padding: 0 $mobPadding;
-		background: url(../images/mobBG.png) repeat-y 50% 0;
 		margin: 0 auto;		
 	}
 }
@@ -280,17 +279,24 @@ and more scalable.
 POSTS & CONTENT STYLES
 *********************/
 
+#main {
+	margin-bottom: 40px;
+}
+
 /* Stream articles */
 .hentry {
-	border-bottom: 4px solid $bodyText;
+	border-bottom: 4px solid $lightGrey;
 	margin-bottom: 20px;
-	}
+}
+#main .last {
+	border-color: $bodyText;
+}
 .text-article {
 	.featured-image {
 		display: none;
 	}
 }
-.image-article {
+.image-article, .set-article {
 	.h2, .article-excerpt {
 		float: right;
 		width: 140px;
@@ -313,8 +319,10 @@ POSTS & CONTENT STYLES
 
 /* post meta */
 .article-footer {
-	margin-top: 1rem;
-	border-top: 2px solid $bodyText;
+	margin-top: 10px;
+	border-top: 2px solid $lightGrey;
+	font-size: 14px;
+	font-weight: bold;
 }
 .byline {
 	color: #bbGrey;
@@ -333,11 +341,11 @@ POSTS & CONTENT STYLES
 .entry-content {
 	p {
 		line-height: 1.43;
-		margin: 0 0 1rem 0;
+		margin: 0 0 10px 0;
 		color: $bodyText;
 	}
 	img {
-		margin: 0 0 1rem 0;
+		margin: 0 0 10px 0;
 		max-width: 100%;
 		height: auto;
 	}

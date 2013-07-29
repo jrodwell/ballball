@@ -38,7 +38,6 @@ HEADER STYLES
 		width: $tabWidth;
 		padding: 0 $tabPadding;
 		height: 145px;
-		background: url(../images/tabBG.png) repeat-y 50% 0;
 	}
 }
 .hero {
@@ -175,7 +174,7 @@ h2, .h2 {
 .hentry {
 	margin-bottom: 40px;
 }
-.image-article {
+.image-article, .set-article {
 	.h2, .article-excerpt {
 		width: 380px;
 	}
@@ -201,13 +200,12 @@ h2, .h2 {
 	display: block;
 	width: 430px;
 	padding-left: 19px;
-	border-left: 2px solid $bodyText;
+	border-left: 2px solid $lightGrey;
 	text-transform: uppercase;
 	a {
 		float: left;
 		display: block;
 		margin-right: 1rem;
-		font-weight: bold;
 		text-decoration: none;
 	}
 }
