@@ -143,12 +143,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	font-weight: bold;
 	text-transform: uppercase;
 	margin: 0 0 10px 0;
-	/*
-	if you're going to use webfonts, be sure to check your weights
-	http://css-tricks.com/watch-your-font-weight/
-	*/
-
-	/* removing text decoration from all headline links */
+	color: $headline;
 	a {
 		text-decoration: none;
 		color: $bbGrey;
@@ -297,46 +292,47 @@ POSTS & CONTENT STYLES
 	}
 }
 .image-article, .set-article {
-	.h2, .article-excerpt {
-		float: right;
-		width: 140px;
-		margin-left: 20px;
-	}
 	.featured-image {
 		float: left;
 		width: 140px;
-		margin-top: 4px;
+		height: 94px;
+		margin: 4px 10px 10px 0;
 	}
 }
 .video-article {
 	.featured-image {
 		width: 300px;
 		height: 169px;
-		margin-top: 4px;
-		margin-bottom: 1rem;
+		margin: 4px 0 10px 0;
 	}
 }
 
 /* post meta */
-.article-footer {
-	margin-top: 10px;
-	border-top: 2px solid $lightGrey;
+.byline {
+	padding-left: 15px;
+	background: url(../images/clock.png) no-repeat left 50%;
+	color: #bbGrey;
 	font-size: 14px;
 	font-weight: bold;
 }
-.byline {
-	color: #bbGrey;
-	width: 80px;
-	float: left;
-	margin-right: 9px;
-}
-.tags {
-	display: none;
-}
-.share {
-	width: 60px;
-	float: right;
-	margin-left: 20px;
+.article-footer {
+	margin-top: 20px;
+	border-top: 2px solid $lightGrey;
+	font-size: 14px;
+	font-weight: bold;
+	.byline {
+		width: 80px;
+		float: left;
+		margin-right: 9px;
+	}
+	.tags {
+		display: none;
+	}
+	.share {
+		width: 60px;
+		float: right;
+		margin-left: 20px;
+	}
 }
 .entry-content {
 	p {
@@ -354,7 +350,7 @@ POSTS & CONTENT STYLES
 	}
 } /* end .entry-content */
 .readmore {
-	margin: 20px 0;
+	margin-top: 20px;
 	background: url(../images/arrowSmallRight.png) no-repeat right 50%;
 	padding-right: 15px;
 	font-weight: bold;

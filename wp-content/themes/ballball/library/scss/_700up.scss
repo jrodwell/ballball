@@ -155,7 +155,7 @@ MAIN STYLES
 *********************/
 
 h1, .h1 {
-	font-size: 28px;
+	font-size: 48px;
 }
 h2, .h2 {
 	font-size: 28px;
@@ -175,27 +175,24 @@ h2, .h2 {
 	margin-bottom: 40px;
 }
 .image-article, .set-article {
-	.h2, .article-excerpt {
-		width: 380px;
-	}
 	.featured-image {
 		width: 220px;
+		height: 144px;
+		margin-right: 20px;
+		margin-bottom: 20px;
 	}
 }
 .video-article {
-	.h2, .article-excerpt {
-		float: right;
-		width: 180px;
-		margin-left: 20px;
-	}
 	.featured-image {
 		float: left;
 		width: 420px;
 		height: 235px;
+		margin-right: 20px;
+		margin-bottom: 20px;
 	}
 }
 
-.tags {
+.article-footer .tags {
 	float: left;
 	display: block;
 	width: 430px;
