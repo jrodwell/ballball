@@ -278,6 +278,17 @@ POSTS & CONTENT STYLES
 	margin-bottom: 40px;
 }
 
+.single-post .hentry {
+	h1 {
+		margin: 10px 0;
+	}
+	.highlight {
+		padding: 10px 15px 15px 15px;
+		background: $lightGrey;
+		border-left: 5px solid $bbGreen;
+		margin-bottom: 15px;
+	}
+}
 /* Stream articles */
 .hentry {
 	border-bottom: 4px solid $lightGrey;
@@ -337,11 +348,11 @@ POSTS & CONTENT STYLES
 .entry-content {
 	p {
 		line-height: 1.43;
-		margin: 0 0 10px 0;
+		margin: 0 0 30px 0;
 		color: $bodyText;
 	}
 	img {
-		margin: 0 0 10px 0;
+		margin: 0 0 20px 0;
 		max-width: 100%;
 		height: auto;
 	}

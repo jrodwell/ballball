@@ -434,7 +434,16 @@ h2, .h2 {
   margin-bottom: 20px;
 }
 
-/* line 195, ../scss/_700up.scss */
+/* line 196, ../scss/_700up.scss */
+.single-post .hentry h1 {
+  margin: 20px 0;
+}
+/* line 199, ../scss/_700up.scss */
+.single-post .hentry .entry-content {
+  padding-left: 80px;
+}
+
+/* line 204, ../scss/_700up.scss */
 .article-footer .tags {
   float: left;
   display: block;
@@ -443,7 +452,7 @@ h2, .h2 {
   border-left: 2px solid #ededed;
   text-transform: uppercase;
 }
-/* line 202, ../scss/_700up.scss */
+/* line 211, ../scss/_700up.scss */
 .article-footer .tags a {
   float: left;
   display: block;
@@ -451,7 +460,7 @@ h2, .h2 {
   text-decoration: none;
 }
 
-/* line 212, ../scss/_700up.scss */
+/* line 221, ../scss/_700up.scss */
 .page-navigation .article-word,
 .wp-prev-next .article-word {
   display: inline;
@@ -460,28 +469,28 @@ h2, .h2 {
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 221, ../scss/_700up.scss */
+/* line 230, ../scss/_700up.scss */
 .sidebar {
   margin-top: 2.2em;
 }
 
-/* line 225, ../scss/_700up.scss */
+/* line 234, ../scss/_700up.scss */
 .widgettitle {
   border-bottom: 2px solid #444;
   margin-bottom: 0.75em;
 }
 
-/* line 230, ../scss/_700up.scss */
+/* line 239, ../scss/_700up.scss */
 .widget {
   padding: 0 10px;
   margin: 2.2em 0;
 }
-/* line 235, ../scss/_700up.scss */
+/* line 244, ../scss/_700up.scss */
 .widget ul li {
   margin-bottom: 0.75em;
   /* deep nesting */
 }
-/* line 243, ../scss/_700up.scss */
+/* line 252, ../scss/_700up.scss */
 .widget ul li ul {
   margin-top: 0.75em;
   padding-left: 1em;
@@ -490,13 +499,13 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 255, ../scss/_700up.scss */
+/* line 264, ../scss/_700up.scss */
 .footer #inner-footer {
   width: 700px;
   padding: 0 40px;
 }
 
-/* line 262, ../scss/_700up.scss */
+/* line 271, ../scss/_700up.scss */
 .footer-links ul li {
   /*
   be careful with the depth of your menus.

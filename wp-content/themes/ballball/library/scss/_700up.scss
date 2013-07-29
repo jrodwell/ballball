@@ -192,6 +192,15 @@ h2, .h2 {
 	}
 }
 
+.single-post .hentry {
+	h1 {
+		margin: 20px 0;
+	}
+	.entry-content {
+		padding-left: 80px;
+	}
+}
+
 .article-footer .tags {
 	float: left;
 	display: block;
