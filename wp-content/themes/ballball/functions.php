@@ -170,10 +170,9 @@ function bones_wpsearch($form) {
 	return $form;
 } // don't remove this bracket!
 
-
 /* Include meta box class (J.R.) */
 
-require_once("library/meta-box-class/my-meta-box-class.php");
+require_once("meta-box-class/my-meta-box-class.php");
 
 /* Enqueue admin scripts (J.R.) */
 
@@ -195,6 +194,55 @@ function ballball_register_menu() {
   register_nav_menu('main-menu',__( 'Main Menu', 'ballball'));
 }
 
+/* Custom excerpt length */
+
+add_filter('excerpt_length', 'custom_excerpt_length', 999);
+
+function custom_excerpt_length($length) {
+	return 30;
+}
+
+/* Custom styles on TinyMCE */
+
+add_filter('mce_buttons_2', 'add_mce_dropdown');
+
+function add_mce_dropdown($buttons) {
+  array_unshift($buttons, 'styleselect');
+  return $buttons;
+}
+
+add_filter('tiny_mce_before_init', 'add_mce_styles');
+
+function add_mce_styles($settings) {
+
+  $style_formats = array(
+    array(
+    	'title' => 'Highlight',
+    	'block' => 'p',
+    	'classes' => 'highlight',
+    ),
+    array(
+    	'title' => 'Quote',
+    	'block' => 'p',
+    	'classes' => 'quote',
+    ),
+    array(
+    	'title' => 'Small',
+    	'block' => 'p',
+    	'classes' => 'small',
+    ),
+  );
+
+  $settings['style_formats'] = json_encode($style_formats);
+  return $settings;
+
+}
+
+add_action('admin_init', 'add_editor_stylesheet');
+
+function add_editor_stylesheet() {
+	add_editor_style();
+}
 
 /* Custom post types (J.R.) */
 
@@ -288,8 +336,7 @@ function ballball_draw_hideflag($post) {
   $check = get_post_meta($post->ID, 'ballball_hideflag', true);
   echo '<input type="checkbox" id="ballball_hideflag" name="ballball_hideflag" value="on" ';
   if($check=='on') echo 'checked="checked"';
-  echo ' />';  
-  echo '<input type="checkbox" id="my_meta_box_check" name="my_meta_box_check" value="on" '.checked($check, 'on').' />';  
+  echo ' />';    
 }
 
 function ballball_save_hideflag($post_id) {
@@ -303,6 +350,25 @@ function ballball_save_hideflag($post_id) {
   add_post_meta($post_id, 'ballball_hideflag', $mydata, true) or update_post_meta($post_id, 'ballball_hideflag', $mydata);
 }
 
+/* Repeater field for multiple post select on post set */
+
+$config = array(
+  'id' => 'post_set_meta_box',
+  'title' => 'Articles in Set',      
+  'pages' => array('post_set'),
+  'context' => 'normal',
+  'priority' => 'high',
+  'fields' => array(),
+  'local_images' => true,
+  'use_with_theme' => true            
+);
+
+$post_set_meta = new AT_Meta_Box($config);
+
+$repeater_fields[] = $post_set_meta->addPosts($prefix.'posts_field_id', array('post_type' => 'post'), array('name' => ''), true);
+$post_set_meta->addRepeaterBlock($prefix.'re_', array('inline' => true, 'name' => 'Add Articles', 'fields' => $repeater_fields));
+
+$post_set_meta->Finish();
 
 /* Custom taxonomies (J.R.) */ 
 
@@ -386,7 +452,6 @@ function ballball_create_taxonomies() {
 	register_taxonomy('match', array('post', 'post_set'), $args);
   
 }
-
 
 /* Custom taxonomy fields (J.R.) */
  
@@ -534,14 +599,20 @@ function ballball_save_taxonomy_fields($term_id) {
   }
 }
 
-
 /* Custom excerpt 'read more' text */
 
 add_filter('the_excerpt', 'excerpt_read_more_link');
 
 function excerpt_read_more_link($output) {
  global $post;
- return $output . '<a href="'. get_permalink($post->ID) . '"> Continue Reading...</a>';
+ return $output . '<a class="readmore" href="'. get_permalink($post->ID) . '"> Continue Reading</a>';
 }
 
+add_filter('excerpt_more', 'ballball_remove_readmore');    
+
+function ballball_remove_readmore($more) {
+	return '';
+}
+              
 ?>
+

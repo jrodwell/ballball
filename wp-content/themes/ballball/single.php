@@ -6,15 +6,47 @@
 
 					<div id="main" class="eightcol first clearfix" role="main">
 
+            <script src='http://player.ooyala.com/v3/524943b893fa4620be889e04ccce7b92'></script>
+
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+              <?php
+              
+              // Check article type...
+              
+              $type = "single-text-article";
+              if(get_post_meta(get_the_ID(), 'ballball_videoid', true)) {
+                $video_id = get_post_meta(get_the_ID(), 'ballball_videoid', true);
+                $type = "single-video-article";
+              } else if(has_post_thumbnail(get_the_ID())) {
+                $type = "single-image-article";
+              }
+              
+              ?>
+
+							<article id="post-<?php the_ID(); ?>" <?php post_class(array('clearfix', $type)); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 								<header class="article-header">
 
+                  <div class="single-featured-image"> 
+								  <?php if($type == "single-video-article") { ?>
+                  <div id="ooyalaplayer-<?php echo $thisid=uniqid(); ?>" class="videoplayer-big"></div>
+                  <script>OO.ready(function() { OO.Player.create(
+                    'ooyalaplayer-<?php echo $thisid; ?>',
+                    '<?php echo $video_id; ?>',
+                    {
+                    css : 'http://ballball.wpengine.com/wp-content/themes/ballball/library/css/video.css'
+                    }
+                  ); });</script><noscript><div>Please enable Javascript to watch this video</div></noscript>
+								  <?php } else if($type == "single-image-article") { ?>
+								  <?php the_post_thumbnail('article'); ?>
+								  <?php } ?>
+								  </div>
+
 									<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
-									<p class="byline vcard"><?php
-										printf(__('Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'bonestheme'), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), bones_get_the_author_posts_link(), get_the_category_list(', '));
+									
+                  <p class="byline vcard"><?php
+										printf(__('<time class="updated" datetime="%1$s" pubdate>%2$s</time>', 'ballball'), get_the_time('Y-m-j'), get_the_time(get_option('date_format')));
 									?></p>
 
 								</header> <!-- end article header -->
@@ -24,11 +56,12 @@
 								</section> <!-- end article section -->
 
 								<footer class="article-footer">
-									<?php the_tags('<p class="tags"><span class="tags-title">' . __('Tags:', 'bonestheme') . '</span> ', ', ', '</p>'); ?>
+
+                  <p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p>
+                  
+                  <p class="share">[SHARE]</p>   
 
 								</footer> <!-- end article footer -->
-
-								<?php comments_template(); ?>
 
 							</article> <!-- end article -->
 
@@ -37,15 +70,13 @@
 						<?php else : ?>
 
 							<article id="post-not-found" class="hentry clearfix">
-									<header class="article-header">
-										<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
-									</header>
+								<header class="article-header">
+									<h1><?php _e("No article found.", "ballball"); ?></h1>
+								</header>
 									<section class="entry-content">
-										<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
-									</section>
-									<footer class="article-footer">
-											<p><?php _e("This is the error message in the single.php template.", "bonestheme"); ?></p>
-									</footer>
+								</section>
+								<footer class="article-footer">
+								</footer>
 							</article>
 
 						<?php endif; ?>

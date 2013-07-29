@@ -301,10 +301,9 @@ HEADER STYLES
   width: 700px;
   padding: 0 40px;
   height: 145px;
-  background: url(../images/tabBG.png) repeat-y 50% 0;
 }
 
-/* line 45, ../scss/_700up.scss */
+/* line 44, ../scss/_700up.scss */
 .hero .hero {
   background: #bbGrey;
   height: 494px;
@@ -315,14 +314,14 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-/* line 57, ../scss/_700up.scss */
+/* line 56, ../scss/_700up.scss */
 .nav {
   border: 0;
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */
 }
-/* line 60, ../scss/_700up.scss */
+/* line 59, ../scss/_700up.scss */
 .nav li {
   float: left;
   position: relative;
@@ -331,7 +330,7 @@ NAVIGATION STYLES
   */
   /* showing sub-menus */
 }
-/* line 64, ../scss/_700up.scss */
+/* line 63, ../scss/_700up.scss */
 .nav li a {
   border-bottom: 0;
   /*
@@ -339,11 +338,11 @@ NAVIGATION STYLES
   has the possibility of being a mobile device.
   */
 }
-/* line 71, ../scss/_700up.scss */
+/* line 70, ../scss/_700up.scss */
 .nav li a:hover, .nav li a:focus {
   background-color: #dedede;
 }
-/* line 84, ../scss/_700up.scss */
+/* line 83, ../scss/_700up.scss */
 .nav li ul.sub-menu,
 .nav li ul.children {
   margin-top: 0;
@@ -354,7 +353,7 @@ NAVIGATION STYLES
   z-index: 8999;
   /* highlight sub-menu current page */
 }
-/* line 92, ../scss/_700up.scss */
+/* line 91, ../scss/_700up.scss */
 .nav li ul.sub-menu li,
 .nav li ul.children li {
   /*
@@ -363,7 +362,7 @@ NAVIGATION STYLES
   for usability. k, bai.
   */
 }
-/* line 94, ../scss/_700up.scss */
+/* line 93, ../scss/_700up.scss */
 .nav li ul.sub-menu li a,
 .nav li ul.children li a {
   padding-left: 10px;
@@ -372,19 +371,19 @@ NAVIGATION STYLES
   width: 180px;
   border-bottom: 1px solid #ccc;
 }
-/* line 111, ../scss/_700up.scss */
+/* line 110, ../scss/_700up.scss */
 .nav li ul.sub-menu li:last-child a,
 .nav li ul.children li:last-child a {
   border-bottom: 0;
 }
-/* line 133, ../scss/_700up.scss */
+/* line 132, ../scss/_700up.scss */
 .nav li:hover ul {
   top: auto;
   display: block;
 }
 
 /* end .nav */
-/* line 149, ../scss/_700up.scss */
+/* line 148, ../scss/_700up.scss */
 .wp-prev-next {
   margin-bottom: 36px;
 }
@@ -392,73 +391,72 @@ NAVIGATION STYLES
 /*********************
 MAIN STYLES
 *********************/
-/* line 158, ../scss/_700up.scss */
+/* line 157, ../scss/_700up.scss */
 h1, .h1 {
   font-size: 28px;
 }
 
-/* line 161, ../scss/_700up.scss */
+/* line 160, ../scss/_700up.scss */
 h2, .h2 {
   font-size: 28px;
 }
 
-/* line 166, ../scss/_700up.scss */
+/* line 165, ../scss/_700up.scss */
 #content #inner-content {
   width: 700px;
   padding: 0 40px;
 }
 
-/* line 172, ../scss/_700up.scss */
+/* line 171, ../scss/_700up.scss */
 #main {
   width: 620px;
 }
 
-/* line 175, ../scss/_700up.scss */
+/* line 174, ../scss/_700up.scss */
 .hentry {
   margin-bottom: 40px;
 }
 
-/* line 179, ../scss/_700up.scss */
-.image-article .h2, .image-article .article-excerpt {
+/* line 178, ../scss/_700up.scss */
+.image-article .h2, .image-article .article-excerpt, .set-article .h2, .set-article .article-excerpt {
   width: 380px;
 }
-/* line 182, ../scss/_700up.scss */
-.image-article .featured-image {
+/* line 181, ../scss/_700up.scss */
+.image-article .featured-image, .set-article .featured-image {
   width: 220px;
 }
 
-/* line 187, ../scss/_700up.scss */
+/* line 186, ../scss/_700up.scss */
 .video-article .h2, .video-article .article-excerpt {
   float: right;
   width: 180px;
   margin-left: 20px;
 }
-/* line 192, ../scss/_700up.scss */
+/* line 191, ../scss/_700up.scss */
 .video-article .featured-image {
   float: left;
   width: 420px;
   height: 235px;
 }
 
-/* line 199, ../scss/_700up.scss */
+/* line 198, ../scss/_700up.scss */
 .tags {
   float: left;
   display: block;
   width: 430px;
   padding-left: 19px;
-  border-left: 2px solid #444444;
+  border-left: 2px solid #ededed;
   text-transform: uppercase;
 }
-/* line 206, ../scss/_700up.scss */
+/* line 205, ../scss/_700up.scss */
 .tags a {
   float: left;
   display: block;
   margin-right: 1rem;
-  font-weight: bold;
   text-decoration: none;
 }
 
-/* line 217, ../scss/_700up.scss */
+/* line 215, ../scss/_700up.scss */
 .page-navigation .article-word,
 .wp-prev-next .article-word {
   display: inline;
@@ -467,28 +465,28 @@ h2, .h2 {
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 226, ../scss/_700up.scss */
+/* line 224, ../scss/_700up.scss */
 .sidebar {
   margin-top: 2.2em;
 }
 
-/* line 230, ../scss/_700up.scss */
+/* line 228, ../scss/_700up.scss */
 .widgettitle {
   border-bottom: 2px solid #444;
   margin-bottom: 0.75em;
 }
 
-/* line 235, ../scss/_700up.scss */
+/* line 233, ../scss/_700up.scss */
 .widget {
   padding: 0 10px;
   margin: 2.2em 0;
 }
-/* line 240, ../scss/_700up.scss */
+/* line 238, ../scss/_700up.scss */
 .widget ul li {
   margin-bottom: 0.75em;
   /* deep nesting */
 }
-/* line 248, ../scss/_700up.scss */
+/* line 246, ../scss/_700up.scss */
 .widget ul li ul {
   margin-top: 0.75em;
   padding-left: 1em;
@@ -497,13 +495,13 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 260, ../scss/_700up.scss */
+/* line 258, ../scss/_700up.scss */
 .footer #inner-footer {
   width: 700px;
   padding: 0 40px;
 }
 
-/* line 267, ../scss/_700up.scss */
+/* line 265, ../scss/_700up.scss */
 .footer-links ul li {
   /*
   be careful with the depth of your menus.
