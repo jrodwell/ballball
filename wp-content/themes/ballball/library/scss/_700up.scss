@@ -170,7 +170,9 @@ h2, .h2 {
 
 #main {
 	width: 620px;
+	margin-top: 20px;
 }
+/* Stream articles */
 .hentry {
 	margin-bottom: 40px;
 }
@@ -182,6 +184,13 @@ h2, .h2 {
 		margin-bottom: 20px;
 	}
 }
+.set-article .featured-image .set-count {
+		width: 60px;
+		height: 60px;
+		background: url(../images/mediaSet.png) no-repeat left 50%;
+		padding: 20px 18px 18px 20px;
+		font-size: 16px;
+}
 .video-article {
 	.featured-image {
 		float: left;
@@ -189,15 +198,6 @@ h2, .h2 {
 		height: 235px;
 		margin-right: 20px;
 		margin-bottom: 20px;
-	}
-}
-
-.single-post .hentry {
-	h1 {
-		margin: 20px 0;
-	}
-	.entry-content {
-		padding-left: 80px;
 	}
 }
 
@@ -222,6 +222,33 @@ h2, .h2 {
 		display: inline;
 	}
 }
+
+/* Single articles */
+.single-post .hentry {
+	h1 {
+		margin: 20px 0;
+	}
+	.entry-content {
+		padding-left: 80px;
+	}
+}
+.single-video-article .single-featured-image {
+	width: 620px;
+	height: 349px;
+}
+.single-post_set {
+	.article-header {
+		margin-bottom: 20px;
+		background-position: right top;
+		h1 {
+			font-size: 28px;
+		}
+		.byline {
+			margin-top: 5px;
+		}
+	}
+}
+
 
 /*********************
 SIDEBARS & ASIDES
