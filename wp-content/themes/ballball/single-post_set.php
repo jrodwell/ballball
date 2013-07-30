@@ -10,38 +10,9 @@
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-              <?php
-              
-              // Check article type...
-              
-              $type = "single-text-article";
-              if(get_post_meta(get_the_ID(), 'ballball_videoid', true)) {
-                $video_id = get_post_meta(get_the_ID(), 'ballball_videoid', true);
-                $type = "single-video-article";
-              } else if(has_post_thumbnail(get_the_ID())) {
-                $type = "single-image-article";
-              }
-              
-              ?>
-
-							<article id="post-<?php the_ID(); ?>" <?php post_class(array('clearfix', $type)); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+							<article id="post-<?php the_ID(); ?>" <?php post_class(array('clearfix')); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 								<header class="article-header">
-
-                  <div class="single-featured-image"> 
-								  <?php if($type == "single-video-article") { ?>
-                  <div id="ooyalaplayer-<?php echo $thisid=uniqid(); ?>" class="videoplayer-big"></div>
-                  <script>OO.ready(function() { OO.Player.create(
-                    'ooyalaplayer-<?php echo $thisid; ?>',
-                    '<?php echo $video_id; ?>',
-                    {
-                    css : 'http://ballball.wpengine.com/wp-content/themes/ballball/library/css/video.css'
-                    }
-                  ); });</script><noscript><div>Please enable Javascript to watch this video</div></noscript>
-								  <?php } else if($type == "single-image-article") { ?>
-								  <?php the_post_thumbnail('article'); ?>
-								  <?php } ?>
-								  </div>
 
 									<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
 									
@@ -52,9 +23,27 @@
 								</header> <!-- end article header -->
 
 								<section class="entry-content clearfix" itemprop="articleBody">
-								
-									<?php the_content(); ?>
 									
+									<div id="post_set_grid">
+									
+									<?php
+                  
+                  // Display grid elements
+                  
+                  $posts_group = get_post_meta($post->ID, 're_', true);
+                  foreach($posts_group as $arr) {
+                    echo '<div class="grid-item">';
+                    $src = wp_get_attachment_image_src(get_post_thumbnail_id($arr['posts_field_id']), 'small');
+                    echo '<a href="'.get_permalink($arr['posts_field_id']).'"><img class="attachment-stream wp-post-image" src="'.$src[0].'"></a>';
+                    echo '</div>';
+                  }
+                  
+                  ?>
+                  
+                  </div>
+									
+                  <?php the_content(); ?>
+                  
 								</section> <!-- end article section -->
 
 								<footer class="article-footer">

@@ -115,47 +115,47 @@ TYPOGRAPHY
   font-style: normal;
 }
 
-/* line 145, ../scss/_mixins.scss */
+/* line 146, ../scss/_mixins.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 146, ../scss/_mixins.scss */
+/* line 147, ../scss/_mixins.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 147, ../scss/_mixins.scss */
+/* line 148, ../scss/_mixins.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 151, ../scss/_mixins.scss */
+/* line 152, ../scss/_mixins.scss */
 .alert-help, .alert-info, .alert-error, .alert-success {
   margin: 10px;
   padding: 5px 18px;
   border: 1px solid;
 }
 
-/* line 157, ../scss/_mixins.scss */
+/* line 158, ../scss/_mixins.scss */
 .alert-help {
   border-color: #e8dc59;
   background: #ebe16f;
 }
 
-/* line 163, ../scss/_mixins.scss */
+/* line 164, ../scss/_mixins.scss */
 .alert-info {
   border-color: #bfe4f4;
   background: #d5edf8;
 }
 
-/* line 169, ../scss/_mixins.scss */
+/* line 170, ../scss/_mixins.scss */
 .alert-error {
   border-color: #f8cdce;
   background: #fbe3e4;
 }
 
-/* line 175, ../scss/_mixins.scss */
+/* line 176, ../scss/_mixins.scss */
 .alert-success {
   border-color: #deeaae;
   background: #e6efc2;
@@ -185,7 +185,7 @@ probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BUTTONS
 *********************/
-/* line 237, ../scss/_mixins.scss */
+/* line 238, ../scss/_mixins.scss */
 .button, .button:visited {
   font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid #367d00;
@@ -209,7 +209,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #52bf00, #47a600);
   background-image: linear-gradient(to bottom, #52bf00, #47a600);
 }
-/* line 256, ../scss/_mixins.scss */
+/* line 257, ../scss/_mixins.scss */
 .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
   color: white;
   border: 1px solid #367d00;
@@ -222,7 +222,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #47a600, #3c8c00);
   background-image: linear-gradient(to bottom, #47a600, #3c8c00);
 }
-/* line 264, ../scss/_mixins.scss */
+/* line 265, ../scss/_mixins.scss */
 .button:active, .button:visited:active {
   background-color: #52bf00;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#47a600), to(#52bf00));
@@ -232,7 +232,7 @@ BUTTONS
   background-image: linear-gradient(to bottom, #47a600, #52bf00);
 }
 
-/* line 269, ../scss/_mixins.scss */
+/* line 270, ../scss/_mixins.scss */
 .blue-button, .blue-button:visited {
   border-color: #1472ad;
   text-shadow: 0 1px 1px #1472ad;
@@ -244,7 +244,7 @@ BUTTONS
   background-image: linear-gradient(to bottom, #1990db, #1681c4);
   box-shadow: inset 0 0 3px #59b3ec;
 }
-/* line 275, ../scss/_mixins.scss */
+/* line 276, ../scss/_mixins.scss */
 .blue-button:hover, .blue-button:focus, .blue-button:visited:hover, .blue-button:visited:focus {
   border-color: #116396;
   background-color: #1472ad;
@@ -254,7 +254,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #1784c9, #1472ad);
   background-image: linear-gradient(to bottom, #1784c9, #1472ad);
 }
-/* line 279, ../scss/_mixins.scss */
+/* line 280, ../scss/_mixins.scss */
 .blue-button:active, .blue-button:visited:active {
   background-color: #1990db;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1681c4), to(#1990db));
@@ -393,7 +393,7 @@ MAIN STYLES
 *********************/
 /* line 157, ../scss/_700up.scss */
 h1, .h1 {
-  font-size: 28px;
+  font-size: 48px;
 }
 
 /* line 160, ../scss/_700up.scss */
@@ -418,29 +418,33 @@ h2, .h2 {
 }
 
 /* line 178, ../scss/_700up.scss */
-.image-article .h2, .image-article .article-excerpt, .set-article .h2, .set-article .article-excerpt {
-  width: 380px;
-}
-/* line 181, ../scss/_700up.scss */
 .image-article .featured-image, .set-article .featured-image {
   width: 220px;
+  height: 144px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 /* line 186, ../scss/_700up.scss */
-.video-article .h2, .video-article .article-excerpt {
-  float: right;
-  width: 180px;
-  margin-left: 20px;
-}
-/* line 191, ../scss/_700up.scss */
 .video-article .featured-image {
   float: left;
   width: 420px;
   height: 235px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
-/* line 198, ../scss/_700up.scss */
-.tags {
+/* line 196, ../scss/_700up.scss */
+.single-post .hentry h1 {
+  margin: 20px 0;
+}
+/* line 199, ../scss/_700up.scss */
+.single-post .hentry .entry-content {
+  padding-left: 80px;
+}
+
+/* line 204, ../scss/_700up.scss */
+.article-footer .tags {
   float: left;
   display: block;
   width: 430px;
@@ -448,15 +452,15 @@ h2, .h2 {
   border-left: 2px solid #ededed;
   text-transform: uppercase;
 }
-/* line 205, ../scss/_700up.scss */
-.tags a {
+/* line 211, ../scss/_700up.scss */
+.article-footer .tags a {
   float: left;
   display: block;
   margin-right: 1rem;
   text-decoration: none;
 }
 
-/* line 215, ../scss/_700up.scss */
+/* line 221, ../scss/_700up.scss */
 .page-navigation .article-word,
 .wp-prev-next .article-word {
   display: inline;
@@ -465,28 +469,28 @@ h2, .h2 {
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 224, ../scss/_700up.scss */
+/* line 230, ../scss/_700up.scss */
 .sidebar {
   margin-top: 2.2em;
 }
 
-/* line 228, ../scss/_700up.scss */
+/* line 234, ../scss/_700up.scss */
 .widgettitle {
   border-bottom: 2px solid #444;
   margin-bottom: 0.75em;
 }
 
-/* line 233, ../scss/_700up.scss */
+/* line 239, ../scss/_700up.scss */
 .widget {
   padding: 0 10px;
   margin: 2.2em 0;
 }
-/* line 238, ../scss/_700up.scss */
+/* line 244, ../scss/_700up.scss */
 .widget ul li {
   margin-bottom: 0.75em;
   /* deep nesting */
 }
-/* line 246, ../scss/_700up.scss */
+/* line 252, ../scss/_700up.scss */
 .widget ul li ul {
   margin-top: 0.75em;
   padding-left: 1em;
@@ -495,13 +499,13 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 258, ../scss/_700up.scss */
+/* line 264, ../scss/_700up.scss */
 .footer #inner-footer {
   width: 700px;
   padding: 0 40px;
 }
 
-/* line 265, ../scss/_700up.scss */
+/* line 271, ../scss/_700up.scss */
 .footer-links ul li {
   /*
   be careful with the depth of your menus.

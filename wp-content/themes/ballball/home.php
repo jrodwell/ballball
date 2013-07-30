@@ -63,10 +63,15 @@
                     css : 'http://ballball.wpengine.com/wp-content/themes/ballball/library/css/video.css'
                     }
                   ); });</script><noscript><div>Please enable Javascript to watch this video</div></noscript>
-								  <?php } else if($type == "image-article") { ?>
+								  <?php } else if($type == "image-article" || $type == "set-article") { ?>
 								  <?php
                   $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'stream');
                   echo '<img width="100%" height="100%" class="attachment-stream wp-post-image" src="'.$src[0].'">';
+                  $posts_group = get_post_meta($post->ID, 're_', true);
+                  $set_count = count($posts_group);
+                  if($type == "set-article") {
+                    echo '<span class="set-count">'.$set_count.'</span>';
+                  }
                   ?>
 								  <?php } ?>
 								  </div>

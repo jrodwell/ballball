@@ -55,9 +55,9 @@ add_image_size( 'bones-thumb-300', 300, 100, true );
 
 /* Custom image sizes here */
 
-add_image_size('small', 140, 92, false);
-add_image_size('stream', 220, 144, false);
-add_image_size('article', 620, 413, false);
+add_image_size('small', 140, 92, true);
+add_image_size('stream', 220, 144, true);
+add_image_size('article', 620, 413, true);
 
 /*
 to add more sizes, simply copy a line from above
@@ -170,6 +170,10 @@ function bones_wpsearch($form) {
 	return $form;
 } // don't remove this bracket!
 
+/* Thumbnail support */
+
+add_theme_support('post-thumbnails', array('post', 'post_set'));
+
 /* Include meta box class (J.R.) */
 
 require_once("meta-box-class/my-meta-box-class.php");
@@ -191,7 +195,8 @@ function ballball_queue_admin_scripts() {
 add_action('init', 'ballball_register_menu');
 
 function ballball_register_menu() {
-  register_nav_menu('main-menu',__( 'Main Menu', 'ballball'));
+  register_nav_menu('main', __( 'Main Menu', 'ballball'));
+  register_nav_menu('live', __( 'Live Match Menu', 'ballball'));
 }
 
 /* Custom excerpt length */
@@ -278,7 +283,7 @@ function ballball_add_post_types() {
     'has_archive' => true, 
     'hierarchical' => false,
     'menu_position' => null,
-    'supports' => array('title', 'editor', 'author', 'thumbnail'),
+    'supports' => array('title', 'editor', 'author', 'excerpt', 'thumbnail'),
     'menu_position' => 5,
     'taxonomies' => array('post_tag', 'category', 'league', 'team', 'match')
   ); 
