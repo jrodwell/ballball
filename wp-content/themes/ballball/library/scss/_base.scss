@@ -17,9 +17,15 @@ GENERAL STYLES
 
 body {
 	font-family: $sans-serif;
-	font-size: 100%;
+	font-size: 16px;
 	line-height: 1.5;
 	color: #565656;
+}
+a {
+	text-decoration: none;
+}
+ul {
+	list-style: none;
 }
 
 /********************
@@ -83,11 +89,10 @@ LAYOUT & GRID STYLES
 		margin: 0 auto;		
 	}
 }
-.hero {
-	height: 494px;
-	.hero {
+#hero {
+	#inner-hero {
 		width: $mobWidth;
-		padding: 0 $mobPadding;
+		padding: 10px $mobPadding;
 		background: #bbGrey;
 		margin: 0 auto;		
 	}
@@ -100,10 +105,6 @@ LAYOUT & GRID STYLES
 		margin: 0 auto;		
 	}
 }
-
-
-
-
 
 /*********************
 LINK STYLES
@@ -145,7 +146,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	margin: 0 0 10px 0;
 	color: $headline;
 	a {
-		text-decoration: none;
 		color: $bbGrey;
 	}
 }
@@ -206,7 +206,6 @@ and more scalable.
 
 		a {
 			display: block;
-			text-decoration: none;
 			padding: 10px 10px;
 			background-color: #eee;
 			border-bottom: 1px solid #ccc;
@@ -372,18 +371,21 @@ POSTS & CONTENT STYLES
 	background: url(../images/arrowSmallRight.png) no-repeat right 50%;
 	padding-right: 15px;
 	font-weight: bold;
-	text-decoration: none;
 }
 /* Single articles */
 .single #main {
 	margin-top: 10px;
 }
 .single .hentry {
+	border-color: $bbGrey;
 	h1 {
 		margin: 10px 0;
 	}
 	p {
-		margin-bottom: 30px;
+		margin-bottom: 25px;
+	}
+	.byline {
+		margin-bottom: 15px;
 	}
 	.highlight {
 		padding: 10px 15px 15px 15px;
@@ -392,12 +394,29 @@ POSTS & CONTENT STYLES
 		margin-bottom: 15px;
 	}
 	.quote {
-		background: url(../images/quote.png) no-repeat 25px top;
-		padding-left: 70px;
-		font-size: 28px;
+		background: url(../images/quoteSmall.png) no-repeat 20px top;
+		padding-left: 60px;
+		font-size: 24px;
 		font-family: $header;
 		text-transform: uppercase;
 		color: $bbGreen;
+	}
+	.small {
+		font-size: 14px;
+		color: $grey;
+	}
+	ul {
+		margin: 0 0 10px 0;
+		background: url(../images/listBG.png) repeat-y left top;
+		padding: 0;
+		li {
+			border-bottom: 2px solid $white;
+			background: url(../images/listBullet.png) no-repeat 10px 10px;
+			padding: 5px 10px 5px 40px;
+		}
+	}
+	.article-footer  p {
+		margin-bottom: 10px;
 	}
 }
 .single-image-article .single-featured-image {
@@ -408,7 +427,7 @@ POSTS & CONTENT STYLES
 	width: 300px;
 	height: 169px;
 }
-.single-post_set {
+.single-post_set .hentry {
 	.article-header {
 		margin-bottom: 10px;
 		background: $bbGreen url(../images/setBG.png) repeat-y right 50%;
@@ -429,10 +448,18 @@ POSTS & CONTENT STYLES
 		float: left;
 		width: 140px;
 		margin-right: 20px;
-		margin-bottom: 40px;
+		margin-bottom: 15px;
 		img {
 			margin: 0;
 			width: 140px;
+		}
+		p {
+			font-size: 19px;
+			font-family: $header;
+			text-transform: uppercase;
+			a {
+				color: $bbGrey;
+			}
 		}
 	}
 	.two {
@@ -471,7 +498,6 @@ PAGE NAVI STYLES
 	ul {
 		margin: 0;
 		padding: 0;
-		list-style: none;
 	}
 	.prev-link {
 		float: left;
@@ -482,9 +508,6 @@ PAGE NAVI STYLES
 		float: right;
 		background: url(../images/arrowBigRight.png) no-repeat right 50%;
 		padding-right: 20px;
-	}
-	a {
-		text-decoration: none;
 	}
 	.article-word {
 		display: none;
@@ -519,7 +542,6 @@ COMMENT STYLES
 		position: relative;
 		clear: both;
 		overflow: hidden;
-		list-style-type: none;
 		margin-bottom: 1.5em;
 		padding: 0.7335em 10px;
 
@@ -683,7 +705,6 @@ COMMENT FORM STYLES
 		margin: 0.75em 0;
 
 		li {
-			list-style-type: none;
 			clear: both;
 			margin-bottom: 0.7335em;
 

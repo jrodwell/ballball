@@ -1,10 +1,17 @@
-.highlight {
-	padding: 10px 15px 15px 15px;
-	background: #EDEDED;
-	border-left: 5px solid #52BF00;
-	margin-bottom: 15px;
-}
-.quote {
-}
-.small {
-}
+	.highlight {
+		padding: 10px 15px 15px 15px;
+		background: #ededed;
+		border-left: 5px solid #52bf00;
+		margin-bottom: 15px;
+	}
+	.quote {
+		background: url(library/images/quoteSmall.png) no-repeat 20px top;
+		padding-left: 60px;
+		font-size: 24px;
+		text-transform: uppercase;
+		color: #52bf00;
+	}
+	.small {
+		font-size: 14px;
+		color: #999;
+	}

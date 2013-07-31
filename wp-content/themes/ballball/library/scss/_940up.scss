@@ -22,14 +22,14 @@ be seen on the Desktop.
 		background: url(../images/deskBG.png) repeat-y 50% 0;
 	}
 }
-.hero {
+#hero {
 	background: url(../images/pattern_geometric-dark.png) repeat;
-	.hero {
+	#inner-hero {
 		position: relative;
 		left: 50%;
 		margin-left: -($deskWidth/2);
 		width: $deskWidth;
-		padding: 0 $deskPadding;
+		padding: 10px $deskPadding;
 	}
 }
 #content {

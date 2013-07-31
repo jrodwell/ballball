@@ -40,12 +40,12 @@ HEADER STYLES
 		height: 145px;
 	}
 }
-.hero {
-	.hero {
-		background: #bbGrey;
-		height: 494px;
+#hero {
+	#inner-hero {
+		background: $bbGrey;
 		width: $tabWidth;
-		padding: 0 $tabPadding;
+		padding: 10px $tabPadding;
+		color: $white;
 	}
 }
 
@@ -228,12 +228,23 @@ h2, .h2 {
 }
 
 /* Single articles */
+.single #main {
+	margin-top: 20px;
+}
 .single-post .hentry {
 	h1 {
 		margin: 20px 0;
 	}
+	.byline {
+		margin-bottom: 20px;
+	}
 	.entry-content {
 		padding-left: 80px;
+	}
+	.quote {
+		background: url(../images/quote.png) no-repeat 25px top;
+		padding-left: 70px;
+		font-size: 28px;
 	}
 }
 .single-image-article .single-featured-image {
@@ -244,7 +255,7 @@ h2, .h2 {
 	width: 620px;
 	height: 349px;
 }
-.single-post_set {
+.single-post_set .hentry {
 	.article-header {
 		margin-bottom: 20px;
 		background-position: right top;
