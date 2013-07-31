@@ -183,6 +183,10 @@ h2, .h2 {
 		margin-right: 20px;
 		margin-bottom: 20px;
 	}
+	.h2, .article-excerpt {
+		float: right;
+		width: 380px;
+	}
 }
 .set-article .featured-image .set-count {
 		width: 60px;
@@ -204,7 +208,7 @@ h2, .h2 {
 .article-footer .tags {
 	float: left;
 	display: block;
-	width: 430px;
+	width: 450px;
 	padding-left: 19px;
 	border-left: 2px solid $lightGrey;
 	text-transform: uppercase;
@@ -232,6 +236,10 @@ h2, .h2 {
 		padding-left: 80px;
 	}
 }
+.single-image-article .single-featured-image {
+	width: 620px;
+	height: 413px;
+}
 .single-video-article .single-featured-image {
 	width: 620px;
 	height: 349px;
@@ -246,6 +254,12 @@ h2, .h2 {
 		.byline {
 			margin-top: 5px;
 		}
+	}
+	.two {
+		margin-right: 20px;
+	}
+	.four {
+		margin-right: 0;
 	}
 }
 

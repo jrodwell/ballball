@@ -115,47 +115,47 @@ TYPOGRAPHY
   font-style: normal;
 }
 
-/* line 146, ../scss/_mixins.scss */
+/* line 143, ../scss/_mixins.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 147, ../scss/_mixins.scss */
+/* line 144, ../scss/_mixins.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 148, ../scss/_mixins.scss */
+/* line 145, ../scss/_mixins.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 152, ../scss/_mixins.scss */
+/* line 149, ../scss/_mixins.scss */
 .alert-help, .alert-info, .alert-error, .alert-success {
   margin: 10px;
   padding: 5px 18px;
   border: 1px solid;
 }
 
-/* line 158, ../scss/_mixins.scss */
+/* line 155, ../scss/_mixins.scss */
 .alert-help {
   border-color: #e8dc59;
   background: #ebe16f;
 }
 
-/* line 164, ../scss/_mixins.scss */
+/* line 161, ../scss/_mixins.scss */
 .alert-info {
   border-color: #bfe4f4;
   background: #d5edf8;
 }
 
-/* line 170, ../scss/_mixins.scss */
+/* line 167, ../scss/_mixins.scss */
 .alert-error {
   border-color: #f8cdce;
   background: #fbe3e4;
 }
 
-/* line 176, ../scss/_mixins.scss */
+/* line 173, ../scss/_mixins.scss */
 .alert-success {
   border-color: #deeaae;
   background: #e6efc2;
@@ -185,7 +185,7 @@ probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BUTTONS
 *********************/
-/* line 238, ../scss/_mixins.scss */
+/* line 235, ../scss/_mixins.scss */
 .button, .button:visited {
   font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid #367d00;
@@ -209,7 +209,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #52bf00, #47a600);
   background-image: linear-gradient(to bottom, #52bf00, #47a600);
 }
-/* line 257, ../scss/_mixins.scss */
+/* line 254, ../scss/_mixins.scss */
 .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
   color: white;
   border: 1px solid #367d00;
@@ -222,7 +222,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #47a600, #3c8c00);
   background-image: linear-gradient(to bottom, #47a600, #3c8c00);
 }
-/* line 265, ../scss/_mixins.scss */
+/* line 262, ../scss/_mixins.scss */
 .button:active, .button:visited:active {
   background-color: #52bf00;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#47a600), to(#52bf00));
@@ -230,38 +230,6 @@ BUTTONS
   background-image: -moz-linear-gradient(top, #47a600, #52bf00);
   background-image: -o-linear-gradient(top, #47a600, #52bf00);
   background-image: linear-gradient(to bottom, #47a600, #52bf00);
-}
-
-/* line 270, ../scss/_mixins.scss */
-.blue-button, .blue-button:visited {
-  border-color: #1472ad;
-  text-shadow: 0 1px 1px #1472ad;
-  background-color: #1681c4;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1990db), to(#1681c4));
-  background-image: -webkit-linear-gradient(top, #1990db, #1681c4);
-  background-image: -moz-linear-gradient(top, #1990db, #1681c4);
-  background-image: -o-linear-gradient(top, #1990db, #1681c4);
-  background-image: linear-gradient(to bottom, #1990db, #1681c4);
-  box-shadow: inset 0 0 3px #59b3ec;
-}
-/* line 276, ../scss/_mixins.scss */
-.blue-button:hover, .blue-button:focus, .blue-button:visited:hover, .blue-button:visited:focus {
-  border-color: #116396;
-  background-color: #1472ad;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1784c9), to(#1472ad));
-  background-image: -webkit-linear-gradient(top, #1784c9, #1472ad);
-  background-image: -moz-linear-gradient(top, #1784c9, #1472ad);
-  background-image: -o-linear-gradient(top, #1784c9, #1472ad);
-  background-image: linear-gradient(to bottom, #1784c9, #1472ad);
-}
-/* line 280, ../scss/_mixins.scss */
-.blue-button:active, .blue-button:visited:active {
-  background-color: #1990db;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1681c4), to(#1990db));
-  background-image: -webkit-linear-gradient(top, #1681c4, #1990db);
-  background-image: -moz-linear-gradient(top, #1681c4, #1990db);
-  background-image: -o-linear-gradient(top, #1681c4, #1990db);
-  background-image: linear-gradient(to bottom, #1681c4, #1990db);
 }
 
 /******************************************************************
@@ -426,8 +394,13 @@ h2, .h2 {
   margin-right: 20px;
   margin-bottom: 20px;
 }
+/* line 186, ../scss/_700up.scss */
+.image-article .h2, .image-article .article-excerpt, .set-article .h2, .set-article .article-excerpt {
+  float: right;
+  width: 380px;
+}
 
-/* line 187, ../scss/_700up.scss */
+/* line 191, ../scss/_700up.scss */
 .set-article .featured-image .set-count {
   width: 60px;
   height: 60px;
@@ -436,7 +409,7 @@ h2, .h2 {
   font-size: 16px;
 }
 
-/* line 195, ../scss/_700up.scss */
+/* line 199, ../scss/_700up.scss */
 .video-article .featured-image {
   float: left;
   width: 420px;
@@ -445,16 +418,16 @@ h2, .h2 {
   margin-bottom: 20px;
 }
 
-/* line 204, ../scss/_700up.scss */
+/* line 208, ../scss/_700up.scss */
 .article-footer .tags {
   float: left;
   display: block;
-  width: 430px;
+  width: 450px;
   padding-left: 19px;
   border-left: 2px solid #ededed;
   text-transform: uppercase;
 }
-/* line 211, ../scss/_700up.scss */
+/* line 215, ../scss/_700up.scss */
 .article-footer .tags a {
   float: left;
   display: block;
@@ -462,67 +435,81 @@ h2, .h2 {
   text-decoration: none;
 }
 
-/* line 221, ../scss/_700up.scss */
+/* line 225, ../scss/_700up.scss */
 .page-navigation .article-word,
 .wp-prev-next .article-word {
   display: inline;
 }
 
 /* Single articles */
-/* line 228, ../scss/_700up.scss */
+/* line 232, ../scss/_700up.scss */
 .single-post .hentry h1 {
   margin: 20px 0;
 }
-/* line 231, ../scss/_700up.scss */
+/* line 235, ../scss/_700up.scss */
 .single-post .hentry .entry-content {
   padding-left: 80px;
 }
 
-/* line 235, ../scss/_700up.scss */
+/* line 239, ../scss/_700up.scss */
+.single-image-article .single-featured-image {
+  width: 620px;
+  height: 413px;
+}
+
+/* line 243, ../scss/_700up.scss */
 .single-video-article .single-featured-image {
   width: 620px;
   height: 349px;
 }
 
-/* line 240, ../scss/_700up.scss */
+/* line 248, ../scss/_700up.scss */
 .single-post_set .article-header {
   margin-bottom: 20px;
   background-position: right top;
 }
-/* line 243, ../scss/_700up.scss */
+/* line 251, ../scss/_700up.scss */
 .single-post_set .article-header h1 {
   font-size: 28px;
 }
-/* line 246, ../scss/_700up.scss */
+/* line 254, ../scss/_700up.scss */
 .single-post_set .article-header .byline {
   margin-top: 5px;
+}
+/* line 258, ../scss/_700up.scss */
+.single-post_set .two {
+  margin-right: 20px;
+}
+/* line 261, ../scss/_700up.scss */
+.single-post_set .four {
+  margin-right: 0;
 }
 
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 257, ../scss/_700up.scss */
+/* line 271, ../scss/_700up.scss */
 .sidebar {
   margin-top: 2.2em;
 }
 
-/* line 261, ../scss/_700up.scss */
+/* line 275, ../scss/_700up.scss */
 .widgettitle {
   border-bottom: 2px solid #444;
   margin-bottom: 0.75em;
 }
 
-/* line 266, ../scss/_700up.scss */
+/* line 280, ../scss/_700up.scss */
 .widget {
   padding: 0 10px;
   margin: 2.2em 0;
 }
-/* line 271, ../scss/_700up.scss */
+/* line 285, ../scss/_700up.scss */
 .widget ul li {
   margin-bottom: 0.75em;
   /* deep nesting */
 }
-/* line 279, ../scss/_700up.scss */
+/* line 293, ../scss/_700up.scss */
 .widget ul li ul {
   margin-top: 0.75em;
   padding-left: 1em;
@@ -531,13 +518,13 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 291, ../scss/_700up.scss */
+/* line 305, ../scss/_700up.scss */
 .footer #inner-footer {
   width: 700px;
   padding: 0 40px;
 }
 
-/* line 298, ../scss/_700up.scss */
+/* line 312, ../scss/_700up.scss */
 .footer-links ul li {
   /*
   be careful with the depth of your menus.

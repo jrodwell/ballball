@@ -324,7 +324,7 @@ POSTS & CONTENT STYLES
 
 /* post meta */
 .byline {
-	padding-left: 15px;
+	padding-left: 20px;
 	background: url(../images/clock.png) no-repeat left 50%;
 	color: #bbGrey;
 	font-size: 14px;
@@ -336,7 +336,7 @@ POSTS & CONTENT STYLES
 	font-size: 14px;
 	font-weight: bold;
 	.byline {
-		width: 80px;
+		width: 70px;
 		float: left;
 		margin-right: 9px;
 	}
@@ -349,13 +349,13 @@ POSTS & CONTENT STYLES
 		margin-left: 20px;
 	}
 	p {
-		margin-bottom: 10px;
+		margin: 10px 0;
 	}
 }
 .entry-content {
 	p {
 		line-height: 1.43;
-		margin: 0 0 30px 0;
+		margin: 0 0 10px 0;
 		color: $bodyText;
 	}
 	img {
@@ -368,19 +368,22 @@ POSTS & CONTENT STYLES
 	}
 }
 .readmore {
-	margin-top: 20px;
+	margin-top: 10px;
 	background: url(../images/arrowSmallRight.png) no-repeat right 50%;
 	padding-right: 15px;
 	font-weight: bold;
 	text-decoration: none;
 }
 /* Single articles */
-.single-post #main {
+.single #main {
 	margin-top: 10px;
 }
-.single-post .hentry {
+.single .hentry {
 	h1 {
 		margin: 10px 0;
+	}
+	p {
+		margin-bottom: 30px;
 	}
 	.highlight {
 		padding: 10px 15px 15px 15px;
@@ -388,6 +391,18 @@ POSTS & CONTENT STYLES
 		border-left: 5px solid $bbGreen;
 		margin-bottom: 15px;
 	}
+	.quote {
+		background: url(../images/quote.png) no-repeat 25px top;
+		padding-left: 70px;
+		font-size: 28px;
+		font-family: $header;
+		text-transform: uppercase;
+		color: $bbGreen;
+	}
+}
+.single-image-article .single-featured-image {
+	width: 300px;
+	height: 200px;
 }
 .single-video-article .single-featured-image {
 	width: 300px;
@@ -419,6 +434,9 @@ POSTS & CONTENT STYLES
 			margin: 0;
 			width: 140px;
 		}
+	}
+	.two {
+		margin-right: 0;
 	}
 }
 	/* start .wp-caption */
@@ -453,6 +471,7 @@ PAGE NAVI STYLES
 	ul {
 		margin: 0;
 		padding: 0;
+		list-style: none;
 	}
 	.prev-link {
 		float: left;

@@ -513,47 +513,47 @@ TYPOGRAPHY
   font-style: normal;
 }
 
-/* line 146, ../scss/_mixins.scss */
+/* line 143, ../scss/_mixins.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 147, ../scss/_mixins.scss */
+/* line 144, ../scss/_mixins.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 148, ../scss/_mixins.scss */
+/* line 145, ../scss/_mixins.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 152, ../scss/_mixins.scss */
+/* line 149, ../scss/_mixins.scss */
 .alert-help, .alert-info, .alert-error, .alert-success {
   margin: 10px;
   padding: 5px 18px;
   border: 1px solid;
 }
 
-/* line 158, ../scss/_mixins.scss */
+/* line 155, ../scss/_mixins.scss */
 .alert-help {
   border-color: #e8dc59;
   background: #ebe16f;
 }
 
-/* line 164, ../scss/_mixins.scss */
+/* line 161, ../scss/_mixins.scss */
 .alert-info {
   border-color: #bfe4f4;
   background: #d5edf8;
 }
 
-/* line 170, ../scss/_mixins.scss */
+/* line 167, ../scss/_mixins.scss */
 .alert-error {
   border-color: #f8cdce;
   background: #fbe3e4;
 }
 
-/* line 176, ../scss/_mixins.scss */
+/* line 173, ../scss/_mixins.scss */
 .alert-success {
   border-color: #deeaae;
   background: #e6efc2;
@@ -583,7 +583,7 @@ probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BUTTONS
 *********************/
-/* line 238, ../scss/_mixins.scss */
+/* line 235, ../scss/_mixins.scss */
 .button, .button:visited {
   font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid #367d00;
@@ -607,7 +607,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #52bf00, #47a600);
   background-image: linear-gradient(to bottom, #52bf00, #47a600);
 }
-/* line 257, ../scss/_mixins.scss */
+/* line 254, ../scss/_mixins.scss */
 .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
   color: white;
   border: 1px solid #367d00;
@@ -620,7 +620,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #47a600, #3c8c00);
   background-image: linear-gradient(to bottom, #47a600, #3c8c00);
 }
-/* line 265, ../scss/_mixins.scss */
+/* line 262, ../scss/_mixins.scss */
 .button:active, .button:visited:active {
   background-color: #52bf00;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#47a600), to(#52bf00));
@@ -628,38 +628,6 @@ BUTTONS
   background-image: -moz-linear-gradient(top, #47a600, #52bf00);
   background-image: -o-linear-gradient(top, #47a600, #52bf00);
   background-image: linear-gradient(to bottom, #47a600, #52bf00);
-}
-
-/* line 270, ../scss/_mixins.scss */
-.blue-button, .blue-button:visited {
-  border-color: #1472ad;
-  text-shadow: 0 1px 1px #1472ad;
-  background-color: #1681c4;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1990db), to(#1681c4));
-  background-image: -webkit-linear-gradient(top, #1990db, #1681c4);
-  background-image: -moz-linear-gradient(top, #1990db, #1681c4);
-  background-image: -o-linear-gradient(top, #1990db, #1681c4);
-  background-image: linear-gradient(to bottom, #1990db, #1681c4);
-  box-shadow: inset 0 0 3px #59b3ec;
-}
-/* line 276, ../scss/_mixins.scss */
-.blue-button:hover, .blue-button:focus, .blue-button:visited:hover, .blue-button:visited:focus {
-  border-color: #116396;
-  background-color: #1472ad;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1784c9), to(#1472ad));
-  background-image: -webkit-linear-gradient(top, #1784c9, #1472ad);
-  background-image: -moz-linear-gradient(top, #1784c9, #1472ad);
-  background-image: -o-linear-gradient(top, #1784c9, #1472ad);
-  background-image: linear-gradient(to bottom, #1784c9, #1472ad);
-}
-/* line 280, ../scss/_mixins.scss */
-.blue-button:active, .blue-button:visited:active {
-  background-color: #1990db;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1681c4), to(#1990db));
-  background-image: -webkit-linear-gradient(top, #1681c4, #1990db);
-  background-image: -moz-linear-gradient(top, #1681c4, #1990db);
-  background-image: -o-linear-gradient(top, #1681c4, #1990db);
-  background-image: linear-gradient(to bottom, #1681c4, #1990db);
 }
 
 /*
@@ -958,7 +926,7 @@ POSTS & CONTENT STYLES
 /* post meta */
 /* line 326, ../scss/_base.scss */
 .byline {
-  padding-left: 15px;
+  padding-left: 20px;
   background: url(../images/clock.png) no-repeat left 50%;
   color: #bbGrey;
   font-size: 14px;
@@ -974,7 +942,7 @@ POSTS & CONTENT STYLES
 }
 /* line 338, ../scss/_base.scss */
 .article-footer .byline {
-  width: 80px;
+  width: 70px;
   float: left;
   margin-right: 9px;
 }
@@ -990,13 +958,13 @@ POSTS & CONTENT STYLES
 }
 /* line 351, ../scss/_base.scss */
 .article-footer p {
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 /* line 356, ../scss/_base.scss */
 .entry-content p {
   line-height: 1.43;
-  margin: 0 0 30px 0;
+  margin: 0 0 10px 0;
   color: #444444;
 }
 /* line 361, ../scss/_base.scss */
@@ -1012,7 +980,7 @@ POSTS & CONTENT STYLES
 
 /* line 370, ../scss/_base.scss */
 .readmore {
-  margin-top: 20px;
+  margin-top: 10px;
   background: url(../images/arrowSmallRight.png) no-repeat right 50%;
   padding-right: 15px;
   font-weight: bold;
@@ -1021,74 +989,97 @@ POSTS & CONTENT STYLES
 
 /* Single articles */
 /* line 378, ../scss/_base.scss */
-.single-post #main {
+.single #main {
   margin-top: 10px;
 }
 
 /* line 382, ../scss/_base.scss */
-.single-post .hentry h1 {
+.single .hentry h1 {
   margin: 10px 0;
 }
 /* line 385, ../scss/_base.scss */
-.single-post .hentry .highlight {
+.single .hentry p {
+  margin-bottom: 30px;
+}
+/* line 388, ../scss/_base.scss */
+.single .hentry .highlight {
   padding: 10px 15px 15px 15px;
   background: #ededed;
   border-left: 5px solid #52bf00;
   margin-bottom: 15px;
 }
+/* line 394, ../scss/_base.scss */
+.single .hentry .quote {
+  background: url(../images/quote.png) no-repeat 25px top;
+  padding-left: 70px;
+  font-size: 28px;
+  font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: #52bf00;
+}
 
-/* line 392, ../scss/_base.scss */
+/* line 403, ../scss/_base.scss */
+.single-image-article .single-featured-image {
+  width: 300px;
+  height: 200px;
+}
+
+/* line 407, ../scss/_base.scss */
 .single-video-article .single-featured-image {
   width: 300px;
   height: 169px;
 }
 
-/* line 397, ../scss/_base.scss */
+/* line 412, ../scss/_base.scss */
 .single-post_set .article-header {
   margin-bottom: 10px;
   background: #52bf00 url(../images/setBG.png) repeat-y right 50%;
   padding: 10px 20px;
 }
-/* line 401, ../scss/_base.scss */
+/* line 416, ../scss/_base.scss */
 .single-post_set .article-header h1 {
   margin: 0;
   font-size: 18px;
   color: white;
 }
-/* line 406, ../scss/_base.scss */
+/* line 421, ../scss/_base.scss */
 .single-post_set .article-header .byline {
   margin: 0;
   background: url(../images/clockWhite.png) no-repeat left 50%;
   padding-left: 20px;
   color: white;
 }
-/* line 413, ../scss/_base.scss */
+/* line 428, ../scss/_base.scss */
 .single-post_set .grid-item {
   float: left;
   width: 140px;
   margin-right: 20px;
   margin-bottom: 40px;
 }
-/* line 418, ../scss/_base.scss */
+/* line 433, ../scss/_base.scss */
 .single-post_set .grid-item img {
   margin: 0;
   width: 140px;
 }
+/* line 438, ../scss/_base.scss */
+.single-post_set .two {
+  margin-right: 0;
+}
 
 /* start .wp-caption */
-/* line 425, ../scss/_base.scss */
+/* line 443, ../scss/_base.scss */
 .wp-caption {
   max-width: 100%;
   background: #eee;
   padding: 5px;
 }
-/* line 429, ../scss/_base.scss */
+/* line 447, ../scss/_base.scss */
 .wp-caption img {
   max-width: 100%;
   margin-bottom: 0;
   width: 100%;
 }
-/* line 434, ../scss/_base.scss */
+/* line 452, ../scss/_base.scss */
 .wp-caption p.wp-caption-text {
   font-size: 0.85em;
   margin: 4px 0 7px;
@@ -1099,7 +1090,7 @@ POSTS & CONTENT STYLES
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
-/* line 446, ../scss/_base.scss */
+/* line 464, ../scss/_base.scss */
 .page-navigation,
 .wp-prev-next {
   font-size: 22px;
@@ -1109,32 +1100,33 @@ PAGE NAVI STYLES
   text-transform: uppercase;
   margin: 0 0 20px 0;
 }
-/* line 453, ../scss/_base.scss */
+/* line 471, ../scss/_base.scss */
 .page-navigation ul,
 .wp-prev-next ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
-/* line 457, ../scss/_base.scss */
+/* line 476, ../scss/_base.scss */
 .page-navigation .prev-link,
 .wp-prev-next .prev-link {
   float: left;
   background: url(../images/arrowBigLeft.png) no-repeat left 50%;
   padding-left: 20px;
 }
-/* line 462, ../scss/_base.scss */
+/* line 481, ../scss/_base.scss */
 .page-navigation .next-link,
 .wp-prev-next .next-link {
   float: right;
   background: url(../images/arrowBigRight.png) no-repeat right 50%;
   padding-right: 20px;
 }
-/* line 467, ../scss/_base.scss */
+/* line 486, ../scss/_base.scss */
 .page-navigation a,
 .wp-prev-next a {
   text-decoration: none;
 }
-/* line 470, ../scss/_base.scss */
+/* line 489, ../scss/_base.scss */
 .page-navigation .article-word,
 .wp-prev-next .article-word {
   display: none;
@@ -1145,12 +1137,12 @@ PAGE NAVI STYLES
 COMMENT STYLES
 ******************************************************************/
 /* h3 comment title */
-/* line 480, ../scss/_base.scss */
+/* line 499, ../scss/_base.scss */
 #comments {
   /* number of comments span */
 }
 
-/* line 497, ../scss/_base.scss */
+/* line 516, ../scss/_base.scss */
 .commentlist {
   /* general comment classes */
   /* vcard */
@@ -1161,7 +1153,7 @@ COMMENT STYLES
   /* comment reply link */
   /* end .commentlist .comment-reply-link */
 }
-/* line 499, ../scss/_base.scss */
+/* line 518, ../scss/_base.scss */
 .commentlist li {
   position: relative;
   clear: both;
@@ -1171,63 +1163,63 @@ COMMENT STYLES
   padding: 0.7335em 10px;
   /* end .commentlist li ul.children */
 }
-/* line 507, ../scss/_base.scss */
+/* line 526, ../scss/_base.scss */
 .commentlist li:last-child {
   margin-bottom: 0;
 }
-/* line 511, ../scss/_base.scss */
+/* line 530, ../scss/_base.scss */
 .commentlist li ul.children {
   margin: 0;
   /* variations */
   /* change number for different depth */
 }
-/* line 529, ../scss/_base.scss */
+/* line 548, ../scss/_base.scss */
 .commentlist li[class*=depth-] {
   margin-top: 1.1em;
 }
-/* line 533, ../scss/_base.scss */
+/* line 552, ../scss/_base.scss */
 .commentlist li.depth-1 {
   margin-left: 0;
   margin-top: 0;
 }
-/* line 538, ../scss/_base.scss */
+/* line 557, ../scss/_base.scss */
 .commentlist li:not(.depth-1) {
   margin-right: -10px;
   margin-left: -10px;
   margin-top: 0;
   padding-bottom: 0;
 }
-/* line 552, ../scss/_base.scss */
+/* line 571, ../scss/_base.scss */
 .commentlist .odd {
   background: #eee;
 }
-/* line 555, ../scss/_base.scss */
+/* line 574, ../scss/_base.scss */
 .commentlist .even {
   background: #fefefe;
 }
-/* line 570, ../scss/_base.scss */
+/* line 589, ../scss/_base.scss */
 .commentlist .vcard {
   margin-left: 50px;
 }
-/* line 573, ../scss/_base.scss */
+/* line 592, ../scss/_base.scss */
 .commentlist .vcard cite.fn {
   font-weight: 700;
   font-style: normal;
 }
-/* line 581, ../scss/_base.scss */
+/* line 600, ../scss/_base.scss */
 .commentlist .vcard time {
   float: right;
 }
-/* line 584, ../scss/_base.scss */
+/* line 603, ../scss/_base.scss */
 .commentlist .vcard time a {
   color: #999;
   text-decoration: none;
 }
-/* line 588, ../scss/_base.scss */
+/* line 607, ../scss/_base.scss */
 .commentlist .vcard time a:hover {
   text-decoration: underline;
 }
-/* line 598, ../scss/_base.scss */
+/* line 617, ../scss/_base.scss */
 .commentlist .vcard img.avatar {
   position: absolute;
   left: 10px;
@@ -1235,17 +1227,17 @@ COMMENT STYLES
   border: 1px solid #cecece;
   background: #fff;
 }
-/* line 623, ../scss/_base.scss */
+/* line 642, ../scss/_base.scss */
 .commentlist .comment_content {
   margin-left: 50px;
 }
-/* line 626, ../scss/_base.scss */
+/* line 645, ../scss/_base.scss */
 .commentlist .comment_content p {
   margin: 0.7335em 0 1.5em;
   font-size: 1em;
   line-height: 1.5em;
 }
-/* line 635, ../scss/_base.scss */
+/* line 654, ../scss/_base.scss */
 .commentlist .comment-reply-link {
   text-decoration: none;
   float: right;
@@ -1257,7 +1249,7 @@ COMMENT STYLES
   font-weight: 700;
   font-size: 0.9em;
 }
-/* line 647, ../scss/_base.scss */
+/* line 666, ../scss/_base.scss */
 .commentlist .comment-reply-link:hover, .commentlist .comment-reply-link:focus {
   opacity: 1;
 }
@@ -1266,27 +1258,27 @@ COMMENT STYLES
 /******************************************************************
 COMMENT FORM STYLES
 ******************************************************************/
-/* line 659, ../scss/_base.scss */
+/* line 678, ../scss/_base.scss */
 .respond-form {
   margin: 1.5em 10px;
   padding-bottom: 2.2em;
 }
-/* line 663, ../scss/_base.scss */
+/* line 682, ../scss/_base.scss */
 .respond-form form {
   margin: 0.75em 0;
 }
-/* line 666, ../scss/_base.scss */
+/* line 685, ../scss/_base.scss */
 .respond-form form li {
   list-style-type: none;
   clear: both;
   margin-bottom: 0.7335em;
 }
-/* line 672, ../scss/_base.scss */
+/* line 691, ../scss/_base.scss */
 .respond-form form li label,
 .respond-form form li small {
   display: none;
 }
-/* line 680, ../scss/_base.scss */
+/* line 699, ../scss/_base.scss */
 .respond-form form input[type=text],
 .respond-form form input[type=email],
 .respond-form form input[type=url],
@@ -1297,14 +1289,14 @@ COMMENT FORM STYLES
   line-height: 1.5em;
   /* form validation */
 }
-/* line 686, ../scss/_base.scss */
+/* line 705, ../scss/_base.scss */
 .respond-form form input[type=text]:focus,
 .respond-form form input[type=email]:focus,
 .respond-form form input[type=url]:focus,
 .respond-form form textarea:focus {
   background: #fff;
 }
-/* line 691, ../scss/_base.scss */
+/* line 710, ../scss/_base.scss */
 .respond-form form input[type=text]:invalid,
 .respond-form form input[type=email]:invalid,
 .respond-form form input[type=url]:invalid,
@@ -1317,14 +1309,14 @@ COMMENT FORM STYLES
   -ms-box-shadow: none;
   box-shadow: none;
 }
-/* line 704, ../scss/_base.scss */
+/* line 723, ../scss/_base.scss */
 .respond-form form input[type=text],
 .respond-form form input[type=email],
 .respond-form form input[type=url] {
   max-width: 400px;
   min-width: 250px;
 }
-/* line 709, ../scss/_base.scss */
+/* line 728, ../scss/_base.scss */
 .respond-form form textarea {
   resize: none;
   width: 97.3%;
@@ -1333,7 +1325,7 @@ COMMENT FORM STYLES
 
 /* comment submit button */
 /* comment form title */
-/* line 722, ../scss/_base.scss */
+/* line 741, ../scss/_base.scss */
 #comment-form-title {
   margin: 0 0 1.1em;
 }
@@ -1341,13 +1333,13 @@ COMMENT FORM STYLES
 /* cancel comment reply link */
 /* logged in comments */
 /* allowed tags */
-/* line 735, ../scss/_base.scss */
+/* line 754, ../scss/_base.scss */
 #allowed_tags {
   margin: 1.5em 10px 0.7335em 0;
 }
 
 /* no comments */
-/* line 740, ../scss/_base.scss */
+/* line 759, ../scss/_base.scss */
 .nocomments {
   margin: 0 20px 1.1em;
 }
@@ -1355,7 +1347,7 @@ COMMENT FORM STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 756, ../scss/_base.scss */
+/* line 775, ../scss/_base.scss */
 .widget ul li {
   /* deep nesting */
 }
@@ -1363,12 +1355,12 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 777, ../scss/_base.scss */
+/* line 796, ../scss/_base.scss */
 .footer {
   background: #2c2c2c;
   clear: both;
 }
-/* line 780, ../scss/_base.scss */
+/* line 799, ../scss/_base.scss */
 .footer #inner-footer {
   width: 340px;
   padding: 0 20px;
@@ -1545,8 +1537,13 @@ you can add resource intensive styles.
     margin-right: 20px;
     margin-bottom: 20px;
   }
+  /* line 186, ../scss/_700up.scss */
+  .image-article .h2, .image-article .article-excerpt, .set-article .h2, .set-article .article-excerpt {
+    float: right;
+    width: 380px;
+  }
 
-  /* line 187, ../scss/_700up.scss */
+  /* line 191, ../scss/_700up.scss */
   .set-article .featured-image .set-count {
     width: 60px;
     height: 60px;
@@ -1555,7 +1552,7 @@ you can add resource intensive styles.
     font-size: 16px;
   }
 
-  /* line 195, ../scss/_700up.scss */
+  /* line 199, ../scss/_700up.scss */
   .video-article .featured-image {
     float: left;
     width: 420px;
@@ -1564,16 +1561,16 @@ you can add resource intensive styles.
     margin-bottom: 20px;
   }
 
-  /* line 204, ../scss/_700up.scss */
+  /* line 208, ../scss/_700up.scss */
   .article-footer .tags {
     float: left;
     display: block;
-    width: 430px;
+    width: 450px;
     padding-left: 19px;
     border-left: 2px solid #ededed;
     text-transform: uppercase;
   }
-  /* line 211, ../scss/_700up.scss */
+  /* line 215, ../scss/_700up.scss */
   .article-footer .tags a {
     float: left;
     display: block;
@@ -1581,67 +1578,81 @@ you can add resource intensive styles.
     text-decoration: none;
   }
 
-  /* line 221, ../scss/_700up.scss */
+  /* line 225, ../scss/_700up.scss */
   .page-navigation .article-word,
   .wp-prev-next .article-word {
     display: inline;
   }
 
   /* Single articles */
-  /* line 228, ../scss/_700up.scss */
+  /* line 232, ../scss/_700up.scss */
   .single-post .hentry h1 {
     margin: 20px 0;
   }
-  /* line 231, ../scss/_700up.scss */
+  /* line 235, ../scss/_700up.scss */
   .single-post .hentry .entry-content {
     padding-left: 80px;
   }
 
-  /* line 235, ../scss/_700up.scss */
+  /* line 239, ../scss/_700up.scss */
+  .single-image-article .single-featured-image {
+    width: 620px;
+    height: 413px;
+  }
+
+  /* line 243, ../scss/_700up.scss */
   .single-video-article .single-featured-image {
     width: 620px;
     height: 349px;
   }
 
-  /* line 240, ../scss/_700up.scss */
+  /* line 248, ../scss/_700up.scss */
   .single-post_set .article-header {
     margin-bottom: 20px;
     background-position: right top;
   }
-  /* line 243, ../scss/_700up.scss */
+  /* line 251, ../scss/_700up.scss */
   .single-post_set .article-header h1 {
     font-size: 28px;
   }
-  /* line 246, ../scss/_700up.scss */
+  /* line 254, ../scss/_700up.scss */
   .single-post_set .article-header .byline {
     margin-top: 5px;
+  }
+  /* line 258, ../scss/_700up.scss */
+  .single-post_set .two {
+    margin-right: 20px;
+  }
+  /* line 261, ../scss/_700up.scss */
+  .single-post_set .four {
+    margin-right: 0;
   }
 
   /*********************
   SIDEBARS & ASIDES
   *********************/
-  /* line 257, ../scss/_700up.scss */
+  /* line 271, ../scss/_700up.scss */
   .sidebar {
     margin-top: 2.2em;
   }
 
-  /* line 261, ../scss/_700up.scss */
+  /* line 275, ../scss/_700up.scss */
   .widgettitle {
     border-bottom: 2px solid #444;
     margin-bottom: 0.75em;
   }
 
-  /* line 266, ../scss/_700up.scss */
+  /* line 280, ../scss/_700up.scss */
   .widget {
     padding: 0 10px;
     margin: 2.2em 0;
   }
-  /* line 271, ../scss/_700up.scss */
+  /* line 285, ../scss/_700up.scss */
   .widget ul li {
     margin-bottom: 0.75em;
     /* deep nesting */
   }
-  /* line 279, ../scss/_700up.scss */
+  /* line 293, ../scss/_700up.scss */
   .widget ul li ul {
     margin-top: 0.75em;
     padding-left: 1em;
@@ -1650,13 +1661,13 @@ you can add resource intensive styles.
   /*********************
   FOOTER STYLES
   *********************/
-  /* line 291, ../scss/_700up.scss */
+  /* line 305, ../scss/_700up.scss */
   .footer #inner-footer {
     width: 700px;
     padding: 0 40px;
   }
 
-  /* line 298, ../scss/_700up.scss */
+  /* line 312, ../scss/_700up.scss */
   .footer-links ul li {
     /*
     be careful with the depth of your menus.
