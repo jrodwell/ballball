@@ -195,7 +195,6 @@ function ballball_queue_admin_scripts() {
 add_action('init', 'ballball_register_menu');
 
 function ballball_register_menu() {
-  register_nav_menu('main', __( 'Main Menu', 'ballball'));
   register_nav_menu('live', __( 'Live Match Menu', 'ballball'));
 }
 
@@ -563,11 +562,23 @@ function ballball_add_match_fields($tag) {
     </td>
   </tr>
   <tr class="form-field">
-    <th scope="row" valign="top"><label for="ballball_match_live_end_time"><?php _e("Live Start Time", 'ballball'); ?></label></th>
+    <th scope="row" valign="top"><label for="ballball_match_live_end_time"><?php _e("Live End Time", 'ballball'); ?></label></th>
     <td>
       <input type="text" name="term_meta[live_end_time]" id="ballball_match_live_end_time" style="width: 150px;" value="<?php echo $term_meta['live_end_time'] ? $term_meta['live_end_time'] : ''; ?>"><br />
     </td>
-  </tr>
+  </tr>  
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_live_hideflag"><?php _e("Do Not Show Live", 'ballball'); ?></label></th>
+    <td>
+      <input type="checkbox" name="term_meta[live_hideflag]" id="ballball_match_live_hideflag" style="width: 15px" 
+      <?php
+      $check = $term_meta['live_hideflag'];
+      echo '<input type="checkbox" id="ballball_match_live_hideflag" name="term_meta[live_hideflag]" style="width: 15px" value="on" ';
+      if($check=='on') echo 'checked="checked"';
+      echo ' />';
+      ?>
+    </td>
+  </tr>  
   <script type="text/javascript">
   jQuery(document).ready(function() {
     jQuery('#ballball_match_kickoff_time').datetimepicker({
@@ -584,7 +595,37 @@ function ballball_add_match_fields($tag) {
     });
     jQuery('#ballball_match_date').datepicker({
       dateFormat : 'dd-mm-yy'
-    });    
+    });
+    
+    jQuery('#ballball_match_kickoff_time').change(function(){
+      
+      var stamp = jQuery('#ballball_match_kickoff_time').datetimepicker("getDate").getTime()/1000;
+      var livestamp = stamp-3600;
+      var livedate = new Date(livestamp*1000);
+      var day = ('0'+livedate.getDate()).slice(-2);
+      var month = ('0'+livedate.getMonth()).slice(-2);
+      var year = livedate.getFullYear();
+      var hours = ('0'+livedate.getHours()).slice(-2);
+      var minutes = ('0'+livedate.getMinutes()).slice(-2);
+      
+      if(jQuery('#ballball_match_live_start_time').val()=="") {
+        jQuery('#ballball_match_live_start_time').val(day+'-'+month+'-'+year+' '+hours+':'+minutes);
+      }
+      
+      var liveendstamp = stamp+7200;
+      var liveenddate = new Date(liveendstamp*1000);
+      var day = ('0'+liveenddate.getDate()).slice(-2);
+      var month = ('0'+liveenddate.getMonth()).slice(-2);
+      var year = liveenddate.getFullYear();
+      var hours = ('0'+liveenddate.getHours()).slice(-2);
+      var minutes = ('0'+liveenddate.getMinutes()).slice(-2);
+      
+      if(jQuery('#ballball_match_live_end_time').val()=="") {
+        jQuery('#ballball_match_live_end_time').val(day+'-'+month+'-'+year+' '+hours+':'+minutes);
+      }
+      
+    });
+        
   });
   </script> 
   <?php 
@@ -617,6 +658,67 @@ add_filter('excerpt_more', 'ballball_remove_readmore');
 
 function ballball_remove_readmore($more) {
 	return '';
+}
+
+/* Custom time ago (credit ballball) */
+
+function custom_time_ago($date) {
+ 
+	// Array of time period chunks
+	$chunks = array(
+		array( 60 * 60 * 24 * 365 , __( 'y', 'ballball' ), __( 'y', 'ballball' ) ),
+		array( 60 * 60 * 24 * 30 , __( 'm', 'ballball' ), __( 'm', 'ballball' ) ),
+		array( 60 * 60 * 24 * 7, __( 'w', 'ballball' ), __( 'w', 'ballball' ) ),
+		array( 60 * 60 * 24 , __( 'd', 'ballball' ), __( 'd', 'ballball' ) ),
+		array( 60 * 60 , __( 'h', 'ballball' ), __( 'h', 'ballball' ) ),
+		array( 60 , __( 'M', 'ballball' ), __( 'M', 'ballball' ) ),
+		array( 1, __( 's', 'ballball' ), __( 's', 'ballball' ) )
+	);
+ 
+	if ( !is_numeric( $date ) ) {
+		$time_chunks = explode( ':', str_replace( ' ', ':', $date ) );
+		$date_chunks = explode( '-', str_replace( ' ', '-', $date ) );
+		$date = gmmktime( (int)$time_chunks[1], (int)$time_chunks[2], (int)$time_chunks[3], (int)$date_chunks[1], (int)$date_chunks[2], (int)$date_chunks[0] );
+	}
+ 
+	$current_time = current_time( 'mysql', $gmt = 0 );
+	$newer_date = strtotime( $current_time );
+ 
+	// Difference in seconds
+	$since = $newer_date - $date;
+ 
+	// Something went wrong with date calculation and we ended up with a negative date.
+	if ( 0 > $since )
+		return __( 'sometime', 'ballball' );
+ 
+	/**
+	 * We only want to output one chunks of time here, eg:
+	 * x years
+	 * xx months
+	 * so there's only one bit of calculation below:
+	 */
+ 
+	//Step one: the first chunk
+	for ( $i = 0, $j = count($chunks); $i < $j; $i++) {
+		$seconds = $chunks[$i][0];
+ 
+		// Finding the biggest chunk (if the chunk fits, break)
+		if ( ( $count = floor($since / $seconds) ) != 0 )
+			break;
+	}
+ 
+	// Set output var
+	$output = ( 1 == $count ) ? '1 '. $chunks[$i][1] : $count . ' ' . $chunks[$i][2];
+ 
+ 
+	if ( !(int)trim($output) ){
+		$output = '0 ' . __( 'seconds', 'ballball' );
+	}
+ 
+	$output .= __(' ago', 'ballball');
+ 
+	return $output;
+	
 }
               
 ?>

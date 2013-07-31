@@ -66,7 +66,7 @@
 								  <?php } else if($type == "image-article" || $type == "set-article") { ?>
 								  <?php
                   $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'stream');
-                  echo '<img width="100%" height="100%" class="attachment-stream wp-post-image" src="'.$src[0].'">';
+                  echo '<a href="'.get_permalink().'"><img width="100%" height="100%" class="attachment-stream wp-post-image" src="'.$src[0].'"></a>';
                   $posts_group = get_post_meta($post->ID, 're_', true);
                   $set_count = count($posts_group);
                   if($type == "set-article") {
@@ -88,7 +88,7 @@
 
 								<footer class="article-footer clearfix">
 									
-                  <p class="byline vcard"><?php echo '<time class="updated" datetime="'.get_the_time('Y-m-j').'" pubdate>'.human_time_diff(get_the_time('U'), current_time('timestamp')).__(' ago', 'ballball').'</time>'; ?></p>
+                  <p class="byline vcard"><?php echo '<time class="updated" datetime="'.get_the_time('Y-m-j').'" pubdate>'.custom_time_ago(get_the_time('U')).'</time>'; ?></p>
                   
                   <p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p>
                   
