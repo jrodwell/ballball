@@ -55,9 +55,9 @@ add_image_size( 'bones-thumb-300', 300, 100, true );
 
 /* Custom image sizes here */
 
-add_image_size('small', 140, 92, false);
-add_image_size('stream', 220, 144, false);
-add_image_size('article', 620, 413, false);
+add_image_size('small', 140, 92, true);
+add_image_size('stream', 220, 144, true);
+add_image_size('article', 620, 413, true);
 
 /*
 to add more sizes, simply copy a line from above
@@ -170,10 +170,13 @@ function bones_wpsearch($form) {
 	return $form;
 } // don't remove this bracket!
 
+/* Thumbnail support */
+
+add_theme_support('post-thumbnails', array('post', 'post_set'));
 
 /* Include meta box class (J.R.) */
 
-require_once("library/meta-box-class/my-meta-box-class.php");
+require_once("meta-box-class/my-meta-box-class.php");
 
 /* Enqueue admin scripts (J.R.) */
 
@@ -192,9 +195,58 @@ function ballball_queue_admin_scripts() {
 add_action('init', 'ballball_register_menu');
 
 function ballball_register_menu() {
-  register_nav_menu('main-menu',__( 'Main Menu', 'ballball'));
+  register_nav_menu('live', __( 'Live Match Menu', 'ballball'));
 }
 
+/* Custom excerpt length */
+
+add_filter('excerpt_length', 'custom_excerpt_length', 999);
+
+function custom_excerpt_length($length) {
+	return 30;
+}
+
+/* Custom styles on TinyMCE */
+
+add_filter('mce_buttons_2', 'add_mce_dropdown');
+
+function add_mce_dropdown($buttons) {
+  array_unshift($buttons, 'styleselect');
+  return $buttons;
+}
+
+add_filter('tiny_mce_before_init', 'add_mce_styles');
+
+function add_mce_styles($settings) {
+
+  $style_formats = array(
+    array(
+    	'title' => 'Highlight',
+    	'block' => 'p',
+    	'classes' => 'highlight',
+    ),
+    array(
+    	'title' => 'Quote',
+    	'block' => 'p',
+    	'classes' => 'quote',
+    ),
+    array(
+    	'title' => 'Small',
+    	'block' => 'p',
+    	'classes' => 'small',
+    ),
+  );
+
+  $settings['style_formats'] = json_encode($style_formats);
+  return $settings;
+
+}
+
+add_action('admin_init', 'add_editor_stylesheet');
+
+function add_editor_stylesheet() {
+	add_editor_style();
+}
 
 /* Custom post types (J.R.) */
 
@@ -230,7 +282,7 @@ function ballball_add_post_types() {
     'has_archive' => true, 
     'hierarchical' => false,
     'menu_position' => null,
-    'supports' => array('title', 'editor', 'author', 'thumbnail'),
+    'supports' => array('title', 'editor', 'author', 'excerpt', 'thumbnail'),
     'menu_position' => 5,
     'taxonomies' => array('post_tag', 'category', 'league', 'team', 'match')
   ); 
@@ -288,8 +340,7 @@ function ballball_draw_hideflag($post) {
   $check = get_post_meta($post->ID, 'ballball_hideflag', true);
   echo '<input type="checkbox" id="ballball_hideflag" name="ballball_hideflag" value="on" ';
   if($check=='on') echo 'checked="checked"';
-  echo ' />';  
-  echo '<input type="checkbox" id="my_meta_box_check" name="my_meta_box_check" value="on" '.checked($check, 'on').' />';  
+  echo ' />';    
 }
 
 function ballball_save_hideflag($post_id) {
@@ -303,6 +354,25 @@ function ballball_save_hideflag($post_id) {
   add_post_meta($post_id, 'ballball_hideflag', $mydata, true) or update_post_meta($post_id, 'ballball_hideflag', $mydata);
 }
 
+/* Repeater field for multiple post select on post set */
+
+$config = array(
+  'id' => 'post_set_meta_box',
+  'title' => 'Articles in Set',      
+  'pages' => array('post_set'),
+  'context' => 'normal',
+  'priority' => 'high',
+  'fields' => array(),
+  'local_images' => true,
+  'use_with_theme' => true            
+);
+
+$post_set_meta = new AT_Meta_Box($config);
+
+$repeater_fields[] = $post_set_meta->addPosts($prefix.'posts_field_id', array('post_type' => 'post'), array('name' => ''), true);
+$post_set_meta->addRepeaterBlock($prefix.'re_', array('inline' => true, 'name' => 'Add Articles', 'fields' => $repeater_fields));
+
+$post_set_meta->Finish();
 
 /* Custom taxonomies (J.R.) */ 
 
@@ -386,7 +456,6 @@ function ballball_create_taxonomies() {
 	register_taxonomy('match', array('post', 'post_set'), $args);
   
 }
-
 
 /* Custom taxonomy fields (J.R.) */
  
@@ -493,11 +562,23 @@ function ballball_add_match_fields($tag) {
     </td>
   </tr>
   <tr class="form-field">
-    <th scope="row" valign="top"><label for="ballball_match_live_end_time"><?php _e("Live Start Time", 'ballball'); ?></label></th>
+    <th scope="row" valign="top"><label for="ballball_match_live_end_time"><?php _e("Live End Time", 'ballball'); ?></label></th>
     <td>
       <input type="text" name="term_meta[live_end_time]" id="ballball_match_live_end_time" style="width: 150px;" value="<?php echo $term_meta['live_end_time'] ? $term_meta['live_end_time'] : ''; ?>"><br />
     </td>
-  </tr>
+  </tr>  
+  <tr class="form-field">
+    <th scope="row" valign="top"><label for="ballball_match_live_hideflag"><?php _e("Do Not Show Live", 'ballball'); ?></label></th>
+    <td>
+      <input type="checkbox" name="term_meta[live_hideflag]" id="ballball_match_live_hideflag" style="width: 15px" 
+      <?php
+      $check = $term_meta['live_hideflag'];
+      echo '<input type="checkbox" id="ballball_match_live_hideflag" name="term_meta[live_hideflag]" style="width: 15px" value="on" ';
+      if($check=='on') echo 'checked="checked"';
+      echo ' />';
+      ?>
+    </td>
+  </tr>  
   <script type="text/javascript">
   jQuery(document).ready(function() {
     jQuery('#ballball_match_kickoff_time').datetimepicker({
@@ -514,7 +595,37 @@ function ballball_add_match_fields($tag) {
     });
     jQuery('#ballball_match_date').datepicker({
       dateFormat : 'dd-mm-yy'
-    });    
+    });
+    
+    jQuery('#ballball_match_kickoff_time').change(function(){
+      
+      var stamp = jQuery('#ballball_match_kickoff_time').datetimepicker("getDate").getTime()/1000;
+      var livestamp = stamp-3600;
+      var livedate = new Date(livestamp*1000);
+      var day = ('0'+livedate.getDate()).slice(-2);
+      var month = ('0'+livedate.getMonth()).slice(-2);
+      var year = livedate.getFullYear();
+      var hours = ('0'+livedate.getHours()).slice(-2);
+      var minutes = ('0'+livedate.getMinutes()).slice(-2);
+      
+      if(jQuery('#ballball_match_live_start_time').val()=="") {
+        jQuery('#ballball_match_live_start_time').val(day+'-'+month+'-'+year+' '+hours+':'+minutes);
+      }
+      
+      var liveendstamp = stamp+7200;
+      var liveenddate = new Date(liveendstamp*1000);
+      var day = ('0'+liveenddate.getDate()).slice(-2);
+      var month = ('0'+liveenddate.getMonth()).slice(-2);
+      var year = liveenddate.getFullYear();
+      var hours = ('0'+liveenddate.getHours()).slice(-2);
+      var minutes = ('0'+liveenddate.getMinutes()).slice(-2);
+      
+      if(jQuery('#ballball_match_live_end_time').val()=="") {
+        jQuery('#ballball_match_live_end_time').val(day+'-'+month+'-'+year+' '+hours+':'+minutes);
+      }
+      
+    });
+        
   });
   </script> 
   <?php 
@@ -534,14 +645,81 @@ function ballball_save_taxonomy_fields($term_id) {
   }
 }
 
-
 /* Custom excerpt 'read more' text */
 
 add_filter('the_excerpt', 'excerpt_read_more_link');
 
 function excerpt_read_more_link($output) {
  global $post;
- return $output . '<a href="'. get_permalink($post->ID) . '"> Continue Reading...</a>';
+ return $output . '<a class="readmore" href="'. get_permalink($post->ID) . '"> Continue Reading</a>';
 }
 
+add_filter('excerpt_more', 'ballball_remove_readmore');    
+
+function ballball_remove_readmore($more) {
+	return '';
+}
+
+/* Custom time ago (credit ballball) */
+
+function custom_time_ago($date) {
+ 
+	// Array of time period chunks
+	$chunks = array(
+		array( 60 * 60 * 24 * 365 , __( 'y', 'ballball' ), __( 'y', 'ballball' ) ),
+		array( 60 * 60 * 24 * 30 , __( 'm', 'ballball' ), __( 'm', 'ballball' ) ),
+		array( 60 * 60 * 24 * 7, __( 'w', 'ballball' ), __( 'w', 'ballball' ) ),
+		array( 60 * 60 * 24 , __( 'd', 'ballball' ), __( 'd', 'ballball' ) ),
+		array( 60 * 60 , __( 'h', 'ballball' ), __( 'h', 'ballball' ) ),
+		array( 60 , __( 'M', 'ballball' ), __( 'M', 'ballball' ) ),
+		array( 1, __( 's', 'ballball' ), __( 's', 'ballball' ) )
+	);
+ 
+	if ( !is_numeric( $date ) ) {
+		$time_chunks = explode( ':', str_replace( ' ', ':', $date ) );
+		$date_chunks = explode( '-', str_replace( ' ', '-', $date ) );
+		$date = gmmktime( (int)$time_chunks[1], (int)$time_chunks[2], (int)$time_chunks[3], (int)$date_chunks[1], (int)$date_chunks[2], (int)$date_chunks[0] );
+	}
+ 
+	$current_time = current_time( 'mysql', $gmt = 0 );
+	$newer_date = strtotime( $current_time );
+ 
+	// Difference in seconds
+	$since = $newer_date - $date;
+ 
+	// Something went wrong with date calculation and we ended up with a negative date.
+	if ( 0 > $since )
+		return __( 'sometime', 'ballball' );
+ 
+	/**
+	 * We only want to output one chunks of time here, eg:
+	 * x years
+	 * xx months
+	 * so there's only one bit of calculation below:
+	 */
+ 
+	//Step one: the first chunk
+	for ( $i = 0, $j = count($chunks); $i < $j; $i++) {
+		$seconds = $chunks[$i][0];
+ 
+		// Finding the biggest chunk (if the chunk fits, break)
+		if ( ( $count = floor($since / $seconds) ) != 0 )
+			break;
+	}
+ 
+	// Set output var
+	$output = ( 1 == $count ) ? '1 '. $chunks[$i][1] : $count . ' ' . $chunks[$i][2];
+ 
+ 
+	if ( !(int)trim($output) ){
+		$output = '0 ' . __( 'seconds', 'ballball' );
+	}
+ 
+	$output .= __(' ago', 'ballball');
+ 
+	return $output;
+	
+}
+              
 ?>
+

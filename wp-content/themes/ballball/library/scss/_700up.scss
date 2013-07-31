@@ -38,6 +38,7 @@ HEADER STYLES
 		width: $tabWidth;
 		padding: 0 $tabPadding;
 		height: 145px;
+		background: url(../images/tabBG.png) repeat-y 50% 0;
 	}
 }
 .hero {
@@ -155,7 +156,7 @@ MAIN STYLES
 *********************/
 
 h1, .h1 {
-	font-size: 48px;
+	font-size: 28px;
 }
 h2, .h2 {
 	font-size: 28px;
@@ -176,12 +177,12 @@ h2, .h2 {
 .hentry {
 	margin-bottom: 40px;
 }
-.image-article, .set-article {
+.image-article {
+	.h2, .article-excerpt {
+		width: 380px;
+	}
 	.featured-image {
 		width: 220px;
-		height: 144px;
-		margin-right: 20px;
-		margin-bottom: 20px;
 	}
 }
 .set-article .featured-image .set-count {
@@ -192,26 +193,39 @@ h2, .h2 {
 		font-size: 16px;
 }
 .video-article {
+	.h2, .article-excerpt {
+		float: right;
+		width: 180px;
+		margin-left: 20px;
+	}
 	.featured-image {
 		float: left;
 		width: 420px;
 		height: 235px;
+<<<<<<< HEAD
 		margin-right: 20px;
 		margin-bottom: 20px;
 	}
 }
 
 .article-footer .tags {
+=======
+	}
+}
+
+.tags {
+>>>>>>> f01e11aaa7f9b97c072c680c88909ecf503b3b62
 	float: left;
 	display: block;
 	width: 430px;
 	padding-left: 19px;
-	border-left: 2px solid $lightGrey;
+	border-left: 2px solid $bodyText;
 	text-transform: uppercase;
 	a {
 		float: left;
 		display: block;
 		margin-right: 1rem;
+		font-weight: bold;
 		text-decoration: none;
 	}
 }

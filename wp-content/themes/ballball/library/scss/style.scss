@@ -32,15 +32,31 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 @import "base";
 
 /*
+LARGER MOBILE DEVICES
+This is for devices like the Galaxy Note or something that's
+larger than an iPhone but smaller than a tablet. Let's call them
+tweeners.
+*/
+@media only screen and (min-width: 481px) {
+
+	// styles in 481up.scss
+	@import "481up";
+
+} // end of media query
+
+/*
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 */
-@media only screen and (min-width: $tabBreak) {
+@media only screen and (min-width: 768px) {
 
-	// styles in 700up.scss
-	@import "700up";
+	// import grids
+	@import "grid";
+
+	// styles in 768up.scss
+	@import "768up";
 
 } // end of media query
 
@@ -50,16 +66,23 @@ This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 */
-@media only screen and (min-width: $deskBreak) {
+@media only screen and (min-width: 1030px) {
 
-	// import grids
-	//@import "grid";
-
-	// styles in 940up.scss
-	@import "940up";
+	// styles in 1030up.scss
+	@import "1030up";
 
 } // end of media query
 
+/*
+LARGE VIEWING SIZE
+This is for the larger monitors and possibly full screen viewers.
+*/
+@media only screen and (min-width: 1240px) {
+
+	// styles in 1240up.scss
+	@import "1240up";
+
+} // end of media query
 
 /*
 RETINA (2x RESOLUTION DEVICES)
