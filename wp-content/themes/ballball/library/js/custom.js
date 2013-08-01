@@ -18,8 +18,14 @@ var fixes = function () {
 		$j(this).remove();
 	});
 },
+function viewDataObjects (widget, data, id) {
+	console.log("Widget", widget);
+	console.log("Data", data);
+	console.log("ID", id);
+	console.log("HTML", widget.html());
+},
 _optaParams = {
 	custID: '0901705c87db7592177aacda260075cb',
 	lang: 'en_GB',
-	callbacks: [fixes]
+	callbacks: [fixes, viewDataObjects]
 };

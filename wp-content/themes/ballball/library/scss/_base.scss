@@ -289,7 +289,7 @@ LIVE MATCHES STYLES
 		margin: 0;
 	}
 	.match {
-		height: 62px;
+		height: 60px;
 		padding: 0;
 		border-bottom: 2px solid $bbBlack;
 		font-weight: bold;
@@ -297,7 +297,7 @@ LIVE MATCHES STYLES
 		span {
 			float: left;
 			display: block;
-			height: 60px;
+			height: 58px;
 			padding: 20px 0;
 		}
 		.match-time {
@@ -362,6 +362,16 @@ LIVE MATCHES STYLES
 				display: block;
 			}
 		}
+	}
+	.notLive .match-score {
+		background: url(../images/liveV.png) no-repeat 50% 50%;
+		span {
+			display: none;
+		}
+	}
+	.halfTime .match-time {
+		background: url(../images/halfTime.png) no-repeat 50% 50%;
+		color: $white;
 	}
 }
 
