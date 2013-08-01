@@ -27,6 +27,9 @@ a {
 ul {
 	list-style: none;
 }
+abbr {
+	border-bottom: 0!important;
+}
 
 /********************
 WORDPRESS BODY CLASSES
@@ -267,6 +270,100 @@ and more scalable.
 	}  /* end current highlighters */
 
 } /* end .nav */
+
+
+/*********************
+LIVE MATCHES STYLES
+*********************/
+
+#widgetOutput {
+	.opta-widget-container {
+		width: 500px;
+	}
+	.fixtures {
+		border-radius: 0;
+		background: $bbGrey;
+		border-color: $bbBlack;
+	}
+	.matches {
+		margin: 0;
+	}
+	.match {
+		height: 62px;
+		padding: 0;
+		border-bottom: 2px solid $bbBlack;
+		font-weight: bold;
+		color: $anotherGrey;
+		span {
+			float: left;
+			display: block;
+			height: 60px;
+			padding: 20px 0;
+		}
+		.match-time {
+			width: 50px;
+			text-align: center;
+			background: $lightGrey;
+			color: $bbBlack;
+		}
+		.home-side {
+			width: 190px;
+			text-align: right;
+		}
+		.away-side {
+			width: 190px;
+			text-align: left;
+		}
+		.match-score {
+			width: 70px;
+			padding: 0;
+			text-align: center;
+			background: url(../images/liveV.png) no-repeat 50% 50%;
+			font-size: 36px;
+			font-family: $header;
+			span {
+				width: 30px;
+				display: none;
+				padding: 5px 0;
+				text-align: left;
+			}
+			.match-score-home {
+				text-align: right;
+			}
+			.match-score-divider {
+				width: 10px;
+				text-align: center;
+			}
+		}
+	}
+	.livematch {
+		color: $white;
+		.match-time {
+			background: $moreGrey;
+			color: $white;
+		}
+		.match-score {
+			background: none;
+			color: $brightGreen;
+			span {
+				display: block;
+			}
+		}
+	}
+	.postmatch {
+		.match-time {
+			background: $bbGreen;
+			color: $white;
+		}
+		.match-score {
+			background: none;
+			color: $white;
+			span {
+				display: block;
+			}
+		}
+	}
+}
 
 
 /*********************

@@ -60,27 +60,31 @@ $black:             #000;
 $grey:				#999;
 $white:             #fff;
 
-$headerBG: #aadd03;
-$bbGreen: #52bf00;
-$bbGrey: #2c2c2c;
-$headline: #1f1f1f;
-$bodyText: #444;
-$lightGrey: #ededed;
+$headerBG:			#aadd03;
+$bbGreen:			#52bf00;
+$brightGreen:		#7bff19;
+$bbGrey:			#2c2c2c;
+$bbBlack:			#1c1c1c;
+$headline:			#1f1f1f;
+$bodyText:			#444;
+$lightGrey:			#ededed;
+$anotherGrey:		#aaa;
+$moreGrey:			#666;
 
 $link-color:        $bbGreen;
 $link-hover:        darken($link-color, 9%);
 
 
-$mobWidth: 340px;
-$mobPadding: 20px;
-$mobVHeight: 20px;
-$tabBreak: 700px;
-$tabWidth: 700px;
-$tabPadding: 40px;
-$tabVHeight: 36px;
-$deskBreak: 940px;
-$deskWidth: 1080px;
-$deskPadding: 70px;
+$mobWidth:			340px;
+$mobPadding:		20px;
+$mobVHeight:		20px;
+$tabBreak:			700px;
+$tabWidth:			700px;
+$tabPadding:		40px;
+$tabVHeight:		36px;
+$deskBreak:			940px;
+$deskWidth:			1080px;
+$deskPadding:		70px;
 
 /*********************
 TYPOGRAPHY
