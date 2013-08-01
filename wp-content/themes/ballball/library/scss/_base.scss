@@ -448,6 +448,7 @@ POSTS & CONTENT STYLES
 	}
 	.tags {
 		display: none;
+		border-left: 2px solid $lightGrey;
 	}
 	.share {
 		width: 60px;
@@ -524,6 +525,13 @@ POSTS & CONTENT STYLES
 	}
 	.article-footer  p {
 		margin-bottom: 10px;
+		float: left;
+		width: 100px;
+	}
+	.article-footer  p.tags {
+		width: 200px;
+		display: block;
+		padding-left: 15px;
 	}
 }
 .single-image-article .single-featured-image {

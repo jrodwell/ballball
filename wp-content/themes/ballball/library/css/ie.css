@@ -417,17 +417,21 @@ h2, .h2 {
   margin-right: 20px;
   margin-bottom: 20px;
 }
+/* line 206, ../scss/_700up.scss */
+.video-article .h2, .video-article .article-excerpt {
+  float: right;
+  width: 180px;
+}
 
-/* line 208, ../scss/_700up.scss */
+/* line 212, ../scss/_700up.scss */
 .article-footer .tags {
   float: left;
   display: block;
   width: 450px;
   padding-left: 19px;
-  border-left: 2px solid #ededed;
   text-transform: uppercase;
 }
-/* line 215, ../scss/_700up.scss */
+/* line 218, ../scss/_700up.scss */
 .article-footer .tags a {
   float: left;
   display: block;
@@ -435,67 +439,71 @@ h2, .h2 {
   text-decoration: none;
 }
 
-/* line 225, ../scss/_700up.scss */
+/* line 228, ../scss/_700up.scss */
 .page-navigation .article-word,
 .wp-prev-next .article-word {
   display: inline;
 }
 
 /* Single articles */
-/* line 231, ../scss/_700up.scss */
+/* line 234, ../scss/_700up.scss */
 .single #main {
   margin-top: 20px;
 }
 
-/* line 235, ../scss/_700up.scss */
+/* line 238, ../scss/_700up.scss */
 .single-post .hentry h1 {
   margin: 20px 0;
 }
-/* line 238, ../scss/_700up.scss */
+/* line 241, ../scss/_700up.scss */
 .single-post .hentry .byline {
   margin-bottom: 20px;
 }
-/* line 241, ../scss/_700up.scss */
+/* line 244, ../scss/_700up.scss */
 .single-post .hentry .entry-content {
   padding-left: 80px;
 }
-/* line 244, ../scss/_700up.scss */
+/* line 247, ../scss/_700up.scss */
 .single-post .hentry .quote {
   background: url(../images/quote.png) no-repeat 25px top;
   padding-left: 70px;
   font-size: 28px;
 }
+/* line 252, ../scss/_700up.scss */
+.single-post .hentry .article-footer p.tags {
+  width: 520px;
+}
 
-/* line 250, ../scss/_700up.scss */
+/* line 256, ../scss/_700up.scss */
 .single-image-article .single-featured-image {
   width: 620px;
   height: 413px;
 }
 
-/* line 254, ../scss/_700up.scss */
+/* line 260, ../scss/_700up.scss */
 .single-video-article .single-featured-image {
   width: 620px;
   height: 349px;
 }
 
-/* line 259, ../scss/_700up.scss */
+/* line 265, ../scss/_700up.scss */
 .single-post_set .hentry .article-header {
   margin-bottom: 20px;
   background-position: right top;
 }
-/* line 262, ../scss/_700up.scss */
+/* line 268, ../scss/_700up.scss */
 .single-post_set .hentry .article-header h1 {
   font-size: 28px;
 }
-/* line 265, ../scss/_700up.scss */
+/* line 271, ../scss/_700up.scss */
 .single-post_set .hentry .article-header .byline {
   margin-top: 5px;
 }
-/* line 269, ../scss/_700up.scss */
+/* line 275, ../scss/_700up.scss */
 .single-post_set .hentry .two {
   margin-right: 20px;
 }
-/* line 272, ../scss/_700up.scss */
+/* line 278, ../scss/_700up.scss */
 .single-post_set .hentry .four {
   margin-right: 0;
 }
@@ -503,28 +511,28 @@ h2, .h2 {
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 282, ../scss/_700up.scss */
+/* line 288, ../scss/_700up.scss */
 .sidebar {
   margin-top: 2.2em;
 }
 
-/* line 286, ../scss/_700up.scss */
+/* line 292, ../scss/_700up.scss */
 .widgettitle {
   border-bottom: 2px solid #444;
   margin-bottom: 0.75em;
 }
 
-/* line 291, ../scss/_700up.scss */
+/* line 297, ../scss/_700up.scss */
 .widget {
   padding: 0 10px;
   margin: 2.2em 0;
 }
-/* line 296, ../scss/_700up.scss */
+/* line 302, ../scss/_700up.scss */
 .widget ul li {
   margin-bottom: 0.75em;
   /* deep nesting */
 }
-/* line 304, ../scss/_700up.scss */
+/* line 310, ../scss/_700up.scss */
 .widget ul li ul {
   margin-top: 0.75em;
   padding-left: 1em;
@@ -533,13 +541,13 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 316, ../scss/_700up.scss */
+/* line 322, ../scss/_700up.scss */
 .footer #inner-footer {
   width: 700px;
   padding: 0 40px;
 }
 
-/* line 323, ../scss/_700up.scss */
+/* line 329, ../scss/_700up.scss */
 .footer-links ul li {
   /*
   be careful with the depth of your menus.

@@ -203,6 +203,10 @@ h2, .h2 {
 		margin-right: 20px;
 		margin-bottom: 20px;
 	}
+	.h2, .article-excerpt {
+		float: right;
+		width: 180px;
+	}
 }
 
 .article-footer .tags {
@@ -210,7 +214,6 @@ h2, .h2 {
 	display: block;
 	width: 450px;
 	padding-left: 19px;
-	border-left: 2px solid $lightGrey;
 	text-transform: uppercase;
 	a {
 		float: left;
@@ -245,6 +248,9 @@ h2, .h2 {
 		background: url(../images/quote.png) no-repeat 25px top;
 		padding-left: 70px;
 		font-size: 28px;
+	}
+	.article-footer  p.tags {
+		width: 520px;
 	}
 }
 .single-image-article .single-featured-image {
