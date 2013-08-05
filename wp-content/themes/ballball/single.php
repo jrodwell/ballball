@@ -39,7 +39,10 @@
                     }
                   ); });</script><noscript><div>Please enable Javascript to watch this video</div></noscript>
 								  <?php } else if($type == "single-image-article") { ?>
-								  <?php the_post_thumbnail('article'); ?>
+								  <?php
+								  $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'article');
+                  echo '<a href="'.get_permalink().'"><img width="100%" height="100%" class="attachment-article wp-post-image" src="'.$src[0].'"></a>';
+								  ?>
 								  <?php } ?>
 								  </div>
 
@@ -59,10 +62,8 @@
 
 								<footer class="article-footer">
 
-                  <p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p>
+                  <?php if(get_the_terms(get_the_ID(), 'league')) { ?><p>Posted Under</p><p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p><?php } ?>
                   
-                  <p class="share">[SHARE]</p>   
-
 								</footer> <!-- end article footer -->
 
 							</article> <!-- end article -->

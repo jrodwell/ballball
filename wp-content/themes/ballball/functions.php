@@ -178,7 +178,7 @@ add_theme_support('post-thumbnails', array('post', 'post_set'));
 
 require_once("meta-box-class/my-meta-box-class.php");
 
-/* Enqueue admin scripts (J.R.) */
+/* Enqueue scripts (J.R.) */
 
 add_action('admin_enqueue_scripts', 'ballball_queue_admin_scripts');
 
@@ -190,6 +190,12 @@ function ballball_queue_admin_scripts() {
   wp_enqueue_style('jquery-style', get_stylesheet_directory_uri().'/library/js/libs/jquery-timepicker/jquery-ui-timepicker-addon.css');
 }
 
+add_action('wp_enqueue_scripts', 'ballball_queue_scripts');
+
+function ballball_queue_scripts() {
+  wp_enqueue_script('custom-js', get_stylesheet_directory_uri() .'/library/js/custom.js');
+} 
+
 /* Register menu (J.R.) */
 
 add_action('init', 'ballball_register_menu');
@@ -200,11 +206,11 @@ function ballball_register_menu() {
 
 /* Custom excerpt length */
 
-add_filter('excerpt_length', 'custom_excerpt_length', 999);
-
 function custom_excerpt_length($length) {
-	return 30;
+	return 20;
 }
+
+add_filter('excerpt_length', 'custom_excerpt_length', 999);
 
 /* Custom styles on TinyMCE */
 
@@ -532,12 +538,6 @@ function ballball_add_match_fields($tag) {
     </td>
   </tr>
   <tr class="form-field">
-    <th scope="row" valign="top"><label for="ballball_match_date"><?php _e("Date", 'ballball'); ?></label></th>
-    <td>
-      <input type="text" name="term_meta[date]" id="ballball_match_date" style="width: 150px;" value="<?php echo $term_meta['date'] ? $term_meta['date'] : ''; ?>"><br />
-    </td>
-  </tr>
-  <tr class="form-field">
     <th scope="row" valign="top"><label for="ballball_match_venue"><?php _e("Venue", 'ballball'); ?></label></th>
     <td>
       <input type="text" name="term_meta[venue]" id="ballball_match_venue" style="width: 150px;" value="<?php echo $term_meta['venue'] ? $term_meta['venue'] : ''; ?>"><br />
@@ -600,10 +600,12 @@ function ballball_add_match_fields($tag) {
     jQuery('#ballball_match_kickoff_time').change(function(){
       
       var stamp = jQuery('#ballball_match_kickoff_time').datetimepicker("getDate").getTime()/1000;
+      
       var livestamp = stamp-3600;
       var livedate = new Date(livestamp*1000);
       var day = ('0'+livedate.getDate()).slice(-2);
-      var month = ('0'+livedate.getMonth()).slice(-2);
+      var month = livedate.getMonth()+1;
+      month = ('0'+month).slice(-2);
       var year = livedate.getFullYear();
       var hours = ('0'+livedate.getHours()).slice(-2);
       var minutes = ('0'+livedate.getMinutes()).slice(-2);
@@ -615,7 +617,8 @@ function ballball_add_match_fields($tag) {
       var liveendstamp = stamp+7200;
       var liveenddate = new Date(liveendstamp*1000);
       var day = ('0'+liveenddate.getDate()).slice(-2);
-      var month = ('0'+liveenddate.getMonth()).slice(-2);
+      var month = liveenddate.getMonth()+1;
+      month = ('0'+month).slice(-2);
       var year = liveenddate.getFullYear();
       var hours = ('0'+liveenddate.getHours()).slice(-2);
       var minutes = ('0'+liveenddate.getMinutes()).slice(-2);
@@ -651,7 +654,7 @@ add_filter('the_excerpt', 'excerpt_read_more_link');
 
 function excerpt_read_more_link($output) {
  global $post;
- return $output . '<a class="readmore" href="'. get_permalink($post->ID) . '"> Continue Reading</a>';
+ return $output . '<a class="readmore" href="'. get_permalink($post->ID) . '"> '.__('View More', 'ballball').'</a>';
 }
 
 add_filter('excerpt_more', 'ballball_remove_readmore');    
@@ -708,7 +711,7 @@ function custom_time_ago($date) {
 	}
  
 	// Set output var
-	$output = ( 1 == $count ) ? '1 '. $chunks[$i][1] : $count . ' ' . $chunks[$i][2];
+	$output = ( 1 == $count ) ? '1'. $chunks[$i][1] : $count . $chunks[$i][2];
  
  
 	if ( !(int)trim($output) ){

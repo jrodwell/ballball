@@ -8,9 +8,21 @@
 
             <script src='http://player.ooyala.com/v3/524943b893fa4620be889e04ccce7b92'></script>
 
+            <?php
+            
+            $counter = 0;
+            
+            ?>
+
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class(array('clearfix')); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+              <?php
+              
+              
+              
+              ?>
+
+							<article id="post-<?php the_ID(); ?>" <?php post_class(array('clearfix', $two, $four)); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 								<header class="article-header">
 
@@ -30,11 +42,24 @@
                   
                   // Display grid elements
                   
-                  $posts_group = get_post_meta($post->ID, 're_', true);
+                  $posts_group = get_post_meta($post->ID, 're_', true);     
                   foreach($posts_group as $arr) {
-                    echo '<div class="grid-item">';
-                    $src = wp_get_attachment_image_src(get_post_thumbnail_id($arr['posts_field_id']), 'small');
+                    $counter++; 
+                    if($counter%4==0) echo '<div class="grid-item two four">'; 
+                    else if($counter%2==0) echo '<div class="grid-item two">'; 
+                    else echo '<div class="grid-item">';
+                    if(has_post_thumbnail($arr['posts_field_id'])) {
+                      $src = wp_get_attachment_image_src(get_post_thumbnail_id($arr['posts_field_id']), 'small');
+                    } else {
+                      $src[0] = get_stylesheet_directory_uri().'/library/images/ballball-fallback.jpg';
+                    }
                     echo '<a href="'.get_permalink($arr['posts_field_id']).'"><img class="attachment-stream wp-post-image" src="'.$src[0].'"></a>';
+                    echo '<p><a href="'.get_permalink($arr['posts_field_id']).'">'.get_the_title($arr['posts_field_id']).'</a></p>';
+                    $posts_group = get_post_meta($arr['posts_field_id'], 're_', true);
+                    $set_count = count($posts_group);
+                    if($type == "set-article") {
+                      echo '<span class="set-count">'.$set_count.'</span>';
+                    }
                     echo '</div>';
                   }
                   
@@ -48,10 +73,8 @@
 
 								<footer class="article-footer">
 
-                  <p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p>
+                  <?php if(get_the_terms(get_the_ID(), 'league')) { ?><p>Posted Under</p><p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p><?php } ?>
                   
-                  <p class="share">[SHARE]</p>   
-
 								</footer> <!-- end article footer -->
 
 							</article> <!-- end article -->
