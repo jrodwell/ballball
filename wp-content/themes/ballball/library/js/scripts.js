@@ -33,13 +33,18 @@ jQuery(document).ready(function($) {
 var $j = jQuery;
 
 var allPanels = $j('#widgetOutput > .live-league').hide();
+$j('#live-league-0').addClass('active').show();
+$j('#menu-league-0').addClass('active');
 
-$j('#widgetOutput > .league-menu-item').click(function() {
-	var target =  $j(this).parent().next();
+$j('#live-league-menu > .league-menu-item').click(function() {
+	var current = $j(this).attr('id');
+	var targetString =  current.replace('menu-league-','live-league-');
+	var target = $j('#' + targetString);
 	
 	if(!target.hasClass('active')){
         allPanels.removeClass('active').slideUp();
         target.addClass('active').slideDown();
+        current.addClass('active');
     }
 });
 
