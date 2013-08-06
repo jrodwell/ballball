@@ -42,10 +42,9 @@ HEADER STYLES
 }
 #hero {
 	#inner-hero {
-		background: $bbGrey;
 		width: $tabWidth;
-		padding: 10px $tabPadding;
-		color: $white;
+		padding: 10px $tabPadding 55px;
+		background: $bbBlack;
 	}
 }
 
@@ -149,6 +148,46 @@ NAVIGATION STYLES
 	margin-bottom: $tabVHeight;
 }
 
+/*********************
+LIVE MATCHES STYLES
+*********************/
+
+#widgetOutput {
+	font-size: 16px;
+	h3 {
+		padding: 12px 0;
+		font-size: 16px;
+		span {
+			padding-left: 8px;
+		}
+	}
+	.opta-widget-container {
+		width: 620px;
+	}
+	.match {
+		height: 60px;
+		span {
+			height: 58px;
+			padding: 20px 0;
+		}
+		.match-time {
+			width: 50px;
+			span {
+				padding: 5px 0;
+			}
+		}
+		.home-side,	.away-side {
+			width: 155px;
+		}
+		.match-score {
+			font-size: 36px;
+			width: 75px;
+			span {
+				padding: 5px 0;
+			}
+		}
+	}
+}
 
 /*********************
 MAIN STYLES

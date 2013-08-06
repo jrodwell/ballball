@@ -30,6 +30,19 @@ if (!window.getComputedStyle) {
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
+var $j = jQuery;
+
+var allPanels = $j('#widgetOutput > .live-league').hide();
+
+$j('#widgetOutput > .league-menu-item').click(function() {
+	var target =  $j(this).parent().next();
+	
+	if(!target.hasClass('active')){
+        allPanels.removeClass('active').slideUp();
+        target.addClass('active').slideDown();
+    }
+});
+
     /*
     Responsive jQuery is a tricky thing.
     There's a bunch of different ways to handle

@@ -3,10 +3,6 @@ Site Name:
 Author: 
 
 Stylesheet: Desktop Stylsheet
-
-This is the desktop size. It's larger than an iPad so it will only
-be seen on the Desktop. 
-
 ******************************************************************/
 .header {
 	height: 247px;
@@ -29,9 +25,23 @@ be seen on the Desktop.
 		left: 50%;
 		margin-left: -($deskWidth/2);
 		width: $deskWidth;
-		padding: 10px $deskPadding;
+		padding: 10px 0;
 	}
 }
+.league-menu-item {
+	float: left;
+	width: 350px;
+}
+.live-league {
+	float: right;
+	width: 690px;
+}
+#widgetOutput {
+	.opta-widget-container {
+		width: 690px;
+	}
+}
+
 #content {
 	background: url(../images/pattern_geometric-light.png) repeat;
 	#inner-content {
