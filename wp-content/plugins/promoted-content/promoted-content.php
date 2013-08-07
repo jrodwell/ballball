@@ -22,8 +22,9 @@ function promoted_content_load_function() {
 		wp_die( __('You do not have sufficient permissions to access this page.') );
 	}
   
-  // Use POST variable to set options...
-
+  if($_POST['submit']) {
+    update_option('promoted_postids', $_POST['post_ids']);
+  }
 }
 
 function promoted_content() {
@@ -35,9 +36,13 @@ function promoted_content() {
   ?>
     
   <script type="text/javascript">
-  $(document).ready(function() {
-    $("#add").click(function() {
-      $('#promoted_content_form select:last').clone(true).insertAfter('#promoted_content_form select:last');
+  jQuery(document).ready(function() {
+    jQuery("#add").click(function() {
+      jQuery('.post_select:last').clone(true).insertAfter('.post_select:last');
+      return false;
+    });
+    jQuery(".remove").click(function() {
+      jQuery(this).parent().remove();
       return false;
     });
   });
@@ -47,19 +52,63 @@ function promoted_content() {
   
   <form action="" method="post" name="promoted_content_form" id="promoted_content_form">
   
-  <p><a id="add"><img src="" alt="Add Field" /></a></p>
-  
-  <select name="post_ids[]">
+  <p><a href="#" id="add"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/add.png" alt="Add Field" /></a></p>
   
   <?php
   
-  // New repeater fields format here... or multiple selects?
+  $post_ids = get_option('promoted_postids', false);
+  foreach($post_ids as $post_id) {
   
   ?>
   
-  </select>
+  <p class="post_select"><select name="post_ids[]">
+  
+  <option value="">Please choose content to promote...</option>
+  
+  <?php
+  
+  $args = array(
+    'post_type' => array('post', 'post_set'),
+    'posts_per_page' => -1
+  );
+  $custom_query = new WP_Query($args); 
+   
+  ?>
+  
+  <?php if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+
+  <option value="<?php echo get_the_ID(); ?>"<?php if(get_the_ID()==$post_id) echo ' selected="selected"'; ?>><?php echo get_the_title(); ?></option>
+
+  <?php endwhile; endif; ?>
+  
+  </select><a href="#" class="remove"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/remove.png" alt="Remove Field" style="margin-bottom: -9px;" /></a></p>
+  
+  <?php } ?>
+  
+  <p class="post_select"><select name="post_ids[]">
+  
+  <option value="">Please choose content to promote...</option>
+  
+  <?php
+  
+  $args = array(
+    'post_type' => array('post', 'post_set'),
+    'posts_per_page' => -1
+  );
+  $custom_query = new WP_Query($args); 
+   
+  ?>
+  
+  <?php if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+
+  <option value="<?php echo get_the_ID(); ?>"><?php echo get_the_title(); ?></option>
+
+  <?php endwhile; endif; ?>
+  
+  </select><a href="#" class="remove"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/remove.png" alt="Remove Field" style="margin-bottom: -9px;" /></a></p>
   
   <p><input type="submit" name="submit" id="submit" value="Submit" /></p>
+  
   </form>
 
   <?php

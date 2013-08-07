@@ -1,31 +1,29 @@
 var $j = jQuery;
+
 var fixes = function () {
 	$j('.livematch').each(function() {
-		if($j('.livematch > .match-time > abbr').text() == 'HT') {
+		if($j('.match-time abbr').text() == 'HT') {
 			$j(this).addClass('halfTime');
 		}
-		else if($j('.livematch > .match-score > match-score-divider').text() == 'v.') {
+		else if($j('.match-score-divider').text() == 'v.') {
 			$j(this).addClass('notLive');
 		}
 		else {
 			$j(this).addClass('live');
 		}
 	});
-	$j('h2').each(function() {
+	/* Hide Fixtures */
+	$j('.opta-widget-container h2').each(function() {
 		$j(this).remove();
 	});
-	$j('h4').each(function() {
+	/* Hide date */
+	$j('.opta-widget-container h4').each(function() {
 		$j(this).remove();
 	});
-},
-function viewDataObjects (widget, data, id) {
-	console.log("Widget", widget);
-	console.log("Data", data);
-	console.log("ID", id);
-	console.log("HTML", widget.html());
 },
 _optaParams = {
 	custID: '0901705c87db7592177aacda260075cb',
 	lang: 'en_GB',
-	callbacks: [fixes, viewDataObjects]
+	timezone: 0,
+	callbacks: [fixes]
 };

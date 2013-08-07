@@ -57,6 +57,7 @@ add_image_size( 'bones-thumb-300', 300, 100, true );
 
 add_image_size('small', 140, 92, true);
 add_image_size('stream', 220, 144, true);
+add_image_size('promoted', 460, 302, true);
 add_image_size('article', 620, 413, true);
 
 /*
@@ -189,12 +190,6 @@ function ballball_queue_admin_scripts() {
   wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
   wp_enqueue_style('jquery-style', get_stylesheet_directory_uri().'/library/js/libs/jquery-timepicker/jquery-ui-timepicker-addon.css');
 }
-
-add_action('wp_enqueue_scripts', 'ballball_queue_scripts');
-
-function ballball_queue_scripts() {
-  wp_enqueue_script('custom-js', get_stylesheet_directory_uri() .'/library/js/custom.js');
-} 
 
 /* Register menu (J.R.) */
 
@@ -406,7 +401,8 @@ function ballball_create_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array('slug' => 'league')
+		'rewrite'           => array('slug' => 'league'),
+		'show_in_nav_menus' => true
 	);
 	
 	register_taxonomy('league', array('post', 'post_set'), $args);
@@ -431,7 +427,8 @@ function ballball_create_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array('slug' => 'team')
+		'rewrite'           => array('slug' => 'team'),
+		'show_in_nav_menus' => true
 	);
 	
 	register_taxonomy('team', array('post', 'post_set'), $args);
@@ -456,7 +453,8 @@ function ballball_create_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array('slug' => 'match')
+		'rewrite'           => array('slug' => 'match'),
+		'show_in_nav_menus' => true
 	);
 	
 	register_taxonomy('match', array('post', 'post_set'), $args);
@@ -663,18 +661,18 @@ function ballball_remove_readmore($more) {
 	return '';
 }
 
-/* Custom time ago (credit ballball) */
+/* Custom time ago */
 
 function custom_time_ago($date) {
  
 	// Array of time period chunks
 	$chunks = array(
 		array( 60 * 60 * 24 * 365 , __( 'y', 'ballball' ), __( 'y', 'ballball' ) ),
-		array( 60 * 60 * 24 * 30 , __( 'm', 'ballball' ), __( 'm', 'ballball' ) ),
+		array( 60 * 60 * 24 * 30 , __( 'M', 'ballball' ), __( 'M', 'ballball' ) ),
 		array( 60 * 60 * 24 * 7, __( 'w', 'ballball' ), __( 'w', 'ballball' ) ),
 		array( 60 * 60 * 24 , __( 'd', 'ballball' ), __( 'd', 'ballball' ) ),
 		array( 60 * 60 , __( 'h', 'ballball' ), __( 'h', 'ballball' ) ),
-		array( 60 , __( 'M', 'ballball' ), __( 'M', 'ballball' ) ),
+		array( 60 , __( 'm', 'ballball' ), __( 'm', 'ballball' ) ),
 		array( 1, __( 's', 'ballball' ), __( 's', 'ballball' ) )
 	);
  
@@ -715,7 +713,7 @@ function custom_time_ago($date) {
  
  
 	if ( !(int)trim($output) ){
-		$output = '0 ' . __( 'seconds', 'ballball' );
+		$output = '0 ' . __( 's', 'ballball' );
 	}
  
 	$output .= __(' ago', 'ballball');

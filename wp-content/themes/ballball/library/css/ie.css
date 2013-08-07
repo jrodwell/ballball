@@ -273,23 +273,22 @@ HEADER STYLES
 
 /* line 44, ../scss/_700up.scss */
 #hero #inner-hero {
-  background: #2c2c2c;
   width: 700px;
-  padding: 10px 40px;
-  color: white;
+  padding: 10px 40px 55px;
+  background: #1c1c1c;
 }
 
 /*********************
 NAVIGATION STYLES
 *********************/
-/* line 56, ../scss/_700up.scss */
+/* line 55, ../scss/_700up.scss */
 .nav {
   border: 0;
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */
 }
-/* line 59, ../scss/_700up.scss */
+/* line 58, ../scss/_700up.scss */
 .nav li {
   float: left;
   position: relative;
@@ -298,7 +297,7 @@ NAVIGATION STYLES
   */
   /* showing sub-menus */
 }
-/* line 63, ../scss/_700up.scss */
+/* line 62, ../scss/_700up.scss */
 .nav li a {
   border-bottom: 0;
   /*
@@ -306,11 +305,11 @@ NAVIGATION STYLES
   has the possibility of being a mobile device.
   */
 }
-/* line 70, ../scss/_700up.scss */
+/* line 69, ../scss/_700up.scss */
 .nav li a:hover, .nav li a:focus {
   background-color: #dedede;
 }
-/* line 83, ../scss/_700up.scss */
+/* line 82, ../scss/_700up.scss */
 .nav li ul.sub-menu,
 .nav li ul.children {
   margin-top: 0;
@@ -321,7 +320,7 @@ NAVIGATION STYLES
   z-index: 8999;
   /* highlight sub-menu current page */
 }
-/* line 91, ../scss/_700up.scss */
+/* line 90, ../scss/_700up.scss */
 .nav li ul.sub-menu li,
 .nav li ul.children li {
   /*
@@ -330,7 +329,7 @@ NAVIGATION STYLES
   for usability. k, bai.
   */
 }
-/* line 93, ../scss/_700up.scss */
+/* line 92, ../scss/_700up.scss */
 .nav li ul.sub-menu li a,
 .nav li ul.children li a {
   padding-left: 10px;
@@ -339,68 +338,123 @@ NAVIGATION STYLES
   width: 180px;
   border-bottom: 1px solid #ccc;
 }
-/* line 110, ../scss/_700up.scss */
+/* line 109, ../scss/_700up.scss */
 .nav li ul.sub-menu li:last-child a,
 .nav li ul.children li:last-child a {
   border-bottom: 0;
 }
-/* line 132, ../scss/_700up.scss */
+/* line 131, ../scss/_700up.scss */
 .nav li:hover ul {
   top: auto;
   display: block;
 }
 
 /* end .nav */
-/* line 148, ../scss/_700up.scss */
+/* line 147, ../scss/_700up.scss */
 .wp-prev-next {
   margin-bottom: 36px;
 }
 
 /*********************
+LIVE MATCHES STYLES
+*********************/
+/* line 155, ../scss/_700up.scss */
+#widgetOutput {
+  font-size: 16px;
+}
+/* line 157, ../scss/_700up.scss */
+#widgetOutput h3 {
+  padding: 12px 0;
+  font-size: 16px;
+}
+/* line 160, ../scss/_700up.scss */
+#widgetOutput h3 span {
+  padding-left: 8px;
+}
+/* line 164, ../scss/_700up.scss */
+#widgetOutput .opta-widget-container {
+  width: 620px;
+}
+/* line 167, ../scss/_700up.scss */
+#widgetOutput .match {
+  height: 60px;
+}
+/* line 169, ../scss/_700up.scss */
+#widgetOutput .match span {
+  height: 58px;
+  padding: 20px 0;
+}
+/* line 173, ../scss/_700up.scss */
+#widgetOutput .match .match-time {
+  width: 50px;
+}
+/* line 175, ../scss/_700up.scss */
+#widgetOutput .match .match-time span {
+  padding: 5px 0;
+}
+/* line 179, ../scss/_700up.scss */
+#widgetOutput .match .home-side, #widgetOutput .match .away-side {
+  width: 155px;
+}
+/* line 182, ../scss/_700up.scss */
+#widgetOutput .match .match-score {
+  font-size: 36px;
+  width: 75px;
+}
+/* line 185, ../scss/_700up.scss */
+#widgetOutput .match .match-score span {
+  padding: 5px 0;
+}
+/* line 188, ../scss/_700up.scss */
+#widgetOutput .match .match-score .match-score-home, #widgetOutput .match .match-score .match-score-away {
+  width: 32px;
+}
+
+/*********************
 MAIN STYLES
 *********************/
-/* line 157, ../scss/_700up.scss */
+/* line 199, ../scss/_700up.scss */
 h1, .h1 {
   font-size: 48px;
 }
 
-/* line 160, ../scss/_700up.scss */
+/* line 202, ../scss/_700up.scss */
 h2, .h2 {
   font-size: 28px;
 }
 
-/* line 165, ../scss/_700up.scss */
+/* line 207, ../scss/_700up.scss */
 #content #inner-content {
   width: 700px;
   padding: 0 40px;
 }
 
-/* line 171, ../scss/_700up.scss */
+/* line 213, ../scss/_700up.scss */
 #main {
   width: 620px;
   margin-top: 20px;
 }
 
 /* Stream articles */
-/* line 176, ../scss/_700up.scss */
+/* line 218, ../scss/_700up.scss */
 .hentry {
   margin-bottom: 40px;
 }
 
-/* line 180, ../scss/_700up.scss */
+/* line 222, ../scss/_700up.scss */
 .image-article .featured-image, .set-article .featured-image {
   width: 220px;
   height: 144px;
   margin-right: 20px;
   margin-bottom: 20px;
 }
-/* line 186, ../scss/_700up.scss */
+/* line 228, ../scss/_700up.scss */
 .image-article .h2, .image-article .article-excerpt, .set-article .h2, .set-article .article-excerpt {
   float: right;
   width: 380px;
 }
 
-/* line 191, ../scss/_700up.scss */
+/* line 233, ../scss/_700up.scss */
 .set-article .featured-image .set-count {
   width: 60px;
   height: 60px;
@@ -409,7 +463,7 @@ h2, .h2 {
   font-size: 16px;
 }
 
-/* line 199, ../scss/_700up.scss */
+/* line 241, ../scss/_700up.scss */
 .video-article .featured-image {
   float: left;
   width: 420px;
@@ -417,13 +471,13 @@ h2, .h2 {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-/* line 206, ../scss/_700up.scss */
+/* line 248, ../scss/_700up.scss */
 .video-article .h2, .video-article .article-excerpt {
   float: right;
   width: 180px;
 }
 
-/* line 212, ../scss/_700up.scss */
+/* line 254, ../scss/_700up.scss */
 .article-footer .tags {
   float: left;
   display: block;
@@ -431,7 +485,7 @@ h2, .h2 {
   padding-left: 19px;
   text-transform: uppercase;
 }
-/* line 218, ../scss/_700up.scss */
+/* line 260, ../scss/_700up.scss */
 .article-footer .tags a {
   float: left;
   display: block;
@@ -439,71 +493,71 @@ h2, .h2 {
   text-decoration: none;
 }
 
-/* line 228, ../scss/_700up.scss */
+/* line 270, ../scss/_700up.scss */
 .page-navigation .article-word,
 .wp-prev-next .article-word {
   display: inline;
 }
 
 /* Single articles */
-/* line 234, ../scss/_700up.scss */
+/* line 276, ../scss/_700up.scss */
 .single #main {
   margin-top: 20px;
 }
 
-/* line 238, ../scss/_700up.scss */
+/* line 280, ../scss/_700up.scss */
 .single-post .hentry h1 {
   margin: 20px 0;
 }
-/* line 241, ../scss/_700up.scss */
+/* line 283, ../scss/_700up.scss */
 .single-post .hentry .byline {
   margin-bottom: 20px;
 }
-/* line 244, ../scss/_700up.scss */
+/* line 286, ../scss/_700up.scss */
 .single-post .hentry .entry-content {
   padding-left: 80px;
 }
-/* line 247, ../scss/_700up.scss */
+/* line 289, ../scss/_700up.scss */
 .single-post .hentry .quote {
   background: url(../images/quote.png) no-repeat 25px top;
   padding-left: 70px;
   font-size: 28px;
 }
-/* line 252, ../scss/_700up.scss */
+/* line 294, ../scss/_700up.scss */
 .single-post .hentry .article-footer p.tags {
   width: 520px;
 }
 
-/* line 256, ../scss/_700up.scss */
+/* line 298, ../scss/_700up.scss */
 .single-image-article .single-featured-image {
   width: 620px;
   height: 413px;
 }
 
-/* line 260, ../scss/_700up.scss */
+/* line 302, ../scss/_700up.scss */
 .single-video-article .single-featured-image {
   width: 620px;
   height: 349px;
 }
 
-/* line 265, ../scss/_700up.scss */
+/* line 307, ../scss/_700up.scss */
 .single-post_set .hentry .article-header {
   margin-bottom: 20px;
   background-position: right top;
 }
-/* line 268, ../scss/_700up.scss */
+/* line 310, ../scss/_700up.scss */
 .single-post_set .hentry .article-header h1 {
   font-size: 28px;
 }
-/* line 271, ../scss/_700up.scss */
+/* line 313, ../scss/_700up.scss */
 .single-post_set .hentry .article-header .byline {
   margin-top: 5px;
 }
-/* line 275, ../scss/_700up.scss */
+/* line 317, ../scss/_700up.scss */
 .single-post_set .hentry .two {
   margin-right: 20px;
 }
-/* line 278, ../scss/_700up.scss */
+/* line 320, ../scss/_700up.scss */
 .single-post_set .hentry .four {
   margin-right: 0;
 }
@@ -511,28 +565,28 @@ h2, .h2 {
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 288, ../scss/_700up.scss */
+/* line 330, ../scss/_700up.scss */
 .sidebar {
   margin-top: 2.2em;
 }
 
-/* line 292, ../scss/_700up.scss */
+/* line 334, ../scss/_700up.scss */
 .widgettitle {
   border-bottom: 2px solid #444;
   margin-bottom: 0.75em;
 }
 
-/* line 297, ../scss/_700up.scss */
+/* line 339, ../scss/_700up.scss */
 .widget {
   padding: 0 10px;
   margin: 2.2em 0;
 }
-/* line 302, ../scss/_700up.scss */
+/* line 344, ../scss/_700up.scss */
 .widget ul li {
   margin-bottom: 0.75em;
   /* deep nesting */
 }
-/* line 310, ../scss/_700up.scss */
+/* line 352, ../scss/_700up.scss */
 .widget ul li ul {
   margin-top: 0.75em;
   padding-left: 1em;
@@ -541,13 +595,13 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 322, ../scss/_700up.scss */
+/* line 364, ../scss/_700up.scss */
 .footer #inner-footer {
   width: 700px;
   padding: 0 40px;
 }
 
-/* line 329, ../scss/_700up.scss */
+/* line 371, ../scss/_700up.scss */
 .footer-links ul li {
   /*
   be careful with the depth of your menus.
@@ -562,18 +616,14 @@ Site Name:
 Author: 
 
 Stylesheet: Desktop Stylsheet
-
-This is the desktop size. It's larger than an iPad so it will only
-be seen on the Desktop. 
-
 ******************************************************************/
-/* line 11, ../scss/_940up.scss */
+/* line 7, ../scss/_940up.scss */
 .header {
   height: 247px;
   padding-top: 127px;
   background: url(../images/pattern_geometric-green.png) repeat;
 }
-/* line 15, ../scss/_940up.scss */
+/* line 11, ../scss/_940up.scss */
 .header #inner-header {
   position: relative;
   left: 50%;
@@ -584,24 +634,74 @@ be seen on the Desktop.
   background: url(../images/deskBG.png) repeat-y 50% 0;
 }
 
-/* line 25, ../scss/_940up.scss */
+/* line 21, ../scss/_940up.scss */
 #hero {
   background: url(../images/pattern_geometric-dark.png) repeat;
 }
-/* line 27, ../scss/_940up.scss */
+/* line 23, ../scss/_940up.scss */
 #hero #inner-hero {
   position: relative;
   left: 50%;
   margin-left: -540px;
   width: 1080px;
-  padding: 10px 70px;
+  padding: 60px 0 10px 0;
 }
 
-/* line 35, ../scss/_940up.scss */
+/* line 31, ../scss/_940up.scss */
+#live-league-menu {
+  display: block;
+  float: left;
+  width: 350px;
+  margin: 0;
+  padding: 0;
+}
+/* line 37, ../scss/_940up.scss */
+#live-league-menu li {
+  height: 60px;
+  border-left: 5px solid #1c1c1c;
+  padding: 18px 30px 18px 60px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #52bf00;
+  cursor: pointer;
+}
+/* line 46, ../scss/_940up.scss */
+#live-league-menu li span {
+  padding-left: 8px;
+  color: #444444;
+}
+/* line 51, ../scss/_940up.scss */
+#live-league-menu .active {
+  border-left: 5px solid #52bf00;
+  background: #2e2e2e url(../images/liveMenu.png) no-repeat right 50%;
+  color: white;
+}
+
+/* line 58, ../scss/_940up.scss */
+#widgetOutput h3 {
+  display: none;
+}
+/* line 61, ../scss/_940up.scss */
+#widgetOutput .opta-widget-container {
+  width: 690px;
+}
+/* line 64, ../scss/_940up.scss */
+#widgetOutput .live-league {
+  display: none;
+  float: right;
+  width: 690px;
+}
+/* line 69, ../scss/_940up.scss */
+#widgetOutput div.active {
+  display: block;
+}
+
+/* line 74, ../scss/_940up.scss */
 #content {
   background: url(../images/pattern_geometric-light.png) repeat;
 }
-/* line 37, ../scss/_940up.scss */
+/* line 76, ../scss/_940up.scss */
 #content #inner-content {
   position: relative;
   left: 50%;
@@ -610,19 +710,19 @@ be seen on the Desktop.
   padding: 0 70px;
 }
 
-/* line 45, ../scss/_940up.scss */
+/* line 84, ../scss/_940up.scss */
 #main, .sidebar {
   position: relative;
   float: left;
 }
 
-/* line 49, ../scss/_940up.scss */
+/* line 88, ../scss/_940up.scss */
 .sidebar {
   width: 300px;
   margin-left: 20px;
 }
 
-/* line 54, ../scss/_940up.scss */
+/* line 93, ../scss/_940up.scss */
 .footer #inner-footer {
   position: relative;
   left: 50%;
