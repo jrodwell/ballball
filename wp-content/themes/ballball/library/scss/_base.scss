@@ -21,9 +21,6 @@ body {
 	line-height: 1.5;
 	color: #565656;
 }
-a {
-	text-decoration: none;
-}
 ul {
 	list-style: none;
 }
@@ -76,11 +73,6 @@ style a page via class
 LAYOUT & GRID STYLES
 *********************/
 
-/*.wrap {
-	width: 96%;
-	margin: 0 auto;
-}*/
-
 .header {
 	height: 58px;
 	overflow: hidden;
@@ -95,9 +87,10 @@ LAYOUT & GRID STYLES
 #hero {
 	#inner-hero {
 		width: $mobWidth;
-		padding: 10px $mobPadding;
-		background: #bbGrey;
+		padding: 0 10px 10px 10px;
+		background: $bbBlack;
 		margin: 0 auto;		
+		color: $white;
 	}
 }
 #content {
@@ -128,13 +121,17 @@ a, a:visited {
 
 	/* mobile tap color */
 	&:link {
-		/*
-		this highlights links on iPhones/iPads.
-		so it basically works like the :hover selector
-		for mobile devices.
-		*/
 		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
 	}
+}
+a {
+	text-decoration: none;
+}
+.entry-content a {
+	text-decoration: underline;
+}
+.entry-content .grid-item a, .entry-content a.readmore {
+	text-decoration: none;
 }
 
 /******************************************************************
@@ -277,8 +274,24 @@ LIVE MATCHES STYLES
 *********************/
 
 #widgetOutput {
+	font-size: 12px;
+	h2, h4 {
+		display: none;
+	}
+	h3 {
+		margin: 0;
+		padding: 8px 20px;
+		background: $bbBlack;
+		font-family: $sans-serif;
+		font-size: 14px;
+		color: $white;
+		span {
+			padding-left: 5px;
+			color: $bodyText;
+		}
+	}
 	.opta-widget-container {
-		width: 500px;
+		width: 320px;
 	}
 	.fixtures {
 		border-radius: 0;
@@ -289,7 +302,7 @@ LIVE MATCHES STYLES
 		margin: 0;
 	}
 	.match {
-		height: 60px;
+		height: 45px;
 		padding: 0;
 		border-bottom: 2px solid $bbBlack;
 		font-weight: bold;
@@ -297,34 +310,35 @@ LIVE MATCHES STYLES
 		span {
 			float: left;
 			display: block;
-			height: 58px;
-			padding: 20px 0;
+			height: 43px;
+			padding: 14px 0;
+			overflow: hidden;
 		}
 		.match-time {
-			width: 50px;
+			width: 45px;
 			text-align: center;
 			background: $lightGrey;
 			color: $bbBlack;
 		}
 		.home-side {
-			width: 190px;
+			width: 95px;
 			text-align: right;
 		}
 		.away-side {
-			width: 190px;
+			width: 95px;
 			text-align: left;
 		}
 		.match-score {
-			width: 70px;
+			width: 50px;
 			padding: 0;
 			text-align: center;
 			background: url(../images/liveV.png) no-repeat 50% 50%;
-			font-size: 36px;
+			font-size: 28px;
 			font-family: $header;
 			span {
-				width: 30px;
+				width: 20px;
 				display: none;
-				padding: 5px 0;
+				padding: 0;
 				text-align: left;
 			}
 			.match-score-home {
@@ -363,10 +377,17 @@ LIVE MATCHES STYLES
 			}
 		}
 	}
-	.notLive .match-score {
-		background: url(../images/liveV.png) no-repeat 50% 50%;
-		span {
-			display: none;
+	.notLive {
+		color: $anotherGrey;
+		.match-time {
+			background: $lightGrey;
+			color: $bbBlack;
+		}
+		.match-score {
+			background: url(../images/liveV.png) no-repeat 50% 50%;
+			span {
+				display: none;
+			}
 		}
 	}
 	.halfTime .match-time {
@@ -374,7 +395,9 @@ LIVE MATCHES STYLES
 		color: $white;
 	}
 }
-
+#live-league-menu {
+	display: none;
+}
 
 /*********************
 POSTS & CONTENT STYLES
@@ -382,6 +405,10 @@ POSTS & CONTENT STYLES
 
 #main {
 	margin: 20px 0 40px 0;
+}
+/* Promoted */
+#promoted {
+	background: red;
 }
 /* Stream articles */
 .hentry {
@@ -496,10 +523,11 @@ POSTS & CONTENT STYLES
 		margin-bottom: 15px;
 	}
 	.highlight {
-		padding: 10px 15px 15px 15px;
+		margin-bottom: 15px;
 		background: $lightGrey;
 		border-left: 5px solid $bbGreen;
-		margin-bottom: 15px;
+		padding: 10px 15px 15px 15px;
+		font-weight: bold;
 	}
 	.quote {
 		background: url(../images/quoteSmall.png) no-repeat 20px top;
