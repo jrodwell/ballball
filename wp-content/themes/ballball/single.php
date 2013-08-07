@@ -25,7 +25,7 @@
               ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class(array('clearfix', $type)); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
+							  
 								<header class="article-header">
 
                   <div class="single-featured-image"> 
@@ -49,13 +49,19 @@
 									<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
 									
                   <p class="byline vcard"><?php
-										printf(__('<time class="updated" datetime="%1$s" pubdate>%2$s</time>', 'ballball'), get_the_time('Y-m-j'), get_the_time(get_option('date_format')));
+										printf(__('<time class="updated" datetime="%1$s" pubdate>%2$s</time> (GMT +00:00)', 'ballball'), get_the_time('Y-m-j'), get_the_time(get_option('date_format')));
 									?></p>
 
 								</header> <!-- end article header -->
 
 								<section class="entry-content clearfix" itemprop="articleBody">
 								
+								  <div class="share-panel"> 
+								  
+								  
+								  
+								  </div>
+								  
 									<?php the_content(); ?>
 									
 								</section> <!-- end article section -->
@@ -74,7 +80,7 @@
 
 							<article id="post-not-found" class="hentry clearfix">
 								<header class="article-header">
-									<h1><?php _e("No article found.", "ballball"); ?></h1>
+									<p><?php _e("No article found.", "ballball"); ?></p>
 								</header>
 									<section class="entry-content">
 								</section>

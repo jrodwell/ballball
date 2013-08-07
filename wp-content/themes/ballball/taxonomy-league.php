@@ -115,7 +115,7 @@
 
 									<article id="post-not-found" class="hentry clearfix">
 											<header class="article-header">
-												<h1><?php _e("No articles found.", "ballball"); ?></h1>
+												<p><?php _e("There are no articles for this competition.", "ballball"); ?></p>
 										</header>
 											<section class="entry-content">
 										</section>
