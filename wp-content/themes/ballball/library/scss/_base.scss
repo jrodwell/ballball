@@ -87,8 +87,8 @@ LAYOUT & GRID STYLES
 #hero {
 	#inner-hero {
 		width: $mobWidth;
-		padding: 10px $mobPadding;
-		background: $bbGrey;
+		padding: 0 10px 10px 10px;
+		background: $bbBlack;
 		margin: 0 auto;		
 		color: $white;
 	}
@@ -130,7 +130,7 @@ a {
 .entry-content a {
 	text-decoration: underline;
 }
-.entry-content .grid-item a, .entry-content .readmore a {
+.entry-content .grid-item a, .entry-content a.readmore {
 	text-decoration: none;
 }
 
@@ -275,6 +275,9 @@ LIVE MATCHES STYLES
 
 #widgetOutput {
 	font-size: 12px;
+	h2, h4 {
+		display: none;
+	}
 	h3 {
 		margin: 0;
 		padding: 8px 20px;
@@ -288,7 +291,7 @@ LIVE MATCHES STYLES
 		}
 	}
 	.opta-widget-container {
-		width: 300px;
+		width: 320px;
 	}
 	.fixtures {
 		border-radius: 0;
@@ -318,22 +321,22 @@ LIVE MATCHES STYLES
 			color: $bbBlack;
 		}
 		.home-side {
-			width: 65px;
+			width: 95px;
 			text-align: right;
 		}
 		.away-side {
-			width: 65px;
+			width: 95px;
 			text-align: left;
 		}
 		.match-score {
-			width: 70px;
+			width: 50px;
 			padding: 0;
 			text-align: center;
 			background: url(../images/liveV.png) no-repeat 50% 50%;
 			font-size: 28px;
 			font-family: $header;
 			span {
-				width: 30px;
+				width: 20px;
 				display: none;
 				padding: 0;
 				text-align: left;
@@ -402,6 +405,10 @@ POSTS & CONTENT STYLES
 
 #main {
 	margin: 20px 0 40px 0;
+}
+/* Promoted */
+#promoted {
+	background: red;
 }
 /* Stream articles */
 .hentry {

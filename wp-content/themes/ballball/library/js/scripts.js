@@ -1,92 +1,75 @@
-/*
-Bones Scripts File
-Author: Eddie Machado
-
-This file should contain any js scripts you want to add to the site.
-Instead of calling it in the header or throwing it inside wp_head()
-this file will be called automatically in the footer so as not to
-slow the page load.
-
-*/
-
-// IE8 ployfill for GetComputed Style (for Responsive Script below)
-if (!window.getComputedStyle) {
-    window.getComputedStyle = function(el, pseudo) {
-        this.el = el;
-        this.getPropertyValue = function(prop) {
-            var re = /(\-([a-z]){1})/g;
-            if (prop == 'float') prop = 'styleFloat';
-            if (re.test(prop)) {
-                prop = prop.replace(re, function () {
-                    return arguments[2].toUpperCase();
-                });
-            }
-            return el.currentStyle[prop] ? el.currentStyle[prop] : null;
-        }
-        return this;
-    }
-}
-
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
-var $j = jQuery;
-
-var allPanels = $j('#widgetOutput > .live-league').hide();
-$j('#live-league-0').addClass('active').show();
-$j('#menu-league-0').addClass('active');
-
-$j('#live-league-menu > .league-menu-item').click(function() {
-	var current = $j(this).attr('id');
-	var targetString =  current.replace('menu-league-','live-league-');
-	var target = $j('#' + targetString);
+	var $j = jQuery;
 	
-	if(!target.hasClass('active')){
-        allPanels.removeClass('active').slideUp();
-        target.addClass('active').slideDown();
-        current.addClass('active');
-    }
-});
+	/* Live matches menu */
+	$j('#live-league-0').addClass('active');
+	$j('#menu-league-0').addClass('active');
 
-    /*
-    Responsive jQuery is a tricky thing.
-    There's a bunch of different ways to handle
-    it, so be sure to research and find the one
-    that works for you best.
-    */
-    
-    /* getting viewport width */
-    var responsive_viewport = $(window).width();
-    
-    /* if is below 481px */
-    if (responsive_viewport < 481) {
-    
-    } /* end smallest screen */
-    
-    /* if is larger than 481px */
-    if (responsive_viewport > 481) {
-        
-    } /* end larger than 481px */
-    
-    /* if is above or equal to 768px */
-    if (responsive_viewport >= 768) {
-    
-        /* load gravatars */
-        $('.comment img[data-gravatar]').each(function(){
-            $(this).attr('src',$(this).attr('data-gravatar'));
-        });
-        
-    }
-    
-    /* off the bat large screen actions */
-    if (responsive_viewport > 1030) {
-        
-    }
-    
+	$j('#live-league-menu > .league-menu-item').click(function() {
+		var current = $j(this);
+		var currentString = current.attr('id');
+		var targetString =  currentString.replace('menu-league-','live-league-');
+		var target = $j('#' + targetString);
+		
+		if(!target.hasClass('active')){
+			$j('#widgetOutput > .live-league').hide().removeClass('active').slideUp();
+			target.addClass('active').slideDown();
+			$j('#live-league-menu > .league-menu-item').removeClass('active');
+			current.addClass('active');
+		}
+	});
 	
-	// add all your scripts here
+	/* Promo box */
 	
- 
+	
+
+	/* Opta calls and callbacks */
+	var fixes = function () {
+		var $j = jQuery;
+		
+		$j('.livematch').each(function() {
+			
+			if($j('.match-time abbr').text() == 'HT') {
+				$j(this).addClass('halfTime');
+			}
+			else if($j('.match-score-divider').text() == 'v.') {
+				$j(this).addClass('notLive');
+			}
+			else {
+				$j(this).addClass('live');
+			}
+		});
+		
+		
+		var $j = jQuery;
+		var base_url = 'http://example.com/match-page.php?match=';
+
+		$j('.match').each(function () {
+			var optaID = $j(this).find('a.external-link').attr('href').split('match=')[1];
+			var final_url = base_url + array_matches[optaID[1]];
+			alert(final_url);
+			/*alert(optaID);
+						var match_links = JSON.parse(array_matches);
+
+
+			$j(this).append('<span><a href=' + final_url + '>Info</a></span>');*/
+			
+			/*var hrefBits = $(this).attr('href').split('match='),
+			href = url + linksTable[hrefBits[1]];
+			
+			$(this).attr('href', href);*/
+		});
+	};
+	
+	_optaParams = {
+		custID: '0901705c87db7592177aacda260075cb',
+		lang: 'en_GB',
+		timezone: 0,
+		callbacks: [fixes]
+	};
+	
 }); /* end of as page load scripts */
 
 
