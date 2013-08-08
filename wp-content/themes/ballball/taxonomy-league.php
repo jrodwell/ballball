@@ -78,7 +78,7 @@
 								  <?php } ?>
 								  </div>
 
-									<h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+									<h1 class="h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
 								</header> <!-- end article header -->
 
@@ -94,7 +94,11 @@
                   
                   <p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p>
                   
-                  <p class="share">[SHARE]</p>                                                                       
+                  <p class="share">
+                  <div class="fb-like" data-href="<?php the_permalink(); ?>" data-width="50" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+                  <a href="<?php the_permalink(); ?>" class="twitter-share-button" data-via="twitterapi" data-lang="<?php echo ICL_LANGUAGE_CODE; ?>">Tweet</a>
+                  <div href="<?php the_permalink(); ?>" class="g-plusone" data-size="medium"></div>
+                  </p>                                                                      
 
 								</footer> <!-- end article footer -->
 

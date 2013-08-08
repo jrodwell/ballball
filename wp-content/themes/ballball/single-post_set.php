@@ -63,6 +63,16 @@
                   
                   </div>
 									
+									<div class="share-panel"> 
+  								  
+  								  <div class="fb-like" data-href="<?php echo get_permalink(); ?>" data-width="50" data-layout="box_count" data-show-faces="true" data-send="false"></div>
+                    
+                    <a href="<?php echo get_permalink(); ?>" class="twitter-share-button" data-url="<?php echo get_bloginfo('url'); ?>" data-lang="<?php echo ICL_LANGUAGE_CODE; ?>" data-count="vertical">Tweet</a>
+                    
+                    <div class="g-plusone" href="<?php echo get_permalink(); ?>" data-size="tall"></div>
+  								  
+								  </div>
+									
                   <?php the_content(); ?>
                   
 								</section> <!-- end article section -->

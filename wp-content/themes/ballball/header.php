@@ -6,6 +6,7 @@
 <!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 
 	<head>
+	
 		<meta charset="utf-8">
 
 		<!-- Google Chrome Frame for IE -->
@@ -36,7 +37,26 @@
 
 		<!-- drop Google Analytics Here -->
 		<!-- end analytics -->
-
+		
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/<?php echo lang_to_locale(ICL_LANGUAGE_CODE); ?>/all.js#xfbml=1&appId=1374694749425097";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+      {lang: '<?php echo ICL_LANGUAGE_CODE; ?>'} 
+    </script type="text/javascript">
+    
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    
+    <script type="text/javascript">
+    var wordpress_offset = <?php echo get_option('gmt_offset'); ?>;
+    </script>
+    
 	</head>
 
 	<body <?php body_class(); ?>>

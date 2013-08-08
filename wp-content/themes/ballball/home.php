@@ -25,7 +25,8 @@
         
         foreach($all_matches as $match) {
           
-          $time_now = time();
+          //$time_now = time();
+          $time_now = current_time('timestamp');
           $match_name = $match->name;
           $term_meta = get_option("taxonomy_$match->term_id");
           $league_tax_id = $term_meta['league'];
@@ -61,9 +62,18 @@
           $show_leagues[$league_optaid] = $league->name;
         }
         
+        $n_matches=0;
+        foreach ($view_matches as $league) {
+          $n_matches += count($league);
+        }
+        
         ?>
         
         <div id="widgetOutput" class="clearfix">
+        
+        <h2 class="total-match-count"><?php echo $n_matches; ?> Live Matches</h2>
+        
+        <p class="auto-update">Automatic updates</p>
         
         <ul id="live-league-menu">
         
@@ -84,9 +94,9 @@
         ?>
           <h3 class="league-menu-item clearfix" ><?php echo $show_leagues[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></h3>  
           <div id="live-league-<?php echo $counter; ?>" class="live-league clearfix">
-            <opta widget="fixtures" sport="football" competition="<?php echo $league; ?>" season="2013" match="<?php $count=0; foreach($matches as $match) { $count++; echo $match; if($count!=count($matches)) echo ', '; } ?>" live="true" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" extra_match_link="true" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="700" match_link="<?php echo get_bloginfo('url'); ?>/match/" extra_match_link="true" pre_match="true"></opta>
+            <opta widget="fixtures" sport="football" competition="<?php echo $league; ?>" season="2013" match="<?php $count=0; foreach($matches as $match) { $count++; echo $match; if($count!=count($matches)) echo ', '; } ?>" live="true" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" narrow_limit="400"></opta>
           </div>
-        <?php
+        <?php    
         $counter++; }        
         ?>
         
@@ -120,7 +130,6 @@
               
               // Get promoted post IDs...
               
-              $counter = 0;
               $promoted_postids = get_option('promoted_postids', false);
               $args_one = array(
                 'post_type' => array('post', 'post_set'),
@@ -143,7 +152,7 @@
               
               ?>
               
-              <?php foreach($promoted_posts as $promoted_post) { $counter++; ?>
+              <?php $counter=0; foreach($promoted_posts as $promoted_post) { $counter++; ?>
               
               <?php
               
@@ -163,7 +172,7 @@
               
               ?>
               
-              <div id="promoted-item-large-<?php echo $counter; ?>">
+              <div id="promoted-item-large-<?php echo $counter; ?>" class="promoted-item-large">
                 
                 <div class="promoted-featured-image-large"> 
                 <?php
@@ -181,7 +190,29 @@
 							  
               </div>
               
-              <div id="promoted-item-small-<?php echo $counter; ?>">
+              <?php } ?>
+              
+              <?php $counter=0; foreach($promoted_posts as $promoted_post) { $counter++; ?>
+              
+              <?php
+              
+              // Check article type...
+              
+              if(get_post_type($promoted_post->ID)=='post_set') {
+                $type = "set-article";
+              } else {
+                $type = "text-article";
+                if(get_post_meta($promoted_post->ID, 'ballball_videoid', true)) {
+                  $video_id = get_post_meta($promoted_post->ID, 'ballball_videoid', true);
+                  $type = "video-article";
+                } else if(has_post_thumbnail($promoted_post->ID)) {
+                  $type = "image-article";
+                }
+              }
+              
+              ?>
+              
+              <div id="promoted-item-small-<?php echo $counter; ?>" class="promoted-item-small">
               
                 <div class="promoted-featured-image"> 
                 <?php
@@ -273,7 +304,7 @@
 								  <?php } ?>
 								  </div>
 
-									<h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+									<h1 class="h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
 								</header> <!-- end article header -->
 
@@ -289,7 +320,11 @@
                   
                   <p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p>
                   
-                  <p class="share">[SHARE]</p>                                                                       
+                  <p class="share">
+                  <div class="fb-like" data-href="<?php the_permalink(); ?>" data-width="50" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+                  <a href="<?php the_permalink(); ?>" class="twitter-share-button" data-via="twitterapi" data-lang="<?php echo ICL_LANGUAGE_CODE; ?>">Tweet</a>
+                  <div href="<?php the_permalink(); ?>" class="g-plusone" data-size="medium"></div>
+                  </p>                                                                      
 
 								</footer> <!-- end article footer -->
 
@@ -322,7 +357,7 @@
 
 						</div> <!-- end #main -->
 
-						<?php get_sidebar('primary'); ?>
+						<?php get_sidebar(); ?>
 
 				</div> <!-- end #inner-content -->
 

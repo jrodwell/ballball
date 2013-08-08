@@ -608,11 +608,11 @@ function ballball_add_match_fields($tag) {
       var hours = ('0'+livedate.getHours()).slice(-2);
       var minutes = ('0'+livedate.getMinutes()).slice(-2);
       
-      if(jQuery('#ballball_match_live_start_time').val()=="") {
+      //if(jQuery('#ballball_match_live_start_time').val()=="") {
         jQuery('#ballball_match_live_start_time').val(day+'-'+month+'-'+year+' '+hours+':'+minutes);
-      }
+      //}
       
-      var liveendstamp = stamp+7200;
+      var liveendstamp = stamp+10800;
       var liveenddate = new Date(liveendstamp*1000);
       var day = ('0'+liveenddate.getDate()).slice(-2);
       var month = liveenddate.getMonth()+1;
@@ -621,9 +621,9 @@ function ballball_add_match_fields($tag) {
       var hours = ('0'+liveenddate.getHours()).slice(-2);
       var minutes = ('0'+liveenddate.getMinutes()).slice(-2);
       
-      if(jQuery('#ballball_match_live_end_time').val()=="") {
+      //if(jQuery('#ballball_match_live_end_time').val()=="") {
         jQuery('#ballball_match_live_end_time').val(day+'-'+month+'-'+year+' '+hours+':'+minutes);
-      }
+      //}
       
     });
         
@@ -659,6 +659,15 @@ add_filter('excerpt_more', 'ballball_remove_readmore');
 
 function ballball_remove_readmore($more) {
 	return '';
+}
+
+/* Language code to locale */
+
+function lang_to_locale($lang) {
+  if($lang=='ja') return 'ja_JP';
+  else if($lang=='id') return 'id_ID';
+  else if($lang=='vi') return 'vi_VN';
+  else return 'en_GB';
 }
 
 /* Custom time ago */
