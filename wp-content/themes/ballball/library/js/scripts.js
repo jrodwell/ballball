@@ -42,45 +42,20 @@ jQuery(document).ready(function($) {
 			}
 		});
 		
-		var matches_a = {
-			  "694472" : "1-fc-saarbrucken-v-sv-werder-bremen"  ,
-              "694491" : "bfc-dynamo-v-vfb-stuttgart"  ,
-              "694487" : "dsc-arminia-bielefeld-v-eintracht-braunschweig"  ,
-              "694477" : "fsv-optik-rathenow-v-fsv-frankfurt-1899"  ,
-              "694475" : "fv-illertissen-v-eintracht-frankfurt"  ,
-              "694486" : "sc-preusen-munster-v-fc-st-pauli"  ,
-              "694495" : "sc-victoria-hamburg-v-hannover-96"  ,
-              "694474" : "sc-wiedenbruck-2000-v-fortuna-dusseldorf"  ,
-              "694479" : "sv-darmstadt-98-v-borussia-monchengladbach"  ,
-              "694493" : "sv-sandhausen-v-1-fc-nurnberg"  ,
-              "694470" : "sv-schott-jena-v-hamburger-sv"  ,
-              "488715" : "team-1-vs-team-2"  ,
-              "694469" : "tsg-pfeddersheim-v-spvgg-greuther-furth"  ,
-              "694500" : "vfr-neumunster-v-hertha-bsc"  
-		};
-		var matches_b = [ { "o":"694472" , "m":"1-fc-saarbrucken-v-sv-werder-bremen" }, { "o":"694491" , "m":"bfc-dynamo-v-vfb-stuttgart" }, { "o":"694487" , "m":"dsc-arminia-bielefeld-v-eintracht-braunschweig" }, { "o":"694477" , "m":"fsv-optik-rathenow-v-fsv-frankfurt-1899" }, { "o":"694475" , "m":"fv-illertissen-v-eintracht-frankfurt" }, { "o":"694486" , "m":"sc-preusen-munster-v-fc-st-pauli" }, { "o":"694495" , "m":"sc-victoria-hamburg-v-hannover-96" }, { "o":"694474" , "m":"sc-wiedenbruck-2000-v-fortuna-dusseldorf" }, { "o":"694479" , "m":"sv-darmstadt-98-v-borussia-monchengladbach" }, { "o":"694493" , "m":"sv-sandhausen-v-1-fc-nurnberg" }, { "o":"694470" , "m":"sv-schott-jena-v-hamburger-sv" }, { "o":"488715" , "m":"team-1-vs-team-2" }, { "o":"694469" , "m":"tsg-pfeddersheim-v-spvgg-greuther-furth" }, { "o":"694500" , "m":"vfr-neumunster-v-hertha-bsc" }, ];
 		var $j = jQuery;
-		var base_url = 'http://example.com/match-page.php?match=';
+		var base_url = '/match/';
 
 		$j('.match').each(function () {
 			var optaID = $j(this).find('a.external-link').attr('href').split('match=')[1];
-			var match_links = $j.parseJSON(matches_b);
-			var final_url = base_url + match_links[optaID[1]];
-			console.log(final_url);
+			var found = $.map(array_matches, function(item) {
+				if (item.o.indexOf(optaID) >= 0) {
+					return item;
+			   }
+			});
+			var final_url = base_url + found[0].m;
 			
-			/*
-			alert(optaID);
-
-			var final_url = base_url + matches_a[optaID[1]];
-						
-			
-
-			$j(this).append('<span><a href=' + final_url + '>Info</a></span>');*/
-			
-			/*var hrefBits = $(this).attr('href').split('match='),
-			href = url + linksTable[hrefBits[1]];
-			
-			$(this).attr('href', href);*/
+			$j(this).find('a.external-link').attr('href', final_url);
+			$j(this).append('<span><a href=' + final_url + '>Info</a></span>');
 		});
 	};
 	
