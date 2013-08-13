@@ -34,18 +34,11 @@
 
 							<?php endwhile; ?>
 
-							<nav class="wp-prev-next">
-									<ul class="clearfix">
-										<li class="prev-link"><?php next_posts_link(__('Older <span class="article-word">Articles</span>', "ballball")) ?></li>
-										<li class="next-link"><?php previous_posts_link(__('Newer <span class="article-word">Articles</span>', "ballball")) ?></li>
-									</ul>
-							</nav>
-
 							<?php else : ?>
 
 									<article id="post-not-found" class="hentry clearfix">
 											<header class="article-header">
-												<p><?php _e("There are no articles.", "ballball"); ?></p>
+												<p><?php _e("No article found.", "ballball"); ?></p>
 										</header>
 											<section class="entry-content">
 										</section>

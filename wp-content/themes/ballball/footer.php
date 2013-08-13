@@ -8,7 +8,7 @@
 
 					<nav role="navigation">
 					  <?php wp_nav_menu(array('menu' => 'Footer Links', 'menu_class' => 'footer-menu')); ?>
-            <?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'footer-menu', 'walker' => new jr_walker())); ?>
+            <?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'footer-menu', 'container_id' => 'footer-nav', 'walker' => new jr_walker())); ?>
 					</nav>
 					
 					<p>Match Statistics supplied by Opta Sports Data Limited. Reproduced under licence from Football DataCo Limited. All rights reserved</p>
