@@ -5,14 +5,11 @@ Author:
 Stylesheet: Desktop Stylsheet
 ******************************************************************/
 .header {
-	height: 247px;
-	padding-top: 127px;
 	background: url(../images/pattern_geometric-green.png) repeat;
 	#inner-header {
 		position: relative;
 		left: 50%;
 		margin-left: -($deskWidth/2);
-		height: 120px;
 		width: $deskWidth;
 		padding: 0 $deskPadding;
 		background: url(../images/deskBG.png) repeat-y 50% 0;
@@ -24,7 +21,7 @@ Stylesheet: Desktop Stylsheet
 		left: 50%;
 		margin-left: -($deskWidth/2);
 		width: $deskWidth;
-		padding: 0 0 10px 0;
+		padding: 0;
 	}
 }
 #live-league-menu {
@@ -53,15 +50,15 @@ Stylesheet: Desktop Stylsheet
 		color: $white;
 	}
 }
-#widgetOutput {
-	h2.total-match-count {
-		margin: 0 65px;
-		padding: 20px 0;
-		span {
-			top: 18px;
-			right: 56px;
-		}
+h2.total-match-count {
+	margin: 0 65px;
+	padding: 20px 0;
+	span {
+		top: 25px;
+		right: 70px;
 	}
+}
+#widgetOutput {
 	h3 {
 		display: none;
 	}
@@ -76,14 +73,14 @@ Stylesheet: Desktop Stylsheet
 	div.active {
 		display: block;
 	}
-	.match, .linked-match {
+	.match, .linked-match, .unlinked-match {
 		.home-side,	.away-side {
 			width: 170px;
 		}
 		.matchDetails {
 			width: 225px;
-			padding-right: 55px;
-			padding-left: 60px;
+			padding-right: 70px;
+			padding-left: 55px;
 		}
 	}
 }
@@ -98,14 +95,63 @@ Stylesheet: Desktop Stylsheet
 		padding: 0 $deskPadding;
 	}
 }
-#main, .sidebar {
+#main, #sidebar {
 	position: relative;
 	float: left;
 }
-.sidebar {
+#content #sidebar {
 	width: 300px;
 	margin-left: 20px;
+	.twitter-follow-button, .fb_iframe_widget, #___plusone_0 {
+		float: none;
+		margin-left: 0!important;
+	}
+	#minitwitter-widget-2 {
+		clear: both;
+		display: block;
+		.minitweets-end {
+			display: none;
+		}
+	}
+	#ffg_widget-2 {
+		clear: both;
+		display: block;
+		border: 1px solid #E8E8E8;
+		.fb-feed {
+			padding: 0;
+		}
+		.fb-page-name {
+			background-position: 10px 50%;
+			padding: 3px 0 0 40px;
+		}
+		.fb-feed-item {
+			margin: 0;
+			padding: 10px 15px;
+			border-top: 1px solid #E8E8E8;
+			p {
+				margin: 0 0 10px 0; 
+				font-size: 14px;
+			}
+			p.story {
+				font-size: 16px;
+			}
+			blockquote {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			img.thumbnail {
+				float: left;
+				margin-top: 5px;
+			}
+		}
+	}
+	
+}	
+.widget_sp_image {
+	padding: 0;
 }
+
 .footer {
 	#inner-footer {
 		position: relative;

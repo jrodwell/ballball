@@ -1,18 +1,14 @@
 /******************************************************************
-Site Name:
-Author:
+
+Site Name: Ballball
+Author: RM
 
 Stylesheet: Base Mobile Stylesheet
-
-Be light and don't over style since everything here will be
-loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylsheet
-and will be used across all viewports.
 
 ******************************************************************/
 
 /*********************
-GENERAL STYLES
+LAYOUT & GRID STYLES
 *********************/
 
 body {
@@ -21,66 +17,11 @@ body {
 	line-height: 1.5;
 	color: #565656;
 }
-ul {
-	list-style: none;
-}
-abbr {
-	border-bottom: 0!important;
-}
-
-/********************
-WORDPRESS BODY CLASSES
-style a page via class
-********************/
-
-.rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
-.home {}                          /* home page */
-.blog {}                          /* blog template page */
-.archive {}                       /* archive page */
-.date {}                          /* date archive page */
-	.date-paged-1 {}                /* replace the number to the corresponding page number */
-.search {}                        /* search page */
-	.search-results {}              /* search result page */
-	.search-no-results {}           /* no results search page */
-	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
-.error404 {}                      /* 404 page */
-.single {}                        /* single post page */
-	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
-	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
-.attachment {}                    /* attatchment page */
-	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
-	.attachment-mime-type {}        /* style mime type pages */
-.author {}                        /* author page */
-	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
-	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
-.category {}                      /* category page */
-	.category-1 {}                  /* individual category page (i.e. body.category-6) */
-	.category-paged-1 {}            /* replace the number to the corresponding page number */
-.tag {}                           /* tag page */
-	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
-	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
-.page-template {}                 /* custom page template page */
-	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
-	.page-paged-1 {}                /* replace the number to the corresponding page number */
-	.page-parent {}                 /* parent page template */
-	.page-child {}                  /* child page template */
-	.parent-pageid-1 {}             /* replace the number to the corresponding page number */
-.logged-in {}                     /* if user is logged in */
-.paged {}                         /* paged items like search results or archives */
-	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
-
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-
 .header {
-	height: 58px;
-	overflow: hidden;
 	background: $headerBG;
 	#inner-header {
-		height: 58px;
 		width: $mobWidth;
-		padding: 0 $mobPadding;
+		padding: 0;
 		margin: 0 auto;		
 	}
 }
@@ -88,7 +29,7 @@ LAYOUT & GRID STYLES
 	#inner-hero {
 		position: relative;
 		width: $mobWidth;
-		padding: 0 10px 10px 10px;
+		padding: 0;
 		background: $bbBlack;
 		margin: 0 auto;		
 		color: $white;
@@ -136,135 +77,103 @@ a {
 	text-decoration: none;
 }
 
-/******************************************************************
-H1, H2, H3, H4, H5 STYLES
-******************************************************************/
+/*********************
+SEMI RESET STYLES
+*********************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	font-family: $header;
 	text-rendering: optimizelegibility;
 	font-weight: bold;
 	text-transform: uppercase;
-	margin: 0 0 10px 0;
+	margin: 0;
 	color: $headline;
 }
-
 h1, .h1 {
 	font-size: 22px;
 	line-height: 1.18;
 }
-
 h2, .h2 {
 	font-size: 22px;
 	line-height: 1.18;
 }
-
 h3, .h3 {
-	font-size: 1.125em;
+	font-size: 18px;
 }
-
-h4, .h4 {
-	font-size: 1.1em;
-	font-weight: 700;
+h4, .h4, h5, .h5 {
+	font-size: 16px;
 }
-
-h5, .h5 {
-	font-size: 0.846em;
-	line-height: 2.09em;
-	text-transform: uppercase;
-	letter-spacing: 2px;
+ul {
+	list-style: none;
+}
+abbr {
+	border-bottom: 0!important;
+}
+img {
+	vertical-align: top;
+}
+p {
+	margin: 0 0 10px 0;
 }
 
 /*********************
 HEADER STYLES
 *********************/
 
-.header {
-	#inner-header {
+#logo {
+	height: 30px;
+	margin: 15px 20px;
+	img {
+		width: 121px;
+		height: 30px;
+		vertical-align: top;
 	}
 }
-
-#logo { }
+.language-switcher {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 
 /*********************
 NAVIGATION STYLES
 *********************/
 
-/*
-all navs have a .nav class applied via
-the wp_menu function; this is so we can
-easily write one group of styles for
-the navs on the site so our css is cleaner
-and more scalable.
-*/
-
-.nav {
-	border: 1px solid #ccc;
-	border-bottom: 0;
-	li {
-
-		a {
-			display: block;
-			padding: 10px 10px;
-			background-color: #eee;
-			border-bottom: 1px solid #ccc;
-
-			/*
-			remember this is for mobile ONLY, so there's no need
-			to even declare hover styles here, you can do it in
-			the style.scss file where it's relevant. We want to
-			keep this file as small as possible!
-			*/
-			&:hover, &:focus {
-
-			}
-		}
-
-		&:first-child {}
-
-		&:last-child {}
-
-		/*
-		so you really have to rethink your dropdowns for mobile.
-		you don't want to have it expand too much because the
-		screen is so small. How you manage your menu should
-		depend on the project. Here's some great info on it:
-		http://www.alistapart.com/articles/organizing-mobile/
-		*/
-		ul.sub-menu,
-		ul.children {
-
-			li {
-
-				a {
-					padding-left: 30px;
-
-					&:hover,
-					&:focus {}
-
-					&:link {}
-
+nav {
+	background: $bodyText;
+	.nav-menu {
+		margin: 0;
+		padding: 0;
+		li {
+			padding: 0;
+			line-height: 1rem;
+			text-align: center;
+			font-family: $header;
+			font-size: 24px;
+			font-weight: bold;
+			text-transform: uppercase;
+			a {
+				display: block;
+				width: 100%;
+				height: 45px;
+				padding: 14px 0;
+				border-bottom: 1px solid #575757;
+				color: $white;
+				&:hover, &:focus {
+					color: $white;
 				}
-
-				&:first-child {}
-
-				&:last-child {}
-
 			}
-
 		}
-
-	} /* end .menu li */
-
-	/* highlight current page */
-	li.current-menu-item,
-	li.current_page_item,
-	li.current-page-ancestor {
-
-		a {}
-
-	}  /* end current highlighters */
-
+		.sub-menu {
+			padding: 0;
+		}
+	}
+	.home-link-menu-container {
+		background: url(../images/navShut.png) no-repeat right 50%;
+	}
+	.expanded {
+		background: url(../images/navExpanded.png) no-repeat right 50%;
+	}
 } /* end .nav */
 
 
@@ -272,32 +181,37 @@ and more scalable.
 LIVE MATCHES STYLES
 *********************/
 
+h2.total-match-count {
+	display: block;
+	margin: 0;
+	background: $bbGrey;
+	padding: 10px 0;
+	text-align: center;
+	font-size: 16px;
+	font-family: $sans-serif;
+	color: $white;
+	span {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		display: block;
+		width: 16px;
+		height: 16px;
+		text-align: center;
+		cursor: pointer;
+		background: url(../images/toggleMinus.png) no-repeat 50% 50%;
+	}
+	.toggled {
+		background: url(../images/togglePlus.png) no-repeat 50% 50%;
+	}
+}
+.auto-update {
+	display: none;
+}
 #widgetOutput {
+	padding-bottom: 10px;
 	font-size: 12px;
 	h2, h4 {
-		display: none;
-	}
-	h2.total-match-count {
-		display: block;
-		margin: 0;
-		background: $bbGrey;
-		padding: 10px 0;
-		text-align: center;
-		font-size: 16px;
-		font-family: $sans-serif;
-		color: $white;
-		span {
-			position: absolute;
-			top: 6px;
-			right: 18px;
-			display: block;
-			width: 30px;
-			height: 30px;
-			text-align: center;
-			cursor: pointer;
-		}
-	}
-	.auto-update {
 		display: none;
 	}
 	h3 {
@@ -313,7 +227,7 @@ LIVE MATCHES STYLES
 		}
 	}
 	.opta-widget-container {
-		width: 320px;
+		width: $mobWidth;
 	}
 	.fixtures {
 		border-radius: 0;
@@ -323,7 +237,7 @@ LIVE MATCHES STYLES
 	.matches {
 		margin: 0;
 	}
-	.match, .linked-match {
+	.match, .linked-match, .unlinked-match {
 		display: table;
 		height: 45px;
 		padding: 0;
@@ -342,15 +256,17 @@ LIVE MATCHES STYLES
 			color: $bbBlack;
 		}
 		.home-side {
-			width: 95px;
+			width: 90px;
+			padding-left: 5px;
 			text-align: right;
 		}
 		.away-side {
-			width: 95px;
+			width: 90px;
+			padding-right: 5px;
 			text-align: left;
 		}
 		.match-score {
-			width: 45px;
+			width: 50px;
 			text-align: center;
 			background: url(../images/liveV.png) no-repeat 50% 50%;
 			font-size: 28px;
@@ -368,7 +284,7 @@ LIVE MATCHES STYLES
 				text-align: right;
 			}
 			.match-score-divider {
-				width: 5px;
+				width: 10px;
 				text-align: center;
 			}
 			.match-page {
@@ -377,6 +293,7 @@ LIVE MATCHES STYLES
 		}
 		.matchDetails {
 			width: 45px;
+			background: $darkestGrey;
 			a {
 				width: 45px;
 				height: 43px;
@@ -451,12 +368,13 @@ POSTS & CONTENT STYLES
 *********************/
 
 #main {
-	margin: 20px 0 40px 0;
+	margin: 10px 0 $mobVHeight 0;
 }
 /* Promoted */
 #promoted {
-	background: red;
+	overflow: hidden;
 	border-bottom: 4px solid $moreGrey;
+	margin-bottom: 20px;
 	h2 {
 		font-size: 28px;
 		a {
@@ -471,7 +389,7 @@ POSTS & CONTENT STYLES
 			height: 100%;
 		}
 	}
-	#promoted-item-small-1, #promoted-item-small-2, #promoted-item-small-3 {
+	#promoted-item-large-2, #promoted-item-large-3, .promoted-item-small {
 		display: none;
 	}
 }
@@ -524,7 +442,7 @@ POSTS & CONTENT STYLES
 .byline {
 	padding-left: 20px;
 	background: url(../images/clock.png) no-repeat left 50%;
-	color: $bbGrey;
+	color: #bbGrey;
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -533,8 +451,11 @@ POSTS & CONTENT STYLES
 	border-top: 2px solid $lightGrey;
 	font-size: 14px;
 	font-weight: bold;
+	p {
+		margin: 15px 0;
+	}
 	.byline {
-		width: 70px;
+		width: 80px;
 		float: left;
 		margin-right: 9px;
 	}
@@ -543,12 +464,33 @@ POSTS & CONTENT STYLES
 		border-left: 2px solid $lightGrey;
 	}
 	.share {
-		width: 60px;
+		width: 96px;
 		float: right;
 		margin-left: 20px;
-	}
-	p {
-		margin: 10px 0;
+		height: 30px;
+		margin: 10px 0 10px 20px;
+		.st_facebook, .st_twitter, .st_googleplus {
+			float: left;
+			display: block;
+			width: 30px;
+			height: 30px;
+			margin-left: 2px;
+		}
+		.stButton {
+			width: 30px;
+			height: 30px;
+			margin: 0;
+			background: url(../images/shareButtons.png) no-repeat 0 50%;
+			span {
+				display: none;
+			}
+		}
+		.st_twitter .stButton {
+			background-position: -32px 50%;
+		}
+		.st_googleplus .stButton {
+			background-position: -64px 50%;
+		}
 	}
 }
 .entry-content {
@@ -575,6 +517,31 @@ POSTS & CONTENT STYLES
 /* Single articles */
 .single #main {
 	margin-top: 10px;
+	section {
+		position: relative;
+		padding-bottom: 90px;
+		.share-panel {
+			position: absolute;
+			height: 90px;
+			width: 100%;
+			bottom: 0;
+			.fb_iframe_widget{
+				position: absolute;
+				left: 20px;
+			}
+			.twitter-share-button {
+				position: absolute;
+				left: 115px;
+			}
+			#___plusone_0 {
+				position: absolute;
+				left: 225px;
+			}
+		}
+	}
+	.entry-gridcontent {
+		padding-bottom: 0;
+	}
 }
 .single .hentry {
 	border-color: $bbGrey;
@@ -662,6 +629,7 @@ POSTS & CONTENT STYLES
 			width: 140px;
 		}
 		p {
+			margin: 10px 0 0 0;
 			font-size: 19px;
 			font-family: $header;
 			text-transform: uppercase;
@@ -692,17 +660,18 @@ POSTS & CONTENT STYLES
 	} /* end .wp-caption */
 
 /******************************************************************
-PAGE NAVI STYLES
+PAGINATION STYLES
 ******************************************************************/
 
 .page-navigation,
 .wp-prev-next {
+	margin: 40px 0 $mobVHeight 0;
+	background: none;
 	font-size: 22px;
 	font-family: $header;
 	text-rendering: optimizelegibility;
 	font-weight: bold;
 	text-transform: uppercase;
-	margin: 0 0 $mobVHeight 0;
 	ul {
 		margin: 0;
 		padding: 0;
@@ -722,322 +691,45 @@ PAGE NAVI STYLES
 	}
 } /* end .wp-prev-next */
 
-/******************************************************************
-COMMENT STYLES
-******************************************************************/
-
-/* h3 comment title */
-#comments {
-
-	/* number of comments span */
-	span {}
-
-}
-
-.comment-nav {
-
-	ul {
-
-		li {}
-
-	}
-}
-
-
-.commentlist {
-
-	li {
-		position: relative;
-		clear: both;
-		overflow: hidden;
-		margin-bottom: 1.5em;
-		padding: 0.7335em 10px;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-
-		ul.children {
-			margin: 0;
-
-			li {}
-
-			/* variations */
-			.comment {}
-			.alt {}
-			.odd {}
-			.even {}
-			.depth-1 {}           /* change number for different depth */
-			.byuser {}
-			.bypostauthor {}
-			.comment-author-admin {}
-
-		} /* end .commentlist li ul.children */
-	}
-
-	li[class*=depth-] {
-		margin-top: 1.1em;
-	}
-
-	li.depth-1 {
-		margin-left: 0;
-		margin-top: 0;
-	}
-
-	li:not(.depth-1) {
-		margin-right: -10px;
-		margin-left: -10px;
-		margin-top: 0;
-		padding-bottom: 0;
-	}
-
-	li.depth-2 {}
-	li.depth-3 {}
-	li.depth-4 {}
-	li.depth-5 {}
-
-	/* general comment classes */
-	.alt {}
-	.odd {
-		background: #eee;
-	}
-	.even {
-		background: #fefefe;
-	}
-	.parent {}
-	.comment {}
-	.children {}
-	.pingback {}
-	.bypostauthor {}
-	.comment-author {}
-	.comment-author-admin {}
-	.thread-alt {}
-	.thread-odd {}
-	.thread-even {}
-
-	/* vcard */
-	.vcard {
-		margin-left: 50px;
-
-		cite.fn {
-			font-weight: 700;
-			font-style: normal;
-
-			a.url {}
-
-		}
-
-		time {
-			float: right;
-
-			a {
-				color: #999;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
-
-			}
-
-		}
-
-		img.photo {}
-
-		img.avatar {
-			position: absolute;
-			left: 10px;
-			padding: 2px;
-			border: 1px solid #cecece;
-			background: #fff;
-		}
-
-	} /* end .commentlist .vcard */
-
-
-	/* comment meta */
-	.comment-meta {
-
-		a {}
-
-	}
-
-	.commentmetadata {
-
-		a {}
-
-	}
-
-	/* comment content */
-	.comment_content {
-		margin-left: 50px;
-
-		p {
-			margin: 0.7335em 0 1.5em;
-			font-size: 1em;
-			line-height: 1.5em;
-		}
-
-	} /* end .commentlist .comment_content */
-
-	/* comment reply link */
-	.comment-reply-link {
-		text-decoration: none;
-		float: right;
-		background: #4598bb;
-		padding: 3px 5px;
-		color: #fff;
-		opacity: 0.65;
-		margin-bottom: 10px;
-		font-weight: 700;
-		font-size: 0.9em;
-
-		&:hover,
-		&:focus {
-			opacity: 1;
-		}
-
-	} /* end .commentlist .comment-reply-link */
-
-} /* end .commentlist */
-
-/******************************************************************
-COMMENT FORM STYLES
-******************************************************************/
-
-.respond-form {
-	margin: 1.5em 10px;
-	padding-bottom: 2.2em;
-
-	form {
-		margin: 0.75em 0;
-
-		li {
-			clear: both;
-			margin-bottom: 0.7335em;
-
-			label,
-			small {
-				display: none;
-			}
-		}
-
-		input[type=text],
-		input[type=email],
-		input[type=url],
-		textarea {
-			padding: 3px 6px;
-			background: #efefef;
-			border: 2px solid #cecece;
-			line-height: 1.5em;
-
-			&:focus {
-				background: #fff;
-			}
-
-			/* form validation */
-			&:invalid {
-				outline: none;
-				border-color: #fbc2c4;
-				background-color: #f6e7eb;
-				-webkit-box-shadow: none;
-				   -moz-box-shadow: none;
-				    -ms-box-shadow: none;
-						box-shadow: none;
-			}
-		}
-
-		input[type=text],
-		input[type=email],
-		input[type=url] {
-			max-width: 400px;
-			min-width: 250px;
-		}
-
-		textarea {
-			resize: none;
-			width: 97.3%;
-			height: 150px;
-		}
-
-	}
-}
-
-	/* comment submit button */
-	#submit {}
-
-	/* comment form title */
-	#comment-form-title {
-		margin: 0 0 1.1em;
-	}
-
-	/* cancel comment reply link */
-	#cancel-comment-reply {
-		a {}
-	}
-
-	/* logged in comments */
-	.comments-logged-in-as {}
-
-	/* allowed tags */
-	#allowed_tags {
-		margin: 1.5em 10px 0.7335em 0;
-	}
-
-	/* no comments */
-	.nocomments {
-		margin: 0 20px 1.1em;
-	}
-
 /*********************
 SIDEBARS & ASIDES
 *********************/
 
-.sidebar {}
-
-	.widgettitle {}
-
-	.widget {
-
-		ul {
-
-			li {
-
-				&:first-child {}
-
-				&:last-child {}
-
-				a {}
-
-				/* deep nesting */
-				ul {}
-
-			}
-
-		}
-
+#content #sidebar {
+	div {
+		margin-bottom: 20px;
 	}
+	h4 {
+		background: #4d5053;
+		padding: 10px 0;
+		text-align: center;
+		font-size: 22px;
+		color: $white;
+	}
+	#follow-container {
+		padding: 15px 20px;
+		border-width: 0 1px 1px 1px;
+		border-style: solid;
+		border-color: $anotherGrey;
+	}
+	.twitter-follow-button, .fb_iframe_widget, #___plusone_0 {
+		margin-bottom: 10px!important;
+	}
+	#minitwitter-widget-2, #ffg_widget-2 {
+		display: none;
+	}
+}
 
 /*********************
 FOOTER STYLES
 *********************/
 
 .footer {
-		background: $bbGrey;
-		clear: both;
+	background: $bbGrey;
+	clear: both;
 	#inner-footer {
 		width: $mobWidth;
 		padding: 0 $mobPadding;
 		margin: 0 auto;		
 	}
 }
-	.footer-links {
-
-		ul {
-
-			li {}
-
-		}
-
-	} /* end .footer-links */
-
