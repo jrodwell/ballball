@@ -106,13 +106,17 @@
             
             $menu_locations = get_nav_menu_locations();
             $main_nav_object = wp_get_nav_menu_object($menu_locations['main-nav']);
-            $main_nav_items = wp_get_nav_menu_items($main_nav_object);
+            $main_nav_items = wp_get_nav_menu_items($main_nav_object->term_id);
               
-            //var_dump($main_nav); 
+            //var_dump($main_nav_items); 
             
             ?>
 					
-					  <?php wp_nav_menu(array('menu' => 'main', 'menu_class' => 'nav-menu')); ?>
+					  <?php
+            
+            wp_nav_menu(array('menu' => 'main', 'menu_class' => 'nav-menu', 'walker' => new jr_walker()));
+            
+            ?>
 					  
 					  <?php //wp_nav_menu(array('menu' => 'all-competitions', 'menu_class' => 'nav-menu')); ?>
 					  
