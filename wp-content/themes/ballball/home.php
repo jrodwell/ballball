@@ -146,7 +146,7 @@
               $n = count($posts_one);
               $posts_one_ids = array();
               foreach($posts_one as $post_one) {
-                $posts_one_ids = $post_one->ID;
+                $posts_one_ids[] = $post_one->ID;
               }
               if($n<3) {
                 $x = 3-$n;
