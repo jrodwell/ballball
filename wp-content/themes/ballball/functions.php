@@ -816,4 +816,3 @@ function menu_set_is_parent($sorted_menu_items, $args) {
 add_filter('wp_nav_menu_objects', 'menu_set_is_parent', 10, 2);
               
 ?>
-
