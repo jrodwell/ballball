@@ -154,6 +154,15 @@ LIVE MATCHES STYLES
 
 #widgetOutput {
 	font-size: 16px;
+	h2.total-match-count {
+		background: $bbBlack;
+		text-align: left;
+		font-size: 18px;
+		span {
+			top: 16px;
+			right: 33px;
+		}
+	}
 	h3 {
 		padding: 12px 0;
 		font-size: 16px;
@@ -161,14 +170,25 @@ LIVE MATCHES STYLES
 			padding-left: 8px;
 		}
 	}
+	.auto-update {
+		position: absolute;
+		top: 5px;
+		left: 36%;
+		display: block;
+		padding-right: 25px;
+		background: $bbBlack url(../images/liveUpdate.png) no-repeat 100% 50%;
+		font-size: 14px;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $anotherGrey;
+	}
 	.opta-widget-container {
 		width: 620px;
 	}
-	.match {
+	.match, .linked-match {
 		height: 60px;
 		span {
 			height: 58px;
-			padding: 20px 0;
 		}
 		.match-time {
 			width: 50px;
@@ -182,11 +202,30 @@ LIVE MATCHES STYLES
 		.match-score {
 			font-size: 36px;
 			width: 75px;
-			span {
-				padding: 5px 0;
-			}
 			.match-score-home, .match-score-away {
 				width: 32px;
+			}
+		}
+		.matchDetails {
+			width: 190px;
+			padding-right: 20px;
+			padding-left: 60px;
+			text-transform: uppercase;
+			font-size: 12px;
+			font-weight: bold;
+			a {
+				width: 110px;
+				background: $bbGrey url(../images/info.png) no-repeat left 50%;
+				padding-top: 12px;
+				padding-left: 20px;
+				color: $anotherGrey;
+				&:hover, &:focus {
+					background-image: url(../images/infoHover.png);
+					color: $brightGreen;
+				}	
+			}
+			span {
+				display: inline;
 			}
 		}
 	}
@@ -213,6 +252,48 @@ h2, .h2 {
 #main {
 	width: 620px;
 	margin-top: 20px;
+}
+/* Promoted */
+#promoted {
+	position: relative;
+	h2 {
+		font-size: 48px;
+	}
+	.promoted-featured-image-large {
+		width: 460px;
+		height: 304px;
+	}
+	#promoted-item-small-1, #promoted-item-small-2, #promoted-item-small-3 {
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: block;
+		width: 140px;
+		.promoted-featured-image {
+			width: 140px;
+			height: 92px;
+		}
+		p {
+			margin: 0;
+			a {
+				display: block;
+				width: 140px;
+				height: 55px;
+				background: $lightGrey;
+				color: $headline;
+				&:hover, &:focus {
+					background: $bbGreen;
+					color: $white;
+				}
+			}
+		}
+	}
+	#promoted-item-small-2 {
+		top: 170px;
+	}
+	#promoted-item-small-3 {
+		top: 340px;
+	}
 }
 /* Stream articles */
 .hentry {

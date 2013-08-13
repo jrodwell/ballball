@@ -21,11 +21,10 @@ Stylesheet: Desktop Stylsheet
 #hero {
 	background: url(../images/pattern_geometric-dark.png) repeat;
 	#inner-hero {
-		position: relative;
 		left: 50%;
 		margin-left: -($deskWidth/2);
 		width: $deskWidth;
-		padding: 60px 0 10px 0;
+		padding: 0 0 10px 0;
 	}
 }
 #live-league-menu {
@@ -55,6 +54,14 @@ Stylesheet: Desktop Stylsheet
 	}
 }
 #widgetOutput {
+	h2.total-match-count {
+		margin: 0 65px;
+		padding: 20px 0;
+		span {
+			top: 18px;
+			right: 56px;
+		}
+	}
 	h3 {
 		display: none;
 	}
@@ -68,6 +75,16 @@ Stylesheet: Desktop Stylsheet
 	}
 	div.active {
 		display: block;
+	}
+	.match, .linked-match {
+		.home-side,	.away-side {
+			width: 170px;
+		}
+		.matchDetails {
+			width: 225px;
+			padding-right: 55px;
+			padding-left: 60px;
+		}
 	}
 }
 

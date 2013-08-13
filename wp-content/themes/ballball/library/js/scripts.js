@@ -1,105 +1,135 @@
-// as the page loads, call these scripts
-jQuery(document).ready(function($) {
+// IE8 ployfill for GetComputed Style (for Responsive Script below)
+if (!window.getComputedStyle) {
+    window.getComputedStyle = function(el, pseudo) {
+        this.el = el;
+        this.getPropertyValue = function(prop) {
+            var re = /(\-([a-z]){1})/g;
+            if (prop == 'float') prop = 'styleFloat';
+            if (re.test(prop)) {
+                prop = prop.replace(re, function () {
+                    return arguments[2].toUpperCase();
+                });
+            }
+            return el.currentStyle[prop] ? el.currentStyle[prop] : null;
+        }
+        return this;
+    }
+}
 
-	var $j = jQuery;
+/* Match link replacement */
+if (language_code != 'en') {
+	var base_url = '/' + language_code + '/match/';
+}
+else {
+	var base_url = '/match/';
+}
+
+/* Navigation */
+function navigationExpand () {
+	jQuery(this).toggleClass('expanded');
+}
+
+/* Live matches */
+function liveMatchesToggle() {
+	jQuery('#widgetOutput').slideToggle('slow');
+	jQuery('.total-match-count > span').toggleClass('toggled');
+}
+
+// as the page loads, call these scripts
+jQuery(document).ready(function() {
+	
+	/* Navigation */
+	jQuery('.home-link-menu-container').click(navigationExpand);
 	
 	/* Live matches menu */
-	$j('#live-league-0').addClass('active');
-	$j('#menu-league-0').addClass('active');
+	jQuery('.total-match-count').append('<span>&nbsp;</span>');
+	jQuery('.total-match-count > span').click(liveMatchesToggle);
+	
+	jQuery('#live-league-0').addClass('active');
+	jQuery('#menu-league-0').addClass('active');
 
-	$j('#live-league-menu > .league-menu-item').click(function() {
-		var current = $j(this);
+	jQuery('#live-league-menu > .league-menu-item').click(function() {
+		var current = jQuery(this);
 		var currentString = current.attr('id');
 		var targetString =  currentString.replace('menu-league-','live-league-');
-		var target = $j('#' + targetString);
+		var target = jQuery('#' + targetString);
 		
 		if(!target.hasClass('active')){
-			$j('#widgetOutput > .live-league').hide().removeClass('active').slideUp();
-			target.addClass('active').slideDown();
-			$j('#live-league-menu > .league-menu-item').removeClass('active');
+			jQuery('#widgetOutput > .live-league').hide().addClass('notActive').removeClass('active').slideUp();
+			target.removeClass('notActive').addClass('active').slideDown();
+			jQuery('#live-league-menu > .league-menu-item').removeClass('active');
 			current.addClass('active');
 		}
 	});
 	
-	/* Promo box */
+	/* Promo box mob */
 	
-	
+	/* Promo box desktop */
+	jQuery('#promoted-item-large-1').addClass('active');
+	jQuery('#promoted-item-small-1').addClass('active');
+
+	jQuery('#promoted > .promoted-item-small').click(function() {
+		var current = jQuery(this);
+		var currentString = current.attr('id');
+		var targetString =  currentString.replace('small','large');
+		var target = jQuery('#' + targetString);
+		
+		if(!target.hasClass('active')){
+			jQuery('#promoted > .promoted-item-large').hide().removeClass('active');
+			target.addClass('active').show();
+			jQuery('#promoted > .promoted-item-small').removeClass('active');
+			current.addClass('active');
+		}
+	});
 
 	/* Opta calls and callbacks */
 	var fixes = function () {
-		var $j = jQuery;
-		
-		$j('.livematch').each(function() {
-			
-			if($j('.match-time abbr').text() == 'HT') {
-				$j(this).addClass('halfTime');
+		/* extra styling */
+		jQuery('.livematch').each(function() {
+			if(jQuery(this).find('.match-time abbr').text() == 'HT') {
+				jQuery(this).addClass('halfTime');
 			}
-			else if($j('.match-score-divider').text() == 'v.') {
-				$j(this).addClass('notLive');
+			else if(jQuery(this).find('.match-score-divider').text() == 'v.') {
+				jQuery(this).addClass('notLive');
 			}
 			else {
-				$j(this).addClass('live');
+				jQuery(this).addClass('live');
 			}
 		});
 		
-		var $j = jQuery;
-		var base_url = '/match/';
+		/* link change */
 
-		$j('.match').each(function () {
-			var optaID = $j(this).find('a.external-link').attr('href').split('match=')[1];
-			var found = $.map(array_matches, function(item) {
+		jQuery('.match').each(function () {
+			var optaID = jQuery(this).find('a.external-link').attr('href').split('match=')[1];
+			var found = jQuery.map(array_matches, function(item) {
 				if (item.o.indexOf(optaID) >= 0) {
 					return item;
 			   }
 			});
-			var final_url = base_url + found[0].m;
-			
-			$j(this).find('a.external-link').attr('href', final_url);
-			$j(this).append('<span><a href=' + final_url + '>Info</a></span>');
+			if (found.length > 0) {
+				var final_url = base_url + found[0].m;
+				jQuery(this).find('a.external-link').contents().unwrap();
+				jQuery(this).append('<span class="matchDetails"><a href=' + final_url + '><span>Match Details</span></a></span>');
+				jQuery(this).removeClass('match').addClass('linked-match');
+			}
+			else {
+				jQuery(this).find('a.external-link').contents().unwrap();
+			}
 		});
 	};
+	
+	/* set timezone */
+	var local_offset = new Date().getTimezoneOffset()/-60;
+	var final_offset = local_offset - wordpress_offset;
 	
 	_optaParams = {
 		custID: '0901705c87db7592177aacda260075cb',
 		lang: 'en_GB',
-		timezone: 0,
+		timezone: final_offset,
 		callbacks: [fixes]
 	};
 	
 }); /* end of as page load scripts */
 
 
-/*! A fix for the iOS orientationchange zoom bug.
- Script by @scottjehl, rebound by @wilto.
- MIT License.
-*/
-(function(w){
-	// This fix addresses an iOS bug, so return early if the UA claims it's something else.
-	if( !( /iPhone|iPad|iPod/.test( navigator.platform ) && navigator.userAgent.indexOf( "AppleWebKit" ) > -1 ) ){ return; }
-    var doc = w.document;
-    if( !doc.querySelector ){ return; }
-    var meta = doc.querySelector( "meta[name=viewport]" ),
-        initialContent = meta && meta.getAttribute( "content" ),
-        disabledZoom = initialContent + ",maximum-scale=1",
-        enabledZoom = initialContent + ",maximum-scale=10",
-        enabled = true,
-		x, y, z, aig;
-    if( !meta ){ return; }
-    function restoreZoom(){
-        meta.setAttribute( "content", enabledZoom );
-        enabled = true; }
-    function disableZoom(){
-        meta.setAttribute( "content", disabledZoom );
-        enabled = false; }
-    function checkTilt( e ){
-		aig = e.accelerationIncludingGravity;
-		x = Math.abs( aig.x );
-		y = Math.abs( aig.y );
-		z = Math.abs( aig.z );
-		// If portrait orientation and in one of the danger zones
-        if( !w.orientation && ( x > 7 || ( ( z > 6 && y < 8 || z < 8 && y > 6 ) && x > 5 ) ) ){
-			if( enabled ){ disableZoom(); } }
-		else if( !enabled ){ restoreZoom(); } }
-	w.addEventListener( "orientationchange", restoreZoom, false );
-	w.addEventListener( "devicemotion", checkTilt, false );
-})( this );
+/*A fix for the iOS orientationchange zoom bug.*/(function(a){function m(){d.setAttribute("content",g),h=!0}function n(){d.setAttribute("content",f),h=!1}function o(b){l=b.accelerationIncludingGravity,i=Math.abs(l.x),j=Math.abs(l.y),k=Math.abs(l.z),(!a.orientation||a.orientation===180)&&(i>7||(k>6&&j<8||k<8&&j>6)&&i>5)?h&&n():h||m()}var b=navigator.userAgent;if(!(/iPhone|iPad|iPod/.test(navigator.platform)&&/OS [1-5]_[0-9_]* like Mac OS X/i.test(b)&&b.indexOf("AppleWebKit")>-1))return;var c=a.document;if(!c.querySelector)return;var d=c.querySelector("meta[name=viewport]"),e=d&&d.getAttribute("content"),f=e+",maximum-scale=1",g=e+",maximum-scale=10",h=!0,i,j,k,l;if(!d)return;a.addEventListener("orientationchange",m,!1),a.addEventListener("devicemotion",o,!1)})(this);

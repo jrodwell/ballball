@@ -86,6 +86,7 @@ LAYOUT & GRID STYLES
 }
 #hero {
 	#inner-hero {
+		position: relative;
 		width: $mobWidth;
 		padding: 0 10px 10px 10px;
 		background: $bbBlack;
@@ -111,12 +112,13 @@ a, a:visited {
 
 	/* on hover */
 	&:hover, &:focus {
+		outline: none;
 		color: $link-hover;
 	}
 
 	/* on click */
 	&:active {
-
+		outline: none;
 	}
 
 	/* mobile tap color */
@@ -145,9 +147,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-transform: uppercase;
 	margin: 0 0 10px 0;
 	color: $headline;
-	a {
-		color: $bbGrey;
-	}
 }
 
 h1, .h1 {
@@ -278,6 +277,29 @@ LIVE MATCHES STYLES
 	h2, h4 {
 		display: none;
 	}
+	h2.total-match-count {
+		display: block;
+		margin: 0;
+		background: $bbGrey;
+		padding: 10px 0;
+		text-align: center;
+		font-size: 16px;
+		font-family: $sans-serif;
+		color: $white;
+		span {
+			position: absolute;
+			top: 6px;
+			right: 18px;
+			display: block;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			cursor: pointer;
+		}
+	}
+	.auto-update {
+		display: none;
+	}
 	h3 {
 		margin: 0;
 		padding: 8px 20px;
@@ -301,18 +323,17 @@ LIVE MATCHES STYLES
 	.matches {
 		margin: 0;
 	}
-	.match {
+	.match, .linked-match {
+		display: table;
 		height: 45px;
 		padding: 0;
 		border-bottom: 2px solid $bbBlack;
 		font-weight: bold;
 		color: $anotherGrey;
 		span {
-			float: left;
-			display: block;
+			display: table-cell;
 			height: 43px;
-			padding: 14px 0;
-			overflow: hidden;
+			vertical-align: middle;
 		}
 		.match-time {
 			width: 45px;
@@ -329,12 +350,14 @@ LIVE MATCHES STYLES
 			text-align: left;
 		}
 		.match-score {
-			width: 50px;
-			padding: 0;
+			width: 45px;
 			text-align: center;
 			background: url(../images/liveV.png) no-repeat 50% 50%;
 			font-size: 28px;
 			font-family: $header;
+			a {
+				display: table;
+			}
 			span {
 				width: 20px;
 				display: none;
@@ -345,8 +368,26 @@ LIVE MATCHES STYLES
 				text-align: right;
 			}
 			.match-score-divider {
-				width: 10px;
+				width: 5px;
 				text-align: center;
+			}
+			.match-page {
+				display: none;
+			}
+		}
+		.matchDetails {
+			width: 45px;
+			a {
+				width: 45px;
+				height: 43px;
+				display: block;
+				background: $darkestGrey url(../images/info.png) no-repeat 50% 50%;
+				&:hover, &:focus {
+					background-image: url(../images/infoHover.png);
+				}	
+			}
+			span {
+				display: none;
 			}
 		}
 	}
@@ -359,8 +400,11 @@ LIVE MATCHES STYLES
 		.match-score {
 			background: none;
 			color: $brightGreen;
+			a {
+				color: $brightGreen;
+			}
 			span {
-				display: block;
+				display: table-cell;
 			}
 		}
 	}
@@ -372,8 +416,11 @@ LIVE MATCHES STYLES
 		.match-score {
 			background: none;
 			color: $white;
+			a {
+				color: $white;
+			}
 			span {
-				display: block;
+				display: table-cell;
 			}
 		}
 	}
@@ -409,6 +456,24 @@ POSTS & CONTENT STYLES
 /* Promoted */
 #promoted {
 	background: red;
+	border-bottom: 4px solid $moreGrey;
+	h2 {
+		font-size: 28px;
+		a {
+			color: $bbBlack;
+		}
+	}
+	.promoted-featured-image-large {
+		width: 300px;
+		height: 200px;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	#promoted-item-small-1, #promoted-item-small-2, #promoted-item-small-3 {
+		display: none;
+	}
 }
 /* Stream articles */
 .hentry {
