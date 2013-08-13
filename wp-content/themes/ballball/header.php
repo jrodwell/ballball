@@ -88,29 +88,24 @@
 				<div id="inner-header" class="wrap clearfix">
 
 					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/logo.png'; ?>" /><?php //bloginfo('name'); ?></a></p>
+					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/logo.png'; ?>" /></a></p>
 
-					<!-- if you'd like to use the site description you can un-comment it below -->
-					<?php // bloginfo('description'); ?>
-
-          <!-- widgetised area for language switcher (J.R.) -->
-          <p id="language-switcher"><?php get_sidebar('top'); ?></p>
+					<!-- widgetised area for language switcher (J.R.) -->
+					<p id="language-switcher"><?php get_sidebar('top'); ?></p>
 
 					<nav role="navigation">
-					
-					  <!-- <div class="test-menu-container"><ul class="nav-menu"><li class="menu-item"><?php icl_link_to_element(269, 'match'); ?></li></ul></div> -->
-					
-					  <!-- <div class="home-link-menu-container"><ul class="nav-menu"><li class="menu-item"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php  ?></a></li></ul></div> -->
-					
-					  <?php
-			            $menu_locations = get_nav_menu_locations();
-			            $main_nav_object = wp_get_nav_menu_object($menu_locations['main-nav']);
-			            $main_nav_items = wp_get_nav_menu_items($main_nav_object->term_id);
-			          ?>
-					
-					  <?php wp_nav_menu(array('menu' => 'main', 'menu_class' => 'nav-menu', 'walker' => new jr_walker())); ?>
-					  
-					  <?php //wp_nav_menu(array('menu' => 'all-competitions', 'menu_class' => 'nav-menu')); ?>
+						<!-- <div class="test-menu-container"><ul class="nav-menu"><li class="menu-item"><?php icl_link_to_element(269, 'match'); ?></li></ul></div> -->
+						<!-- <div class="home-link-menu-container"><ul class="nav-menu"><li class="menu-item"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php  ?></a></li></ul></div> -->
+
+						<?php
+							$menu_locations = get_nav_menu_locations();
+							$main_nav_object = wp_get_nav_menu_object($menu_locations['main-nav']);
+							$main_nav_items = wp_get_nav_menu_items($main_nav_object->term_id);
+						?>
+
+						<?php wp_nav_menu(array('menu' => 'main', 'menu_class' => 'nav-menu', 'walker' => new jr_walker())); ?>
+
+						<?php //wp_nav_menu(array('menu' => 'all-competitions', 'menu_class' => 'nav-menu')); ?>
 					  
 					</nav>
 
