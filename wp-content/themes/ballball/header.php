@@ -104,13 +104,13 @@
 					
 					  <?php
             
-            $menu_locations = get_nav_menu_locations();
-            $main_nav_object = wp_get_nav_menu_object($menu_locations['main-nav']);
-            $main_nav_items = wp_get_nav_menu_items($main_nav_object);
-              
-            //var_dump($main_nav); 
-            
-            ?>
+				        $menu_locations = get_nav_menu_locations();
+				        $main_nav_object = wp_get_nav_menu_object($menu_locations['main-nav']);
+				        $main_nav_items = wp_get_nav_menu_items($main_nav_object);
+				          
+				        //var_dump($main_nav); 
+				        
+				        ?>
 					
 					  <?php wp_nav_menu(array('menu' => 'main', 'menu_class' => 'nav-menu')); ?>
 					  
