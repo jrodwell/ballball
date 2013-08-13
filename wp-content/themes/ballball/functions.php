@@ -755,8 +755,6 @@ function custom_time_ago($date) {
 class jr_walker extends Walker_Nav_Menu {
   
   function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		
-		//var_dump($item);
     
     $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
@@ -776,8 +774,13 @@ class jr_walker extends Walker_Nav_Menu {
     if($item->object=='league') {
       $term = get_term_by('id', $item->object_id, 'league');
       $slug = $term->slug; 
-      $lang_str = (ICL_LANGUAGE_CODE=='en') ? '' : ICL_LANGUAGE_CODE.'/';
-      $custom_url = get_bloginfo('url').'/'.$lang_str.'league/'.$slug;
+      //$lang_str = (ICL_LANGUAGE_CODE=='en') ? '' : ICL_LANGUAGE_CODE.'/';
+      //$custom_url = get_bloginfo('url').'/'.$lang_str.'league/'.$slug;
+      $custom_url = get_bloginfo('url').'/league/'.$slug;
+    } else if($item->object=='team') {
+      $term = get_term_by('id', $item->object_id, 'team');
+      $slug = $term->slug; 
+      $custom_url = get_bloginfo('url').'/team/'.$slug;
     } else {
       $custom_url = $item->url;
     } 
