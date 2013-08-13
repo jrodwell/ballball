@@ -774,11 +774,13 @@ class jr_walker extends Walker_Nav_Menu {
     // Build URL for language (J.R.)
     
     if($item->object=='league') {
-      $term  = get_term_by('id', $item->ID, 'league');
-      $slug = $term->slug;
+      $term = get_term_by('id', $item->id, 'league');
+      //var_dump($term);
+      $slug = $term->name;
+      
       $lang_str = (ICL_LANGUAGE_CODE=='en') ? '' : ICL_LANGUAGE_CODE.'/';
       $custom_url = get_bloginfo('url').$lang_str.$slug;
-      var_dump($custom_url);      
+      //var_dump($custom_url);      
     }
 
 		$output .= $indent . '<li' . $id . $value . $class_names .'>';

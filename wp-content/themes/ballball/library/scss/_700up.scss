@@ -1,14 +1,9 @@
 /******************************************************************
-Site Name:
-Author:
+
+Site Name: Ballball
+Author: RM
 
 Stylesheet: Tablet & Small Desktop Stylesheet
-
-Here's where you can start getting into the good stuff.
-This size will work on iPads, other tablets, and desktops.
-So you can start working with more styles, background images,
-and other resources. You'll also notice the grid starts to
-come into play. Have fun!
 
 ******************************************************************/
 
@@ -32,155 +27,91 @@ HEADER STYLES
 *********************/
 
 .header {
-	height: 145px;
 	overflow: hidden;
 	#inner-header {
 		width: $tabWidth;
 		padding: 0 $tabPadding;
-		height: 145px;
 	}
 }
-#hero {
-	#inner-hero {
-		width: $tabWidth;
-		padding: 10px $tabPadding 55px;
-		background: $bbBlack;
+#logo {
+	height: 40px;
+	margin: 30px 0;
+	img {
+		width: 161px;
+		height: 40px;
 	}
 }
+
 
 /*********************
 NAVIGATION STYLES
 *********************/
 
-.nav {
-	border: 0;
-
-	li {
-		float: left;
-		position: relative;
-
-		a {
-			border-bottom: 0;
-
-			/*
-			you can use hover styles here even though this size
-			has the possibility of being a mobile device.
-			*/
-			&:hover, &:focus {
-				background-color: #dedede;
-
-			}
-		}
-
-		&:first-child {}
-		&:last-child {}
-
-		/*
-		plan your menus and drop-downs wisely.
-		*/
-		ul.sub-menu,
-		ul.children {
-			margin-top: 0;
-			border: 1px solid #ccc;
-			border-top: 0;
-			position: absolute;
-			display: none;
-			z-index: 8999;
-
-			li {
-
-				a {
-					padding-left: 10px;
-					border-right: 0;
-					display: block;
-					width: 180px;
-					border-bottom: 1px solid #ccc;
-
-					&:hover,
-					&:focus {}
-
-					&:link {}
+nav {
+	background: none;
+	.nav-menu {
+		li {
+			float: left;
+			margin: 0 10px 15px 10px;
+			padding: 10px 0;
+			text-align: left;
+			a {
+				color: $bodyText;
+				&:hover, &:focus {
+					color: $bodyText;
 				}
-
-				&:first-child {}
-
-				&:last-child {
-
-					a {
-						border-bottom: 0;
-					}
-				}
-
-				/*
-				if you need to go deeper, go nuts
-				just remember deeper menus suck
-				for usability. k, bai.
-				*/
-				ul {}
-			}
-
-			/* highlight sub-menu current page */
-			li.current-menu-item,
-			li.current_page_item,
-			li.current-page-ancestor {
-				a {}
 			}
 		}
-
-		/* showing sub-menus */
-		&:hover ul {
-			top: auto;
-			display: block;
+	}
+	.home-link-menu-container {
+		li {
+			margin-left: 0;
+			margin-bottom: 10px;
+			border-bottom: 5px solid $white;
 		}
-
-	} /* end .menu ul li */
-
-	/* highlight current page */
-	li.current-menu-item,
-	li.current_page_item,
-	li.current-page-ancestor {
-		a {}
-	}  /* end current highlighters */
-
+	}
 } /* end .nav */
-
-.wp-prev-next {
-	margin-bottom: $tabVHeight;
-}
 
 /*********************
 LIVE MATCHES STYLES
 *********************/
 
+#hero {
+	background: $bbBlack;
+	#inner-hero {
+		width: $tabWidth;
+		padding: 10px $tabPadding;
+	}
+}
+h2.total-match-count {
+	background: $bbBlack;
+	text-align: left;
+	font-size: 18px;
+	span {
+		top: 22px;
+		right: $tabPadding;
+	}
+}
+.auto-update {
+	position: absolute;
+	top: 20px;
+	left: 36%;
+	display: block;
+	padding-right: 25px;
+	background: $bbBlack url(../images/liveUpdate.png) no-repeat 100% 50%;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: $anotherGrey;
+}
 #widgetOutput {
 	font-size: 16px;
-	h2.total-match-count {
-		background: $bbBlack;
-		text-align: left;
-		font-size: 18px;
-		span {
-			top: 16px;
-			right: 33px;
-		}
-	}
 	h3 {
 		padding: 12px 0;
 		font-size: 16px;
 		span {
 			padding-left: 8px;
 		}
-	}
-	.auto-update {
-		position: absolute;
-		top: 5px;
-		left: 36%;
-		display: block;
-		padding-right: 25px;
-		background: $bbBlack url(../images/liveUpdate.png) no-repeat 100% 50%;
-		font-size: 14px;
-		font-weight: bold;
-		text-transform: uppercase;
-		color: $anotherGrey;
 	}
 	.opta-widget-container {
 		width: 620px;
@@ -208,16 +139,18 @@ LIVE MATCHES STYLES
 		}
 		.matchDetails {
 			width: 190px;
+			background: $bbGrey;
 			padding-right: 20px;
 			padding-left: 60px;
 			text-transform: uppercase;
 			font-size: 12px;
 			font-weight: bold;
 			a {
-				width: 110px;
+				width: 100px;
 				background: $bbGrey url(../images/info.png) no-repeat left 50%;
 				padding-top: 12px;
-				padding-left: 20px;
+				padding-left: 15px;
+				text-align: right;
 				color: $anotherGrey;
 				&:hover, &:focus {
 					background-image: url(../images/infoHover.png);
@@ -256,43 +189,49 @@ h2, .h2 {
 /* Promoted */
 #promoted {
 	position: relative;
+	margin-bottom: 35px;
 	h2 {
 		font-size: 48px;
+	}
+	.promoted-item-large {
+		display: none;
+		float: left;
+		width: 460px;
+	}
+	#promoted-item-large-1 {
+		display: block;
 	}
 	.promoted-featured-image-large {
 		width: 460px;
 		height: 304px;
 	}
-	#promoted-item-small-1, #promoted-item-small-2, #promoted-item-small-3 {
-		position: absolute;
-		right: 0;
-		top: 0;
+	.active {
+		display: block;
+	}
+	.promoted-item-small {
+		float: right;
 		display: block;
 		width: 140px;
+		cursor: pointer;
 		.promoted-featured-image {
 			width: 140px;
 			height: 92px;
 		}
 		p {
-			margin: 0;
-			a {
-				display: block;
-				width: 140px;
-				height: 55px;
-				background: $lightGrey;
-				color: $headline;
-				&:hover, &:focus {
-					background: $bbGreen;
-					color: $white;
-				}
-			}
+			margin:  0 0 20px 0;
+			padding: 10px;
+			background: $lightGrey;
+			font-size: 14px;
+			text-transform: uppercase;
+			font-weight: bold;
+			color: $headline;
 		}
-	}
-	#promoted-item-small-2 {
-		top: 170px;
-	}
-	#promoted-item-small-3 {
-		top: 340px;
+		&:hover, &:focus {
+			p {
+				background: $bbGreen;
+				color: $white;
+			}
+		}	
 	}
 }
 /* Stream articles */
@@ -335,7 +274,7 @@ h2, .h2 {
 .article-footer .tags {
 	float: left;
 	display: block;
-	width: 450px;
+	width: 425px;
 	padding-left: 19px;
 	text-transform: uppercase;
 	a {
@@ -356,6 +295,37 @@ h2, .h2 {
 /* Single articles */
 .single #main {
 	margin-top: 20px;
+	section {
+		padding-bottom: 0;
+		.share-panel {
+			height: 100%;
+			width: 80px;
+			top: 0;
+			left: 0;
+			bottom: auto;
+			.fb_iframe_widget{
+				top: 0;
+				left: 0;
+			}
+			.twitter-share-button {
+				top: 85px;
+				left: 0;
+			}
+			#___plusone_0 {
+				top: 165px;
+				left: 0;
+			}
+		}
+	}
+	.entry-gridcontent {
+		padding-bottom: 0;
+	}
+	.entry-content {
+		min-height: 250px; 
+		height: auto!important; 
+		height: 250px; 
+		padding-left: 80px;
+	}
 }
 .single-post .hentry {
 	h1 {
@@ -363,9 +333,6 @@ h2, .h2 {
 	}
 	.byline {
 		margin-bottom: 20px;
-	}
-	.entry-content {
-		padding-left: 80px;
 	}
 	.quote {
 		background: url(../images/quote.png) no-repeat 25px top;
@@ -403,40 +370,39 @@ h2, .h2 {
 	}
 }
 
-
 /*********************
 SIDEBARS & ASIDES
 *********************/
 
-.sidebar {
-	margin-top: 2.2em;
+#content #sidebar {
+	margin-top: 20px;
+	h4 {
+		font-size: 28px;
+	}
+	.twitter-follow-button, .fb_iframe_widget, #___plusone_0 {
+		float: left;
+		margin-left: 15px!important;
+	}
+	.twitter-follow-button {
+		margin-left:0!important;
+	}
+	#___plusone_0 {
+		width: 160px!important;
+	}
+}
+.widget_sp_image {
+	padding: 20px 0;
+	background: $lightGrey;
+	text-align: center;
 }
 
-	.widgettitle {
-		border-bottom: 2px solid #444;
-		margin-bottom: 0.75em;
-	}
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
 
-	.widget {
-		padding: 0 10px;
-		margin: 2.2em 0;
-
-		ul {
-			li {
-				margin-bottom: 0.75em;
-
-				&:first-child {}
-				&:last-child {}
-				a {}
-				/* deep nesting */
-
-				ul {
-					margin-top: 0.75em;
-					padding-left: 1em;
-				}
-			}
-		}
-	}
+.wp-prev-next {
+	margin-bottom: $tabVHeight;
+}
 
 /*********************
 FOOTER STYLES

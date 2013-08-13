@@ -10,6 +10,29 @@
               
               <script src='http://player.ooyala.com/v3/524943b893fa4620be889e04ccce7b92'></script>
               
+              <script src="http://widget.cloud.opta.net/2.0/js/widgets.opta.js"></script>
+              
+              <?php
+              
+              $leagues = array();
+              
+              $match_slug = get_query_var('term');
+              $match = get_term_by('slug', $match_slug, 'match');
+              $term_meta = get_option("taxonomy_$match->term_id");
+              $league_tax_id = $term_meta['league'];
+              $match_optaid = $term_meta['optaid'];
+              $all_leagues = get_terms('league', array('hide_empty' => false));
+              foreach($all_leagues as $league) {
+                if($league->term_id==$league_tax_id) {
+                  $term_meta = get_option("taxonomy_$league->term_id");
+                  $league_optaid = $term_meta['optaid'];
+                }
+              }        
+              
+              ?>
+              
+              <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" match="<?php echo $match_optaid; ?>" season="2013" live="true" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="true" show_attendance="true" show_referee="true" show_time="true" show_crest="true" show_scorers="true" show_cards="true" show_subs="false" sound="false" player_popup="false" player_names="initial" opta_logo="false" start_expanded="true" image_size="large" narrow_limit="400"></opta>
+              
               <?php
               
               $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
