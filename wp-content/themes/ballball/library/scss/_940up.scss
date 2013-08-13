@@ -5,7 +5,10 @@ Author:
 Stylesheet: Desktop Stylsheet
 ******************************************************************/
 .header {
+<<<<<<< HEAD
 	padding-top: 127px;
+=======
+>>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 	background: url(../images/pattern_geometric-green.png) repeat;
 	#inner-header {
 		position: relative;
@@ -80,8 +83,13 @@ h2.total-match-count {
 		}
 		.matchDetails {
 			width: 225px;
+<<<<<<< HEAD
 			padding-right: 55px;
 			padding-left: 70px;
+=======
+			padding-right: 70px;
+			padding-left: 55px;
+>>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 		}
 	}
 }
@@ -110,15 +118,51 @@ h2.total-match-count {
 	#minitwitter-widget-2 {
 		clear: both;
 		display: block;
+<<<<<<< HEAD
+=======
+		.minitweets-end {
+			display: none;
+		}
+>>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 	}
 	#ffg_widget-2 {
 		clear: both;
 		display: block;
+<<<<<<< HEAD
+=======
+		border: 1px solid #E8E8E8;
+>>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 		.fb-feed {
 			padding: 0;
 		}
 		.fb-page-name {
+<<<<<<< HEAD
 			background: #4d5053;
+=======
+			background-position: 10px 50%;
+			padding: 3px 0 0 40px;
+		}
+		.fb-feed-item {
+			margin: 0;
+			padding: 10px 15px;
+			border-top: 1px solid #E8E8E8;
+			p {
+				margin: 0 0 10px 0; 
+				font-size: 14px;
+			}
+			p.story {
+				font-size: 16px;
+			}
+			blockquote {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			img.thumbnail {
+				float: left;
+				margin-top: 5px;
+			}
+>>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 		}
 	}
 	
