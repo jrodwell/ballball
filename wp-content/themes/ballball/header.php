@@ -98,25 +98,17 @@
 
 					<nav role="navigation">
 					
-					  <div class="test-menu-container"><ul class="nav-menu"><li class="menu-item"><?php icl_link_to_element(269, 'match'); ?></li></ul></div>
+					  <!-- <div class="test-menu-container"><ul class="nav-menu"><li class="menu-item"><?php icl_link_to_element(269, 'match'); ?></li></ul></div> -->
 					
-					  <div class="home-link-menu-container"><ul class="nav-menu"><li class="menu-item"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php  ?></a></li></ul></div>
-					
-					  <?php
-            
-            $menu_locations = get_nav_menu_locations();
-            $main_nav_object = wp_get_nav_menu_object($menu_locations['main-nav']);
-            $main_nav_items = wp_get_nav_menu_items($main_nav_object->term_id);
-              
-            //var_dump($main_nav_items); 
-            
-            ?>
+					  <!-- <div class="home-link-menu-container"><ul class="nav-menu"><li class="menu-item"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php  ?></a></li></ul></div> -->
 					
 					  <?php
-            
-            wp_nav_menu(array('menu' => 'main', 'menu_class' => 'nav-menu', 'walker' => new jr_walker()));
-            
-            ?>
+			            $menu_locations = get_nav_menu_locations();
+			            $main_nav_object = wp_get_nav_menu_object($menu_locations['main-nav']);
+			            $main_nav_items = wp_get_nav_menu_items($main_nav_object->term_id);
+			          ?>
+					
+					  <?php wp_nav_menu(array('menu' => 'main', 'menu_class' => 'nav-menu', 'walker' => new jr_walker())); ?>
 					  
 					  <?php //wp_nav_menu(array('menu' => 'all-competitions', 'menu_class' => 'nav-menu')); ?>
 					  
