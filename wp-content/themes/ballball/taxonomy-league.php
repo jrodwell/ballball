@@ -95,9 +95,17 @@
                   <p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p>
                   
                   <p class="share">
+                  
+                  <!--
                   <div class="fb-like" data-href="<?php the_permalink(); ?>" data-width="50" data-layout="button_count" data-show-faces="false" data-send="false"></div>
                   <a href="<?php the_permalink(); ?>" class="twitter-share-button" data-via="twitterapi" data-lang="<?php echo ICL_LANGUAGE_CODE; ?>">Tweet</a>
                   <div href="<?php the_permalink(); ?>" class="g-plusone" data-size="medium"></div>
+                  -->
+                  
+                  <span class='st_facebook' st_url='<?php the_permalink(); ?>' displayText='Facebook'></span>
+                  <span class='st_twitter' st_url='<?php the_permalink(); ?>' displayText='Tweet'></span>
+                  <span class='st_googleplus' st_url='<?php the_permalink(); ?>' displayText='Google +'></span>
+                  
                   </p>                                                                      
 
 								</footer> <!-- end article footer -->

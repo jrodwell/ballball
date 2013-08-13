@@ -12,7 +12,7 @@ License: GPL2
 add_action('admin_menu', 'ballball_promoted_content_plugin_menu');
 
 function ballball_promoted_content_plugin_menu() {
-	$hook_suffix = add_menu_page('Promoted Content', 'Promoted Content', 'manage_options', 'my-unique-identifier', 'promoted_content');
+	$hook_suffix = add_menu_page('Promoted Content', 'Promoted Content', 'manage_options', 'promoted-content', 'promoted_content');
 	add_action('load-'.$hook_suffix, 'promoted_content_load_function');
 }
 
@@ -23,8 +23,14 @@ function promoted_content_load_function() {
 	}
   
   if($_POST['submit']) {
-    update_option('promoted_postids', $_POST['post_ids']);
+    if(isset($_GET['tab'])) $lang = $_GET['tab']; else $lang = 'en';
+    $add_postids = array();
+    foreach($_POST['post_ids'] as $post_id) {
+      if($post_id!=0) $add_postids[] = $post_id;
+    }
+    update_option('promoted_postids_'.$lang, $add_postids);
   }
+  
 }
 
 function promoted_content() {
@@ -48,7 +54,19 @@ function promoted_content() {
   });
   </script>
   
+  <?php
+  
+  if(isset($_GET['tab'])) admin_tabs($_GET['tab']); else admin_tabs('en');
+  
+  ?>
+  
   <h2>BallBall Promoted Content</h2>
+  
+  <?php
+  
+  if(isset($_GET['tab'])) $tab = $_GET['tab']; else $tab = 'en';
+
+  ?>
   
   <form action="" method="post" name="promoted_content_form" id="promoted_content_form">
   
@@ -56,7 +74,7 @@ function promoted_content() {
   
   <?php
   
-  $post_ids = get_option('promoted_postids', false);
+  $post_ids = get_option('promoted_postids_'.$tab, false);
   foreach($post_ids as $post_id) {
   
   ?>
@@ -110,9 +128,20 @@ function promoted_content() {
   <p><input type="submit" name="submit" id="submit" value="Submit" /></p>
   
   </form>
-
+  
   <?php
 
+}
+
+function admin_tabs($current='en') {
+  $tabs = array('en' => 'English', 'ja' => 'Japanese', 'id' => 'Indonesian', 'vi' => 'Vietnamese');
+  echo '<div id="icon-themes" class="icon32"><br></div>';
+  echo '<h2 class="nav-tab-wrapper">';
+  foreach($tabs as $tab => $name) {
+    $class = ( $tab == $current ) ? ' nav-tab-active' : '';
+    echo "<a class='nav-tab$class' href='?page=promoted-content&tab=$tab'>$name</a>";
+  }
+  echo '</h2>';
 }
 
 ?>

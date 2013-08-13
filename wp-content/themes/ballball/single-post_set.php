@@ -28,9 +28,9 @@
 
 								</header> <!-- end article header -->
 
-								<section class="entry-content clearfix" itemprop="articleBody">
-									
-									<div id="post_set_grid" class="clearfix">
+                <section class="entry-gridcontent clearfix">
+
+                  <div id="post_set_grid" class="clearfix">
 									
 									<?php
                   
@@ -62,6 +62,10 @@
                   ?>
                   
                   </div>
+
+                </section> <!-- end article section -->
+
+								<section class="entry-content clearfix" itemprop="articleBody">
 									
 									<div class="share-panel"> 
   								  

@@ -2,9 +2,7 @@
 
       <script src="http://widget.cloud.opta.net/2.0/js/widgets.opta.js"></script>
 
-      <div id="hero" class="clearfix">
-      
-        <div id="inner-hero" class="clearfix">
+
         
         <?php
         
@@ -63,48 +61,56 @@
         }
         
         $n_matches=0;
-        foreach ($view_matches as $league) {
+        foreach($view_matches as $league) {
           $n_matches += count($league);
         }
         
         ?>
         
-        <div id="widgetOutput" class="clearfix">
+        <?php if(count($view_matches)>0) { ?> 
         
-        <h2 class="total-match-count"><?php echo $n_matches; ?> Live Matches</h2>
+        <div id="hero" class="clearfix">
+      
+          <div id="inner-hero" class="clearfix">
         
-        <p class="auto-update">Automatic updates</p>
+            <h2 class="total-match-count"><?php echo $n_matches; ?> Live Matches</h2>
+            
+            <p class="auto-update">Automatic updates</p>
+              
+            <div id="widgetOutput" class="clearfix">
+            
+            <ul id="live-league-menu">
         
-        <ul id="live-league-menu">
+            <?php
+            $counter=0;
+            foreach($view_matches as $league=>$matches) {
+            ?>
+              <li id="menu-league-<?php echo $counter; ?>" class="league-menu-item clearfix" ><?php echo $show_leagues[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></li>  
+            <?php
+            $counter++; }        
+            ?>
+            
+            </ul>
         
-        <?php
-        $counter=0;
-        foreach($view_matches as $league=>$matches) {
-        ?>
-          <li id="menu-league-<?php echo $counter; ?>" class="league-menu-item clearfix" ><?php echo $show_leagues[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></li>  
-        <?php
-        $counter++; }        
-        ?>
+            <?php
+            $counter=0;
+            foreach($view_matches as $league=>$matches) {
+            ?>
+              <h3 class="league-menu-item clearfix" ><?php echo $show_leagues[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></h3>  
+              <div id="live-league-<?php echo $counter; ?>" class="live-league clearfix">
+                <opta widget="fixtures" sport="football" competition="<?php echo $league; ?>" season="2013" match="<?php $count=0; foreach($matches as $match) { $count++; echo $match; if($count!=count($matches)) echo ', '; } ?>" live="true" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" narrow_limit="400"></opta>
+              </div>
+            <?php    
+            $counter++; }        
+            ?>
         
-        </ul>
-        
-        <?php
-        $counter=0;
-        foreach($view_matches as $league=>$matches) {
-        ?>
-          <h3 class="league-menu-item clearfix" ><?php echo $show_leagues[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></h3>  
-          <div id="live-league-<?php echo $counter; ?>" class="live-league clearfix">
-            <opta widget="fixtures" sport="football" competition="<?php echo $league; ?>" season="2013" match="<?php $count=0; foreach($matches as $match) { $count++; echo $match; if($count!=count($matches)) echo ', '; } ?>" live="true" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" narrow_limit="400"></opta>
           </div>
-        <?php    
-        $counter++; }        
-        ?>
-        
-        </div>
         
         </div>
            
       </div>
+      
+      <?php } ?>
       
       <script type='text/javascript'>
       <?php
@@ -124,13 +130,13 @@
 
 						<div id="main" class="eightcol first clearfix" role="main">
               
-              <div id="promoted">
+              <div id="promoted" class="clearfix">
               
               <?php
               
               // Get promoted post IDs...
               
-              $promoted_postids = get_option('promoted_postids', false);
+              $promoted_postids = get_option('promoted_postids_'.ICL_LANGUAGE_CODE, false);
               $args_one = array(
                 'post_type' => array('post', 'post_set'),
                 'post__in' => $promoted_postids,
@@ -138,11 +144,16 @@
               );
               $posts_one = get_posts($args_one);
               $n = count($posts_one);
+              $posts_one_ids = array();
+              foreach($posts_one as $post_one) {
+                $posts_one_ids = $post_one->ID;
+              }
               if($n<3) {
                 $x = 3-$n;
                 $args_two = array(
                   'post_type' => array('post', 'post_set'),
-                  'posts_per_page' => $x
+                  'posts_per_page' => $x,
+                  'post__not_in' => $posts_one_ids
                 );
                 $posts_two = get_posts($args_two);
                 $promoted_posts = array_merge($posts_one, $posts_two);
@@ -186,6 +197,7 @@
                 </div>
                 <?php
                 echo '<h2><a href="'.get_permalink($promoted_post->ID).'">'.get_the_title($promoted_post->ID).'</a></h2>';
+                echo '<p>'.get_the_excerpt().'</p>';
                 ?>						  
 							  
               </div>
@@ -221,11 +233,11 @@
                 } else {
                   $src[0] = get_stylesheet_directory_uri().'/library/images/ballball-fallback.jpg';
                 }
-                echo '<a href="'.get_permalink($promoted_post->ID).'"><img class="attachment-stream wp-post-image" src="'.$src[0].'"></a>';
+                echo '<img class="attachment-stream wp-post-image" src="'.$src[0].'">';
                 ?>
                 </div>
                 <?php
-                echo '<p><a href="'.get_permalink($promoted_post->ID).'">'.get_the_title($promoted_post->ID).'</a></p>';
+                echo '<p>'.get_the_title($promoted_post->ID).'</p>';
                 ?>
                 
               </div>
@@ -321,9 +333,17 @@
                   <p class="tags"><?php the_terms(get_the_ID(), 'league', '<span class="tags-title">', ' ', '</span>'); ?></p>
                   
                   <p class="share">
+                  
+                  <!--
                   <div class="fb-like" data-href="<?php the_permalink(); ?>" data-width="50" data-layout="button_count" data-show-faces="false" data-send="false"></div>
                   <a href="<?php the_permalink(); ?>" class="twitter-share-button" data-via="twitterapi" data-lang="<?php echo ICL_LANGUAGE_CODE; ?>">Tweet</a>
                   <div href="<?php the_permalink(); ?>" class="g-plusone" data-size="medium"></div>
+                  -->
+                  
+                  <span class='st_facebook' st_url='<?php the_permalink(); ?>' displayText='Facebook'></span>
+                  <span class='st_twitter' st_url='<?php the_permalink(); ?>' displayText='Tweet'></span>
+                  <span class='st_googleplus' st_url='<?php the_permalink(); ?>' displayText='Google +'></span>
+                  
                   </p>                                                                      
 
 								</footer> <!-- end article footer -->

@@ -36,9 +36,24 @@
 		<!-- end of wordpress head -->
 
 		<!-- drop Google Analytics Here -->
-		<!-- end analytics -->
+		<!-- end analytics -->		
+    		
+    <script type="text/javascript">
+    var utag_data = {
+    }
+    </script>
+    
+    <!-- Loading script asynchronously -->
+    <script type="text/javascript">
+        (function(a,b,c,d){
+        a='//tags.tiqcdn.com/utag/newscorp/ballball-web/dev/utag.js';
+        b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+        a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+        })();
+    </script>
 		
     <div id="fb-root"></div>
+    
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -53,9 +68,14 @@
     
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    
+    <script type="text/javascript">stLight.options({publisher: "d76d4b36-432a-4cf5-ad8d-e69b24c5c3a4", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    
     <script type="text/javascript">
     var wordpress_offset = <?php echo get_option('gmt_offset'); ?>;
-    </script>
+    var language_code = '<?php echo ICL_LANGUAGE_CODE; ?>';
+    </script>  
     
 	</head>
 
@@ -68,14 +88,34 @@
 				<div id="inner-header" class="wrap clearfix">
 
 					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/logo.png'; ?>" /><?php //bloginfo('name'); ?></a></p>
 
 					<!-- if you'd like to use the site description you can un-comment it below -->
 					<?php // bloginfo('description'); ?>
 
+          <!-- widgetised area for language switcher (J.R.) -->
+          <p id="language-switcher"><?php get_sidebar('top'); ?></p>
 
 					<nav role="navigation">
+					
+					  <div class="test-menu-container"><ul class="nav-menu"><li class="menu-item"><?php icl_link_to_element(269, 'match'); ?></li></ul></div>
+					
+					  <div class="home-link-menu-container"><ul class="nav-menu"><li class="menu-item"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php  ?></a></li></ul></div>
+					
+					  <?php
+            
+            $menu_locations = get_nav_menu_locations();
+            $main_nav_object = wp_get_nav_menu_object($menu_locations['main-nav']);
+            $main_nav_items = wp_get_nav_menu_items($main_nav_object);
+              
+            //var_dump($main_nav); 
+            
+            ?>
+					
 					  <?php wp_nav_menu(array('menu' => 'main', 'menu_class' => 'nav-menu')); ?>
+					  
+					  <?php //wp_nav_menu(array('menu' => 'all-competitions', 'menu_class' => 'nav-menu')); ?>
+					  
 					</nav>
 
 				</div> <!-- end #inner-header -->

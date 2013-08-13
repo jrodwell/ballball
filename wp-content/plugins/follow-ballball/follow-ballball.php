@@ -28,11 +28,11 @@ class BallBall_Follow extends WP_Widget {
     
     <div id="follow-container">
       
-      <p><a href="https://twitter.com/ballball" class="twitter-follow-button" data-show-count="false" data-size="large" data-lang="<?php echo ICL_LANGUAGE_CODE; ?>">Follow @ballball</a></p>
+      <a href="https://twitter.com/ballball" class="twitter-follow-button" data-show-count="false" data-size="large" data-lang="<?php echo ICL_LANGUAGE_CODE; ?>">Follow @ballball</a>
       
-      <p><div class="fb-like" data-href="<?php echo get_bloginfo('url'); ?>" data-width="120" data-show-faces="false" data-send="false"></div></p>
+      <div class="fb-like" data-href="<?php echo get_bloginfo('url'); ?>" data-width="120" data-show-faces="false" data-send="false"></div>
       
-      <p><div href="<?php echo get_bloginfo('url'); ?>" class="g-plusone" data-annotation="inline" data-width="300"></div></p>
+      <div href="<?php echo get_bloginfo('url'); ?>" class="g-plusone" data-annotation="inline" data-width="300"></div>
           
     </div>
     

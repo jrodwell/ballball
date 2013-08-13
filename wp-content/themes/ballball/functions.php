@@ -86,13 +86,27 @@ you like. Enjoy!
 function bones_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'sidebar',
-		'name' => __('Sidebar', 'ballball'),
+		'name' => __('Primary Sidebar', 'ballball'),
 		'description' => __('The primary sidebar.', 'ballball'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
+	
+	/* Added by J.R. */
+	
+	register_sidebar(array(
+		'id' => 'top',
+		'name' => __('Top Widgets', 'ballball'),
+		'description' => __('Widgets to appear in the header.', 'ballball'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+  /* End. */
 
 	/*
 	to add more sidebars or widgetized areas, just copy
@@ -191,12 +205,17 @@ function ballball_queue_admin_scripts() {
   wp_enqueue_style('jquery-style', get_stylesheet_directory_uri().'/library/js/libs/jquery-timepicker/jquery-ui-timepicker-addon.css');
 }
 
-/* Register menu (J.R.) */
+/* Register menus (J.R.) */
 
-add_action('init', 'ballball_register_menu');
+add_action('init', 'ballball_register_menus');
 
-function ballball_register_menu() {
-  register_nav_menu('live', __( 'Live Match Menu', 'ballball'));
+function ballball_register_menus() {
+  register_nav_menus(array(
+    'main-nav' => __('The Main Menu', 'ballball' ),
+    'live' => __('Live Match Menu', 'ballball'),
+    'all-competitions' => __('All Competitons Menu', 'ballball'),
+    'footer-nav' => __('Extra Footer Links', 'ballball')
+  ));
 }
 
 /* Custom excerpt length */
