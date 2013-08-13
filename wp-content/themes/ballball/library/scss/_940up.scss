@@ -5,10 +5,7 @@ Author:
 Stylesheet: Desktop Stylsheet
 ******************************************************************/
 .header {
-<<<<<<< HEAD
 	padding-top: 127px;
-=======
->>>>>>> 70ba62a7de788f4fcf9dae713a57f40e750ca98b
 	background: url(../images/pattern_geometric-green.png) repeat;
 	#inner-header {
 		position: relative;
@@ -77,19 +74,14 @@ h2.total-match-count {
 	div.active {
 		display: block;
 	}
-	.match, .linked-match, .unlinked-match {
+	.match, .linked-match {
 		.home-side,	.away-side {
 			width: 170px;
 		}
 		.matchDetails {
 			width: 225px;
-<<<<<<< HEAD
 			padding-right: 55px;
 			padding-left: 70px;
-=======
-			padding-right: 70px;
-			padding-left: 55px;
->>>>>>> 70ba62a7de788f4fcf9dae713a57f40e750ca98b
 		}
 	}
 }
@@ -118,51 +110,15 @@ h2.total-match-count {
 	#minitwitter-widget-2 {
 		clear: both;
 		display: block;
-<<<<<<< HEAD
-=======
-		.minitweets-end {
-			display: none;
-		}
->>>>>>> 70ba62a7de788f4fcf9dae713a57f40e750ca98b
 	}
 	#ffg_widget-2 {
 		clear: both;
 		display: block;
-<<<<<<< HEAD
-=======
-		border: 1px solid #E8E8E8;
->>>>>>> 70ba62a7de788f4fcf9dae713a57f40e750ca98b
 		.fb-feed {
 			padding: 0;
 		}
 		.fb-page-name {
-<<<<<<< HEAD
 			background: #4d5053;
-=======
-			background-position: 10px 50%;
-			padding: 3px 0 0 40px;
-		}
-		.fb-feed-item {
-			margin: 0;
-			padding: 10px 15px;
-			border-top: 1px solid #E8E8E8;
-			p {
-				margin: 0 0 10px 0; 
-				font-size: 14px;
-			}
-			p.story {
-				font-size: 16px;
-			}
-			blockquote {
-				border: 0;
-				margin: 0;
-				padding: 0;
-			}
-			img.thumbnail {
-				float: left;
-				margin-top: 5px;
-			}
->>>>>>> 70ba62a7de788f4fcf9dae713a57f40e750ca98b
 		}
 	}
 	

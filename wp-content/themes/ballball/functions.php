@@ -774,22 +774,22 @@ class jr_walker extends Walker_Nav_Menu {
     // Build URL for language (J.R.)
     
     if($item->object=='league') {
-      $term = get_term_by('id', $item->id, 'league');
-      //var_dump($term);
-      $slug = $term->name;
-      
+      $term = get_term_by('id', $item->object_id, 'league');
+      $slug = $term->slug; 
       $lang_str = (ICL_LANGUAGE_CODE=='en') ? '' : ICL_LANGUAGE_CODE.'/';
-      $custom_url = get_bloginfo('url').$lang_str.$slug;
-      //var_dump($custom_url);      
-    }
+      $custom_url = get_bloginfo('url').'/'.$lang_str.'league/'.$slug;
+    } else {
+      $custom_url = $item->url;
+    } 
 
 		$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
 		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-
+		//$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+    $attributes .= ! empty( $custom_url )        ? ' href="'   . esc_attr( $custom_url        ) .'"' : '';
+    
 		$item_output = $args->before;
 		$item_output .= '<a '. $attributes .'>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
