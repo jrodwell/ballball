@@ -650,9 +650,44 @@ POSTS & CONTENT STYLES
 	}
 	.match {
 		position: relative;
-		height: 175px;
-		.home-side, .away-side {
+		height: 185px;
+		font-family: $header;
+		font-size: 18px;
+		text-transform: uppercase;
+		span {
 			position: absolute;
+			display: block;
+		}
+		.match-time {
+			left: 125px;
+			top: 90px;
+			width: 50px;
+			height: 30px;
+			padding: 2px 0;
+			text-align: center;
+			background: $lightGrey;
+			color: $bbBlack;
+		}
+		.match-score {
+			top: 15px;
+			left: 100px;
+			width: 100px;
+			line-height: 1em;
+			font-size: 56px;
+			span {
+				position: static;
+				float: left;
+				width: 45px;
+			}
+			.match-score-home {
+				text-align: right;
+			}
+			.match-score-divider {
+				width: 10px;
+				text-align: center;
+			}
+		}
+		.home-side, .away-side {
 			top: 0;
 			left: 0;
 			width: 120px;
@@ -664,10 +699,8 @@ POSTS & CONTENT STYLES
 			right: 0;
 		}
 		.home-crest, .away-crest {
-			position: absolute;
 			top: -90px;
 			left: 20px;
-			display: block;
 			width: 80px;
 			height: 80px;
 			img {
@@ -681,23 +714,41 @@ POSTS & CONTENT STYLES
 	}
 	.matches dd {
 		margin: 0;
-		.match-details dt, .match-details dd {
-			float: left;
-			display: inline-block;
-			color: $bodyText;
-		}
-		.match-details dt {
-			clear: both;
-			padding-right: 20px;
-			color: $grey;
+		.match-details {
+			margin-bottom: 15px;
+			dt, dd {
+				float: left;
+				display: inline-block;
+				color: $bodyText;
+			}
+			dt {
+				clear: both;
+				padding-right: 20px;
+				color: $grey;
+			}
 		}
 		.match-home-events, .match-away-events {
 			float: left;
 			width: 50%;
 			padding: 0;
+			span {
+				display: inline-block;
+				margin: 0 10px 0 0;
+			}
+			.event-icon {
+				display: inline;
+				margin: 0;
+				img {
+					position: relative;
+					top: 5px;
+				}
+			}
 		}
 		.match-home-events {
 			clear: both;
+			span {
+				margin: 0 0 0 10px;
+			}
 		}
 		.match-away-events {
 			text-align: right;
