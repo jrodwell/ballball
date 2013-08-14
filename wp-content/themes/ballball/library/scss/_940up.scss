@@ -5,10 +5,6 @@ Author:
 Stylesheet: Desktop Stylsheet
 ******************************************************************/
 .header {
-<<<<<<< HEAD
-	padding-top: 127px;
-=======
->>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 	background: url(../images/pattern_geometric-green.png) repeat;
 	#inner-header {
 		position: relative;
@@ -77,19 +73,14 @@ h2.total-match-count {
 	div.active {
 		display: block;
 	}
-	.match, .linked-match {
+	.match, .linked-match, .unlinked-match {
 		.home-side,	.away-side {
 			width: 170px;
 		}
 		.matchDetails {
 			width: 225px;
-<<<<<<< HEAD
-			padding-right: 55px;
-			padding-left: 70px;
-=======
 			padding-right: 70px;
 			padding-left: 55px;
->>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 		}
 	}
 }
@@ -118,27 +109,18 @@ h2.total-match-count {
 	#minitwitter-widget-2 {
 		clear: both;
 		display: block;
-<<<<<<< HEAD
-=======
 		.minitweets-end {
 			display: none;
 		}
->>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 	}
 	#ffg_widget-2 {
 		clear: both;
 		display: block;
-<<<<<<< HEAD
-=======
 		border: 1px solid #E8E8E8;
->>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 		.fb-feed {
 			padding: 0;
 		}
 		.fb-page-name {
-<<<<<<< HEAD
-			background: #4d5053;
-=======
 			background-position: 10px 50%;
 			padding: 3px 0 0 40px;
 		}
@@ -162,7 +144,6 @@ h2.total-match-count {
 				float: left;
 				margin-top: 5px;
 			}
->>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 		}
 	}
 	

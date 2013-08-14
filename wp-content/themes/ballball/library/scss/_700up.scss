@@ -116,7 +116,7 @@ h2.total-match-count {
 	.opta-widget-container {
 		width: 620px;
 	}
-	.match, .linked-match {
+	.match, .linked-match, .unlinked-match {
 		height: 60px;
 		span {
 			height: 58px;
@@ -256,7 +256,7 @@ h2, .h2 {
 		background: url(../images/mediaSet.png) no-repeat left 50%;
 		padding: 20px 18px 18px 20px;
 		font-size: 16px;
-}
+} 
 .video-article {
 	.featured-image {
 		float: left;
@@ -274,11 +274,7 @@ h2, .h2 {
 .article-footer .tags {
 	float: left;
 	display: block;
-<<<<<<< HEAD
-	width: 425px;
-=======
 	width: 415px;
->>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 	padding-left: 19px;
 	text-transform: uppercase;
 	a {
@@ -390,12 +386,9 @@ SIDEBARS & ASIDES
 	.twitter-follow-button {
 		margin-left:0!important;
 	}
-<<<<<<< HEAD
-=======
 	.fb_iframe_widget {
 		width: 215px;
 	}
->>>>>>> 5e6feeceefd58ffeea5b692cf2f881099da05912
 	#___plusone_0 {
 		width: 160px!important;
 	}
