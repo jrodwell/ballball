@@ -755,8 +755,6 @@ function custom_time_ago($date) {
 class jr_walker extends Walker_Nav_Menu {
   
   function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		
-		//var_dump($item);
     
     $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
@@ -774,22 +772,27 @@ class jr_walker extends Walker_Nav_Menu {
     // Build URL for language (J.R.)
     
     if($item->object=='league') {
-      $term = get_term_by('id', $item->id, 'league');
-      //var_dump($term);
-      $slug = $term->name;
-      
-      $lang_str = (ICL_LANGUAGE_CODE=='en') ? '' : ICL_LANGUAGE_CODE.'/';
-      $custom_url = get_bloginfo('url').$lang_str.$slug;
-      //var_dump($custom_url);      
-    }
+      $term = get_term_by('id', $item->object_id, 'league');
+      $slug = $term->slug; 
+      //$lang_str = (ICL_LANGUAGE_CODE=='en') ? '' : ICL_LANGUAGE_CODE.'/';
+      //$custom_url = get_bloginfo('url').'/'.$lang_str.'league/'.$slug;
+      $custom_url = get_bloginfo('url').'/league/'.$slug;
+    } else if($item->object=='team') {
+      $term = get_term_by('id', $item->object_id, 'team');
+      $slug = $term->slug; 
+      $custom_url = get_bloginfo('url').'/team/'.$slug;
+    } else {
+      $custom_url = $item->url;
+    } 
 
 		$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
 		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-
+		//$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+    $attributes .= ! empty( $custom_url )        ? ' href="'   . esc_attr( $custom_url        ) .'"' : '';
+    
 		$item_output = $args->before;
 		$item_output .= '<a '. $attributes .'>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
