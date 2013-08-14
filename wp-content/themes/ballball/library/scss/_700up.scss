@@ -12,7 +12,9 @@ Stylesheet: Tablet & Small Desktop Stylesheet
 GENERAL STYLES
 *********************/
 
-body {}
+* {
+	-webkit-user-select: auto;
+}
 
 /*********************
 LAYOUT & GRID STYLES
@@ -27,18 +29,61 @@ HEADER STYLES
 *********************/
 
 .header {
-	overflow: hidden;
+	overflow:visible;
+
 	#inner-header {
 		width: $tabWidth;
 		padding: 0 $tabPadding;
-	}
-}
-#logo {
-	height: 40px;
-	margin: 30px 0;
-	img {
-		width: 161px;
-		height: 40px;
+		height:140px;
+
+		#mobile-header {
+			background:none;
+			position:relative;
+		}
+
+		#logo {
+			width:163px;
+			height:40px;
+			position:absolute;
+			top:30px;
+			left:0;
+
+			img {
+				width: 163px;
+				height: 40px;
+			}
+		}
+
+		#language-switcher {
+			> ul {
+				> li.language-trigger {
+					cursor:pointer;
+					width:134px;
+					height:40px;
+					background:#fff;
+
+					&:before {
+						@include sprite(24,0,16,16);
+						top:12px;
+						left:15px;
+					}
+
+					span {
+						font:14px normal $sans-serif-semibold;
+						text-indent:0;
+						padding:12px 0 0 45px;
+						text-transform:uppercase;
+
+						sup {
+							font-size:12px;
+							font-family:sans-serif;
+							vertical-align:-4px;
+							margin-left:8px;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -49,20 +94,33 @@ NAVIGATION STYLES
 
 nav {
 	background: none;
+
 	.nav-menu {
 		li {
 			float: left;
-			margin: 0 10px 15px 10px;
-			padding: 10px 0;
+			padding: 10px;
 			text-align: left;
+
+			&:hover {
+				background:#eee;
+			}
+
 			a {
 				color: $bodyText;
+
 				&:hover, &:focus {
 					color: $bodyText;
 				}
 			}
+
+			&.current-menu-item {
+				> a {
+					border-bottom:4px solid #fff;
+				}
+			}
 		}
 	}
+
 	.home-link-menu-container {
 		li {
 			margin-left: 0;
@@ -369,6 +427,67 @@ h2, .h2 {
 		margin-right: 0;
 	}
 }
+
+/* Matches */
+.tax-match #main {
+	.opta-widget-container h4 {
+		display: block;
+		padding: 5px 20px;
+		background: $lightGrey;
+		font-family: $sans-serif;
+		font-size: 14px;
+		font-weight: normal;
+		color: $anotherGrey;
+	}
+	.match {
+		height: 135px;
+		.match-time {
+			left: 285px;
+		}
+		.match-score {
+			left: 260px;
+		}
+		.home-side, .away-side {
+			margin-top: 20px;
+			margin-left: 130px;
+			width: 130px;
+			text-align: left;
+		}
+		.away-side {
+			margin-left: 0;
+			margin-right: 130px;
+			text-align: right;
+		}
+		.home-crest, .away-crest {
+			width: 100px;
+			height: 100px;
+			top: -20px;
+			left: -115px;
+		}
+		.away-crest {
+			left: auto;
+			right: -115px;
+		}
+	}
+	.matches dd {
+		margin: 0 20px;
+		.match-details {
+			font-size: 16px;
+			dd {
+				margin: 0;
+				padding-right: 40px;
+			}
+			dt {
+				padding-right: 10px;
+				clear: none;
+			}
+		}
+		.match-home-events, .match-away-events {
+			font-size: 16px;
+		}
+	}
+}
+
 
 /*********************
 SIDEBARS & ASIDES
