@@ -185,13 +185,17 @@ function bones_wpsearch($form) {
 	return $form;
 } // don't remove this bracket!
 
+/* i18n (J.R.) */
+
+load_theme_textdomain('ballball', get_template_directory().'/library/languages');
+
 /* Thumbnail support */
 
 add_theme_support('post-thumbnails', array('post', 'post_set'));
 
 /* Include meta box class (J.R.) */
 
-require_once("meta-box-class/my-meta-box-class.php");
+require_once("/library/meta-box-class/my-meta-box-class.php");
 
 /* Enqueue scripts (J.R.) */
 
@@ -817,5 +821,24 @@ function menu_set_is_parent($sorted_menu_items, $args) {
   return $sorted_menu_items;
 }
 add_filter('wp_nav_menu_objects', 'menu_set_is_parent', 10, 2);
+
+/* Custom get image caption (J.R. credit Luke Mlsna) */
+              
+function wp_get_attachment( $attachment_id ) {
+	$attachment = get_post( $attachment_id );
+	return array(
+		'alt' => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
+		'caption' => $attachment->post_excerpt,
+		'description' => $attachment->post_content,
+		'href' => get_permalink( $attachment->ID ),
+		'src' => $attachment->guid,
+		'title' => $attachment->post_title
+	);
+}
+
+function wp_get_caption($attachment_id) {
+  $img_meta = wp_get_attachment($attachment_id);
+  return $img_meta['caption']; 
+}              
               
 ?>

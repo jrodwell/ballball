@@ -41,7 +41,9 @@
 								  <?php } else if($type == "single-image-article") { ?>
 								  <?php
 								  $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'article');
+								  $caption = wp_get_caption(get_post_thumbnail_id());
                   echo '<a href="'.get_permalink().'"><img width="100%" height="100%" class="attachment-article wp-post-image" src="'.$src[0].'"></a>';
+                  if($caption) echo '<p class="caption">'.$caption.'</p>';
 								  ?>
 								  <?php } ?>
 								  </div>
