@@ -712,46 +712,51 @@ POSTS & CONTENT STYLES
 			display: none;
 		}
 	}
-	.matches dd {
-		margin: 0;
-		.match-details {
-			margin-bottom: 15px;
-			dt, dd {
-				float: left;
-				display: inline-block;
-				color: $bodyText;
-			}
-			dt {
-				clear: both;
-				padding-right: 20px;
-				color: $grey;
-			}
-		}
-		.match-home-events, .match-away-events {
-			float: left;
-			width: 50%;
-			padding: 0;
-			span {
-				display: inline-block;
-				margin: 0 10px 0 0;
-			}
-			.event-icon {
-				display: inline;
-				margin: 0;
-				img {
-					position: relative;
-					top: 5px;
+	.matches {
+		margin-bottom: 20px;
+		border-bottom: 6px solid $lightGrey;
+		padding-bottom: 20px;
+		dd {
+			margin: 0;
+			.match-details {
+				margin-bottom: 10px;
+				dt, dd {
+					float: left;
+					display: inline-block;
+					color: $bodyText;
+				}
+				dt {
+					clear: both;
+					padding-right: 20px;
+					color: $grey;
 				}
 			}
-		}
-		.match-home-events {
-			clear: both;
-			span {
-				margin: 0 0 0 10px;
+			.match-home-events, .match-away-events {
+				float: left;
+				width: 50%;
+				padding: 0;
+				span {
+					display: inline-block;
+					margin: 0 10px 0 0;
+				}
+				.event-icon {
+					display: inline;
+					margin: 0;
+					img {
+						position: relative;
+						top: 5px;
+					}
+				}
 			}
-		}
-		.match-away-events {
-			text-align: right;
+			.match-home-events {
+				clear: both;
+				span {
+					margin: 0 0 0 10px;
+				}
+			}
+			.match-away-events {
+				text-align: right;
+			}
 		}
 	}
 }

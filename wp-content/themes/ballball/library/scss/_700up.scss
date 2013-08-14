@@ -369,6 +369,52 @@ h2, .h2 {
 		margin-right: 0;
 	}
 }
+.tax-match #main {
+	.match {
+		height: 135px;
+		.match-time {
+			left: 285px;
+		}
+		.match-score {
+			left: 260px;
+		}
+		.home-side, .away-side {
+			margin-top: 20px;
+			margin-left: 130px;
+			width: 130px;
+			text-align: left;
+		}
+		.away-side {
+			margin-left: 0;
+			margin-right: 130px;
+			text-align: right;
+		}
+		.home-crest, .away-crest {
+			width: 100px;
+			height: 100px;
+			top: -20px;
+			left: -115px;
+		}
+		.away-crest {
+			left: auto;
+			right: -115px;
+		}
+	}
+	.matches dd {
+		margin: 0 20px;
+		.match-details {
+			dd {
+				margin: 0;
+				padding-right: 40px;
+			}
+			dt {
+				padding-right: 10px;
+				clear: none;
+			}
+		}
+	}
+}
+
 
 /*********************
 SIDEBARS & ASIDES
