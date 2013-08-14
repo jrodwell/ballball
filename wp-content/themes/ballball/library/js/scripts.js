@@ -82,6 +82,23 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	/* League page tabs */
+	jQuery('#latest-tab').addClass('active');
+	jQuery('#latest-viewport').addClass('active');
+
+	jQuery('#tab-controls > div').click(function() {
+		var current = jQuery(this);
+		var currentString = current.attr('id');
+		var targetString =  currentString.replace('tab','viewport');
+		var target = jQuery('#' + targetString);
+		
+		if(!target.hasClass('active')){
+			jQuery('#tab-viewports > .viewport').hide().removeClass('active');
+			target.addClass('active').show();
+			jQuery('#tab-controls > .tab').removeClass('active');
+			current.addClass('active');
+		}
+	});
 	/* Opta calls and callbacks */
 	var fixes = function () {
 		/* extra styling */
@@ -99,31 +116,33 @@ jQuery(document).ready(function($) {
 		
 		/* link change */
 
-		jQuery('.match').each(function () {
-			if (jQuery(this).find('a.external-link').length > 0) {
-				var optaID = jQuery(this).find('a.external-link').attr('href').split('match=')[1];
-				var found = jQuery.map(array_matches, function(item) {
-					if (item.o.indexOf(optaID) >= 0) {
-						return item;
+		if (jQuery("body").hasClass("home")) {
+			jQuery('.match').each(function () {
+				if (jQuery(this).find('a.external-link').length > 0) {
+					var optaID = jQuery(this).find('a.external-link').attr('href').split('match=')[1];
+					var found = jQuery.map(array_matches, function(item) {
+						if (item.o.indexOf(optaID) >= 0) {
+							return item;
+						}
+					});
+					if (found.length > 0) {
+						var final_url = base_url + found[0].m;
+						jQuery(this).find('a.external-link').contents().unwrap();
+						jQuery(this).append('<span class="matchDetails"><a href=' + final_url + '><span>Match Details</span></a></span>');
+						jQuery(this).removeClass('match').addClass('linked-match');
 					}
-				});
-				if (found.length > 0) {
-					var final_url = base_url + found[0].m;
-					jQuery(this).find('a.external-link').contents().unwrap();
-					jQuery(this).append('<span class="matchDetails"><a href=' + final_url + '><span>Match Details</span></a></span>');
-					jQuery(this).removeClass('match').addClass('linked-match');
+					else {
+						jQuery(this).find('a.external-link').contents().unwrap();
+						jQuery(this).append('<span class="matchDetails">&nbsp;</span>');
+						jQuery(this).removeClass('match').addClass('unlinked-match');
+					}
 				}
 				else {
-					jQuery(this).find('a.external-link').contents().unwrap();
 					jQuery(this).append('<span class="matchDetails">&nbsp;</span>');
 					jQuery(this).removeClass('match').addClass('unlinked-match');
 				}
-			}
-			else {
-				jQuery(this).append('<span class="matchDetails">&nbsp;</span>');
-				jQuery(this).removeClass('match').addClass('unlinked-match');
-			}
-		});
+			});
+		};
 	};
 	
 	/* set timezone */

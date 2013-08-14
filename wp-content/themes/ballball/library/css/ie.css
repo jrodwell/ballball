@@ -455,6 +455,51 @@ h2, .h2 {
 .single-post_set .hentry .four {
   margin-right: 0; }
 
+/* Matches */
+.tax-match #main .opta-widget-container h4 {
+  display: block;
+  padding: 5px 20px;
+  background: #ededed;
+  font-family: "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: #aaaaaa; }
+.tax-match #main .match {
+  height: 135px; }
+  .tax-match #main .match .match-time {
+    left: 285px; }
+  .tax-match #main .match .match-score {
+    left: 260px; }
+  .tax-match #main .match .home-side, .tax-match #main .match .away-side {
+    margin-top: 20px;
+    margin-left: 130px;
+    width: 130px;
+    text-align: left; }
+  .tax-match #main .match .away-side {
+    margin-left: 0;
+    margin-right: 130px;
+    text-align: right; }
+  .tax-match #main .match .home-crest, .tax-match #main .match .away-crest {
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    left: -115px; }
+  .tax-match #main .match .away-crest {
+    left: auto;
+    right: -115px; }
+.tax-match #main .matches dd {
+  margin: 0 20px; }
+  .tax-match #main .matches dd .match-details {
+    font-size: 16px; }
+    .tax-match #main .matches dd .match-details dd {
+      margin: 0;
+      padding-right: 40px; }
+    .tax-match #main .matches dd .match-details dt {
+      padding-right: 10px;
+      clear: none; }
+  .tax-match #main .matches dd .match-home-events, .tax-match #main .matches dd .match-away-events {
+    font-size: 16px; }
+
 /*********************
 SIDEBARS & ASIDES
 *********************/
