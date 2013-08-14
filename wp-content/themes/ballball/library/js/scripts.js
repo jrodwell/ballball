@@ -93,7 +93,7 @@ jQuery(document).ready(function() {
 		var target = jQuery('#' + targetString);
 		
 		if(!target.hasClass('active')){
-			jQuery('#tab-controls > .viewport').hide().removeClass('active');
+			jQuery('#tab-viewports > .viewport').hide().removeClass('active');
 			target.addClass('active').show();
 			jQuery('#tab-controls > .tab').removeClass('active');
 			current.addClass('active');
