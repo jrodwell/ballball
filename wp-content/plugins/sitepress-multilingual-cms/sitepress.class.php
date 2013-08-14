@@ -6549,7 +6549,7 @@ class SitePress{
                 }
             }
         }
-
+        /*
         if(isset($_GET['action']) && $_GET['action']=='ajax-tag-search'){
             $search = 'SELECT t.name FROM '. $wpdb->term_taxonomy
                 .' AS tt INNER JOIN '.$wpdb->terms.' AS t ON tt.term_id = t.term_id WHERE tt.taxonomy = \''. $wpdb->escape($_GET['tax'])
@@ -6570,7 +6570,7 @@ class SitePress{
                 ';
             }
         }
-        
+        */
         // filter get page by path WP 3.5+
         if(version_compare($GLOBALS['wp_version'], '3.5', '>=')){
             if( preg_match("#SELECT ID, post_name, post_parent, post_type FROM {$wpdb->posts} WHERE post_name IN \(([^)]+)\) AND \(post_type = '([^']+)' OR post_type = 'attachment'\)#", $sql, $matches) ){
