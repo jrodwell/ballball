@@ -763,6 +763,54 @@ POSTS & CONTENT STYLES
 	}
 }
 
+/* League Page */
+.tax-league {
+	.attachment-thumbnail {
+		float: left;
+	}
+	.archive-title {
+		margin: 0 0 20px 120px;
+	}
+}
+#tab-controls {
+	clear: both;
+	width: 100%;
+	background: $lightGrey;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+	div {
+		float: left;
+		width: 50%;
+		height: 50px;
+		border-width: 0;
+		border-style: solid;
+		border-color: $white;
+		background: $lightGrey;
+		padding: 10px;
+		text-align: center;
+		cursor: pointer;
+		font-weight: bold;
+		color: $bbGreen;
+		&:hover, &:focus {
+			background: $bbGreen;
+			color: $white;
+		}
+	}
+	.active {
+		background: $bbGreen;
+		color: $white;
+	}
+	#latest-tab {
+		border-width: 0 2px 2px 0;
+	}
+	#fixtures-tab {
+		border-width: 0 0 2px 0;
+	}
+	#results-tab {
+		border-width: 0 2px 0 0;
+	}
+}
+
 	/* start .wp-caption */
 	.wp-caption {
 		max-width: 100%;
