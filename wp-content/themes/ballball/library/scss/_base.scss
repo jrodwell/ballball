@@ -237,7 +237,7 @@ h2.total-match-count {
 	.matches {
 		margin: 0;
 	}
-	.match, .linked-match {
+	.match, .linked-match, .unlinked-match {
 		display: table;
 		height: 45px;
 		padding: 0;
@@ -455,7 +455,7 @@ POSTS & CONTENT STYLES
 		margin: 15px 0;
 	}
 	.byline {
-		width: 70px;
+		width: 80px;
 		float: left;
 		margin-right: 9px;
 	}
@@ -642,6 +642,45 @@ POSTS & CONTENT STYLES
 		margin-right: 0;
 	}
 }
+
+/* Match page */
+.tax-match #main {
+	.archive-title, .opta-widget-container h2, .opta-widget-container h4 {
+		display: none;
+	}
+	.match {
+		position: realtive;
+		height: 135px;
+		button {
+			display: none;
+		}
+	}
+	.matches dd {
+		margin: 0;
+		.match-details dt, .match-details dd {
+			float: left;
+			display: inline-block;
+			color: $bodyText;
+		}
+		.match-details dt {
+			clear: both;
+			padding-right: 20px;
+			color: $grey;
+		}
+		.match-home-events, .match-away-events {
+			float: left;
+			width: 50%;
+			padding: 0;
+		}
+		.match-home-events {
+			clear: both;
+		}
+		.match-away-events {
+			text-align: right;
+		}
+	}
+}
+
 	/* start .wp-caption */
 	.wp-caption {
 		max-width: 100%;
