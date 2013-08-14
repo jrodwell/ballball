@@ -414,6 +414,7 @@ h2, .h2 {
 	.matches dd {
 		margin: 0 20px;
 		.match-details {
+			font-size: 16px;
 			dd {
 				margin: 0;
 				padding-right: 40px;
@@ -422,6 +423,9 @@ h2, .h2 {
 				padding-right: 10px;
 				clear: none;
 			}
+		}
+		.match-home-events, .match-away-events {
+			font-size: 16px;
 		}
 	}
 }

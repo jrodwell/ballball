@@ -720,6 +720,7 @@ POSTS & CONTENT STYLES
 			margin: 0;
 			.match-details {
 				margin-bottom: 10px;
+				font-size: 14px;
 				dt, dd {
 					float: left;
 					display: inline-block;
@@ -727,7 +728,7 @@ POSTS & CONTENT STYLES
 				}
 				dt {
 					clear: both;
-					padding-right: 20px;
+					padding-right: 15px;
 					color: $grey;
 				}
 			}
@@ -735,6 +736,7 @@ POSTS & CONTENT STYLES
 				float: left;
 				width: 50%;
 				padding: 0;
+				font-size: 14px;
 				span {
 					display: inline-block;
 					margin: 0 10px 0 0;
