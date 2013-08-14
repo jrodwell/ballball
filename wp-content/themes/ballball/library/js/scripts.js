@@ -36,7 +36,7 @@ function liveMatchesToggle() {
 }
 
 // as the page loads, call these scripts
-jQuery(document).ready(function() {
+jQuery(document).ready(function($) {
 	
 	/* Navigation */
 	jQuery('.home-link-menu-container').click(navigationExpand);
@@ -136,8 +136,24 @@ jQuery(document).ready(function() {
 		timezone: final_offset,
 		callbacks: [fixes]
 	};
+
+	$('nav li:has(ul)').addClass('has-children'); //doubleTapToGo()
+
+	$('nav li.is-parent').on('touchstart click', function(e) {
+		e.preventDefault();
+		$(this).find('> .sub-menu').slideToggle();
+		$(this).toggleClass('active');
+	});
+
+	
 	
 }); /* end of as page load scripts */
 
 
 /*A fix for the iOS orientationchange zoom bug.*/(function(a){function m(){d.setAttribute("content",g),h=!0}function n(){d.setAttribute("content",f),h=!1}function o(b){l=b.accelerationIncludingGravity,i=Math.abs(l.x),j=Math.abs(l.y),k=Math.abs(l.z),(!a.orientation||a.orientation===180)&&(i>7||(k>6&&j<8||k<8&&j>6)&&i>5)?h&&n():h||m()}var b=navigator.userAgent;if(!(/iPhone|iPad|iPod/.test(navigator.platform)&&/OS [1-5]_[0-9_]* like Mac OS X/i.test(b)&&b.indexOf("AppleWebKit")>-1))return;var c=a.document;if(!c.querySelector)return;var d=c.querySelector("meta[name=viewport]"),e=d&&d.getAttribute("content"),f=e+",maximum-scale=1",g=e+",maximum-scale=10",h=!0,i,j,k,l;if(!d)return;a.addEventListener("orientationchange",m,!1),a.addEventListener("devicemotion",o,!1)})(this);
+
+/*
+	doubleTapToGo
+    AUTHOR: Osvaldas Valutis, www.osvaldas.info
+*/
+;(function($,window,document,undefined){$.fn.doubleTapToGo=function(params){if(!('ontouchstart'in window)&&!navigator.msMaxTouchPoints&&!navigator.userAgent.toLowerCase().match(/windows phone os 7/i))return false;this.each(function(){var curItem=false;$(this).on('click',function(e){var item=$(this);if(item[0]!=curItem[0]){e.preventDefault();curItem=item}});$(document).on('click touchstart MSPointerDown',function(e){var resetItem=true,parents=$(e.target).parents();for(var i=0;i<parents.length;i++)if(parents[i]==curItem[0])resetItem=false;if(resetItem)curItem=false})});return this}})(jQuery,window,document);
