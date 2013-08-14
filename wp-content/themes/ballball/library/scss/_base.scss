@@ -237,7 +237,7 @@ h2.total-match-count {
 	.matches {
 		margin: 0;
 	}
-	.match, .linked-match, .unlinked-match {
+	.match, .linked-match {
 		display: table;
 		height: 45px;
 		padding: 0;
@@ -455,7 +455,7 @@ POSTS & CONTENT STYLES
 		margin: 15px 0;
 	}
 	.byline {
-		width: 80px;
+		width: 70px;
 		float: left;
 		margin-right: 9px;
 	}
