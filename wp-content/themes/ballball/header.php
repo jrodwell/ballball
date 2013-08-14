@@ -87,15 +87,14 @@
 
 				<div id="inner-header" class="wrap clearfix">
 
-					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/logo.png'; ?>" /></a></p>
-
-					<!-- widgetised area for language switcher (J.R.) -->
-					<p id="language-switcher"><?php get_sidebar('top'); ?></p>
+					<div id="mobile-header">
+						<a href="<?php echo home_url(); ?>" rel="nofollow" id="logo"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/logo.png'; ?>" /></a>
+						<!-- widgetised area for language switcher (J.R.) -->
+						<div id="language-switcher"><?php language_switcher(); ?></div>
+					</div>
 
 					<nav role="navigation">
 						<!-- <div class="test-menu-container"><ul class="nav-menu"><li class="menu-item"><?php icl_link_to_element(269, 'match'); ?></li></ul></div> -->
-						<!-- <div class="home-link-menu-container"><ul class="nav-menu"><li class="menu-item"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php  ?></a></li></ul></div> -->
 
 						<?php
 							$menu_locations = get_nav_menu_locations();

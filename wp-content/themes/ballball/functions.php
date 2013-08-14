@@ -817,5 +817,67 @@ function menu_set_is_parent($sorted_menu_items, $args) {
   return $sorted_menu_items;
 }
 add_filter('wp_nav_menu_objects', 'menu_set_is_parent', 10, 2);
-              
+
+
+// The languages switcher function
+function language_switcher() {
+	$languages = icl_get_languages('skip_missing=1');
+
+	// error_log(print_r($languages, true));
+	echo "<ul>";
+	echo "<li class=\"language-trigger " . ICL_LANGUAGE_CODE . "\"><span>" . ICL_LANGUAGE_NAME . "<sup>&#x25BE;</sup></span>";
+
+	echo '<ul>';
+	foreach($languages as $i) {
+		if($i['active'] == 1) {
+			echo "<li class=\"active {$i['language_code']}\">{$i['translated_name']}&nbsp;&ndash;&nbsp;{$i['native_name']}</li>";
+		}
+	}
+
+	foreach($languages as $i) {
+		if($i['active'] === 0) {
+			echo "<li class=\"{$i['language_code']}\"><a href=\"{$i['url']}\">{$i['translated_name']}&nbsp;&ndash;&nbsp;{$i['native_name']}</a></li>";
+		}
+	}
+
+	echo '</ul></li></ul>';
+}
+
+
+// Disable Admin Bar for specific user - Ivan
+if (!function_exists('df_disable_admin_bar')) {
+
+	function df_disable_admin_bar() {
+		
+		// we're getting current user ID
+		$user = get_current_user_id();
+		
+		// and removeing admin bar for user with ID 17
+		if ($user == 17) {
+		
+			// for the admin page
+			remove_action('admin_footer', 'wp_admin_bar_render', 1000);
+			// for the front-end
+			remove_action('wp_footer', 'wp_admin_bar_render', 1000);
+			
+			// css override for the admin page
+			function remove_admin_bar_style_backend() {
+				echo '<style>body.admin-bar #wpcontent, body.admin-bar #adminmenu { padding-top: 0px !important; }</style>';
+			}	  
+			add_filter('admin_head','remove_admin_bar_style_backend');
+			
+			// css override for the frontend
+			function remove_admin_bar_style_frontend() {
+				echo '<style type="text/css" media="screen">
+				html { margin-top: 0px !important; }
+				* html body { margin-top: 0px !important; }
+				</style>';
+			}
+			add_filter('wp_head','remove_admin_bar_style_frontend', 99);
+			
+		}
+  	}
+}
+add_action('init','df_disable_admin_bar');
+
 ?>
