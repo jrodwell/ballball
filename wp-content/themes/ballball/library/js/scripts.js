@@ -82,6 +82,23 @@ jQuery(document).ready(function() {
 		}
 	});
 
+	/* League page tabs */
+	jQuery('#latest-tab').addClass('active');
+	jQuery('#latest-viewport').addClass('active');
+
+	jQuery('#tab-controls > div').click(function() {
+		var current = jQuery(this);
+		var currentString = current.attr('id');
+		var targetString =  currentString.replace('tab','viewport');
+		var target = jQuery('#' + targetString);
+		
+		if(!target.hasClass('active')){
+			jQuery('#tab-controls > .viewport').hide().removeClass('active');
+			target.addClass('active').show();
+			jQuery('#tab-controls > .tab').removeClass('active');
+			current.addClass('active');
+		}
+	});
 	/* Opta calls and callbacks */
 	var fixes = function () {
 		/* extra styling */
