@@ -1027,6 +1027,11 @@ POSTS & CONTENT STYLES
 			}
 			.matchDetails {
 				background-color: $white;
+				a {
+					background-color: $white;
+					color: $bbGreen;
+					background-image: url(../images/infoGreen.png);
+				}
 			}
 		}
 		.livematch {

@@ -118,15 +118,13 @@ jQuery(document).ready(function($) {
 
 		if (jQuery("body").is('.tax-league, .home')) {
 			jQuery('.match').each(function () {
-				if (jQuery(this).find('a.external-link').length > 0) {
+				if ((jQuery(this).find('a.external-link').length > 0) && (array_matches.length > 0)) {
 					var optaID = jQuery(this).find('a.external-link').attr('href').split('match=')[1];
-					if (array_matches.length > 0) {
-						var found = jQuery.map(array_matches, function(item) {
-							if (item.o.indexOf(optaID) >= 0) {
-								return item;
-							}
-						});
-					}
+					var found = jQuery.map(array_matches, function(item) {
+						if (item.o.indexOf(optaID) >= 0) {
+							return item;
+						}
+					});
 					if (found.length > 0) {
 						var final_url = base_url + found[0].m;
 						jQuery(this).find('a.external-link').contents().unwrap();
