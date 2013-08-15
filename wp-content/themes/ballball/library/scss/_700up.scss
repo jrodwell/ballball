@@ -488,6 +488,28 @@ h2, .h2 {
 	}
 }
 
+/* League Page */
+#tab-controls {
+	padding-left: 20px;
+	div {
+		float: left;
+		width: auto;
+		height: 45px;
+		margin-top: 10px;
+		border-width: 0!important;
+		padding: 8px 20px;
+		font-weight: normal;
+		color: $bbGreen;
+		&:hover, &:focus {
+			background: $white;
+			color: $bodyText;
+		}
+	}
+	.active {
+			background: $white;
+			color: $bodyText;
+	}
+}
 
 /*********************
 SIDEBARS & ASIDES
