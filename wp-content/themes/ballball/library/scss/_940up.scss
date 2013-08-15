@@ -13,8 +13,9 @@ Stylesheet: Desktop Stylsheet
 		margin-left: -($deskWidth/2);
 		width: $deskWidth;
 		padding: 0 $deskPadding;
-		background: url(../images/deskBG.png) repeat-y 50% 0;
 		height:150px;
+		background: url(../images/bgDesktop.png) left top no-repeat;
+		-webkit-background-size:1080px 150px;
 
 		#logo {
 			img {

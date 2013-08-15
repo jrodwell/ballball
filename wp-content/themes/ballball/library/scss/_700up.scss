@@ -35,6 +35,8 @@ HEADER STYLES
 		width: $tabWidth;
 		padding: 0 $tabPadding;
 		height:140px;
+		background: url(../images/bgTablet.png) left top no-repeat;
+		-webkit-background-size:768px 140px;
 
 		#mobile-header {
 			background:none;
