@@ -187,7 +187,10 @@ function bones_wpsearch($form) {
 
 /* i18n (J.R.) */
 
-load_theme_textdomain('ballball', get_template_directory().'/library/languages');
+add_action('after_setup_theme', 'language_setup');
+function language_setup(){
+  load_theme_textdomain('ballball', get_template_directory().'/library/languages');
+}
 
 /* Thumbnail support */
 
@@ -195,7 +198,7 @@ add_theme_support('post-thumbnails', array('post', 'post_set'));
 
 /* Include meta box class (J.R.) */
 
-require_once("meta-box-class/my-meta-box-class.php");
+require_once("library/meta-box-class/my-meta-box-class.php");
 
 /* Enqueue scripts (J.R.) */
 
