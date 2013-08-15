@@ -249,11 +249,11 @@ nav {
 			}
 		}
 
-		ul.nav-menu {
+		> ul.nav-menu {
 			margin: 0;
 			padding: 0;
 
-			> li.is-parent {
+			> li {
 				a {
 					display:block;
 					width:100%;

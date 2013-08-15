@@ -101,11 +101,11 @@ NAVIGATION STYLES
 nav {
 	#header-nav {
 		position:absolute;
-		top:74px;
+		top:75px;
 		margin-left:-15px;
 		min-width:670px;
 
-		ul.nav-menu {
+		> ul.nav-menu {
 			margin: 0;
 			padding: 0;
 
@@ -158,12 +158,12 @@ nav {
 				}
 			}
 
-			> li.is-parent {
+			> li {
 				a {
 					display:inline-block;
 					width:auto;
 					color:$bodyText;
-					padding:13px 14px 18px;
+					padding:14px 14px 20px;
 
 					&:before {
 						background:none;
