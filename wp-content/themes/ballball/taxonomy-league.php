@@ -18,6 +18,7 @@
                 <div id="latest-tab" class="tab"><?php echo __('Latest', 'ballball'); ?></div>
                 <div id="fixtures-tab" class="tab"><?php echo __('Fixtures', 'ballball'); ?></div>
                 <div id="results-tab" class="tab"><?php echo __('Results', 'ballball'); ?></div>
+                <div id="video-tab" class="tab"><?php echo __('Video', 'ballball'); ?></div>
               </div>
               
               <div id="tab-viewports">
