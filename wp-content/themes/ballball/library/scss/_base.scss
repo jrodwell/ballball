@@ -782,6 +782,7 @@ POSTS & CONTENT STYLES
 			font-family: $header;
 			font-size: 18px;
 			text-transform: uppercase;
+			color: $bodyText;
 			span {
 				position: absolute;
 				display: block;
@@ -801,6 +802,7 @@ POSTS & CONTENT STYLES
 				top: 15px;
 				left: 100px;
 				width: 100px;
+				height: 55px;
 				line-height: 1em;
 				font-size: 56px;
 				span {
@@ -841,8 +843,14 @@ POSTS & CONTENT STYLES
 				display: none;
 			}
 		}
+		.livematch {
+			.match-score {
+				color: $bbGreen;
+			}
+		}
 		.prematch {
 			.match-score {
+				background: url(../images/matchVs.png) no-repeat 50% 50%;
 				span {
 					display: none;
 				}
@@ -851,8 +859,6 @@ POSTS & CONTENT STYLES
 		.postmatch {
 			.match-score {
 				color: $bodyText;
-				span {
-				}
 			}
 		}
 		.matches {
