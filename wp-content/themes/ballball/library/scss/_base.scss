@@ -1060,22 +1060,12 @@ POSTS & CONTENT STYLES
 	}
 }
 
-	/* start .wp-caption */
-	.wp-caption {
-		max-width: 100%;
-		background: #eee;
-		padding: 5px;
-		img {
-			max-width: 100%;
-			margin-bottom: 0;
-			width: 100%;
-		}
-		p.wp-caption-text {
-			font-size: 0.85em;
-			margin: 4px 0 7px;
-			text-align: center;
-		}
-	} /* end .wp-caption */
+/* caption */
+.caption {
+	background: $lightGrey;
+    font-style: italic;
+    padding: 10px;
+}
 
 /******************************************************************
 PAGINATION STYLES
