@@ -2,9 +2,9 @@
 
 				<div id="inner-footer" class="wrap clearfix">
 
-          <p>LOGO HERE</p>
+          			
 
-          <p class="source-org copyright">&copy; 2013 NWS Digital Asia Pte. Limited</p>
+          			<p class="source-org copyright">&copy; 2013 NWS Digital Asia Pte. Limited</p>
 
 					<nav role="navigation">
 					  <?php wp_nav_menu(array('menu' => 'Footer Links', 'menu_class' => 'footer-menu')); ?>
