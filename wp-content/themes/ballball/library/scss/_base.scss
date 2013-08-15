@@ -1007,8 +1007,14 @@ POSTS & CONTENT STYLES
 		font-size: 24px;
 	}
 	.opta-widget-container {
+		font-size: 14px;
 		.fixtures {
 			background: none;
+		}
+		.match {
+			.match-score {
+				background: url(../images/matchVsSmall.png) no-repeat 50% 50%;
+			}
 		}
 		.matches {
 			margin-top: 5px;
