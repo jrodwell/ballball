@@ -976,9 +976,9 @@ POSTS & CONTENT STYLES
 	margin-bottom: 40px;
 	div {
 		float: left;
-		width: 50%;
+		width: 100%;
 		height: 50px;
-		border-width: 0;
+		border-width:  0 0 2px 0;
 		border-style: solid;
 		border-color: $white;
 		background: $lightGrey;
@@ -996,15 +996,6 @@ POSTS & CONTENT STYLES
 		background: $bbGreen;
 		color: $white;
 	}
-	#latest-tab {
-		border-width: 0 2px 2px 0;
-	}
-	#fixtures-tab {
-		border-width: 0 0 2px 0;
-	}
-	#results-tab {
-		border-width: 0 2px 0 0;
-	}
 }
 #tab-viewports {
 	h2 {
@@ -1020,14 +1011,40 @@ POSTS & CONTENT STYLES
 		.fixtures {
 			background: none;
 		}
-		.match {
+		.match, .linked-match, .unlinked-match {
+			height: 44px;
+			border-bottom: 1px solid $lightGrey;
+			font-weight: normal;
+			color: $bodyText;
+			span {
+				height: 44px;
+			}
 			.match-score {
 				background: url(../images/matchVsSmall.png) no-repeat 50% 50%;
 			}
+			.home-side, .away-side {
+				width: 80px;
+			}
+			.matchDetails {
+				background-color: $white;
+			}
+		}
+		.livematch {
+			color: $bodyText;
+			.match-score {
+				background: none;
+				color: $bbGreen;
+			}
+		}
+		.postmatch {
+			.match-score {
+				background: none;
+				color: $bbGreen;
+			}
 		}
 		.matches {
-			margin: 5px 0 30px 0;
-			border-bottom: 4px solid $bodyText;
+			margin: 0 0 30px 0;
+			border-bottom: 3px solid $lightGrey;
 		}
 	}
 	.viewport {

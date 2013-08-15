@@ -107,6 +107,21 @@ h2.total-match-count {
 		}
 	}
 }
+#tab-viewports {
+	.opta-widget-container {
+		width: 620px;
+		.match, .linked-match, .unlinked-match {
+			.home-side, .away-side {
+				width: 175px;
+			}
+			.matchDetails {
+				width: 150px;
+				padding-left: 20px;
+				padding-right: 20px;
+			}			
+		}
+	}
+}
 
 #content {
 	background: url(../images/pattern_geometric-light.png) repeat;
@@ -139,13 +154,21 @@ h2.total-match-count {
 	#ffg_widget-2 {
 		clear: both;
 		display: block;
-		border: 1px solid #E8E8E8;
+		border: 1px solid $anotherGrey;
+		border-top-color: #345c99;
+		a {
+			color: #3b5998;
+		}
 		.fb-feed {
+			margin: 0;
 			padding: 0;
 		}
 		.fb-page-name {
-			background-position: 10px 50%;
-			padding: 3px 0 0 40px;
+			margin: 0;
+			border-bottom: 1px solid #anotherGrey;
+			background-color: #edeff5;
+			background-position: 10px 55%;
+			padding: 10px 0 5px 45px;
 		}
 		.fb-feed-item {
 			margin: 0;
