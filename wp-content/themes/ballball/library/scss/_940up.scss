@@ -165,7 +165,7 @@ h2.total-match-count {
 		}
 		.fb-page-name {
 			margin: 0;
-			border-bottom: 1px solid #anotherGrey;
+			border-bottom: 1px solid $anotherGrey;
 			background-color: #edeff5;
 			background-position: 10px 55%;
 			padding: 10px 0 5px 45px;
@@ -199,11 +199,75 @@ h2.total-match-count {
 }
 
 .footer {
-	#inner-footer {
+	.footer-top .inner, #inner-footer {
 		position: relative;
 		left: 50%;
 		margin-left: -($deskWidth/2);
 		width: $deskWidth;
 		padding: 0 $deskPadding;
 	}
+
+	.footer-top {
+		@include clearfix;
+		background:$footerBG;
+		width:100%;
+		height:100px;
+		margin:0 auto;
+
+		.inner {
+			padding-top:22px;
+		}
+
+		.logo-copyright {
+			width:190px;
+			margin-right:0;
+
+			.logo {
+				padding-bottom:8px;
+
+				img {
+					width:156px;
+					height:38px;
+				}
+			}
+
+			.copyright {
+				line-height:14px;
+			}
+		}
+
+		.ad-container {
+			display:inline-block;
+			width:750px;
+
+			.ad {
+				display:block;
+				width:468px;
+				height:60px;
+				border:2px solid #fff;
+				float:none;
+				margin:0 auto;
+			}
+		}
+	}
+
+	nav {
+		.menu-footer-links-container {
+			#menu-footer-links {
+				margin:1em auto 16px;
+			}
+		}
+
+		.menu-main-menu-container {
+			&#footer-nav-desktop {
+				width:580px;
+
+				li ul li {
+					margin-right:60px;
+				}
+			}
+		}
+	}
 }
+
+
