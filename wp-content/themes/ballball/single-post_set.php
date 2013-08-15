@@ -20,7 +20,7 @@
 
 								<header class="article-header">
 
-									<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
+									<h1 class="entry-title single-title" itemprop="headline"><?php echo $title = get_the_title(); ?></h1>
 									
                   <p class="byline vcard"><?php
 										printf(__('<time class="updated" datetime="%1$s" pubdate>%2$s</time> (GMT +00:00)', 'ballball'), get_the_time('Y-m-j'), get_the_time(get_option('date_format')));
@@ -112,5 +112,14 @@
 				</div> <!-- end #inner-content -->
 
 			</div> <!-- end #content -->
+
+      <script type="text/javascript">
+      var utag_data = {
+        content_type : "article",
+        article_type : "article_set",
+        article_title : "<?php echo $title; ?>",
+        display_device_format : "<?php echo detect_device(); ?>"
+      }
+      </script>
 
 <?php get_footer(); ?>

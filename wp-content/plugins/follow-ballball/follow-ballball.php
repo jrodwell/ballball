@@ -23,7 +23,7 @@ class BallBall_Follow extends WP_Widget {
     echo $before_widget; ?>
     
     <h4 class="widgettitle">
-      Follow BallBall
+      <?php echo $title; ?>
     </h4>
     
     <div id="follow-container">

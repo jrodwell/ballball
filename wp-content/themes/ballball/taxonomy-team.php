@@ -12,6 +12,12 @@
               
               <?php
               
+              $team_slug = get_query_var('term');
+              $team = get_term_by('slug', $team_slug, 'team');
+              $team_name = $team->name;
+              $term_meta = get_option("taxonomy_$team->term_id");
+              $team_optaid = $term_meta['optaid']; 
+              
               $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
               $args = array(
                 'post_type' => array('post', 'post_set'),
@@ -144,5 +150,15 @@
 				</div> <!-- end #inner-content -->
 
 			</div> <!-- end #content -->
+
+      <script type="text/javascript">
+      var utag_data = {
+        content_type : "stream",
+        stream_type : "team",
+        league : "<?php echo $team_name; ?>",
+        league_id : "<?php echo $team_optaid; ?>",
+        display_device_format : "<?php echo detect_device(); ?>"
+      }
+      </script>
 
 <?php get_footer(); ?>

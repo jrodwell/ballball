@@ -18,7 +18,26 @@
               
               $match_slug = get_query_var('term');
               $match = get_term_by('slug', $match_slug, 'match');
-              $term_meta = get_option("taxonomy_$match->term_id");
+              $match_name = $match->name;
+              $term_meta = get_option("taxonomy_$match->term_id");      
+              
+              $kickoff = date('Ymd', strtotime($term_meta['kickoff_time']));        
+              $home_team_id = $term_meta['home_team'];
+              $away_team_id = $term_meta['away_team'];
+              $all_teams = get_terms('team', array('hide_empty' => false));
+              foreach($all_teams as $team) {
+                if($team->term_id==$home_team_id) {
+                  $home_team_name = $team->name;
+                  $term_meta = get_option("taxonomy_$team->term_id");
+                  $home_team_optaid = $term_meta['optaid'];
+                } else if($team->term_id==$away_team_id) {
+                  $away_team_name = $team->name;
+                  $term_meta = get_option("taxonomy_$team->term_id");
+                  $away_team_optaid = $term_meta['optaid'];
+                }
+              }                                        
+              
+              $term_meta = get_option("taxonomy_$match->term_id");               
               $league_tax_id = $term_meta['league'];
               $match_optaid = $term_meta['optaid'];
               $all_leagues = get_terms('league', array('hide_empty' => false));
@@ -27,7 +46,7 @@
                   $term_meta = get_option("taxonomy_$league->term_id");
                   $league_optaid = $term_meta['optaid'];
                 }
-              }        
+              }
               
               ?>
               
@@ -101,7 +120,7 @@
 								  <?php } ?>
 								  </div>
 
-									<h1 class="h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+									<h1 class="h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php echo $title=get_the_title(); ?></a></h1>
 
 								</header> <!-- end article header -->
 
@@ -140,23 +159,23 @@
 							<?php endwhile; ?>
 
 							<nav class="wp-prev-next">
-									<ul class="clearfix">
-										<li class="prev-link"><?php next_posts_link(__('Older <span class="article-word">Articles</span>', "ballball")) ?></li>
-										<li class="next-link"><?php previous_posts_link(__('Newer <span class="article-word">Articles</span>', "ballball")) ?></li>
-									</ul>
+								<ul class="clearfix">
+									<li class="prev-link"><?php next_posts_link(__('Older <span class="article-word">Articles</span>', "ballball")) ?></li>
+									<li class="next-link"><?php previous_posts_link(__('Newer <span class="article-word">Articles</span>', "ballball")) ?></li>
+								</ul>
 							</nav>
 
 							<?php else : ?>
 
-									<article id="post-not-found" class="hentry clearfix">
-											<header class="article-header">
-												<p><?php _e("There are no articles for this match.", "ballball"); ?></p>
-										</header>
-											<section class="entry-content">
-										</section>
-										<footer class="article-footer">
-										</footer>
-									</article>
+								<article id="post-not-found" class="hentry clearfix">
+										<header class="article-header">
+										<p><?php _e("There are no articles for this match.", "ballball"); ?></p>
+									</header>
+										<section class="entry-content">
+									</section>
+									<footer class="article-footer">
+									</footer>
+								</article>
 
 							<?php endif; wp_reset_query(); ?>
 
@@ -167,5 +186,20 @@
 				</div> <!-- end #inner-content -->
 
 			</div> <!-- end #content -->
+
+      <script type="text/javascript">
+      var utag_data = {
+        content_type : "stream",
+        stream_type : "match",
+        match : "<?php echo $match_name; ?>",
+        match_date : "<?php echo $kickoff; ?>",
+        match_id : "<?php echo $match_optaid; ?>",
+        home_team : "<?php echo $home_team_name; ?>",
+        home_team_id : "<?php echo $away_team_optaid; ?>",
+        away_team : "<?php echo $home_team_name; ?>",
+        away_team_id : "<?php echo $away_team_optaid; ?>",
+        display_device_format : "<?php echo detect_device(); ?>"
+      }
+      </script>
 
 <?php get_footer(); ?>

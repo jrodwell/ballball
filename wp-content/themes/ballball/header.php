@@ -16,7 +16,7 @@
 
 		<!-- mobile meta (hooray!) -->
 		<meta name="HandheldFriendly" content="True">
-		<meta name="MobileOptimized" content="320">
+		<meta name="MobileOptimized" content="700">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 		<!-- icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) -->
@@ -37,11 +37,6 @@
 
 		<!-- drop Google Analytics Here -->
 		<!-- end analytics -->		
-    		
-    <script type="text/javascript">
-    var utag_data = {
-    }
-    </script>
     
     <!-- Loading script asynchronously -->
     <script type="text/javascript">

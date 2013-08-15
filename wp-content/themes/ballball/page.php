@@ -56,4 +56,10 @@
 
 			</div> <!-- end #content -->
 
+      <script type="text/javascript">
+      var utag_data = {
+        display_device_format : "<?php echo detect_device(); ?>"
+      }
+      </script>
+
 <?php get_footer(); ?>
