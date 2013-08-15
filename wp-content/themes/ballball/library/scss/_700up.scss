@@ -76,7 +76,7 @@ HEADER STYLES
 							family:$sans-serif;
 						}
 						text-indent:0;
-						padding:12px 0 0 45px;
+						padding:11px 0 0 45px;
 						text-transform:uppercase;
 
 						sup {
@@ -98,42 +98,134 @@ NAVIGATION STYLES
 *********************/
 
 nav {
-	background: none;
+	#header-nav {
+		position:absolute;
+		top:74px;
+		margin-left:-15px;
+		min-width:670px;
 
-	.nav-menu {
-		li {
-			float: left;
-			padding: 10px;
-			text-align: left;
+		ul.nav-menu {
+			margin: 0;
+			padding: 0;
 
-			&:hover {
-				background:#eee;
-			}
+			li {
+				position: relative;
+				background:none;
+				text-align: left;
+				display:inline-block;
 
-			a {
-				color: $bodyText;
+				a {
+					color:$bodyText;
+					border-bottom:none;
+					text-align:center;
+					font-size:21px;
+					width:auto;
+					display:inline-block;
 
-				&:hover, &:focus {
-					color: $bodyText;
+					&:hover {
+						background:#eee;
+						color: $bodyText;
+					}
+
+					span {
+						padding-bottom:4px;
+					}
+				}
+
+				&.current-menu-item {
+					> a {
+						span {
+							border-bottom:4px solid #fff;
+						}
+
+						&:hover span {
+							border-bottom:none;
+						}
+					}
+				}
+
+				&:hover > ul {
+					// display: block;
+				}
+
+				.home-link-menu-container {
+					li {
+						margin-left: 0;
+						margin-bottom: 10px;
+						border-bottom: 5px solid $white;
+					}
 				}
 			}
 
-			&.current-menu-item {
-				> a {
-					border-bottom:4px solid #fff;
+			> li.is-parent {
+				a {
+					display:inline-block;
+					width:auto;
+					color:$bodyText;
+					padding:13px 15px 18px;
+
+					&:before {
+						background:none;
+					}
+
+					&:hover, &:focus, &:active {
+						color:$bodyText;
+					}
+
+					&.active {
+						&:before {
+							background:none;
+						}
+					}
+				}
+
+				> ul.sub-menu {
+					display:inline-block !important;
+					position:static;
+					padding:0;
+					z-index:10;
+					margin-top:10px;
+
+					li {
+						> a {
+							width:auto;
+							display:inline-block;
+
+							&:before {
+								background:none;
+							}
+
+							&:hover, &:focus, &:active {
+								color:$bodyText;
+							}
+						}
+
+						&.has-children {
+							> a {
+								&:before {
+									background:none;
+								}
+
+								&.active {
+									background:none;
+
+									&:before {
+										background:none;
+									}
+								}
+							}
+
+							ul {
+								display:none !important;
+							}
+						}
+					}
 				}
 			}
 		}
 	}
+}
 
-	.home-link-menu-container {
-		li {
-			margin-left: 0;
-			margin-bottom: 10px;
-			border-bottom: 5px solid $white;
-		}
-	}
-} /* end .nav */
 
 /*********************
 LIVE MATCHES STYLES
