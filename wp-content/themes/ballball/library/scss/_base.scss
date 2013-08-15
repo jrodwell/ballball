@@ -998,7 +998,7 @@ POSTS & CONTENT STYLES
 		border-width: 0 2px 0 0;
 	}
 }
-#fixtures-viewport {
+#tab-viewports {
 	h2 {
 		display: none;
 	}
@@ -1007,6 +1007,7 @@ POSTS & CONTENT STYLES
 		font-size: 24px;
 	}
 	.opta-widget-container {
+		width: 300px;
 		font-size: 14px;
 		.fixtures {
 			background: none;
@@ -1017,9 +1018,15 @@ POSTS & CONTENT STYLES
 			}
 		}
 		.matches {
-			margin-top: 5px;
+			margin: 5px 0 30px 0;
 			border-bottom: 4px solid $bodyText;
 		}
+	}
+	.viewport {
+		display: none;
+	}
+	.active {
+		display: block;
 	}
 }
 
