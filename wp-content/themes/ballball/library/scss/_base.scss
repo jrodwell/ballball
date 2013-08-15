@@ -117,7 +117,6 @@ HEADER STYLES
 .header {
 	background: $headerBG;
 	position:relative;
-	margin-bottom:1em;
 
 	#inner-header {
 		padding: 0;
@@ -240,62 +239,98 @@ NAVIGATION STYLES
 // http://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly
 
 nav {
-	li {
-		position: relative;
-		background:#444;
-		border-bottom: 1px solid #575757;
-	}
-
-	ul.nav-menu {
-		margin: 0;
-		padding: 0;
-
-		> li.is-parent {
-			> a {
-				&:before {
-					@include before-after;
-					@include sprite(0, 25, 15, 9);
-					right:13px;
-					top:50%;
-					margin-top:-5px;
-				}
-			}
-
-			&.active {
-				> a:before {
-					@include sprite(18,25,15,9);
-				}
-			}
-
-			ul.sub-menu {
-				display: none;
-				// position: absolute;
-				top: 100%;
-				padding: 0;
-				z-index:99;
-			}
+	#header-nav {
+		li {
+			position: relative;
+			background:#444;
 
 			a {
-				display:block;
-				width:100%;
-				text-align:center;
-				font:normal 22px $header;
-				text-transform: uppercase;
-				color:#444;
-				padding: 10px 0 8px;
-				color:white;
-
-				&:hover, &:focus, &:active {
-					color:white;
-				}
+				border-bottom: 1px solid #575757;
 			}
+		}
 
-			&:hover > ul {
-				// display: block;
+		ul.nav-menu {
+			margin: 0;
+			padding: 0;
+
+			> li.is-parent {
+				a {
+					display:block;
+					width:100%;
+					text-align:center;
+					font:normal normal 22px $header;
+					text-transform: uppercase;
+					color:#444;
+					padding: 10px 0 8px;
+					color:white;
+
+					&:hover, &:focus, &:active {
+						color:white;
+					}
+				}
+
+				> a {
+					&:before {
+						@include before-after;
+						@include sprite(0, 25, 15, 9);
+						right:13px;
+						top:17px;
+					}
+
+					&.active {
+						&:before {
+							@include sprite(18,25,15,9);
+						}
+					}
+				}
+
+				ul.sub-menu {
+					display: none;
+					// position: absolute;
+					top: 100%;
+					padding: 0;
+					z-index:99;
+
+					li {
+						> a {
+							&:before {
+								@include before-after;
+								@include sprite(36, 22, 11, 16);
+								right:15px;
+								top:13px;
+							}
+						}
+
+						&.has-children {
+							> a {
+								&:before {
+									@include before-after;
+									@include sprite(0, 36, 16, 16);
+									right:13px;
+									top:13px;
+								}
+
+								&.active {
+									background:#49b900;
+
+									&:before {
+										@include sprite(18, 42, 16, 4);
+										top:19px;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				&:hover > ul {
+					// display: block;
+				}
 			}
 		}
 	}
 }
+
 
 /*********************
 OPTA BASE STYLES
