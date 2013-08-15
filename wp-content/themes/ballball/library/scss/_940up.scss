@@ -72,9 +72,6 @@ h2.total-match-count {
 	h3 {
 		display: none;
 	}
-	.opta-widget-container {
-		width: 690px;
-	}
 	.live-league {
 		display: none;
 		float: right;
@@ -83,6 +80,9 @@ h2.total-match-count {
 	div.active {
 		display: block;
 	}
+}
+.opta-widget-container {
+	width: 690px;
 	.match, .linked-match, .unlinked-match {
 		.home-side,	.away-side {
 			width: 170px;

@@ -324,7 +324,7 @@ h2.total-match-count {
 .auto-update {
 	display: none;
 }
-#widgetOutput {
+#widgetOutput, #fixtures-viewport {
 	padding-bottom: 10px;
 	font-size: 12px;
 	h2, h4 {
@@ -342,9 +342,9 @@ h2.total-match-count {
 			color: $bodyText;
 		}
 	}
-	.opta-widget-container {
-		width: $mobWidth;
-	}
+}
+.opta-widget-container {
+	width: $mobWidth;
 	.fixtures {
 		border-radius: 0;
 		background: $bbGrey;
@@ -936,6 +936,7 @@ POSTS & CONTENT STYLES
 	}
 	.matches {
 		margin-top: 5px;
+		border-bottom: 4px solid $bodyText;
 	}
 }
 
