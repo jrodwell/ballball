@@ -102,7 +102,7 @@
 							$main_nav_items = wp_get_nav_menu_items($main_nav_object->term_id);
 						?>
 
-						<?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'nav-menu', 'container_id' => 'header-nav', 'walker' => new jr_walker())); ?>
+						<?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'nav-menu', 'container_id' => 'header-nav', 'link_before' => '<span>', 'link_after' => '</span>', 'walker' => new jr_walker())); ?>
 					  
 					</nav>
 

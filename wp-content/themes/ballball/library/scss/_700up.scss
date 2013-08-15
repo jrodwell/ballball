@@ -127,9 +127,19 @@ nav {
 						color: $bodyText;
 					}
 
-					&.current-menu-item {
-						> a {
+					span {
+						padding-bottom:4px;
+					}
+				}
+
+				&.current-menu-item {
+					> a {
+						span {
 							border-bottom:4px solid #fff;
+						}
+
+						&:hover span {
+							border-bottom:none;
 						}
 					}
 				}
@@ -152,7 +162,7 @@ nav {
 					display:inline-block;
 					width:auto;
 					color:$bodyText;
-					padding:15px 15px 16px;
+					padding:13px 15px 18px;
 
 					&:before {
 						background:none;

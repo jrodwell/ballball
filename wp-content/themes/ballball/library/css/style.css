@@ -1369,8 +1369,12 @@ you can add resource intensive styles.
           nav #header-nav ul.nav-menu li a:hover {
             background: #eee;
             color: #444444; }
-          nav #header-nav ul.nav-menu li a.current-menu-item > a {
-            border-bottom: 4px solid #fff; }
+          nav #header-nav ul.nav-menu li a span {
+            padding-bottom: 4px; }
+        nav #header-nav ul.nav-menu li.current-menu-item > a span {
+          border-bottom: 4px solid #fff; }
+        nav #header-nav ul.nav-menu li.current-menu-item > a:hover span {
+          border-bottom: none; }
         nav #header-nav ul.nav-menu li .home-link-menu-container li {
           margin-left: 0;
           margin-bottom: 10px;
@@ -1379,7 +1383,7 @@ you can add resource intensive styles.
         display: inline-block;
         width: auto;
         color: #444444;
-        padding: 15px 15px 16px; }
+        padding: 13px 15px 18px; }
         nav #header-nav ul.nav-menu > li.is-parent a:before {
           background: none; }
         nav #header-nav ul.nav-menu > li.is-parent a:hover, nav #header-nav ul.nav-menu > li.is-parent a:focus, nav #header-nav ul.nav-menu > li.is-parent a:active {
