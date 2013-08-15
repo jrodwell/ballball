@@ -159,7 +159,10 @@ HEADER STYLES
         top: 12px;
         left: 15px; }
       .header #inner-header #language-switcher > ul > li.language-trigger span {
-        font: 14px bold "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: bold;
+        font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-indent: 0;
         padding: 12px 0 0 45px;
         text-transform: uppercase; }

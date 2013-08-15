@@ -596,7 +596,10 @@ HEADER STYLES
           transition: all 1.0s ease-in-out;
           z-index: 9; }
           .header #inner-header #language-switcher > ul > li.language-trigger > ul li, .header #inner-header #language-switcher > ul > li.language-trigger > ul a {
-            font: 14px bold "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+            font-size: 14px;
+            font-style: normal;
+            font-weight: bold;
+            font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
           .header #inner-header #language-switcher > ul > li.language-trigger > ul li {
             z-index: 999;
             width: 100%;
@@ -1295,7 +1298,10 @@ you can add resource intensive styles.
           top: 12px;
           left: 15px; }
         .header #inner-header #language-switcher > ul > li.language-trigger span {
-          font: 14px bold "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: bold;
+          font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
           text-indent: 0;
           padding: 12px 0 0 45px;
           text-transform: uppercase; }

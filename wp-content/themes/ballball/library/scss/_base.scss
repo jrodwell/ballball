@@ -191,7 +191,12 @@ HEADER STYLES
 						z-index:9;
 
 						li, a {
-							font:14px bold $sans-serif;
+							font: {
+								size:14px;
+								style:normal;
+								weight:bold;
+								family:$sans-serif;
+							}
 						}
 
 						li {
