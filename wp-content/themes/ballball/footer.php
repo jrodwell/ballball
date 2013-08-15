@@ -2,18 +2,21 @@
 
 				<div id="inner-footer" class="wrap clearfix">
 
-          			
+          			<div class="logo"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/logoFooter.png'; ?>"></div>
 
           			<p class="source-org copyright">&copy; 2013 NWS Digital Asia Pte. Limited</p>
 
 					<nav role="navigation">
-					  <?php wp_nav_menu(array('menu' => 'Footer Links', 'menu_class' => 'footer-menu')); ?>
-            <?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'footer-menu', 'container_id' => 'footer-nav', 'walker' => new jr_walker())); ?>
+						<?php wp_nav_menu(array('menu' => 'Footer Links', 'menu_class' => 'footer-menu')); ?>
 					</nav>
-					
-					<p>Match Statistics supplied by Opta Sports Data Limited. Reproduced under licence from Football DataCo Limited. All rights reserved</p>
-					
+
+					<p class="credit">Match Statistics supplied by <a href="http://www.optasports.com/">Opta Sports Data Limited</a>. Reproduced under licence from Football DataCo Limited. All rights reserved</p>
+				
 				</div> <!-- end #inner-footer -->
+
+				<nav role="navigation">
+					<?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'footer-menu', 'container_id' => 'footer-nav', 'walker' => new jr_walker())); ?>
+				</nav>
 
 			</footer> <!-- end footer -->
 

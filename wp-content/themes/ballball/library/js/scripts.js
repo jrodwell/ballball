@@ -157,7 +157,7 @@ jQuery(document).ready(function($) {
 	};
 
 	//doubleTapToGo()
-	$('nav li:has(ul)').addClass('has-children').find('> a').on('touchstart click', function(e) {
+	$('.header nav li:has(ul)').addClass('has-children').find('> a').on('touchstart click', function(e) {
 		if(jQuery.browser.mobile || $(window).width() < 700) {
 			e.preventDefault();
 			$(this).next('.sub-menu').slideToggle();
