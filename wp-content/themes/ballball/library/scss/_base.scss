@@ -926,6 +926,18 @@ POSTS & CONTENT STYLES
 		border-width: 0 2px 0 0;
 	}
 }
+#fixtures-viewport {
+	h2 {
+		display: none;
+	}
+	h3 {
+		border-bottom: 4px solid $bbGreen;
+		font-size: 24px;
+	}
+	.matches {
+		margin-top: 5px;
+	}
+}
 
 	/* start .wp-caption */
 	.wp-caption {
