@@ -164,7 +164,7 @@ HEADER STYLES
         font-weight: bold;
         font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-indent: 0;
-        padding: 12px 0 0 45px;
+        padding: 11px 0 0 45px;
         text-transform: uppercase; }
         .header #inner-header #language-switcher > ul > li.language-trigger span sup {
           font-size: 12px;
@@ -175,26 +175,66 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-nav {
-  background: none; }
-  nav .nav-menu li {
+nav ul.nav-menu {
+  margin: 0;
+  padding: 0; }
+  nav ul.nav-menu li {
+    position: relative;
+    background: none;
     float: left;
-    padding: 10px;
-    text-align: left; }
-    nav .nav-menu li:hover {
-      background: #eee; }
-    nav .nav-menu li a {
-      color: #444444; }
-      nav .nav-menu li a:hover, nav .nav-menu li a:focus {
+    text-align: left;
+    display: inline-block; }
+    nav ul.nav-menu li a {
+      color: #444444;
+      border-bottom: none;
+      text-align: center;
+      font-size: 21px;
+      padding: 0;
+      width: auto;
+      display: inline-block; }
+      nav ul.nav-menu li a:hover {
+        background: #eee;
         color: #444444; }
-    nav .nav-menu li.current-menu-item > a {
-      border-bottom: 4px solid #fff; }
-  nav .home-link-menu-container li {
-    margin-left: 0;
-    margin-bottom: 10px;
-    border-bottom: 5px solid white; }
+      nav ul.nav-menu li a.current-menu-item > a {
+        border-bottom: 4px solid #fff; }
+    nav ul.nav-menu li .home-link-menu-container li {
+      margin-left: 0;
+      margin-bottom: 10px;
+      border-bottom: 5px solid white; }
+  nav ul.nav-menu > li.is-parent a {
+    display: inline-block;
+    width: auto;
+    color: #444444; }
+    nav ul.nav-menu > li.is-parent a:before {
+      background: none; }
+    nav ul.nav-menu > li.is-parent a:hover, nav ul.nav-menu > li.is-parent a:focus, nav ul.nav-menu > li.is-parent a:active {
+      color: #444444; }
+    nav ul.nav-menu > li.is-parent a.active:before {
+      background: none; }
+  nav ul.nav-menu > li.is-parent > ul.sub-menu {
+    display: inline-block !important;
+    position: static;
+    padding: 0;
+    z-index: 10;
+    margin-top: 10px; }
+    nav ul.nav-menu > li.is-parent > ul.sub-menu li {
+      float: left; }
+      nav ul.nav-menu > li.is-parent > ul.sub-menu li > a {
+        width: auto;
+        display: inline-block; }
+        nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:before {
+          background: none; }
+        nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:hover, nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:focus, nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:active {
+          color: #444444; }
+      nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a:before {
+        background: none; }
+      nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active {
+        background: #49b900; }
+        nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active:before {
+          background: none; }
+      nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children ul {
+        display: none; }
 
-/* end .nav */
 /*********************
 LIVE MATCHES STYLES
 *********************/
@@ -231,24 +271,25 @@ h2.total-match-count {
     font-size: 16px; }
     #widgetOutput h3 span {
       padding-left: 8px; }
-  #widgetOutput .opta-widget-container {
-    width: 620px; }
-  #widgetOutput .match, #widgetOutput .linked-match, #widgetOutput .unlinked-match {
+
+.opta-widget-container {
+  width: 620px; }
+  .opta-widget-container .match, .opta-widget-container .linked-match, .opta-widget-container .unlinked-match {
     height: 60px; }
-    #widgetOutput .match span, #widgetOutput .linked-match span, #widgetOutput .unlinked-match span {
+    .opta-widget-container .match span, .opta-widget-container .linked-match span, .opta-widget-container .unlinked-match span {
       height: 58px; }
-    #widgetOutput .match .match-time, #widgetOutput .linked-match .match-time, #widgetOutput .unlinked-match .match-time {
+    .opta-widget-container .match .match-time, .opta-widget-container .linked-match .match-time, .opta-widget-container .unlinked-match .match-time {
       width: 50px; }
-      #widgetOutput .match .match-time span, #widgetOutput .linked-match .match-time span, #widgetOutput .unlinked-match .match-time span {
+      .opta-widget-container .match .match-time span, .opta-widget-container .linked-match .match-time span, .opta-widget-container .unlinked-match .match-time span {
         padding: 5px 0; }
-    #widgetOutput .match .home-side, #widgetOutput .match .away-side, #widgetOutput .linked-match .home-side, #widgetOutput .linked-match .away-side, #widgetOutput .unlinked-match .home-side, #widgetOutput .unlinked-match .away-side {
+    .opta-widget-container .match .home-side, .opta-widget-container .match .away-side, .opta-widget-container .linked-match .home-side, .opta-widget-container .linked-match .away-side, .opta-widget-container .unlinked-match .home-side, .opta-widget-container .unlinked-match .away-side {
       width: 155px; }
-    #widgetOutput .match .match-score, #widgetOutput .linked-match .match-score, #widgetOutput .unlinked-match .match-score {
+    .opta-widget-container .match .match-score, .opta-widget-container .linked-match .match-score, .opta-widget-container .unlinked-match .match-score {
       font-size: 36px;
       width: 75px; }
-      #widgetOutput .match .match-score .match-score-home, #widgetOutput .match .match-score .match-score-away, #widgetOutput .linked-match .match-score .match-score-home, #widgetOutput .linked-match .match-score .match-score-away, #widgetOutput .unlinked-match .match-score .match-score-home, #widgetOutput .unlinked-match .match-score .match-score-away {
+      .opta-widget-container .match .match-score .match-score-home, .opta-widget-container .match .match-score .match-score-away, .opta-widget-container .linked-match .match-score .match-score-home, .opta-widget-container .linked-match .match-score .match-score-away, .opta-widget-container .unlinked-match .match-score .match-score-home, .opta-widget-container .unlinked-match .match-score .match-score-away {
         width: 32px; }
-    #widgetOutput .match .matchDetails, #widgetOutput .linked-match .matchDetails, #widgetOutput .unlinked-match .matchDetails {
+    .opta-widget-container .match .matchDetails, .opta-widget-container .linked-match .matchDetails, .opta-widget-container .unlinked-match .matchDetails {
       width: 190px;
       background: #2e2e2e;
       padding-right: 20px;
@@ -256,17 +297,17 @@ h2.total-match-count {
       text-transform: uppercase;
       font-size: 12px;
       font-weight: bold; }
-      #widgetOutput .match .matchDetails a, #widgetOutput .linked-match .matchDetails a, #widgetOutput .unlinked-match .matchDetails a {
+      .opta-widget-container .match .matchDetails a, .opta-widget-container .linked-match .matchDetails a, .opta-widget-container .unlinked-match .matchDetails a {
         width: 100px;
         background: #2e2e2e url(../images/info.png) no-repeat left 50%;
         padding-top: 12px;
         padding-left: 15px;
         text-align: right;
         color: #aaaaaa; }
-        #widgetOutput .match .matchDetails a:hover, #widgetOutput .match .matchDetails a:focus, #widgetOutput .linked-match .matchDetails a:hover, #widgetOutput .linked-match .matchDetails a:focus, #widgetOutput .unlinked-match .matchDetails a:hover, #widgetOutput .unlinked-match .matchDetails a:focus {
+        .opta-widget-container .match .matchDetails a:hover, .opta-widget-container .match .matchDetails a:focus, .opta-widget-container .linked-match .matchDetails a:hover, .opta-widget-container .linked-match .matchDetails a:focus, .opta-widget-container .unlinked-match .matchDetails a:hover, .opta-widget-container .unlinked-match .matchDetails a:focus {
           background-image: url(../images/infoHover.png);
           color: #7bff19; }
-      #widgetOutput .match .matchDetails span, #widgetOutput .linked-match .matchDetails span, #widgetOutput .unlinked-match .matchDetails span {
+      .opta-widget-container .match .matchDetails span, .opta-widget-container .linked-match .matchDetails span, .opta-widget-container .unlinked-match .matchDetails span {
         display: inline; }
 
 /*********************
@@ -429,49 +470,52 @@ h2, .h2 {
   margin-right: 0; }
 
 /* Matches */
-.tax-match #main .opta-widget-container h4 {
-  display: block;
-  padding: 5px 20px;
-  background: #ededed;
-  font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  color: #aaaaaa; }
-.tax-match #main .match {
-  height: 135px; }
-  .tax-match #main .match .match-time {
-    left: 285px; }
-  .tax-match #main .match .match-score {
-    left: 260px; }
-  .tax-match #main .match .home-side, .tax-match #main .match .away-side {
-    margin-top: 20px;
-    margin-left: 130px;
-    width: 130px;
-    text-align: left; }
-  .tax-match #main .match .away-side {
-    margin-left: 0;
-    margin-right: 130px;
-    text-align: right; }
-  .tax-match #main .match .home-crest, .tax-match #main .match .away-crest {
-    width: 100px;
-    height: 100px;
-    top: -20px;
-    left: -115px; }
-  .tax-match #main .match .away-crest {
-    left: auto;
-    right: -115px; }
-.tax-match #main .matches dd {
-  margin: 0 20px; }
-  .tax-match #main .matches dd .match-details {
-    font-size: 16px; }
-    .tax-match #main .matches dd .match-details dd {
-      margin: 0;
-      padding-right: 40px; }
-    .tax-match #main .matches dd .match-details dt {
-      padding-right: 10px;
-      clear: none; }
-  .tax-match #main .matches dd .match-home-events, .tax-match #main .matches dd .match-away-events {
-    font-size: 16px; }
+.tax-match #main .opta-widget-container {
+  width: 620px; }
+  .tax-match #main .opta-widget-container h4 {
+    display: block;
+    margin-bottom: 20px;
+    background: #ededed;
+    padding: 5px 20px;
+    font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #aaaaaa; }
+  .tax-match #main .opta-widget-container .match {
+    height: 135px; }
+    .tax-match #main .opta-widget-container .match .match-time {
+      left: 285px; }
+    .tax-match #main .opta-widget-container .match .match-score {
+      left: 260px; }
+    .tax-match #main .opta-widget-container .match .home-side, .tax-match #main .opta-widget-container .match .away-side {
+      margin-top: 20px;
+      margin-left: 130px;
+      width: 130px;
+      text-align: left; }
+    .tax-match #main .opta-widget-container .match .away-side {
+      margin-left: 0;
+      margin-right: 130px;
+      text-align: right; }
+    .tax-match #main .opta-widget-container .match .home-crest, .tax-match #main .opta-widget-container .match .away-crest {
+      width: 100px;
+      height: 100px;
+      top: -20px;
+      left: -115px; }
+    .tax-match #main .opta-widget-container .match .away-crest {
+      left: auto;
+      right: -115px; }
+  .tax-match #main .opta-widget-container .matches dd {
+    margin: 0 20px; }
+    .tax-match #main .opta-widget-container .matches dd .match-details {
+      font-size: 16px; }
+      .tax-match #main .opta-widget-container .matches dd .match-details dd {
+        margin: 0;
+        padding-right: 40px; }
+      .tax-match #main .opta-widget-container .matches dd .match-details dt {
+        padding-right: 10px;
+        clear: none; }
+    .tax-match #main .opta-widget-container .matches dd .match-home-events, .tax-match #main .opta-widget-container .matches dd .match-away-events {
+      font-size: 16px; }
 
 /* League Page */
 #tab-controls {
@@ -595,20 +639,21 @@ h2.total-match-count {
 
 #widgetOutput h3 {
   display: none; }
-#widgetOutput .opta-widget-container {
-  width: 690px; }
 #widgetOutput .live-league {
   display: none;
   float: right;
   width: 690px; }
 #widgetOutput div.active {
   display: block; }
-#widgetOutput .match .home-side, #widgetOutput .match .away-side, #widgetOutput .linked-match .home-side, #widgetOutput .linked-match .away-side, #widgetOutput .unlinked-match .home-side, #widgetOutput .unlinked-match .away-side {
-  width: 170px; }
-#widgetOutput .match .matchDetails, #widgetOutput .linked-match .matchDetails, #widgetOutput .unlinked-match .matchDetails {
-  width: 225px;
-  padding-right: 70px;
-  padding-left: 55px; }
+
+.opta-widget-container {
+  width: 690px; }
+  .opta-widget-container .match .home-side, .opta-widget-container .match .away-side, .opta-widget-container .linked-match .home-side, .opta-widget-container .linked-match .away-side, .opta-widget-container .unlinked-match .home-side, .opta-widget-container .unlinked-match .away-side {
+    width: 170px; }
+  .opta-widget-container .match .matchDetails, .opta-widget-container .linked-match .matchDetails, .opta-widget-container .unlinked-match .matchDetails {
+    width: 225px;
+    padding-right: 70px;
+    padding-left: 55px; }
 
 #content {
   background: url(../images/pattern_geometric-light.png) repeat; }
