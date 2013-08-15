@@ -243,7 +243,10 @@ nav {
 	li {
 		position: relative;
 		background:#444;
-		border-bottom: 1px solid #575757;
+
+		a {
+			border-bottom: 1px solid #575757;
+		}
 	}
 
 	ul.nav-menu {
@@ -256,14 +259,13 @@ nav {
 					@include before-after;
 					@include sprite(0, 25, 15, 9);
 					right:13px;
-					top:50%;
-					margin-top:-5px;
+					top:17px;
 				}
-			}
 
-			&.active {
-				> a:before {
-					@include sprite(18,25,15,9);
+				&.active {
+					&:before {
+						@include sprite(18,25,15,9);
+					}
 				}
 			}
 
@@ -273,6 +275,37 @@ nav {
 				top: 100%;
 				padding: 0;
 				z-index:99;
+
+				li {
+					> a {
+						&:before {
+							@include before-after;
+							@include sprite(36, 22, 11, 16);
+							right:15px;
+							top:13px;
+						}
+					}
+
+					&.has-children {
+						> a {
+							&:before {
+								@include before-after;
+								@include sprite(0, 36, 16, 16);
+								right:13px;
+								top:13px;
+							}
+
+							&.active {
+								background:#49b900;
+
+								&:before {
+									@include sprite(18, 42, 16, 4);
+									top:19px;
+								}
+							}
+						}
+					}
+				}
 			}
 
 			a {
