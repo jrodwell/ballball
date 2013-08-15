@@ -661,7 +661,6 @@ SIDEBARS & ASIDES
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
-
 .wp-prev-next {
 	margin-bottom: $tabVHeight;
 }
@@ -670,9 +669,127 @@ PAGE NAVI STYLES
 FOOTER STYLES
 *********************/
 .footer {
+	background:$darkFooterBG;
+
+	.footer-top {
+		@include clearfix;
+		background:$footerBG;
+		width:100%;
+		margin:0 auto;
+
+		.inner {
+			padding:20px $tabPadding 8px;
+			width:$tabWidth;
+			margin:0 auto;
+		}
+
+		.logo-copyright {
+			display:inline-block;
+			float:left;
+			width:120px;
+			margin-right:30px;
+			text-align:left;
+
+			.logo {
+				padding:0 0 6px;
+				img {
+					width:116px;
+					height:28px;
+				}
+			}
+
+			.copyright {
+				line-height:14px;
+			}
+		}
+
+		.ad-container {
+			display:inline-block;
+
+			.ad {
+				display:block;
+				width:468px;
+				height:60px;
+				border:2px solid #fff;
+				float:right;
+			}
+		}
+	}
+
 	#inner-footer {
 		width: $tabWidth;
 		padding: 0 $tabPadding;
+		text-align:left;
+
+		hr {
+			display:block;
+			border:none;
+			height:2px;
+			width:100%;
+			background:#424344;
+			margin:10px 0;
+		}
+
+		.credit {
+			text-align:center;
+			padding:0 20px;
+		}
+	}
+
+	nav {
+		.menu-footer-links-container {
+			.footer-menu {
+				@include clearfix;
+				text-align:center;
+				margin:12px auto 8px;
+				width:370px;
+
+				li {
+					float:left;
+					padding:0 20px;
+
+					a {
+						color:#aaa;
+						font-size:14px;
+						line-height:28px;
+					}
+				}
+			}
+		}
+
+		.menu-main-menu-container {
+			&#footer-nav-desktop {
+				@include clearfix;
+				display:block;
+				margin:16px auto;
+				width:500px;
+
+				li ul li {
+					float:left;
+					display:inline-block;
+					height:36px;
+					display:table;
+					margin-right:40px;
+
+					&:last-child {
+						margin-right:0;
+					}
+
+					a {
+						display:block;
+						color:#fff;
+						font-size:14px;
+						line-height:16px;
+						vertical-align:bottom;
+						display:table-cell;
+					}
+				}
+			}
+
+			&#footer-nav-mobile {
+				display:none;
+			}
+		}
 	}
 }
 .footer-links {

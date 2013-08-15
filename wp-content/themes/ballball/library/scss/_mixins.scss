@@ -20,10 +20,14 @@ CLEARFIXIN'
 *********************/
 
 // Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+    zoom: 1;
+    &:before, &:after { content: ""; display: table; }
+    &:after { clear: both; }
+}
+
 .clearfix {
-  zoom: 1;
-	&:before, &:after { content: ""; display: table; }
-	&:after { clear: both; }
+    @include clearfix;
 }
 
 /*********************
@@ -82,6 +86,7 @@ $white:             #fff;
 
 $headerBG:			#aadd03;
 $footerBG:          #37393A;
+$darkFooterBG:      #2C2E2F;
 $bbGreen:			#52bf00;
 $brightGreen:		#7bff19;
 $bbGrey:			#2e2e2e;
