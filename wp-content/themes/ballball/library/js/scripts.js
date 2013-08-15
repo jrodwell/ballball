@@ -116,7 +116,7 @@ jQuery(document).ready(function($) {
 		
 		/* link change */
 
-		if (jQuery("body").hasClass("home")) {
+		if (jQuery("body").is('.tax-league, .home')) {
 			jQuery('.match').each(function () {
 				if (jQuery(this).find('a.external-link').length > 0) {
 					var optaID = jQuery(this).find('a.external-link').attr('href').split('match=')[1];
