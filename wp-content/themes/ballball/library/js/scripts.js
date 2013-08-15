@@ -120,11 +120,13 @@ jQuery(document).ready(function($) {
 			jQuery('.match').each(function () {
 				if (jQuery(this).find('a.external-link').length > 0) {
 					var optaID = jQuery(this).find('a.external-link').attr('href').split('match=')[1];
-					var found = jQuery.map(array_matches, function(item) {
-						if (item.o.indexOf(optaID) >= 0) {
-							return item;
-						}
-					});
+					if (array_matches.length > 0) {
+						var found = jQuery.map(array_matches, function(item) {
+							if (item.o.indexOf(optaID) >= 0) {
+								return item;
+							}
+						});
+					}
 					if (found.length > 0) {
 						var final_url = base_url + found[0].m;
 						jQuery(this).find('a.external-link').contents().unwrap();
