@@ -212,7 +212,7 @@ nav #header-nav {
       display: inline-block;
       width: auto;
       color: #444444;
-      padding: 13px 15px 18px; }
+      padding: 13px 14px 18px; }
       nav #header-nav ul.nav-menu > li.is-parent a:before {
         background: none; }
       nav #header-nav ul.nav-menu > li.is-parent a:hover, nav #header-nav ul.nav-menu > li.is-parent a:focus, nav #header-nav ul.nav-menu > li.is-parent a:active {
@@ -601,9 +601,15 @@ Stylesheet: Desktop Stylsheet
     padding: 0 70px;
     background: url(../images/deskBG.png) repeat-y 50% 0;
     height: 150px; }
-  .header #logo img {
-    width: 205px;
-    height: 51px; }
+    .header #inner-header #logo img {
+      width: 205px;
+      height: 51px; }
+
+/*********************
+NAVIGATION STYLES
+*********************/
+nav #header-nav {
+  top: 84px; }
 
 #hero {
   background: url(../images/pattern_geometric-dark.png) repeat; }

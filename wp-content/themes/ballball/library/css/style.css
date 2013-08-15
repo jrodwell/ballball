@@ -626,6 +626,17 @@ nav #header-nav li {
 nav #header-nav ul.nav-menu {
   margin: 0;
   padding: 0; }
+  nav #header-nav ul.nav-menu > li.is-parent a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font: normal normal 22px "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    color: #444;
+    padding: 10px 0 8px;
+    color: white; }
+    nav #header-nav ul.nav-menu > li.is-parent a:hover, nav #header-nav ul.nav-menu > li.is-parent a:focus, nav #header-nav ul.nav-menu > li.is-parent a:active {
+      color: white; }
   nav #header-nav ul.nav-menu > li.is-parent > a:before {
     content: '';
     display: block;
@@ -669,17 +680,6 @@ nav #header-nav ul.nav-menu {
         width: 16px;
         height: 4px;
         top: 19px; }
-  nav #header-nav ul.nav-menu > li.is-parent a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font: normal 22px "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    color: #444;
-    padding: 10px 0 8px;
-    color: white; }
-    nav #header-nav ul.nav-menu > li.is-parent a:hover, nav #header-nav ul.nav-menu > li.is-parent a:focus, nav #header-nav ul.nav-menu > li.is-parent a:active {
-      color: white; }
 
 /*********************
 LIVE MATCHES STYLES
@@ -1383,7 +1383,7 @@ you can add resource intensive styles.
         display: inline-block;
         width: auto;
         color: #444444;
-        padding: 13px 15px 18px; }
+        padding: 13px 14px 18px; }
         nav #header-nav ul.nav-menu > li.is-parent a:before {
           background: none; }
         nav #header-nav ul.nav-menu > li.is-parent a:hover, nav #header-nav ul.nav-menu > li.is-parent a:focus, nav #header-nav ul.nav-menu > li.is-parent a:active {
@@ -1779,9 +1779,15 @@ you can add resource intensive styles.
       padding: 0 70px;
       background: url(../images/deskBG.png) repeat-y 50% 0;
       height: 150px; }
-    .header #logo img {
-      width: 205px;
-      height: 51px; }
+      .header #inner-header #logo img {
+        width: 205px;
+        height: 51px; }
+
+  /*********************
+  NAVIGATION STYLES
+  *********************/
+  nav #header-nav {
+    top: 84px; }
 
   #hero {
     background: url(../images/pattern_geometric-dark.png) repeat; }

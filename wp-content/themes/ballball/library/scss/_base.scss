@@ -254,6 +254,21 @@ nav {
 			padding: 0;
 
 			> li.is-parent {
+				a {
+					display:block;
+					width:100%;
+					text-align:center;
+					font:normal normal 22px $header;
+					text-transform: uppercase;
+					color:#444;
+					padding: 10px 0 8px;
+					color:white;
+
+					&:hover, &:focus, &:active {
+						color:white;
+					}
+				}
+
 				> a {
 					&:before {
 						@include before-after;
@@ -305,21 +320,6 @@ nav {
 								}
 							}
 						}
-					}
-				}
-
-				a {
-					display:block;
-					width:100%;
-					text-align:center;
-					font:normal 22px $header;
-					text-transform: uppercase;
-					color:#444;
-					padding: 10px 0 8px;
-					color:white;
-
-					&:hover, &:focus, &:active {
-						color:white;
 					}
 				}
 

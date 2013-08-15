@@ -15,15 +15,28 @@ Stylesheet: Desktop Stylsheet
 		padding: 0 $deskPadding;
 		background: url(../images/deskBG.png) repeat-y 50% 0;
 		height:150px;
-	}
 
-	#logo {
-		img {
-			width: 205px;
-			height: 51px;
+		#logo {
+			img {
+				width: 205px;
+				height: 51px;
+			}
 		}
 	}
 }
+
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+nav {
+	#header-nav {
+		top:84px;
+	}
+}
+
+
 #hero {
 	background: url(../images/pattern_geometric-dark.png) repeat;
 	
