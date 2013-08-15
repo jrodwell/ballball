@@ -243,10 +243,7 @@ nav {
 	li {
 		position: relative;
 		background:#444;
-
-		a {
-			border-bottom: 1px solid #575757;
-		}
+		border-bottom: 1px solid #575757;
 	}
 
 	ul.nav-menu {
@@ -259,13 +256,14 @@ nav {
 					@include before-after;
 					@include sprite(0, 25, 15, 9);
 					right:13px;
-					top:17px;
+					top:50%;
+					margin-top:-5px;
 				}
+			}
 
-				&.active {
-					&:before {
-						@include sprite(18,25,15,9);
-					}
+			&.active {
+				> a:before {
+					@include sprite(18,25,15,9);
 				}
 			}
 
@@ -275,37 +273,6 @@ nav {
 				top: 100%;
 				padding: 0;
 				z-index:99;
-
-				li {
-					> a {
-						&:before {
-							@include before-after;
-							@include sprite(36, 22, 11, 16);
-							right:15px;
-							top:13px;
-						}
-					}
-
-					&.has-children {
-						> a {
-							&:before {
-								@include before-after;
-								@include sprite(0, 36, 16, 16);
-								right:13px;
-								top:13px;
-							}
-
-							&.active {
-								background:#49b900;
-
-								&:before {
-									@include sprite(18, 42, 16, 4);
-									top:19px;
-								}
-							}
-						}
-					}
-				}
 			}
 
 			a {
@@ -815,6 +782,7 @@ POSTS & CONTENT STYLES
 			font-family: $header;
 			font-size: 18px;
 			text-transform: uppercase;
+			color: $bodyText;
 			span {
 				position: absolute;
 				display: block;
@@ -834,6 +802,7 @@ POSTS & CONTENT STYLES
 				top: 15px;
 				left: 100px;
 				width: 100px;
+				height: 55px;
 				line-height: 1em;
 				font-size: 56px;
 				span {
@@ -874,8 +843,14 @@ POSTS & CONTENT STYLES
 				display: none;
 			}
 		}
+		.livematch {
+			.match-score {
+				color: $bbGreen;
+			}
+		}
 		.prematch {
 			.match-score {
+				background: url(../images/matchVs.png) no-repeat 50% 50%;
 				span {
 					display: none;
 				}
@@ -884,8 +859,6 @@ POSTS & CONTENT STYLES
 		.postmatch {
 			.match-score {
 				color: $bodyText;
-				span {
-				}
 			}
 		}
 		.matches {

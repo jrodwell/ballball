@@ -846,7 +846,7 @@ function wp_get_caption($attachment_id) {
 
 // The languages switcher function
 function language_switcher() {
-	$languages = icl_get_languages('skip_missing=0');
+	$languages = icl_get_languages('skip_missing=1');
 
 	// error_log(print_r($languages, true));
 	echo "<ul>";

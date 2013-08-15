@@ -98,112 +98,126 @@ NAVIGATION STYLES
 *********************/
 
 nav {
-	ul.nav-menu {
-		margin: 0;
-		padding: 0;
+	#header-nav {
+		position:absolute;
+		top:74px;
+		margin-left:-15px;
+		min-width:670px;
 
-		li {
-			position: relative;
-			background:none;
-			float: left;
-			text-align: left;
-			display:inline-block;
+		ul.nav-menu {
+			margin: 0;
+			padding: 0;
 
-			a {
-				color:$bodyText;
-				border-bottom:none;
-				text-align:center;
-				font-size:21px;
-				padding:0;
-				width:auto;
+			li {
+				position: relative;
+				background:none;
+				text-align: left;
 				display:inline-block;
 
-				&:hover {
-					background:#eee;
-					color: $bodyText;
+				a {
+					color:$bodyText;
+					border-bottom:none;
+					text-align:center;
+					font-size:21px;
+					width:auto;
+					display:inline-block;
+
+					&:hover {
+						background:#eee;
+						color: $bodyText;
+					}
+
+					span {
+						padding-bottom:4px;
+					}
 				}
 
 				&.current-menu-item {
 					> a {
-						border-bottom:4px solid #fff;
+						span {
+							border-bottom:4px solid #fff;
+						}
+
+						&:hover span {
+							border-bottom:none;
+						}
+					}
+				}
+
+				&:hover > ul {
+					// display: block;
+				}
+
+				.home-link-menu-container {
+					li {
+						margin-left: 0;
+						margin-bottom: 10px;
+						border-bottom: 5px solid $white;
 					}
 				}
 			}
 
-			&:hover > ul {
-				// display: block;
-			}
-
-			.home-link-menu-container {
-				li {
-					margin-left: 0;
-					margin-bottom: 10px;
-					border-bottom: 5px solid $white;
-				}
-			}
-		}
-
-		> li.is-parent {
-			a {
-				display:inline-block;
-				width:auto;
-				color:$bodyText;
-
-				&:before {
-					background:none;
-				}
-
-				&:hover, &:focus, &:active {
+			> li.is-parent {
+				a {
+					display:inline-block;
+					width:auto;
 					color:$bodyText;
-				}
+					padding:13px 15px 18px;
 
-				&.active {
 					&:before {
 						background:none;
 					}
-				}
-			}
 
-			> ul.sub-menu {
-				display:inline-block !important;
-				position:static;
-				padding: 0;
-				z-index:10;
-				margin-top:10px;
+					&:hover, &:focus, &:active {
+						color:$bodyText;
+					}
 
-				li {
-					float:left;
-
-					> a {
-						width:auto;
-						display:inline-block;
-
+					&.active {
 						&:before {
 							background:none;
 						}
-
-						&:hover, &:focus, &:active {
-							color:$bodyText;
-						}
 					}
+				}
 
-					&.has-children {
+				> ul.sub-menu {
+					display:inline-block !important;
+					position:static;
+					padding:0;
+					z-index:10;
+					margin-top:10px;
+
+					li {
 						> a {
+							width:auto;
+							display:inline-block;
+
 							&:before {
 								background:none;
 							}
 
-							&.active {
-								background:#49b900;
-
-								&:before {
-									background:none;
-								}
+							&:hover, &:focus, &:active {
+								color:$bodyText;
 							}
 						}
 
-						ul {
-							display:none;
+						&.has-children {
+							> a {
+								&:before {
+									background:none;
+								}
+
+								&.active {
+									background:none;
+
+									&:before {
+										background:none;
+									}
+								}
+							}
+
+							ul {
+								display:none !important;
+							}
 						}
 					}
 				}
