@@ -175,65 +175,67 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-nav ul.nav-menu {
-  margin: 0;
-  padding: 0; }
-  nav ul.nav-menu li {
-    position: relative;
-    background: none;
-    float: left;
-    text-align: left;
-    display: inline-block; }
-    nav ul.nav-menu li a {
-      color: #444444;
-      border-bottom: none;
-      text-align: center;
-      font-size: 21px;
-      padding: 0;
-      width: auto;
+nav #header-nav {
+  position: absolute;
+  top: 74px;
+  margin-left: -15px;
+  min-width: 670px; }
+  nav #header-nav ul.nav-menu {
+    margin: 0;
+    padding: 0; }
+    nav #header-nav ul.nav-menu li {
+      position: relative;
+      background: none;
+      text-align: left;
       display: inline-block; }
-      nav ul.nav-menu li a:hover {
-        background: #eee;
-        color: #444444; }
-      nav ul.nav-menu li a.current-menu-item > a {
-        border-bottom: 4px solid #fff; }
-    nav ul.nav-menu li .home-link-menu-container li {
-      margin-left: 0;
-      margin-bottom: 10px;
-      border-bottom: 5px solid white; }
-  nav ul.nav-menu > li.is-parent a {
-    display: inline-block;
-    width: auto;
-    color: #444444; }
-    nav ul.nav-menu > li.is-parent a:before {
-      background: none; }
-    nav ul.nav-menu > li.is-parent a:hover, nav ul.nav-menu > li.is-parent a:focus, nav ul.nav-menu > li.is-parent a:active {
-      color: #444444; }
-    nav ul.nav-menu > li.is-parent a.active:before {
-      background: none; }
-  nav ul.nav-menu > li.is-parent > ul.sub-menu {
-    display: inline-block !important;
-    position: static;
-    padding: 0;
-    z-index: 10;
-    margin-top: 10px; }
-    nav ul.nav-menu > li.is-parent > ul.sub-menu li {
-      float: left; }
-      nav ul.nav-menu > li.is-parent > ul.sub-menu li > a {
+      nav #header-nav ul.nav-menu li a {
+        color: #444444;
+        border-bottom: none;
+        text-align: center;
+        font-size: 21px;
         width: auto;
         display: inline-block; }
-        nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:before {
-          background: none; }
-        nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:hover, nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:focus, nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:active {
+        nav #header-nav ul.nav-menu li a:hover {
+          background: #eee;
           color: #444444; }
-      nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a:before {
+        nav #header-nav ul.nav-menu li a.current-menu-item > a {
+          border-bottom: 4px solid #fff; }
+      nav #header-nav ul.nav-menu li .home-link-menu-container li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        border-bottom: 5px solid white; }
+    nav #header-nav ul.nav-menu > li.is-parent a {
+      display: inline-block;
+      width: auto;
+      color: #444444;
+      padding: 15px 15px 16px; }
+      nav #header-nav ul.nav-menu > li.is-parent a:before {
         background: none; }
-      nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active {
-        background: #49b900; }
-        nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active:before {
+      nav #header-nav ul.nav-menu > li.is-parent a:hover, nav #header-nav ul.nav-menu > li.is-parent a:focus, nav #header-nav ul.nav-menu > li.is-parent a:active {
+        color: #444444; }
+      nav #header-nav ul.nav-menu > li.is-parent a.active:before {
+        background: none; }
+    nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu {
+      display: inline-block !important;
+      position: static;
+      padding: 0;
+      z-index: 10;
+      margin-top: 10px; }
+      nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a {
+        width: auto;
+        display: inline-block; }
+        nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:before {
           background: none; }
-      nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children ul {
-        display: none; }
+        nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:hover, nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:focus, nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:active {
+          color: #444444; }
+      nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a:before {
+        background: none; }
+      nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active {
+        background: none; }
+        nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active:before {
+          background: none; }
+      nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children ul {
+        display: none !important; }
 
 /*********************
 LIVE MATCHES STYLES

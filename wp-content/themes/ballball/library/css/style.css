@@ -537,8 +537,7 @@ HEADER STYLES
 *********************/
 .header {
   background: #aadd03;
-  position: relative;
-  margin-bottom: 1em; }
+  position: relative; }
   .header #inner-header {
     padding: 0;
     margin: 0 auto; }
@@ -619,15 +618,15 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-nav li {
+nav #header-nav li {
   position: relative;
   background: #444; }
-  nav li a {
+  nav #header-nav li a {
     border-bottom: 1px solid #575757; }
-nav ul.nav-menu {
+nav #header-nav ul.nav-menu {
   margin: 0;
   padding: 0; }
-  nav ul.nav-menu > li.is-parent > a:before {
+  nav #header-nav ul.nav-menu > li.is-parent > a:before {
     content: '';
     display: block;
     position: absolute;
@@ -636,16 +635,16 @@ nav ul.nav-menu {
     height: 9px;
     right: 13px;
     top: 17px; }
-  nav ul.nav-menu > li.is-parent > a.active:before {
+  nav #header-nav ul.nav-menu > li.is-parent > a.active:before {
     background: transparent url("../images/sprites.png") -18px -25px no-repeat;
     width: 15px;
     height: 9px; }
-  nav ul.nav-menu > li.is-parent ul.sub-menu {
+  nav #header-nav ul.nav-menu > li.is-parent ul.sub-menu {
     display: none;
     top: 100%;
     padding: 0;
     z-index: 99; }
-    nav ul.nav-menu > li.is-parent ul.sub-menu li > a:before {
+    nav #header-nav ul.nav-menu > li.is-parent ul.sub-menu li > a:before {
       content: '';
       display: block;
       position: absolute;
@@ -654,7 +653,7 @@ nav ul.nav-menu {
       height: 16px;
       right: 15px;
       top: 13px; }
-    nav ul.nav-menu > li.is-parent ul.sub-menu li.has-children > a:before {
+    nav #header-nav ul.nav-menu > li.is-parent ul.sub-menu li.has-children > a:before {
       content: '';
       display: block;
       position: absolute;
@@ -663,14 +662,14 @@ nav ul.nav-menu {
       height: 16px;
       right: 13px;
       top: 13px; }
-    nav ul.nav-menu > li.is-parent ul.sub-menu li.has-children > a.active {
+    nav #header-nav ul.nav-menu > li.is-parent ul.sub-menu li.has-children > a.active {
       background: #49b900; }
-      nav ul.nav-menu > li.is-parent ul.sub-menu li.has-children > a.active:before {
+      nav #header-nav ul.nav-menu > li.is-parent ul.sub-menu li.has-children > a.active:before {
         background: transparent url("../images/sprites.png") -18px -42px no-repeat;
         width: 16px;
         height: 4px;
         top: 19px; }
-  nav ul.nav-menu > li.is-parent a {
+  nav #header-nav ul.nav-menu > li.is-parent a {
     display: block;
     width: 100%;
     text-align: center;
@@ -679,7 +678,7 @@ nav ul.nav-menu {
     color: #444;
     padding: 10px 0 8px;
     color: white; }
-    nav ul.nav-menu > li.is-parent a:hover, nav ul.nav-menu > li.is-parent a:focus, nav ul.nav-menu > li.is-parent a:active {
+    nav #header-nav ul.nav-menu > li.is-parent a:hover, nav #header-nav ul.nav-menu > li.is-parent a:focus, nav #header-nav ul.nav-menu > li.is-parent a:active {
       color: white; }
 
 /*********************
@@ -710,118 +709,117 @@ h2.total-match-count {
 .auto-update {
   display: none; }
 
-#widgetOutput, #fixtures-viewport {
+#widgetOutput {
   padding-bottom: 10px;
   font-size: 12px; }
-  #widgetOutput h2, #widgetOutput h4, #fixtures-viewport h2, #fixtures-viewport h4 {
+  #widgetOutput h2, #widgetOutput h4 {
     display: none; }
-  #widgetOutput h3, #fixtures-viewport h3 {
+  #widgetOutput h3 {
     margin: 0;
     padding: 8px 20px;
     background: #1c1c1c;
     font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: white; }
-    #widgetOutput h3 span, #fixtures-viewport h3 span {
+    #widgetOutput h3 span {
       padding-left: 5px;
       color: #444444; }
-
-.opta-widget-container {
-  width: 320px; }
-  .opta-widget-container .fixtures {
+  #widgetOutput .opta-widget-container {
+    width: 320px; }
+  #widgetOutput .fixtures {
     border-radius: 0;
     background: #2e2e2e;
     border-color: #1c1c1c; }
-  .opta-widget-container .matches {
+  #widgetOutput .matches {
     margin: 0; }
-  .opta-widget-container .match, .opta-widget-container .linked-match, .opta-widget-container .unlinked-match {
+  #widgetOutput .match, #widgetOutput .linked-match, #widgetOutput .unlinked-match {
     display: table;
     height: 45px;
     padding: 0;
     border-bottom: 2px solid #1c1c1c;
     font-weight: bold;
     color: #aaaaaa; }
-    .opta-widget-container .match span, .opta-widget-container .linked-match span, .opta-widget-container .unlinked-match span {
+    #widgetOutput .match span, #widgetOutput .linked-match span, #widgetOutput .unlinked-match span {
       display: table-cell;
       height: 43px;
       vertical-align: middle; }
-    .opta-widget-container .match .match-time, .opta-widget-container .linked-match .match-time, .opta-widget-container .unlinked-match .match-time {
+    #widgetOutput .match .match-time, #widgetOutput .linked-match .match-time, #widgetOutput .unlinked-match .match-time {
       width: 45px;
       text-align: center;
       background: #ededed;
       color: #1c1c1c; }
-    .opta-widget-container .match .home-side, .opta-widget-container .linked-match .home-side, .opta-widget-container .unlinked-match .home-side {
+    #widgetOutput .match .home-side, #widgetOutput .linked-match .home-side, #widgetOutput .unlinked-match .home-side {
       width: 90px;
       padding-left: 5px;
       text-align: right; }
-    .opta-widget-container .match .away-side, .opta-widget-container .linked-match .away-side, .opta-widget-container .unlinked-match .away-side {
+    #widgetOutput .match .away-side, #widgetOutput .linked-match .away-side, #widgetOutput .unlinked-match .away-side {
       width: 90px;
       padding-right: 5px;
       text-align: left; }
-    .opta-widget-container .match .match-score, .opta-widget-container .linked-match .match-score, .opta-widget-container .unlinked-match .match-score {
+    #widgetOutput .match .match-score, #widgetOutput .linked-match .match-score, #widgetOutput .unlinked-match .match-score {
       width: 50px;
       text-align: center;
       background: url(../images/liveV.png) no-repeat 50% 50%;
       font-size: 28px;
       font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-      .opta-widget-container .match .match-score a, .opta-widget-container .linked-match .match-score a, .opta-widget-container .unlinked-match .match-score a {
+      #widgetOutput .match .match-score a, #widgetOutput .linked-match .match-score a, #widgetOutput .unlinked-match .match-score a {
         display: table; }
-      .opta-widget-container .match .match-score span, .opta-widget-container .linked-match .match-score span, .opta-widget-container .unlinked-match .match-score span {
+      #widgetOutput .match .match-score span, #widgetOutput .linked-match .match-score span, #widgetOutput .unlinked-match .match-score span {
         width: 20px;
         display: none;
         padding: 0;
         text-align: left; }
-      .opta-widget-container .match .match-score .match-score-home, .opta-widget-container .linked-match .match-score .match-score-home, .opta-widget-container .unlinked-match .match-score .match-score-home {
+      #widgetOutput .match .match-score .match-score-home, #widgetOutput .linked-match .match-score .match-score-home, #widgetOutput .unlinked-match .match-score .match-score-home {
         text-align: right; }
-      .opta-widget-container .match .match-score .match-score-divider, .opta-widget-container .linked-match .match-score .match-score-divider, .opta-widget-container .unlinked-match .match-score .match-score-divider {
+      #widgetOutput .match .match-score .match-score-divider, #widgetOutput .linked-match .match-score .match-score-divider, #widgetOutput .unlinked-match .match-score .match-score-divider {
         width: 10px;
         text-align: center; }
-      .opta-widget-container .match .match-score .match-page, .opta-widget-container .linked-match .match-score .match-page, .opta-widget-container .unlinked-match .match-score .match-page {
+      #widgetOutput .match .match-score .match-page, #widgetOutput .linked-match .match-score .match-page, #widgetOutput .unlinked-match .match-score .match-page {
         display: none; }
-    .opta-widget-container .match .matchDetails, .opta-widget-container .linked-match .matchDetails, .opta-widget-container .unlinked-match .matchDetails {
+    #widgetOutput .match .matchDetails, #widgetOutput .linked-match .matchDetails, #widgetOutput .unlinked-match .matchDetails {
       width: 45px;
       background: #333333; }
-      .opta-widget-container .match .matchDetails a, .opta-widget-container .linked-match .matchDetails a, .opta-widget-container .unlinked-match .matchDetails a {
+      #widgetOutput .match .matchDetails a, #widgetOutput .linked-match .matchDetails a, #widgetOutput .unlinked-match .matchDetails a {
         width: 45px;
         height: 43px;
         display: block;
         background: #333333 url(../images/info.png) no-repeat 50% 50%; }
-        .opta-widget-container .match .matchDetails a:hover, .opta-widget-container .match .matchDetails a:focus, .opta-widget-container .linked-match .matchDetails a:hover, .opta-widget-container .linked-match .matchDetails a:focus, .opta-widget-container .unlinked-match .matchDetails a:hover, .opta-widget-container .unlinked-match .matchDetails a:focus {
+        #widgetOutput .match .matchDetails a:hover, #widgetOutput .match .matchDetails a:focus, #widgetOutput .linked-match .matchDetails a:hover, #widgetOutput .linked-match .matchDetails a:focus, #widgetOutput .unlinked-match .matchDetails a:hover, #widgetOutput .unlinked-match .matchDetails a:focus {
           background-image: url(../images/infoHover.png); }
-      .opta-widget-container .match .matchDetails span, .opta-widget-container .linked-match .matchDetails span, .opta-widget-container .unlinked-match .matchDetails span {
+      #widgetOutput .match .matchDetails span, #widgetOutput .linked-match .matchDetails span, #widgetOutput .unlinked-match .matchDetails span {
         display: none; }
-  .opta-widget-container .livematch {
+  #widgetOutput .livematch {
     color: white; }
-    .opta-widget-container .livematch .match-time {
+    #widgetOutput .livematch .match-time {
       background: #666666;
       color: white; }
-    .opta-widget-container .livematch .match-score {
+    #widgetOutput .livematch .match-score {
       background: none;
       color: #7bff19; }
-      .opta-widget-container .livematch .match-score a {
+      #widgetOutput .livematch .match-score a {
         color: #7bff19; }
-      .opta-widget-container .livematch .match-score span {
+      #widgetOutput .livematch .match-score span {
         display: table-cell; }
-  .opta-widget-container .postmatch .match-time {
+  #widgetOutput .postmatch .match-time {
     background: #52bf00;
     color: white; }
-  .opta-widget-container .postmatch .match-score {
+  #widgetOutput .postmatch .match-score {
     background: none;
     color: white; }
-    .opta-widget-container .postmatch .match-score a {
+    #widgetOutput .postmatch .match-score a {
       color: white; }
-    .opta-widget-container .postmatch .match-score span {
+    #widgetOutput .postmatch .match-score span {
       display: table-cell; }
-  .opta-widget-container .notLive {
+  #widgetOutput .notLive {
     color: #aaaaaa; }
-    .opta-widget-container .notLive .match-time {
+    #widgetOutput .notLive .match-time {
       background: #ededed;
       color: #1c1c1c; }
-    .opta-widget-container .notLive .match-score {
+    #widgetOutput .notLive .match-score {
       background: url(../images/liveV.png) no-repeat 50% 50%; }
-      .opta-widget-container .notLive .match-score span {
+      #widgetOutput .notLive .match-score span {
         display: none; }
-  .opta-widget-container .halfTime .match-time {
+  #widgetOutput .halfTime .match-time {
     background: url(../images/halfTime.png) no-repeat 50% 50%;
     color: white; }
 
@@ -1058,106 +1056,95 @@ POSTS & CONTENT STYLES
 /* Match page */
 .tax-match #main .archive-title, .tax-match #main .opta-widget-container h2, .tax-match #main .opta-widget-container h4 {
   display: none; }
-.tax-match #main .opta-widget-container {
-  width: 300px; }
-  .tax-match #main .opta-widget-container .fixtures {
-    background: none; }
-  .tax-match #main .opta-widget-container .match {
-    position: relative;
-    width: 100%;
-    height: 185px;
-    border-bottom: 0 !important;
-    font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    text-transform: uppercase; }
-    .tax-match #main .opta-widget-container .match span {
-      position: absolute;
-      display: block;
-      height: auto; }
-    .tax-match #main .opta-widget-container .match .match-time {
-      left: 125px;
-      top: 90px;
-      width: 50px;
-      height: 30px;
-      padding: 2px 0;
-      text-align: center;
-      background: #ededed;
-      color: #1c1c1c; }
-    .tax-match #main .opta-widget-container .match .match-score {
-      top: 15px;
-      left: 100px;
-      width: 100px;
-      line-height: 1em;
-      font-size: 56px; }
-      .tax-match #main .opta-widget-container .match .match-score span {
-        position: static;
-        float: left;
-        width: 45px; }
-      .tax-match #main .opta-widget-container .match .match-score .match-score-home {
-        text-align: right; }
-      .tax-match #main .opta-widget-container .match .match-score .match-score-divider {
-        width: 10px;
-        text-align: center; }
-    .tax-match #main .opta-widget-container .match .home-side, .tax-match #main .opta-widget-container .match .away-side {
-      top: 0;
-      left: 0;
-      width: 120px;
-      margin-top: 90px;
+.tax-match #main .match {
+  position: relative;
+  height: 185px;
+  font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  text-transform: uppercase; }
+  .tax-match #main .match span {
+    position: absolute;
+    display: block; }
+  .tax-match #main .match .match-time {
+    left: 125px;
+    top: 90px;
+    width: 50px;
+    height: 30px;
+    padding: 2px 0;
+    text-align: center;
+    background: #ededed;
+    color: #1c1c1c; }
+  .tax-match #main .match .match-score {
+    top: 15px;
+    left: 100px;
+    width: 100px;
+    line-height: 1em;
+    font-size: 56px; }
+    .tax-match #main .match .match-score span {
+      position: static;
+      float: left;
+      width: 45px; }
+    .tax-match #main .match .match-score .match-score-home {
+      text-align: right; }
+    .tax-match #main .match .match-score .match-score-divider {
+      width: 10px;
       text-align: center; }
-    .tax-match #main .opta-widget-container .match .away-side {
-      left: auto;
-      right: 0; }
-    .tax-match #main .opta-widget-container .match .home-crest, .tax-match #main .opta-widget-container .match .away-crest {
-      top: -90px;
-      left: 20px;
-      width: 80px;
-      height: 80px; }
-      .tax-match #main .opta-widget-container .match .home-crest img, .tax-match #main .opta-widget-container .match .away-crest img {
-        width: 100%;
-        height: 100%; }
-    .tax-match #main .opta-widget-container .match button {
-      display: none; }
-  .tax-match #main .opta-widget-container .prematch .match-score span {
+  .tax-match #main .match .home-side, .tax-match #main .match .away-side {
+    top: 0;
+    left: 0;
+    width: 120px;
+    margin-top: 90px;
+    text-align: center; }
+  .tax-match #main .match .away-side {
+    left: auto;
+    right: 0; }
+  .tax-match #main .match .home-crest, .tax-match #main .match .away-crest {
+    top: -90px;
+    left: 20px;
+    width: 80px;
+    height: 80px; }
+    .tax-match #main .match .home-crest img, .tax-match #main .match .away-crest img {
+      width: 100%;
+      height: 100%; }
+  .tax-match #main .match button {
     display: none; }
-  .tax-match #main .opta-widget-container .postmatch .match-score {
-    color: #444444; }
-  .tax-match #main .opta-widget-container .matches {
-    margin-bottom: 20px;
-    border-bottom: 6px solid #ededed;
-    padding-bottom: 20px; }
-    .tax-match #main .opta-widget-container .matches dd {
-      margin: 0; }
-      .tax-match #main .opta-widget-container .matches dd .match-details {
-        margin-bottom: 10px;
-        font-size: 14px; }
-        .tax-match #main .opta-widget-container .matches dd .match-details dt, .tax-match #main .opta-widget-container .matches dd .match-details dd {
-          float: left;
-          display: inline-block;
-          color: #444444; }
-        .tax-match #main .opta-widget-container .matches dd .match-details dt {
-          clear: both;
-          padding-right: 15px;
-          color: #999999; }
-      .tax-match #main .opta-widget-container .matches dd .match-home-events, .tax-match #main .opta-widget-container .matches dd .match-away-events {
+.tax-match #main .matches {
+  margin-bottom: 20px;
+  border-bottom: 6px solid #ededed;
+  padding-bottom: 20px; }
+  .tax-match #main .matches dd {
+    margin: 0; }
+    .tax-match #main .matches dd .match-details {
+      margin-bottom: 10px;
+      font-size: 14px; }
+      .tax-match #main .matches dd .match-details dt, .tax-match #main .matches dd .match-details dd {
         float: left;
-        width: 50%;
-        padding: 0;
-        font-size: 14px; }
-        .tax-match #main .opta-widget-container .matches dd .match-home-events span, .tax-match #main .opta-widget-container .matches dd .match-away-events span {
-          display: inline-block;
-          margin: 0 10px 0 0; }
-        .tax-match #main .opta-widget-container .matches dd .match-home-events .event-icon, .tax-match #main .opta-widget-container .matches dd .match-away-events .event-icon {
-          display: inline;
-          margin: 0; }
-          .tax-match #main .opta-widget-container .matches dd .match-home-events .event-icon img, .tax-match #main .opta-widget-container .matches dd .match-away-events .event-icon img {
-            position: relative;
-            top: 5px; }
-      .tax-match #main .opta-widget-container .matches dd .match-home-events {
-        clear: both; }
-        .tax-match #main .opta-widget-container .matches dd .match-home-events span {
-          margin: 0 0 0 10px; }
-      .tax-match #main .opta-widget-container .matches dd .match-away-events {
-        text-align: right; }
+        display: inline-block;
+        color: #444444; }
+      .tax-match #main .matches dd .match-details dt {
+        clear: both;
+        padding-right: 15px;
+        color: #999999; }
+    .tax-match #main .matches dd .match-home-events, .tax-match #main .matches dd .match-away-events {
+      float: left;
+      width: 50%;
+      padding: 0;
+      font-size: 14px; }
+      .tax-match #main .matches dd .match-home-events span, .tax-match #main .matches dd .match-away-events span {
+        display: inline-block;
+        margin: 0 10px 0 0; }
+      .tax-match #main .matches dd .match-home-events .event-icon, .tax-match #main .matches dd .match-away-events .event-icon {
+        display: inline;
+        margin: 0; }
+        .tax-match #main .matches dd .match-home-events .event-icon img, .tax-match #main .matches dd .match-away-events .event-icon img {
+          position: relative;
+          top: 5px; }
+    .tax-match #main .matches dd .match-home-events {
+      clear: both; }
+      .tax-match #main .matches dd .match-home-events span {
+        margin: 0 0 0 10px; }
+    .tax-match #main .matches dd .match-away-events {
+      text-align: right; }
 
 /* League Page */
 .tax-league .attachment-thumbnail {
@@ -1203,8 +1190,7 @@ POSTS & CONTENT STYLES
   border-bottom: 4px solid #52bf00;
   font-size: 24px; }
 #fixtures-viewport .matches {
-  margin-top: 5px;
-  border-bottom: 4px solid #444444; }
+  margin-top: 5px; }
 
 /* start .wp-caption */
 .wp-caption {
@@ -1360,65 +1346,67 @@ you can add resource intensive styles.
   /*********************
   NAVIGATION STYLES
   *********************/
-  nav ul.nav-menu {
-    margin: 0;
-    padding: 0; }
-    nav ul.nav-menu li {
-      position: relative;
-      background: none;
-      float: left;
-      text-align: left;
-      display: inline-block; }
-      nav ul.nav-menu li a {
-        color: #444444;
-        border-bottom: none;
-        text-align: center;
-        font-size: 21px;
-        padding: 0;
-        width: auto;
+  nav #header-nav {
+    position: absolute;
+    top: 74px;
+    margin-left: -15px;
+    min-width: 670px; }
+    nav #header-nav ul.nav-menu {
+      margin: 0;
+      padding: 0; }
+      nav #header-nav ul.nav-menu li {
+        position: relative;
+        background: none;
+        text-align: left;
         display: inline-block; }
-        nav ul.nav-menu li a:hover {
-          background: #eee;
-          color: #444444; }
-        nav ul.nav-menu li a.current-menu-item > a {
-          border-bottom: 4px solid #fff; }
-      nav ul.nav-menu li .home-link-menu-container li {
-        margin-left: 0;
-        margin-bottom: 10px;
-        border-bottom: 5px solid white; }
-    nav ul.nav-menu > li.is-parent a {
-      display: inline-block;
-      width: auto;
-      color: #444444; }
-      nav ul.nav-menu > li.is-parent a:before {
-        background: none; }
-      nav ul.nav-menu > li.is-parent a:hover, nav ul.nav-menu > li.is-parent a:focus, nav ul.nav-menu > li.is-parent a:active {
-        color: #444444; }
-      nav ul.nav-menu > li.is-parent a.active:before {
-        background: none; }
-    nav ul.nav-menu > li.is-parent > ul.sub-menu {
-      display: inline-block !important;
-      position: static;
-      padding: 0;
-      z-index: 10;
-      margin-top: 10px; }
-      nav ul.nav-menu > li.is-parent > ul.sub-menu li {
-        float: left; }
-        nav ul.nav-menu > li.is-parent > ul.sub-menu li > a {
+        nav #header-nav ul.nav-menu li a {
+          color: #444444;
+          border-bottom: none;
+          text-align: center;
+          font-size: 21px;
           width: auto;
           display: inline-block; }
-          nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:before {
-            background: none; }
-          nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:hover, nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:focus, nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:active {
+          nav #header-nav ul.nav-menu li a:hover {
+            background: #eee;
             color: #444444; }
-        nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a:before {
+          nav #header-nav ul.nav-menu li a.current-menu-item > a {
+            border-bottom: 4px solid #fff; }
+        nav #header-nav ul.nav-menu li .home-link-menu-container li {
+          margin-left: 0;
+          margin-bottom: 10px;
+          border-bottom: 5px solid white; }
+      nav #header-nav ul.nav-menu > li.is-parent a {
+        display: inline-block;
+        width: auto;
+        color: #444444;
+        padding: 15px 15px 16px; }
+        nav #header-nav ul.nav-menu > li.is-parent a:before {
           background: none; }
-        nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active {
-          background: #49b900; }
-          nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active:before {
+        nav #header-nav ul.nav-menu > li.is-parent a:hover, nav #header-nav ul.nav-menu > li.is-parent a:focus, nav #header-nav ul.nav-menu > li.is-parent a:active {
+          color: #444444; }
+        nav #header-nav ul.nav-menu > li.is-parent a.active:before {
+          background: none; }
+      nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu {
+        display: inline-block !important;
+        position: static;
+        padding: 0;
+        z-index: 10;
+        margin-top: 10px; }
+        nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a {
+          width: auto;
+          display: inline-block; }
+          nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:before {
             background: none; }
-        nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children ul {
-          display: none; }
+          nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:hover, nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:focus, nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li > a:active {
+            color: #444444; }
+        nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a:before {
+          background: none; }
+        nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active {
+          background: none; }
+          nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children > a.active:before {
+            background: none; }
+        nav #header-nav ul.nav-menu > li.is-parent > ul.sub-menu li.has-children ul {
+          display: none !important; }
 
   /*********************
   LIVE MATCHES STYLES
