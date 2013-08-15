@@ -105,49 +105,65 @@ $tabPadding:		74px;
 $tabVHeight:		36px;
 $deskBreak:			940px;
 $deskWidth:			1080px;
-$deskPadding:		68px;
+$deskPadding:		70px;
 
 /*********************
 TYPOGRAPHY
 *********************/
 
-@mixin font-face($folder, $face) {
-    @font-face {
-        font: {
-            weight:normal;
-            style:normal;
-            family:$face;
-        }
-        src: url('../fonts/#{$face}.otf') format('opentype');
-    }
-
-    @font-face {
-        font: {
-            weight:normal;
-            style:normal;
-            family:$face;
-        }
-        src: url('../type/#{$folder}/#{$face}.eot');
-        src: url('../type/#{$folder}/#{$face}.eot?#iefix') format('embedded-opentype'),
-             url('../type/#{$folder}/#{$face}.woff') format('woff'),
-             url('../type/#{$folder}/#{$face}.ttf') format('truetype'),
-             url('../type/#{$folder}/#{$face}.svg#sourcesanspro-semibold') format('svg');
-    }
+$sans-serif: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header: "Alternate Gothic", $sans-serif;
+ 
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-regular-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
-
-@include font-face(sourceSansPro, sourcesanspro-regular);
-@include font-face(sourceSansPro, sourcesanspro-semibold);
-@include font-face(sourceSansPro, sourcesanspro-semibolditalic);
-@include font-face(sourceSansPro, sourcesanspro-italic);
-@include font-face(alternateGothicNo3, alternategothic-regular);
-
-
-$sans-serif: "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$sans-serif-semibold: "sourcesanspro-semibold", $sans-serif;
-$sans-serif-semibolditalic: "sourcesanspro-semibolditalic", $sans-serif;
-$sans-serif-italic: "sourcesanspro-italic", $sans-serif;
-$header: "alternategothic-regular", $sans-serif;
-
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-semibold-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.svg#sourcesanspro-semibold-webfont') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.svg#sourcesanspro-semibolditalic-webfont') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-italic-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.svg#source_sans_pro_italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Alternate Gothic';
+    src: url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.eot');
+    src: url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.woff') format('woff'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.ttf') format('truetype'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.svg#web-Alternate-Gothic-No3-Regular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
 
 /*********************
 BOX SIZING

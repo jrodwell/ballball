@@ -191,7 +191,12 @@ HEADER STYLES
 						z-index:9;
 
 						li, a {
-							font:14px normal $sans-serif-semibold;
+							font: {
+								size:14px;
+								style:normal;
+								weight:bold;
+								family:$sans-serif;
+							}
 						}
 
 						li {
@@ -238,7 +243,10 @@ nav {
 	li {
 		position: relative;
 		background:#444;
-		border-bottom: 1px solid #575757;
+
+		a {
+			border-bottom: 1px solid #575757;
+		}
 	}
 
 	ul.nav-menu {
@@ -251,11 +259,10 @@ nav {
 					@include before-after;
 					@include sprite(0, 25, 15, 9);
 					right:13px;
-					top:50%;
-					margin-top:-5px;
+					top:17px;
 				}
 
-				&:focus {
+				&.active {
 					&:before {
 						@include sprite(18,25,15,9);
 					}
@@ -268,6 +275,37 @@ nav {
 				top: 100%;
 				padding: 0;
 				z-index:99;
+
+				li {
+					> a {
+						&:before {
+							@include before-after;
+							@include sprite(36, 22, 11, 16);
+							right:15px;
+							top:13px;
+						}
+					}
+
+					&.has-children {
+						> a {
+							&:before {
+								@include before-after;
+								@include sprite(0, 36, 16, 16);
+								right:13px;
+								top:13px;
+							}
+
+							&.active {
+								background:#49b900;
+
+								&:before {
+									@include sprite(18, 42, 16, 4);
+									top:19px;
+								}
+							}
+						}
+					}
+				}
 			}
 
 			a {
@@ -324,7 +362,7 @@ h2.total-match-count {
 .auto-update {
 	display: none;
 }
-#widgetOutput {
+#widgetOutput, #fixtures-viewport {
 	padding-bottom: 10px;
 	font-size: 12px;
 	h2, h4 {
@@ -342,9 +380,9 @@ h2.total-match-count {
 			color: $bodyText;
 		}
 	}
-	.opta-widget-container {
-		width: $mobWidth;
-	}
+}
+.opta-widget-container {
+	width: $mobWidth;
 	.fixtures {
 		border-radius: 0;
 		background: $bbGrey;
@@ -764,116 +802,139 @@ POSTS & CONTENT STYLES
 	.archive-title, .opta-widget-container h2, .opta-widget-container h4 {
 		display: none;
 	}
-	.match {
-		position: relative;
-		height: 185px;
-		font-family: $header;
-		font-size: 18px;
-		text-transform: uppercase;
-		span {
-			position: absolute;
-			display: block;
+	.opta-widget-container {
+		width: 300px;
+		.fixtures {
+			background: none;
 		}
-		.match-time {
-			left: 125px;
-			top: 90px;
-			width: 50px;
-			height: 30px;
-			padding: 2px 0;
-			text-align: center;
-			background: $lightGrey;
-			color: $bbBlack;
-		}
-		.match-score {
-			top: 15px;
-			left: 100px;
-			width: 100px;
-			line-height: 1em;
-			font-size: 56px;
+		.match {
+			position: relative;
+			width: 100%;
+			height: 185px;
+			border-bottom: 0!important;
+			font-family: $header;
+			font-size: 18px;
+			text-transform: uppercase;
 			span {
-				position: static;
-				float: left;
-				width: 45px;
+				position: absolute;
+				display: block;
+				height: auto;
 			}
-			.match-score-home {
-				text-align: right;
+			.match-time {
+				left: 125px;
+				top: 90px;
+				width: 50px;
+				height: 30px;
+				padding: 2px 0;
+				text-align: center;
+				background: $lightGrey;
+				color: $bbBlack;
 			}
-			.match-score-divider {
-				width: 10px;
+			.match-score {
+				top: 15px;
+				left: 100px;
+				width: 100px;
+				line-height: 1em;
+				font-size: 56px;
+				span {
+					position: static;
+					float: left;
+					width: 45px;
+				}
+				.match-score-home {
+					text-align: right;
+				}
+				.match-score-divider {
+					width: 10px;
+					text-align: center;
+				}
+			}
+			.home-side, .away-side {
+				top: 0;
+				left: 0;
+				width: 120px;
+				margin-top: 90px;
 				text-align: center;
 			}
-		}
-		.home-side, .away-side {
-			top: 0;
-			left: 0;
-			width: 120px;
-			margin-top: 90px;
-			text-align: center;
-		}
-		.away-side {
-			left: auto;
-			right: 0;
-		}
-		.home-crest, .away-crest {
-			top: -90px;
-			left: 20px;
-			width: 80px;
-			height: 80px;
-			img {
-				width: 100%;
-				height: 100%;
+			.away-side {
+				left: auto;
+				right: 0;
 			}
-		}
-		button {
-			display: none;
-		}
-	}
-	.matches {
-		margin-bottom: 20px;
-		border-bottom: 6px solid $lightGrey;
-		padding-bottom: 20px;
-		dd {
-			margin: 0;
-			.match-details {
-				margin-bottom: 10px;
-				font-size: 14px;
-				dt, dd {
-					float: left;
-					display: inline-block;
-					color: $bodyText;
-				}
-				dt {
-					clear: both;
-					padding-right: 15px;
-					color: $grey;
+			.home-crest, .away-crest {
+				top: -90px;
+				left: 20px;
+				width: 80px;
+				height: 80px;
+				img {
+					width: 100%;
+					height: 100%;
 				}
 			}
-			.match-home-events, .match-away-events {
-				float: left;
-				width: 50%;
-				padding: 0;
-				font-size: 14px;
+			button {
+				display: none;
+			}
+		}
+		.prematch {
+			.match-score {
 				span {
-					display: inline-block;
-					margin: 0 10px 0 0;
+					display: none;
 				}
-				.event-icon {
-					display: inline;
-					margin: 0;
-					img {
-						position: relative;
-						top: 5px;
+			}
+		}
+		.postmatch {
+			.match-score {
+				color: $bodyText;
+				span {
+				}
+			}
+		}
+		.matches {
+			margin-bottom: 20px;
+			border-bottom: 6px solid $lightGrey;
+			padding-bottom: 20px;
+			dd {
+				margin: 0;
+				.match-details {
+					margin-bottom: 10px;
+					font-size: 14px;
+					dt, dd {
+						float: left;
+						display: inline-block;
+						color: $bodyText;
+					}
+					dt {
+						clear: both;
+						padding-right: 15px;
+						color: $grey;
 					}
 				}
-			}
-			.match-home-events {
-				clear: both;
-				span {
-					margin: 0 0 0 10px;
+				.match-home-events, .match-away-events {
+					float: left;
+					width: 50%;
+					padding: 0;
+					font-size: 14px;
+					span {
+						display: inline-block;
+						margin: 0 10px 0 0;
+					}
+					.event-icon {
+						display: inline;
+						margin: 0;
+						img {
+							position: relative;
+							top: 5px;
+						}
+					}
 				}
-			}
-			.match-away-events {
-				text-align: right;
+				.match-home-events {
+					clear: both;
+					span {
+						margin: 0 0 0 10px;
+					}
+				}
+				.match-away-events {
+					text-align: right;
+				}
 			}
 		}
 	}
@@ -924,6 +985,19 @@ POSTS & CONTENT STYLES
 	}
 	#results-tab {
 		border-width: 0 2px 0 0;
+	}
+}
+#fixtures-viewport {
+	h2 {
+		display: none;
+	}
+	h3 {
+		border-bottom: 4px solid $bbGreen;
+		font-size: 24px;
+	}
+	.matches {
+		margin-top: 5px;
+		border-bottom: 4px solid $bodyText;
 	}
 }
 
