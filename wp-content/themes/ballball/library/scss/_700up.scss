@@ -91,106 +91,77 @@ HEADER STYLES
 				}
 			}
 		}
-	}
-}
 
-/*********************
-NAVIGATION STYLES
-*********************/
+		/*********************
+		NAVIGATION STYLES
+		*********************/
 
-nav {
-	#header-nav {
-		position:absolute;
-		top:75px;
-		margin-left:-15px;
-		min-width:670px;
+		nav {
+			#header-nav {
+				position:absolute;
+				top:76px;
+				margin-left:-15px;
+				min-width:670px;
 
-		> ul.nav-menu {
-			margin: 0;
-			padding: 0;
+				> ul.nav-menu {
+					margin: 0;
+					padding: 0;
 
-			li {
-				position: relative;
-				background:none;
-				text-align: left;
-				display:inline-block;
-
-				a {
-					color:$bodyText;
-					border-bottom:none;
-					text-align:center;
-					font-size:21px;
-					width:auto;
-					display:inline-block;
-
-					&:hover {
-						background:#eee;
-						color: $bodyText;
-					}
-
-					span {
-						padding-bottom:4px;
-					}
-				}
-
-				&.current-menu-item {
-					> a {
-						span {
-							border-bottom:4px solid #fff;
-						}
-
-						&:hover span {
-							border-bottom:none;
-						}
-					}
-				}
-
-				&:hover > ul {
-					// display: block;
-				}
-
-				.home-link-menu-container {
 					li {
-						margin-left: 0;
-						margin-bottom: 10px;
-						border-bottom: 5px solid $white;
-					}
-				}
-			}
-
-			> li {
-				a {
-					display:inline-block;
-					width:auto;
-					color:$bodyText;
-					padding:14px 14px 20px;
-
-					&:before {
+						position: relative;
 						background:none;
-					}
+						text-align: left;
+						display:inline-block;
 
-					&:hover, &:focus, &:active {
-						color:$bodyText;
-					}
-
-					&.active {
-						&:before {
-							background:none;
-						}
-					}
-				}
-
-				> ul.sub-menu {
-					display:inline-block !important;
-					position:static;
-					padding:0;
-					z-index:10;
-					margin-top:10px;
-
-					li {
-						> a {
+						a {
+							color:$bodyText;
+							border-bottom:none;
+							text-align:center;
+							font-size:21px;
 							width:auto;
 							display:inline-block;
+
+							&:hover {
+								background:#eee;
+								color: $bodyText;
+							}
+
+							span {
+								padding-bottom:4px;
+							}
+						}
+
+						&.current-menu-item {
+							> a {
+								span {
+									border-bottom:4px solid #fff;
+								}
+
+								&:hover span {
+									border-bottom:none;
+								}
+							}
+						}
+
+						&:hover > ul {
+							// display: block;
+						}
+
+						.home-link-menu-container {
+							li {
+								margin-left: 0;
+								margin-bottom: 10px;
+								border-bottom: 5px solid $white;
+							}
+						}
+					}
+
+					> li {
+						a {
+							display:inline-block;
+							width:auto;
+							color:$bodyText;
+							padding:13px 14px 18px;
 
 							&:before {
 								background:none;
@@ -199,25 +170,54 @@ nav {
 							&:hover, &:focus, &:active {
 								color:$bodyText;
 							}
-						}
 
-						&.has-children {
-							> a {
+							&.active {
 								&:before {
 									background:none;
 								}
+							}
+						}
 
-								&.active {
-									background:none;
+						> ul.sub-menu {
+							display:inline-block !important;
+							position:static;
+							padding:0;
+							z-index:10;
+							margin-top:10px;
+
+							li {
+								> a {
+									width:auto;
+									display:inline-block;
 
 									&:before {
 										background:none;
 									}
-								}
-							}
 
-							ul {
-								display:none !important;
+									&:hover, &:focus, &:active {
+										color:$bodyText;
+									}
+								}
+
+								&.has-children {
+									> a {
+										&:before {
+											background:none;
+										}
+
+										&.active {
+											background:none;
+
+											&:before {
+												background:none;
+											}
+										}
+									}
+
+									ul {
+										display:none !important;
+									}
+								}
 							}
 						}
 					}
@@ -627,6 +627,7 @@ h2, .h2 {
 		}
 	}
 }
+
 
 /*********************
 SIDEBARS & ASIDES

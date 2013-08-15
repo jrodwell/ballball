@@ -228,106 +228,114 @@ HEADER STYLES
 				}
 			}
 		}
-	}
-}
 
+		/*********************
+		NAVIGATION STYLES
+		*********************/
+		// http://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly
 
+		nav {
+			#header-nav {
+				li {
+					position: relative;
+					background:#444;
 
-/*********************
-NAVIGATION STYLES
-*********************/
-// http://osvaldas.info/drop-down-navigation-responsive-and-touch-friendly
-
-nav {
-	#header-nav {
-		li {
-			position: relative;
-			background:#444;
-
-			a {
-				border-bottom: 1px solid #575757;
-			}
-		}
-
-		> ul.nav-menu {
-			margin: 0;
-			padding: 0;
-
-			> li {
-				a {
-					display:block;
-					width:100%;
-					text-align:center;
-					font:normal normal 22px $header;
-					text-transform: uppercase;
-					color:#444;
-					padding: 10px 0 8px;
-					color:white;
-
-					&:hover, &:focus, &:active {
-						color:white;
+					a {
+						border-bottom: 1px solid #575757;
 					}
 				}
 
-				> a {
-					&:before {
-						@include before-after;
-						@include sprite(0, 25, 15, 9);
-						right:13px;
-						top:17px;
-					}
-
-					&.active {
-						&:before {
-							@include sprite(18,25,15,9);
-						}
-					}
-				}
-
-				ul.sub-menu {
-					display: none;
-					// position: absolute;
-					top: 100%;
+				> ul.nav-menu {
+					margin: 0;
 					padding: 0;
-					z-index:99;
 
-					li {
-						> a {
-							&:before {
-								@include before-after;
-								@include sprite(36, 22, 11, 16);
-								right:15px;
-								top:13px;
+					> li {
+						a {
+							display:block;
+							width:100%;
+							text-align:center;
+							font:normal normal 22px $header;
+							text-transform: uppercase;
+							color:#444;
+							padding: 10px 0 8px;
+							color:white;
+
+							&:hover, &:focus, &:active {
+								color:white;
 							}
 						}
 
-						&.has-children {
-							> a {
+						> a {
+							&:before {
+								@include before-after;
+								@include sprite(0, 25, 15, 9);
+								right:13px;
+								top:17px;
+							}
+
+							&.active {
 								&:before {
-									@include before-after;
-									@include sprite(0, 36, 16, 16);
-									right:13px;
-									top:13px;
+									@include sprite(18,25,15,9);
+								}
+							}
+						}
+
+						ul.sub-menu {
+							display: none;
+							// position: absolute;
+							top: 100%;
+							padding: 0;
+							z-index:99;
+
+							li {
+								> a {
+									&:before {
+										@include before-after;
+										@include sprite(36, 22, 11, 16);
+										right:15px;
+										top:13px;
+									}
 								}
 
-								&.active {
-									background:#49b900;
+								&.has-children {
+									> a {
+										&:before {
+											@include before-after;
+											@include sprite(0, 36, 16, 16);
+											right:13px;
+											top:13px;
+										}
 
-									&:before {
-										@include sprite(18, 42, 16, 4);
-										top:19px;
+										&.active {
+											background:#49b900;
+
+											&:before {
+												@include sprite(18, 42, 16, 4);
+												top:19px;
+											}
+										}
 									}
 								}
 							}
 						}
-					}
-				}
 
-				&:hover > ul {
-					// display: block;
+						&:hover > ul {
+							// display: block;
+						}
+					}
 				}
 			}
 		}
+	}
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+nav {
+	ul {
+		margin:0;
+		padding:0;
 	}
 }
 
@@ -1130,11 +1138,82 @@ FOOTER STYLES
 *********************/
 
 .footer {
-	background: $bbGrey;
+	background:$footerBG;
 	clear: both;
+
 	#inner-footer {
 		width: $mobWidth;
 		padding: 0 $mobPadding;
-		margin: 0 auto;		
+		margin: 0 auto;
+		text-align:center;
+
+		.logo {
+			padding:20px 0 8px;
+
+			img {
+				width:123px;
+				height:30px;
+			}
+		}
+
+		.copyright {
+			font-size:11px;
+			color:#999;
+		}
+
+		.credit {
+			font-size:14px;
+			color:#aaa;
+			margin-bottom:20px;
+
+			a {
+				color:#ededed;
+				text-decoration:underline;
+			}
+		}
+	}
+
+	nav {
+		.menu-footer-links-container {
+			.footer-menu {
+				margin-bottom:6px;
+
+				li {
+					a {
+						color:#fff;
+						font-size:14px;
+						line-height:28px;
+					}
+				}
+			}
+		}
+
+		.menu-main-menu-container {
+			.footer-menu {
+				> li.is-parent > a {
+					display:none; // hide home link
+				}
+
+				li {
+					a {
+						text-align:center;
+						color:#fff;
+						font:bold 18px $sans-serif;
+						display:block;
+						line-height:38px;
+						background:#2C2E2F;
+						border-bottom:2px solid $footerBG;
+
+						&:active {
+							background:$footerBG;
+						}
+					}
+				}
+			}
+		}
 	}
 }
+
+
+
+
