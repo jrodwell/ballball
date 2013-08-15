@@ -390,69 +390,39 @@ http://0to255.com/
 TYPOGRAPHY
 *********************/
 @font-face {
+  font-family: 'Source Sans';
+  src: url("../type/sourceSansPro/sourcesanspro-regular-webfont.eot");
+  src: url("../type/sourceSansPro/sourcesanspro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../type/sourceSansPro/sourcesanspro-regular-webfont.woff") format("woff"), url("../type/sourceSansPro/sourcesanspro-regular-webfont.ttf") format("truetype"), url("../type/sourceSansPro/sourcesanspro-regular-webfont.svg#source_sans_proregular") format("svg");
   font-weight: normal;
-  font-style: normal;
-  font-family: sourcesanspro-regular;
-  src: url("../fonts/sourcesanspro-regular.otf") format("opentype"); }
+  font-style: normal; }
 
 @font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: sourcesanspro-regular;
-  src: url("../type/sourceSansPro/sourcesanspro-regular.eot");
-  src: url("../type/sourceSansPro/sourcesanspro-regular.eot?#iefix") format("embedded-opentype"), url("../type/sourceSansPro/sourcesanspro-regular.woff") format("woff"), url("../type/sourceSansPro/sourcesanspro-regular.ttf") format("truetype"), url("../type/sourceSansPro/sourcesanspro-regular.svg#sourcesanspro-semibold") format("svg"); }
+  font-family: 'Source Sans';
+  src: url("../type/sourceSansPro/sourcesanspro-semibold-webfont.eot");
+  src: url("../type/sourceSansPro/sourcesanspro-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../type/sourceSansPro/sourcesanspro-semibold-webfont.woff") format("woff"), url("../type/sourceSansPro/sourcesanspro-semibold-webfont.ttf") format("truetype"), url("../type/sourceSansPro/sourcesanspro-semibold-webfont.svg#sourcesanspro-semibold-webfont") format("svg");
+  font-weight: bold;
+  font-style: normal; }
 
 @font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: sourcesanspro-semibold;
-  src: url("../fonts/sourcesanspro-semibold.otf") format("opentype"); }
+  font-family: 'Source Sans';
+  src: url("../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.eot");
+  src: url("../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.woff") format("woff"), url("../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.ttf") format("truetype"), url("../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.svg#sourcesanspro-semibolditalic-webfont") format("svg");
+  font-weight: bold;
+  font-style: italic; }
 
 @font-face {
+  font-family: 'Source Sans';
+  src: url("../type/sourceSansPro/sourcesanspro-italic-webfont.eot");
+  src: url("../type/sourceSansPro/sourcesanspro-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../type/sourceSansPro/sourcesanspro-italic-webfont.woff") format("woff"), url("../type/sourceSansPro/sourcesanspro-italic-webfont.ttf") format("truetype"), url("../type/sourceSansPro/sourcesanspro-italic-webfont.svg#source_sans_pro_italic") format("svg");
   font-weight: normal;
-  font-style: normal;
-  font-family: sourcesanspro-semibold;
-  src: url("../type/sourceSansPro/sourcesanspro-semibold.eot");
-  src: url("../type/sourceSansPro/sourcesanspro-semibold.eot?#iefix") format("embedded-opentype"), url("../type/sourceSansPro/sourcesanspro-semibold.woff") format("woff"), url("../type/sourceSansPro/sourcesanspro-semibold.ttf") format("truetype"), url("../type/sourceSansPro/sourcesanspro-semibold.svg#sourcesanspro-semibold") format("svg"); }
+  font-style: italic; }
 
 @font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: sourcesanspro-semibolditalic;
-  src: url("../fonts/sourcesanspro-semibolditalic.otf") format("opentype"); }
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: sourcesanspro-semibolditalic;
-  src: url("../type/sourceSansPro/sourcesanspro-semibolditalic.eot");
-  src: url("../type/sourceSansPro/sourcesanspro-semibolditalic.eot?#iefix") format("embedded-opentype"), url("../type/sourceSansPro/sourcesanspro-semibolditalic.woff") format("woff"), url("../type/sourceSansPro/sourcesanspro-semibolditalic.ttf") format("truetype"), url("../type/sourceSansPro/sourcesanspro-semibolditalic.svg#sourcesanspro-semibold") format("svg"); }
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: sourcesanspro-italic;
-  src: url("../fonts/sourcesanspro-italic.otf") format("opentype"); }
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: sourcesanspro-italic;
-  src: url("../type/sourceSansPro/sourcesanspro-italic.eot");
-  src: url("../type/sourceSansPro/sourcesanspro-italic.eot?#iefix") format("embedded-opentype"), url("../type/sourceSansPro/sourcesanspro-italic.woff") format("woff"), url("../type/sourceSansPro/sourcesanspro-italic.ttf") format("truetype"), url("../type/sourceSansPro/sourcesanspro-italic.svg#sourcesanspro-semibold") format("svg"); }
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: alternategothic-regular;
-  src: url("../fonts/alternategothic-regular.otf") format("opentype"); }
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: alternategothic-regular;
-  src: url("../type/alternateGothicNo3/alternategothic-regular.eot");
-  src: url("../type/alternateGothicNo3/alternategothic-regular.eot?#iefix") format("embedded-opentype"), url("../type/alternateGothicNo3/alternategothic-regular.woff") format("woff"), url("../type/alternateGothicNo3/alternategothic-regular.ttf") format("truetype"), url("../type/alternateGothicNo3/alternategothic-regular.svg#sourcesanspro-semibold") format("svg"); }
+  font-family: 'Alternate Gothic';
+  src: url("../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.eot");
+  src: url("../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.eot?#iefix") format("embedded-opentype"), url("../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.woff") format("woff"), url("../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.ttf") format("truetype"), url("../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.svg#web-Alternate-Gothic-No3-Regular") format("svg");
+  font-weight: bold;
+  font-style: normal; }
 
 /*********************
 BOX SIZING
@@ -481,7 +451,7 @@ LAYOUT & GRID STYLES
   -webkit-user-select: none; }
 
 body {
-  font-family: "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #565656; }
@@ -529,7 +499,7 @@ a {
 SEMI RESET STYLES
 *********************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  font-family: "alternategothic-regular", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizelegibility;
   font-weight: bold;
   text-transform: uppercase;
@@ -626,7 +596,7 @@ HEADER STYLES
           transition: all 1.0s ease-in-out;
           z-index: 9; }
           .header #inner-header #language-switcher > ul > li.language-trigger > ul li, .header #inner-header #language-switcher > ul > li.language-trigger > ul a {
-            font: 14px normal "sourcesanspro-semibold", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+            font: 14px bold "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
           .header #inner-header #language-switcher > ul > li.language-trigger > ul li {
             z-index: 999;
             width: 100%;
@@ -663,7 +633,7 @@ nav ul.nav-menu {
     right: 13px;
     top: 50%;
     margin-top: -5px; }
-  nav ul.nav-menu > li.is-parent > a:focus:before {
+  nav ul.nav-menu > li.is-parent.active > a:before {
     background: transparent url("../images/sprites.png") -18px -25px no-repeat;
     width: 15px;
     height: 9px; }
@@ -676,7 +646,7 @@ nav ul.nav-menu {
     display: block;
     width: 100%;
     text-align: center;
-    font: normal 22px "alternategothic-regular", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: normal 22px "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     color: #444;
     padding: 10px 0 8px;
@@ -694,7 +664,7 @@ h2.total-match-count {
   padding: 10px 0;
   text-align: center;
   font-size: 16px;
-  font-family: "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white; }
   h2.total-match-count span {
     position: absolute;
@@ -721,7 +691,7 @@ h2.total-match-count {
     margin: 0;
     padding: 8px 20px;
     background: #1c1c1c;
-    font-family: "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: white; }
     #widgetOutput h3 span {
@@ -764,7 +734,7 @@ h2.total-match-count {
       text-align: center;
       background: url(../images/liveV.png) no-repeat 50% 50%;
       font-size: 28px;
-      font-family: "alternategothic-regular", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+      font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
       #widgetOutput .match .match-score a, #widgetOutput .linked-match .match-score a, #widgetOutput .unlinked-match .match-score a {
         display: table; }
       #widgetOutput .match .match-score span, #widgetOutput .linked-match .match-score span, #widgetOutput .unlinked-match .match-score span {
@@ -994,7 +964,7 @@ POSTS & CONTENT STYLES
     background: url(../images/quoteSmall.png) no-repeat 20px top;
     padding-left: 60px;
     font-size: 24px;
-    font-family: "alternategothic-regular", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     color: #52bf00; }
   .single .hentry .small {
@@ -1049,7 +1019,7 @@ POSTS & CONTENT STYLES
   .single-post_set .hentry .grid-item p {
     margin: 10px 0 0 0;
     font-size: 19px;
-    font-family: "alternategothic-regular", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase; }
     .single-post_set .hentry .grid-item p a {
       color: #2e2e2e; }
@@ -1062,7 +1032,7 @@ POSTS & CONTENT STYLES
 .tax-match #main .match {
   position: relative;
   height: 185px;
-  font-family: "alternategothic-regular", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   text-transform: uppercase; }
   .tax-match #main .match span {
@@ -1149,6 +1119,44 @@ POSTS & CONTENT STYLES
     .tax-match #main .matches dd .match-away-events {
       text-align: right; }
 
+/* League Page */
+.tax-league .attachment-thumbnail {
+  float: left; }
+.tax-league .archive-title {
+  margin: 0 0 20px 120px; }
+
+#tab-controls {
+  clear: both;
+  width: 100%;
+  background: #ededed;
+  text-transform: uppercase;
+  margin-bottom: 40px; }
+  #tab-controls div {
+    float: left;
+    width: 50%;
+    height: 50px;
+    border-width: 0;
+    border-style: solid;
+    border-color: white;
+    background: #ededed;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    color: #52bf00; }
+    #tab-controls div:hover, #tab-controls div:focus {
+      background: #52bf00;
+      color: white; }
+  #tab-controls .active {
+    background: #52bf00;
+    color: white; }
+  #tab-controls #latest-tab {
+    border-width: 0 2px 2px 0; }
+  #tab-controls #fixtures-tab {
+    border-width: 0 0 2px 0; }
+  #tab-controls #results-tab {
+    border-width: 0 2px 0 0; }
+
 /* start .wp-caption */
 .wp-caption {
   max-width: 100%;
@@ -1172,7 +1180,7 @@ PAGINATION STYLES
   margin: 40px 0 20px 0;
   background: none;
   font-size: 22px;
-  font-family: "alternategothic-regular", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Alternate Gothic", "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizelegibility;
   font-weight: bold;
   text-transform: uppercase; }
@@ -1287,7 +1295,7 @@ you can add resource intensive styles.
           top: 12px;
           left: 15px; }
         .header #inner-header #language-switcher > ul > li.language-trigger span {
-          font: 14px normal "sourcesanspro-semibold", "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font: 14px bold "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
           text-indent: 0;
           padding: 12px 0 0 45px;
           text-transform: uppercase; }
@@ -1558,7 +1566,7 @@ you can add resource intensive styles.
     display: block;
     padding: 5px 20px;
     background: #ededed;
-    font-family: "sourcesanspro-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
     color: #aaaaaa; }
@@ -1597,6 +1605,25 @@ you can add resource intensive styles.
         clear: none; }
     .tax-match #main .matches dd .match-home-events, .tax-match #main .matches dd .match-away-events {
       font-size: 16px; }
+
+  /* League Page */
+  #tab-controls {
+    padding-left: 20px; }
+    #tab-controls div {
+      float: left;
+      width: auto;
+      height: 45px;
+      margin-top: 10px;
+      border-width: 0 !important;
+      padding: 8px 20px;
+      font-weight: normal;
+      color: #52bf00; }
+      #tab-controls div:hover, #tab-controls div:focus {
+        background: white;
+        color: #444444; }
+    #tab-controls .active {
+      background: white;
+      color: #444444; }
 
   /*********************
   SIDEBARS & ASIDES
@@ -1661,7 +1688,7 @@ you can add resource intensive styles.
       left: 50%;
       margin-left: -540px;
       width: 1080px;
-      padding: 0 68px;
+      padding: 0 70px;
       background: url(../images/deskBG.png) repeat-y 50% 0;
       height: 150px; }
     .header #logo img {
@@ -1730,7 +1757,7 @@ you can add resource intensive styles.
       left: 50%;
       margin-left: -540px;
       width: 1080px;
-      padding: 0 68px; }
+      padding: 0 70px; }
 
   #main, #sidebar {
     position: relative;
@@ -1781,7 +1808,7 @@ you can add resource intensive styles.
     left: 50%;
     margin-left: -540px;
     width: 1080px;
-    padding: 0 68px; } }
+    padding: 0 70px; } }
 /*
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with
