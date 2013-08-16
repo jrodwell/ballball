@@ -315,7 +315,7 @@
                   <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/mobile_app-download.jpg'; ?>" /></a>
                   <?php } ?>
                   </div>
-                  <?php if(!wpmd_is_android()) { ?>
+                  <?php if(function_exists('wpmd_is_android') && !wpmd_is_android()) { ?>
                   <script>OO.ready(function() { OO.Player.create(
                     'ooyalaplayer-<?php echo $thisid; ?>',
                     '<?php echo $video_id; ?>',
