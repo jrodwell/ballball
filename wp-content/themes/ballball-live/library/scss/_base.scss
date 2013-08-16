@@ -188,35 +188,35 @@ HEADER STYLES
 						right:0;
 						transition:all 1.0s ease-in-out;
 						z-index:9;
+						padding:8px 0;
 
-						li, a {
+						.no-link, a {
+							padding:12px 20px;
 							font: {
 								size:14px;
 								style:normal;
 								weight:bold;
 								family:$sans-serif;
 							}
+							display:block;
+							margin:0;
+							line-height:normal;
+							color:#999;
+							width:100%;
+
+							&:hover {
+								color:#444;
+							}
+						}
+
+						.no-link {
+							color:#444;
+							cursor:default;
+							-webkit-user-select:none;
 						}
 
 						li {
-							z-index:999;
 							width:100%;
-							padding:16px 20px 8px;
-
-							&:last-child {
-								padding-bottom:18px;
-							}
-
-							a {
-								display:block;
-								margin:0;
-								line-height:normal;
-								color:#999;
-
-								&:hover {
-									color:#444;
-								}
-							}
 						}
 					}
 
@@ -265,17 +265,33 @@ HEADER STYLES
 							}
 						}
 
-						> a {
-							&:before {
-								@include before-after;
-								@include sprite(0, 25, 15, 9);
-								right:13px;
-								top:17px;
+						&.has-children {
+							.slide-trigger {
+								display:block;
+								position:absolute;
+								top:0;
+								right:0;
+								width:44px;
+								height:43px;
+								border-left:2px solid #575757;
+								pointer-events:all;
 							}
 
-							&.active {
+							> a {
+								position:relative;
+
 								&:before {
-									@include sprite(18,25,15,9);
+									@include before-after;
+									@include sprite(0, 25, 15, 9);
+									right:14px;
+									top:18px;
+								}
+
+								&.active {
+									&:before {
+										@include sprite(18,25,15,9);
+										right:13px;
+									}
 								}
 							}
 						}
@@ -573,6 +589,15 @@ POSTS & CONTENT STYLES
 		display: none;
 	}
 }
+
+#main article {
+	h1 {
+		a {
+			color:#1f1f1f;
+		}
+	}
+}
+
 .image-article, .set-article {
 	.featured-image {
 		float: left;
@@ -1194,9 +1219,9 @@ FOOTER STYLES
 			}
 		}
 
-		.menu-main-menu-container {
+		.footer-nav {
 			.footer-menu {
-				> li > a {
+				> li.is-parent > a {
 					display:none !important; // hide home link
 				}
 			}
@@ -1206,6 +1231,9 @@ FOOTER STYLES
 			}
 
 			&#footer-nav-mobile {
+				display:block;
+				@include clearfix;
+
 				.footer-menu {
 					li {
 						a {

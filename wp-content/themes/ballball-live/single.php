@@ -6,7 +6,7 @@
 
 					<div id="main" class="eightcol first clearfix" role="main">
 
-            <script src='http://player.ooyala.com/v3/a7474f8cef8e4baea1cb4f5e9a45e1cd'></script>
+            <script src='http://player.ooyala.com/v3/524943b893fa4620be889e04ccce7b92'></script>
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
