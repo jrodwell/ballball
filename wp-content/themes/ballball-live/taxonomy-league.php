@@ -12,7 +12,7 @@
               
               <h1 class="archive-title h2"><?php single_cat_title(); ?></h1>
               
-              <script src='http://player.ooyala.com/v3/524943b893fa4620be889e04ccce7b92'></script>
+              <script src='http://player.ooyala.com/v3/a7474f8cef8e4baea1cb4f5e9a45e1cd'></script>
               
               <div id="tab-controls" class="clearfix">
                 <div id="latest-tab" class="tab"><?php echo __('Latest', 'ballball'); ?></div>
@@ -194,7 +194,7 @@
                 </div>
                 
                 <div id="results-viewport" class="viewport">
-                  <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" season="2012" status="fulltime" live="false" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>
+                  <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" season="2013" status="fulltime" live="false" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>
                 </div>
                 
               </div>

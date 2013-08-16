@@ -101,7 +101,14 @@
     
                       <div class="featured-image"> 
     								  <?php if($type == "video-article") { ?>
-                      <div id="ooyalaplayer-<?php echo $thisid=uniqid(); ?>" class="videoplayer"></div>
+                      <div id="ooyalaplayer-<?php echo $thisid=uniqid(); ?>" class="videoplayer">
+                      <?php if(wpmd_is_android()&&wpmd_is_tablet()) { ?>
+                      <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/tablet_app-download.jpg'; ?>" /></a>
+                      <?php } else if(wpmd_is_android()) { ?>
+                      <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/mobile_app-download.jpg'; ?>" /></a>
+                      <?php } ?>
+                      </div>
+                      <?php if(!wpmd_is_android()) { ?>
                       <script>OO.ready(function() { OO.Player.create(
                         'ooyalaplayer-<?php echo $thisid; ?>',
                         '<?php echo $video_id; ?>',
@@ -190,11 +197,11 @@
                   $term_meta = get_option("taxonomy_$league->term_id");
                   $league_optaid = $term_meta['optaid'];
                   ?>
-                  <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" season="2013" days_ahead="30" live="false" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" pre_match="true" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>
+                  <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" season="2013" status="prematch" days_ahead="30" live="false" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" pre_match="true" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>
                 </div>
                 
                 <div id="results-viewport" class="viewport">
-                  <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" season="2012" status="fulltime" live="false" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>
+                  <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" season="2013" status="fulltime" live="false" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>
                 </div>
                 
               </div>

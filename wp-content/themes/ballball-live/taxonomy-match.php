@@ -8,7 +8,7 @@
               
               <h1 class="archive-title h2"><?php single_cat_title(); ?></h1>
               
-              <script src='http://player.ooyala.com/v3/524943b893fa4620be889e04ccce7b92'></script>
+              <script src='http://player.ooyala.com/v3/a7474f8cef8e4baea1cb4f5e9a45e1cd'></script>
               
               <script src="http://widget.cloud.opta.net/2.0/js/widgets.opta.js"></script>
               
