@@ -102,13 +102,13 @@
                       <div class="featured-image"> 
     								  <?php if($type == "video-article") { ?>
                       <div id="ooyalaplayer-<?php echo $thisid=uniqid(); ?>" class="videoplayer">
-                      <?php if(wpmd_is_android()&&wpmd_is_tablet()) { ?>
+                      <?php if(function_exists('wpmd_is_android') && function_exists('wpmd_is_tablet') && wpmd_is_android() && wpmd_is_tablet()) { ?>
                       <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/tablet_app-download.jpg'; ?>" /></a>
-                      <?php } else if(wpmd_is_android()) { ?>
+                      <?php } else if(function_exists('wpmd_is_android') && wpmd_is_android()) { ?>
                       <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/mobile_app-download.jpg'; ?>" /></a>
                       <?php } ?>
                       </div>
-                      <?php if(!wpmd_is_android()) { ?>
+                      <?php if(function_exists('wpmd_is_android') && !wpmd_is_android()) { ?>
                       <script>OO.ready(function() { OO.Player.create(
                         'ooyalaplayer-<?php echo $thisid; ?>',
                         '<?php echo $video_id; ?>',
