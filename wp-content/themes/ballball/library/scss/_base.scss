@@ -429,6 +429,7 @@ OPTA BASE STYLES
 			background: url(../images/liveV.png) no-repeat 50% 50%;
 			font-size: 28px;
 			font-family: $header;
+			padding:0 5px;
 			a {
 				display: table;
 			}
@@ -450,8 +451,9 @@ OPTA BASE STYLES
 			}
 		}
 		.matchDetails {
-			width:5% !important;
+			width:45px;
 			background: $darkestGrey;
+			display:inline-block; // to stop it collapsing when empty
 			a {
 				width: 45px;
 				height: 43px;
