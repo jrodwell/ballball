@@ -78,6 +78,7 @@
                     css : 'http://ballball.wpengine.com/wp-content/themes/ballball/library/css/video.css'
                     }
                   ); });</script><noscript><div>Please enable Javascript to watch this video</div></noscript>
+                  <?php } ?>
 								  <?php } else if($type == "image-article" || $type == "set-article") { ?>
 								  <?php
                   $src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'stream');
