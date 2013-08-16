@@ -415,7 +415,7 @@ OPTA BASE STYLES
 			width:35%;
 			padding:0 5px;
 			text-align: right;
-			-webkit-text-overflow: ellipsis;
+			text-overflow: ellipsis;
 			overflow:hidden;
 			height:16px !important;
 			// display:inline-block;
@@ -1014,6 +1014,7 @@ POSTS & CONTENT STYLES
 .tax-league {
 	.attachment-thumbnail {
 		float: left;
+		margin-bottom: 20px;
 	}
 	.archive-title {
 		margin: 0 0 20px 120px;
