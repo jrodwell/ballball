@@ -108,6 +108,10 @@ HEADER STYLES
 					padding: 0;
 
 					li {
+						.slide-trigger {
+							display:none !important;
+						}
+
 						position: relative;
 						background:none;
 						text-align: left;
@@ -120,6 +124,10 @@ HEADER STYLES
 							font-size:21px;
 							width:auto;
 							display:inline-block;
+
+							&:before {
+								display:none !important; // disabling all icons
+							}
 
 							&:hover {
 								background:#eee;
@@ -164,7 +172,7 @@ HEADER STYLES
 							padding:13px 14px 18px;
 
 							&:before {
-								background:none;
+								display:none;
 							}
 
 							&:hover, &:focus, &:active {
@@ -173,7 +181,7 @@ HEADER STYLES
 
 							&.active {
 								&:before {
-									background:none;
+									display:none;
 								}
 							}
 						}
@@ -448,10 +456,12 @@ h2, .h2 {
 	width: 415px;
 	padding-left: 19px;
 	text-transform: uppercase;
+
 	a {
+		display:block;
 		float: left;
 		display: block;
-		margin-right: 1rem;
+		margin-right:1.2em;
 		text-decoration: none;
 	}
 }
@@ -772,7 +782,7 @@ FOOTER STYLES
 			}
 		}
 
-		.menu-main-menu-container {
+		.footer-nav {
 			&#footer-nav-desktop {
 				@include clearfix;
 				display:block;

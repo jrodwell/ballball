@@ -265,17 +265,33 @@ HEADER STYLES
 							}
 						}
 
-						&.has-children > a {
-							&:before {
-								@include before-after;
-								@include sprite(0, 25, 15, 9);
-								right:13px;
-								top:17px;
+						&.has-children {
+							.slide-trigger {
+								display:block;
+								position:absolute;
+								top:0;
+								right:0;
+								width:44px;
+								height:43px;
+								border-left:2px solid #575757;
+								pointer-events:all;
 							}
 
-							&.active {
+							> a {
+								position:relative;
+
 								&:before {
-									@include sprite(18,25,15,9);
+									@include before-after;
+									@include sprite(0, 25, 15, 9);
+									right:14px;
+									top:18px;
+								}
+
+								&.active {
+									&:before {
+										@include sprite(18,25,15,9);
+										right:13px;
+									}
 								}
 							}
 						}
@@ -573,6 +589,15 @@ POSTS & CONTENT STYLES
 		display: none;
 	}
 }
+
+#main article {
+	h1 {
+		a {
+			color:#1f1f1f;
+		}
+	}
+}
+
 .image-article, .set-article {
 	.featured-image {
 		float: left;
