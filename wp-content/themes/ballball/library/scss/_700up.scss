@@ -725,7 +725,7 @@ FOOTER STYLES
 				display:block;
 				width:468px;
 				height:60px;
-				border:2px solid #fff;
+				// border:2px solid #fff;
 				float:right;
 			}
 		}
@@ -786,7 +786,7 @@ FOOTER STYLES
 					display:table;
 					margin-right:40px;
 
-					&:last-child {
+					&:last-child, &.last {
 						margin-right:0;
 					}
 

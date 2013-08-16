@@ -907,8 +907,8 @@ add_action('init','df_disable_admin_bar');
 /* Detect modile/tablet for Tealium (J.R.) */
 
 function detect_device() {
-  if(wpmd_is_tablet()) return 'tablet';
-  else if(wpmd_is_device()) return 'mobile';
+  if(function_exists('wpmd_is_tablet') && wpmd_is_tablet()) return 'tablet';
+  else if(function_exists('wpmd_is_device') && wpmd_is_device()) return 'mobile';
   else return 'desktop';
 }
 

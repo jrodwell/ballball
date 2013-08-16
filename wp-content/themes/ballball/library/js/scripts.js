@@ -165,8 +165,8 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	
-	
+	$('li:last-child').addClass('last');
+		
 }); /* end of as page load scripts */
 
 
