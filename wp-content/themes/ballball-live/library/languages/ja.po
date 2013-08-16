@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#. Text in echo
+#: 404.php:13
+msgid "404 Not Found"
+msgstr "404 見つかりません"
+
+#. Text in echo
+#: functions.php:527
+msgid "Away Team"
+msgstr "アウェイチーム"
+
+#. Text in echo
+#: functions.php:569
+msgid "Do Not Show Live"
+msgstr "Do Not Show Live"
+
+#. Text in function
+#: functions.php:159
+msgid "Hide from home page"
+msgstr "Hide from home page"
+
+#. Text in echo
+#: functions.php:521
+msgid "Home Team"
+msgstr "ホームチーム"
+
+#. Text in echo
+#: functions.php:533
+msgid "Kickoff Time"
+msgstr "Kickoff Time"
+
+#. Text in echo
+#: functions.php:498 functions.php:515
+msgid "League"
+msgstr "リーグ"
+
+#. Text in echo
+#: functions.php:563
+msgid "Live End Time"
+msgstr "Live End Time"
+
+#. Text in function
+#: functions.php:159
+msgid "Live Match Menu"
+msgstr "ライブ試合メニュー"
+
+#. Text in echo
+#: functions.php:557
+msgid "Live Start Time"
+msgstr "Live Start Time"
+
+#. Text in function
+#: home.php:305 index.php:101 taxonomy-team.php:110 taxonomy-match.php:110
+#: taxonomy-league.php:110
+msgid "Newer <span class=\"article-word\">Articles</span>"
+msgstr "新しい<span class=\"article-word\">記事</span>"
+
+#. Text in echo
+#: single-post_set.php:84 single.php:83
+msgid "No article found."
+msgstr "記事はありませんでした。"
+
+#. Text in function
+#: home.php:304 index.php:100 taxonomy-team.php:109 taxonomy-match.php:109
+#: taxonomy-league.php:109
+msgid "Older <span class=\"article-word\">Articles</span>"
+msgstr "以前の<span class=\"article-word\">記事</span>"
+
+#. Text in function
+#: functions.php:159
+msgid "Ooyala video ID"
+msgstr "Ooyala video ID"
+
+#. Text in echo
+#: functions.php:545
+msgid "Opta ID"
+msgstr "Opta ID"
+
+#. Text in echo
+#: functions.php:475
+msgid "Opta league ID"
+msgstr "Opta league ID"
+
+#. Text in echo
+#: functions.php:492
+msgid "Opta team ID"
+msgstr "Opta team ID"
+
+#. Text in echo
+#: taxonomy-league.php:118
+msgid "There are no articles for this competition."
+msgstr "この大会に関する記事はありません。"
+
+#. Text in echo
+#: taxonomy-match.php:118
+msgid "There are no articles for this match."
+msgstr "この試合に関する記事はありません。"
+
+#. Text in echo
+#: taxonomy-team.php:118
+msgid "There are no articles for this team."
+msgstr "このチームに関する記事はありません。"
+
+#. Text in echo
+#: home.php:313 index.php:109
+msgid "There are no articles."
+msgstr "記事はありません。"
+
+#. Text in echo
+#: functions.php:539
+msgid "Venue"
+msgstr "開催地"
+
+#. Text in function
+#: functions.php:632
+msgid "View More"
+msgstr "詳細"

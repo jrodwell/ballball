@@ -1,0 +1,810 @@
+/******************************************************************
+
+Site Name: Ballball
+Author: RM
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+******************************************************************/
+
+
+/*********************
+GENERAL STYLES
+*********************/
+
+* {
+	-webkit-user-select: auto;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	max-width: 1140px;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+	overflow:visible;
+
+	#inner-header {
+		width: $tabWidth;
+		padding: 0 $tabPadding;
+		height:140px;
+		background: url(../images/bgTablet.png) left top no-repeat;
+		-webkit-background-size:768px 140px;
+
+		#mobile-header {
+			background:none;
+			position:relative;
+		}
+
+		#logo {
+			width:163px;
+			height:40px;
+			position:absolute;
+			top:30px;
+			left:0;
+
+			img {
+				width: 163px;
+				height: 40px;
+			}
+		}
+
+		#language-switcher {
+			> ul {
+				> li.language-trigger {
+					cursor:pointer;
+					width:134px;
+					height:40px;
+					background:#fff;
+
+					&:before {
+						@include sprite(24,0,16,16);
+						top:12px;
+						left:15px;
+					}
+
+					span {
+						font: {
+							size:14px;
+							style:normal;
+							weight:bold;
+							family:$sans-serif;
+						}
+						text-indent:0;
+						padding:11px 0 0 45px;
+						text-transform:uppercase;
+
+						sup {
+							font-size:12px;
+							font-family:sans-serif;
+							vertical-align:-4px;
+							margin-left:8px;
+						}
+					}
+				}
+			}
+		}
+
+		/*********************
+		NAVIGATION STYLES
+		*********************/
+
+		nav {
+			#header-nav {
+				position:absolute;
+				top:76px;
+				margin-left:-15px;
+				min-width:670px;
+
+				> ul.nav-menu {
+					margin: 0;
+					padding: 0;
+
+					li {
+						position: relative;
+						background:none;
+						text-align: left;
+						display:inline-block;
+
+						a {
+							color:$bodyText;
+							border-bottom:none;
+							text-align:center;
+							font-size:21px;
+							width:auto;
+							display:inline-block;
+
+							&:hover {
+								background:#eee;
+								color: $bodyText;
+							}
+
+							span {
+								padding-bottom:4px;
+							}
+						}
+
+						&.current-menu-item {
+							> a {
+								span {
+									border-bottom:4px solid #fff;
+								}
+
+								&:hover span {
+									border-bottom:none;
+								}
+							}
+						}
+
+						&:hover > ul {
+							// display: block;
+						}
+
+						.home-link-menu-container {
+							li {
+								margin-left: 0;
+								margin-bottom: 10px;
+								border-bottom: 5px solid $white;
+							}
+						}
+					}
+
+					> li {
+						a {
+							display:inline-block;
+							width:auto;
+							color:$bodyText;
+							padding:13px 14px 18px;
+
+							&:before {
+								background:none;
+							}
+
+							&:hover, &:focus, &:active {
+								color:$bodyText;
+							}
+
+							&.active {
+								&:before {
+									background:none;
+								}
+							}
+						}
+
+						> ul.sub-menu {
+							display:inline-block !important;
+							position:static;
+							padding:0;
+							z-index:10;
+							margin-top:10px;
+
+							li {
+								> a {
+									width:auto;
+									display:inline-block;
+
+									&:before {
+										background:none;
+									}
+
+									&:hover, &:focus, &:active {
+										color:$bodyText;
+									}
+								}
+
+								&.has-children {
+									> a {
+										&:before {
+											background:none;
+										}
+
+										&.active {
+											background:none;
+
+											&:before {
+												background:none;
+											}
+										}
+									}
+
+									ul {
+										display:none !important;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/*********************
+LIVE MATCHES STYLES
+*********************/
+
+#hero {
+	background: $bbBlack;
+	#inner-hero {
+		width: $tabWidth;
+		padding: 10px $tabPadding;
+	}
+}
+h2.total-match-count {
+	background: $bbBlack;
+	text-align: left;
+	font-size: 18px;
+	span {
+		top: 22px;
+		right: $tabPadding;
+	}
+}
+.auto-update {
+	position: absolute;
+	top: 20px;
+	left: 36%;
+	display: block;
+	padding-right: 25px;
+	background: $bbBlack url(../images/liveUpdate.png) no-repeat 100% 50%;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: $anotherGrey;
+}
+#widgetOutput {
+	font-size: 16px;
+	h3 {
+		padding: 12px 0;
+		font-size: 16px;
+		span {
+			padding-left: 8px;
+		}
+	}
+}
+.opta-widget-container {
+	width: 620px;
+	.match, .linked-match, .unlinked-match {
+		height: 60px;
+		span {
+			height: 58px;
+		}
+		.match-time {
+			width: 50px;
+			span {
+				padding: 5px 0;
+			}
+		}
+		.home-side,	.away-side {
+			width: 155px;
+		}
+		.match-score {
+			font-size: 36px;
+			width: 75px;
+			.match-score-home, .match-score-away {
+				width: 32px;
+			}
+		}
+		.matchDetails {
+			width: 190px;
+			background: $bbGrey;
+			padding-right: 20px;
+			padding-left: 60px;
+			text-transform: uppercase;
+			font-size: 12px;
+			font-weight: bold;
+			a {
+				width: 100px;
+				background: $bbGrey url(../images/info.png) no-repeat left 50%;
+				padding-top: 12px;
+				padding-left: 15px;
+				text-align: right;
+				color: $anotherGrey;
+				&:hover, &:focus {
+					background-image: url(../images/infoHover.png);
+					color: $brightGreen;
+				}	
+			}
+			span {
+				display: inline;
+			}
+		}
+	}
+}
+
+/*********************
+MAIN STYLES
+*********************/
+
+h1, .h1 {
+	font-size: 48px;
+}
+h2, .h2 {
+	font-size: 28px;
+}
+
+#content {
+	#inner-content {
+		width: $tabWidth;
+		padding: 0 $tabPadding;
+	}
+}
+
+#main {
+	width: 620px;
+	margin-top: 20px;
+}
+/* Promoted */
+#promoted {
+	position: relative;
+	margin-bottom: 35px;
+	h2 {
+		font-size: 48px;
+	}
+	.promoted-item-large {
+		display: none;
+		float: left;
+		width: 460px;
+	}
+	#promoted-item-large-1 {
+		display: block;
+	}
+	.promoted-featured-image-large {
+		width: 460px;
+		height: 304px;
+	}
+	.active {
+		display: block;
+	}
+	.promoted-item-small {
+		float: right;
+		display: block;
+		width: 140px;
+		cursor: pointer;
+		.promoted-featured-image {
+			width: 140px;
+			height: 92px;
+		}
+		p {
+			margin:  0 0 20px 0;
+			padding: 10px;
+			background: $lightGrey;
+			font-size: 14px;
+			text-transform: uppercase;
+			font-weight: bold;
+			color: $headline;
+		}
+		&:hover, &:focus {
+			p {
+				background: $bbGreen;
+				color: $white;
+			}
+		}	
+	}
+}
+/* Stream articles */
+.hentry {
+	margin-bottom: 40px;
+}
+.image-article, .set-article {
+	.featured-image {
+		width: 220px;
+		height: 144px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+	}
+	.h2, .article-excerpt {
+		float: right;
+		width: 380px;
+	}
+}
+.set-article .featured-image .set-count {
+		width: 60px;
+		height: 60px;
+		background: url(../images/mediaSet.png) no-repeat left 50%;
+		padding: 20px 18px 18px 20px;
+		font-size: 16px;
+} 
+.video-article {
+	.featured-image {
+		float: left;
+		width: 420px;
+		height: 235px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+	}
+	.h2, .article-excerpt {
+		float: right;
+		width: 180px;
+	}
+}
+
+.article-footer .tags {
+	float: left;
+	display: block;
+	width: 415px;
+	padding-left: 19px;
+	text-transform: uppercase;
+	a {
+		float: left;
+		display: block;
+		margin-right: 1rem;
+		text-decoration: none;
+	}
+}
+
+.page-navigation,
+.wp-prev-next {
+	.article-word {
+		display: inline;
+	}
+}
+
+/* Single articles */
+.single #main {
+	margin-top: 20px;
+	section {
+		padding-bottom: 0;
+		.share-panel {
+			height: 100%;
+			width: 80px;
+			top: 0;
+			left: 0;
+			bottom: auto;
+			.fb_iframe_widget{
+				top: 0;
+				left: 0;
+			}
+			.twitter-share-button {
+				top: 85px;
+				left: 0;
+			}
+			#___plusone_0 {
+				top: 165px;
+				left: 0;
+			}
+		}
+	}
+	.entry-gridcontent {
+		padding-bottom: 0;
+	}
+	.entry-content {
+		min-height: 250px; 
+		height: auto!important; 
+		height: 250px; 
+		padding-left: 80px;
+	}
+}
+.single-post .hentry {
+	h1 {
+		margin: 20px 0;
+	}
+	.byline {
+		margin-bottom: 20px;
+	}
+	.quote {
+		background: url(../images/quote.png) no-repeat 25px top;
+		padding-left: 70px;
+		font-size: 28px;
+	}
+	.article-footer  p.tags {
+		width: 520px;
+	}
+}
+.single-image-article .single-featured-image {
+	width: 620px;
+	height: 413px;
+}
+.single-video-article .single-featured-image {
+	width: 620px;
+	height: 349px;
+}
+.single-post_set .hentry {
+	.article-header {
+		margin-bottom: 20px;
+		background-position: right top;
+		h1 {
+			font-size: 28px;
+		}
+		.byline {
+			margin-top: 5px;
+		}
+	}
+	.two {
+		margin-right: 20px;
+	}
+	.four {
+		margin-right: 0;
+	}
+}
+
+/* Matches */
+.tax-match #main {
+	.opta-widget-container {
+		width: 620px;
+		h4 {
+			display: block;
+			margin-bottom: 20px;
+			background: $lightGrey;
+			padding: 5px 20px;
+			font-family: $sans-serif;
+			font-size: 14px;
+			font-weight: normal;
+			color: $anotherGrey;
+		}
+		.match {
+			height: 135px;
+			.match-time {
+				left: 285px;
+			}
+			.match-score {
+				left: 260px;
+			}
+			.home-side, .away-side {
+				margin-top: 20px;
+				margin-left: 130px;
+				width: 130px;
+				text-align: left;
+			}
+			.away-side {
+				margin-left: 0;
+				margin-right: 130px;
+				text-align: right;
+			}
+			.home-crest, .away-crest {
+				width: 100px;
+				height: 100px;
+				top: -20px;
+				left: -115px;
+			}
+			.away-crest {
+				left: auto;
+				right: -115px;
+			}
+		}
+		.matches dd {
+			margin: 0 20px;
+			.match-details {
+				font-size: 16px;
+				dd {
+					margin: 0;
+					padding-right: 40px;
+				}
+				dt {
+					padding-right: 10px;
+					clear: none;
+				}
+			}
+			.match-home-events, .match-away-events {
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+/* League Page */
+#tab-controls {
+	padding-left: 20px;
+	div {
+		float: left;
+		width: auto;
+		height: 45px;
+		margin-top: 10px;
+		border-width: 0!important;
+		padding: 8px 20px;
+		font-weight: normal;
+		color: $bbGreen;
+		&:hover, &:focus {
+			background: $white;
+			color: $bodyText;
+		}
+	}
+	.active {
+			background: $white;
+			color: $bodyText;
+	}
+}
+#tab-viewports {
+	.opta-widget-container {
+		width: 620px;
+		.match, .linked-match, .unlinked-match {
+			.home-side, .away-side {
+				width: 175px;
+				font-size: 16px;
+			}
+			.matchDetails {
+				width: 150px;
+				padding-left: 20px;
+			}			
+		}
+	}
+}
+
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+#content #sidebar {
+	margin-top: 20px;
+	h4 {
+		font-size: 28px;
+	}
+	.twitter-follow-button, .fb_iframe_widget, #___plusone_0 {
+		float: left;
+		margin-left: 15px!important;
+	}
+	.twitter-follow-button {
+		margin-left:0!important;
+	}
+	.fb_iframe_widget {
+		width: 215px;
+	}
+	#___plusone_0 {
+		width: 160px!important;
+	}
+}
+.widget_sp_image {
+	padding: 20px 0;
+	background: $lightGrey;
+	text-align: center;
+}
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+.wp-prev-next {
+	margin-bottom: $tabVHeight;
+}
+
+/*********************
+FOOTER STYLES
+*********************/
+.footer {
+	background:$darkFooterBG;
+
+	.footer-top {
+		@include clearfix;
+		background:$footerBG;
+		width:100%;
+		margin:0 auto;
+
+		.inner {
+			padding:20px $tabPadding 8px;
+			width:$tabWidth;
+			margin:0 auto;
+		}
+
+		.logo-copyright {
+			display:inline-block;
+			float:left;
+			width:120px;
+			margin-right:30px;
+			text-align:left;
+
+			.logo {
+				padding:0 0 6px;
+				img {
+					width:116px;
+					height:28px;
+				}
+			}
+
+			.copyright {
+				line-height:14px;
+			}
+		}
+
+		.ad-container {
+			display:inline-block;
+
+			.ad {
+				display:block;
+				width:468px;
+				height:60px;
+				border:2px solid #fff;
+				float:right;
+			}
+		}
+	}
+
+	#inner-footer {
+		width: $tabWidth;
+		padding: 0 $tabPadding;
+		text-align:left;
+
+		hr {
+			display:block;
+			border:none;
+			height:2px;
+			width:100%;
+			background:#424344;
+			margin:10px 0;
+		}
+
+		.credit {
+			text-align:center;
+			padding:0 20px;
+		}
+	}
+
+	nav {
+		.menu-footer-links-container {
+			.footer-menu {
+				@include clearfix;
+				text-align:center;
+				margin:12px auto 8px;
+				width:370px;
+
+				li {
+					float:left;
+					padding:0 20px;
+
+					a {
+						color:#aaa;
+						font-size:14px;
+						line-height:28px;
+					}
+				}
+			}
+		}
+
+		.menu-main-menu-container {
+			&#footer-nav-desktop {
+				@include clearfix;
+				display:block;
+				margin:16px auto;
+				width:500px;
+
+				li ul li {
+					float:left;
+					display:inline-block;
+					height:36px;
+					display:table;
+					margin-right:40px;
+
+					&:last-child {
+						margin-right:0;
+					}
+
+					a {
+						display:block;
+						color:#fff;
+						font-size:14px;
+						line-height:16px;
+						vertical-align:bottom;
+						display:table-cell;
+					}
+				}
+			}
+
+			&#footer-nav-mobile {
+				display:none;
+			}
+		}
+	}
+}
+.footer-links {
+	ul {
+		li {
+			a {
+				&:hover {}
+			}
+			/*
+			be careful with the depth of your menus.
+			it's very rare to have multi-depth menus in
+			the footer.
+			*/
+			ul {}
+		}
+	}
+} /* end .footer-links */
+

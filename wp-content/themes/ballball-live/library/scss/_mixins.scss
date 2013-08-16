@@ -1,0 +1,188 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants. I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+******************************************************************/
+
+/*********************
+CLEARFIXIN'
+*********************/
+
+// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+    zoom: 1;
+    &:before, &:after { content: ""; display: table; }
+    &:after { clear: both; }
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+/*********************
+TOOLS
+*********************/
+
+// BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+}
+
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.image-replacement {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@mixin ir {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;   
+}
+
+@mixin sprite($left, $top, $width: auto, $height: auto) {
+    background:transparent url('../images/sprites.png') -#{$left}px -#{$top}px no-repeat;
+
+    @if $width != 'auto' {
+        width:#{$width}px;
+    }
+
+    @if $height != 'auto' {
+        height:#{$height}px;
+    }
+}
+
+// :before & :after pseudo element basics
+@mixin before-after {
+    content: '';
+    display: block;
+    position: absolute;
+}
+
+
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+
+$black:             #000;
+$grey:				#999;
+$white:             #fff;
+
+$headerBG:			#aadd03;
+$footerBG:          #37393A;
+$darkFooterBG:      #2C2E2F;
+$bbGreen:			#52bf00;
+$brightGreen:		#7bff19;
+$bbGrey:			#2e2e2e;
+$bbBlack:			#1c1c1c;
+$headline:			#1f1f1f;
+$bodyText:			#444;
+$lightGrey:			#ededed;
+$anotherGrey:		#aaa;
+$moreGrey:			#666;
+$darkestGrey:		#333;
+
+$link-color:        $bbGreen;
+$link-hover:        darken($link-color, 9%);
+
+
+$mobWidth:			320px;
+$mobPadding:		10px;
+$mobVHeight:		20px;
+$tabBreak:			700px;
+$tabWidth:			768px;
+$tabPadding:		74px;
+$tabVHeight:		36px;
+$deskBreak:			940px;
+$deskWidth:			1080px;
+$deskPadding:		70px;
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+$sans-serif: "Source Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header: "Alternate Gothic", $sans-serif;
+ 
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-regular-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-semibold-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-semibold-webfont.svg#sourcesanspro-semibold-webfont') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-semibolditalic-webfont.svg#sourcesanspro-semibolditalic-webfont') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Sans';
+    src: url('../type/sourceSansPro/sourcesanspro-italic-webfont.eot');
+    src: url('../type/sourceSansPro/sourcesanspro-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.woff') format('woff'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.ttf') format('truetype'),
+         url('../type/sourceSansPro/sourcesanspro-italic-webfont.svg#source_sans_pro_italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Alternate Gothic';
+    src: url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.eot');
+    src: url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.woff') format('woff'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.ttf') format('truetype'),
+         url('../type/alternateGothicNo3/web-Alternate-Gothic-No3-Regular.svg#web-Alternate-Gothic-No3-Regular') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*********************
+BOX SIZING
+*********************/
+
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	-ms-box-sizing:     $type;
+	box-sizing:         $type;
+}
+
+
