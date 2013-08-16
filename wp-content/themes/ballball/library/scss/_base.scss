@@ -20,6 +20,7 @@ body {
 	line-height: 1.5;
 	color: #565656;
 }
+
 #hero {
 	#inner-hero {
 		position: relative;
@@ -30,6 +31,19 @@ body {
 		color: $white;
 	}
 }
+
+#container, .header, .footer {
+	@include box-sizing;
+	width:100%;
+	overflow-x:hidden;
+	margin:0; 
+	padding:0;
+}
+
+#wpstats {
+	display:none;
+}
+
 #content {
 	#inner-content {
 		background: $white;
@@ -220,7 +234,7 @@ HEADER STYLES
 						}
 					}
 
-					&:hover {
+					&:hover, &.active {
 						ul {
 							display:block;
 						}
@@ -368,37 +382,49 @@ OPTA BASE STYLES
 	}
 	.matches {
 		margin: 0;
-	}
-	.match, .linked-match, .unlinked-match {
 		display: table;
+		width:100%;
+	}
+	dt {
+		display: table-row !important;
 		height: 45px;
 		padding: 0;
 		border-bottom: 2px solid $bbBlack;
 		font-weight: bold;
 		color: $anotherGrey;
-		span {
+		width:100%;
+
+		// overriding the clearfix
+		&:before, &:after {
+			display:none !important;
+			clear:none !important;
+		}
+
+		> span {
 			display: table-cell;
 			height: 43px;
 			vertical-align: middle;
 		}
 		.match-time {
-			width: 45px;
+			width:12%;
 			text-align: center;
 			background: $lightGrey;
 			color: $bbBlack;
 		}
-		.home-side {
-			width: 90px;
-			padding-left: 5px;
+		.home-side, .away-side {
+			width:35%;
+			padding:0 5px;
 			text-align: right;
+			-webkit-text-overflow: ellipsis;
+			overflow:hidden;
+			height:16px !important;
+			// display:inline-block;
 		}
 		.away-side {
-			width: 90px;
-			padding-right: 5px;
 			text-align: left;
 		}
 		.match-score {
-			width: 50px;
+			width: 15%;
 			text-align: center;
 			background: url(../images/liveV.png) no-repeat 50% 50%;
 			font-size: 28px;
@@ -424,7 +450,7 @@ OPTA BASE STYLES
 			}
 		}
 		.matchDetails {
-			width: 45px;
+			width:5% !important;
 			background: $darkestGrey;
 			a {
 				width: 45px;
@@ -998,7 +1024,8 @@ POSTS & CONTENT STYLES
 	width: 100%;
 	background: $lightGrey;
 	text-transform: uppercase;
-	margin-bottom: 40px;
+	margin:20px 0 40px;
+
 	div {
 		float: left;
 		width: 100%;
@@ -1048,7 +1075,7 @@ POSTS & CONTENT STYLES
 				background: url(../images/matchVsSmall.png) no-repeat 50% 50%;
 			}
 			.home-side, .away-side {
-				width: 80px;
+				// width: 80px;
 			}
 			.matchDetails {
 				background-color: $white;

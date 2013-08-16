@@ -162,7 +162,7 @@ jQuery(document).ready(function($) {
 	$topNavElement.addClass('has-children')
 	$topNavLink = $topNavElement.find('> a');
 
-	$('<span class="slide-trigger">').appendTo($topNavElement).on('touchstart click', function() {
+	$('<span class="slide-trigger">').appendTo($topNavElement).on('click', function() {
 		if(jQuery.browser.mobile || $(window).width() < 700) {
 			$topNavLink.toggleClass('active').next('.sub-menu').slideToggle();
 		}
