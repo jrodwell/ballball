@@ -64,9 +64,9 @@
                   <div class="featured-image"> 
 								  <?php if($type == "video-article") { ?>
                   <div id="ooyalaplayer-<?php echo $thisid=uniqid(); ?>" class="videoplayer">
-                  <?php if(wpmd_is_android()&&wpmd_is_tablet()) { ?>
+                  <?php if(!wpmd_is_ios()&&wpmd_is_android()&&wpmd_is_tablet()) { ?>
                   <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/tablet_app-download.jpg'; ?>" /></a>
-                  <?php } else if(wpmd_is_android()) { ?>
+                  <?php } else if(!wpmd_is_ios()&&wpmd_is_android()) { ?>
                   <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/mobile_app-download.jpg'; ?>" /></a>
                   <?php } ?>
                   </div>

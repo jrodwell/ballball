@@ -10,7 +10,7 @@
         
         // Get current live matches
         
-        $menu_items = wp_get_nav_menu_items('live-match-menu');
+        $menu_items = wp_get_nav_menu_items('live-match-menu'); 
         
         foreach($menu_items as $menu_item) {
           $term_meta = get_option("taxonomy_$menu_item->object_id");
@@ -71,7 +71,7 @@
           $n_matches += count($league);
         }
         
-        ?>
+        ?>               
         
         <?php if(count($view_matches)>0) { ?> 
         
@@ -205,7 +205,7 @@
                   </div>
                   <?php
                   echo '<h2><a href="'.get_permalink($promoted_post->ID).'">'.get_the_title($promoted_post->ID).'</a></h2>';
-                  echo '<p>'.get_the_excerpt().'</p>';
+                  echo '<p>'.pippin_excerpt_by_id($promoted_post->ID).'</p>';
                   ?>						  
   							  
                 </div>
@@ -309,9 +309,9 @@
                   <div class="featured-image"> 
 								  <?php if($type == "video-article") { ?>
                   <div id="ooyalaplayer-<?php echo $thisid=uniqid(); ?>" class="videoplayer">
-                  <?php if(wpmd_is_android()&&wpmd_is_tablet()) { ?>
+                  <?php if(!wpmd_is_ios()&&wpmd_is_android()&&wpmd_is_tablet()) { ?>
                   <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/tablet_app-download.jpg'; ?>" /></a>
-                  <?php } else if(wpmd_is_android()) { ?>
+                  <?php } else if(!wpmd_is_ios()&&wpmd_is_android()) { ?>
                   <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/mobile_app-download.jpg'; ?>" /></a>
                   <?php } ?>
                   </div>

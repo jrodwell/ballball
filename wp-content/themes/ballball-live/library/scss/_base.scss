@@ -20,6 +20,20 @@ body {
 	line-height: 1.5;
 	color: #565656;
 }
+
+#container, .header, .footer {
+	@include box-sizing;
+	width:100%;
+	overflow-x:hidden;
+	margin:0; 
+	padding:0;
+}
+ 
+#wpstats {
+	display:none;
+}
+ 
+ 
 #hero {
 	#inner-hero {
 		position: relative;
