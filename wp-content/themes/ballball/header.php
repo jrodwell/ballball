@@ -85,7 +85,7 @@
 					<div id="mobile-header">
 						<a href="<?php echo home_url(); ?>" rel="nofollow" id="logo"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/logo.png'; ?>" /></a>
 						<!-- widgetised area for language switcher (J.R.) -->
-						<div id="language-switcher"><?php language_switcher(); ?></div>
+						<div id="language-switcher"><?php //language_switcher(); ?></div>
 					</div>
 
 					<nav role="navigation">

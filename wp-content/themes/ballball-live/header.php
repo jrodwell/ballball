@@ -41,7 +41,7 @@
     <!-- Loading script asynchronously -->
     <script type="text/javascript">
         (function(a,b,c,d){
-        a='//tags.tiqcdn.com/utag/newscorp/ballball-web/prod/utag.js';
+        a='//tags.tiqcdn.com/utag/newscorp/ballball-web/dev/utag.js';
         b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
         a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
         })();
@@ -85,7 +85,7 @@
 					<div id="mobile-header">
 						<a href="<?php echo home_url(); ?>" rel="nofollow" id="logo"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/logo.png'; ?>" /></a>
 						<!-- widgetised area for language switcher (J.R.) -->
-						<div id="language-switcher"><?php language_switcher(); ?></div>
+						<div id="language-switcher"><?php //language_switcher(); ?></div>
 					</div>
 
 					<nav role="navigation">
