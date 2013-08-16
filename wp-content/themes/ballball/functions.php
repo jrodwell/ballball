@@ -855,7 +855,7 @@ function language_switcher() {
 	echo '<ul>';
 	foreach($languages as $i) {
 		if($i['active'] == 1) {
-			echo "<li class=\"active {$i['language_code']}\">{$i['translated_name']}&nbsp;&ndash;&nbsp;{$i['native_name']}</li>";
+			echo "<li class=\"active {$i['language_code']}\"><span class=\"no-link\">{$i['translated_name']}&nbsp;&ndash;&nbsp;{$i['native_name']}</span></li>";
 		}
 	}
 
@@ -907,8 +907,8 @@ add_action('init','df_disable_admin_bar');
 /* Detect modile/tablet for Tealium (J.R.) */
 
 function detect_device() {
-  if(wpmd_is_tablet()) return 'tablet';
-  else if(wpmd_is_device()) return 'mobile';
+  if(function_exists('wpmd_is_tablet') && wpmd_is_tablet()) return 'tablet';
+  else if(function_exists('wpmd_is_device') && wpmd_is_device()) return 'mobile';
   else return 'desktop';
 }
 

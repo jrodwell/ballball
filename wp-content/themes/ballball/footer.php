@@ -17,7 +17,7 @@
 				<div id="inner-footer" class="wrap clearfix">
 
 					<nav role="navigation">
-						<?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'footer-menu', 'container_id' => 'footer-nav-desktop', 'walker' => new jr_walker())); ?>
+						<?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'footer-menu', 'container_id' => 'footer-nav-desktop', 'container_class' => 'footer-nav', 'walker' => new jr_walker())); ?>
 					</nav>
 
 					<hr>
@@ -31,7 +31,7 @@
 				</div> <!-- end #inner-footer -->
 
 				<nav role="navigation">
-					<?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'footer-menu', 'container_id' => 'footer-nav-mobile', 'walker' => new jr_walker())); ?>
+					<?php wp_nav_menu(array('menu' => 'Main Menu', 'menu_class' => 'footer-menu', 'container_id' => 'footer-nav-mobile', 'container_class' => 'footer-nav', 'walker' => new jr_walker())); ?>
 				</nav>
 
 			</footer> <!-- end footer -->
