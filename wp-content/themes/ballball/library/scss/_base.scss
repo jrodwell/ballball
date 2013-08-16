@@ -21,6 +21,19 @@ body {
 	color: #565656;
 }
 
+#container, .header, .footer {
+	@include box-sizing;
+	width:100%;
+	overflow-x:hidden;
+	margin:0; 
+	padding:0;
+}
+ 
+#wpstats {
+	display:none;
+}
+ 
+ 
 #hero {
 	#inner-hero {
 		position: relative;
@@ -31,19 +44,6 @@ body {
 		color: $white;
 	}
 }
-
-#container, .header, .footer {
-	@include box-sizing;
-	width:100%;
-	overflow-x:hidden;
-	margin:0; 
-	padding:0;
-}
-
-#wpstats {
-	display:none;
-}
-
 #content {
 	#inner-content {
 		background: $white;
@@ -234,7 +234,7 @@ HEADER STYLES
 						}
 					}
 
-					&:hover, &.active {
+					&:hover {
 						ul {
 							display:block;
 						}
@@ -382,54 +382,41 @@ OPTA BASE STYLES
 	}
 	.matches {
 		margin: 0;
-		display: table;
-		width:100%;
 	}
-	dt {
-		display: table-row !important;
+	.match, .linked-match, .unlinked-match {
+		display: table;
 		height: 45px;
 		padding: 0;
 		border-bottom: 2px solid $bbBlack;
 		font-weight: bold;
 		color: $anotherGrey;
-		width:100%;
-
-		// overriding the clearfix
-		&:before, &:after {
-			display:none !important;
-			clear:none !important;
-		}
-
-		> span {
+		span {
 			display: table-cell;
 			height: 43px;
 			vertical-align: middle;
 		}
 		.match-time {
-			width:12%;
+			width: 45px;
 			text-align: center;
 			background: $lightGrey;
 			color: $bbBlack;
 		}
-		.home-side, .away-side {
-			width:35%;
-			padding:0 5px;
+		.home-side {
+			width: 90px;
+			padding-left: 5px;
 			text-align: right;
-			text-overflow: ellipsis;
-			overflow:hidden;
-			height:16px !important;
-			// display:inline-block;
 		}
 		.away-side {
+			width: 90px;
+			padding-right: 5px;
 			text-align: left;
 		}
 		.match-score {
-			width: 15%;
+			width: 50px;
 			text-align: center;
 			background: url(../images/liveV.png) no-repeat 50% 50%;
 			font-size: 28px;
 			font-family: $header;
-			padding:0 5px;
 			a {
 				display: table;
 			}
@@ -451,9 +438,8 @@ OPTA BASE STYLES
 			}
 		}
 		.matchDetails {
-			width:45px;
+			width: 45px;
 			background: $darkestGrey;
-			display:inline-block; // to stop it collapsing when empty
 			a {
 				width: 45px;
 				height: 43px;
@@ -1016,7 +1002,6 @@ POSTS & CONTENT STYLES
 .tax-league {
 	.attachment-thumbnail {
 		float: left;
-		margin-bottom: 20px;
 	}
 	.archive-title {
 		margin: 0 0 20px 120px;
@@ -1027,8 +1012,7 @@ POSTS & CONTENT STYLES
 	width: 100%;
 	background: $lightGrey;
 	text-transform: uppercase;
-	margin:20px 0 40px;
-
+	margin-bottom: 40px;
 	div {
 		float: left;
 		width: 100%;
@@ -1078,7 +1062,7 @@ POSTS & CONTENT STYLES
 				background: url(../images/matchVsSmall.png) no-repeat 50% 50%;
 			}
 			.home-side, .away-side {
-				// width: 80px;
+				width: 80px;
 			}
 			.matchDetails {
 				background-color: $white;
