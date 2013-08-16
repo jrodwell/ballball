@@ -68,16 +68,16 @@ jQuery(document).ready(function($) {
 	jQuery('#promoted-item-large-1').addClass('active');
 	jQuery('#promoted-item-small-1').addClass('active');
 
-	jQuery('#promoted > .promoted-item-small').click(function() {
+	jQuery('#promoted .promoted-item-small').click(function() {
 		var current = jQuery(this);
 		var currentString = current.attr('id');
 		var targetString =  currentString.replace('small','large');
 		var target = jQuery('#' + targetString);
 		
 		if(!target.hasClass('active')){
-			jQuery('#promoted > .promoted-item-large').hide().removeClass('active');
+			jQuery('#promoted .promoted-item-large').hide().removeClass('active');
 			target.addClass('active').show();
-			jQuery('#promoted > .promoted-item-small').removeClass('active');
+			jQuery('#promoted .promoted-item-small').removeClass('active');
 			current.addClass('active');
 		}
 	});
@@ -156,17 +156,16 @@ jQuery(document).ready(function($) {
 		callbacks: [fixes]
 	};
 
+	$('li:last-child').addClass('last');
+
 	//doubleTapToGo()
 	$('.header nav li:has(ul)').addClass('has-children').find('> a').on('touchstart click', function(e) {
 		if(jQuery.browser.mobile || $(window).width() < 700) {
 			e.preventDefault();
-			$(this).next('.sub-menu').slideToggle();
-			$(this).toggleClass('active');
+			$(this).toggleClass('active').next('.sub-menu').slideToggle();
 		}
 	});
 
-	$('li:last-child').addClass('last');
-		
 }); /* end of as page load scripts */
 
 

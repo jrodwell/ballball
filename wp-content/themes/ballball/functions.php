@@ -855,7 +855,7 @@ function language_switcher() {
 	echo '<ul>';
 	foreach($languages as $i) {
 		if($i['active'] == 1) {
-			echo "<li class=\"active {$i['language_code']}\">{$i['translated_name']}&nbsp;&ndash;&nbsp;{$i['native_name']}</li>";
+			echo "<li class=\"active {$i['language_code']}\"><span class=\"no-link\">{$i['translated_name']}&nbsp;&ndash;&nbsp;{$i['native_name']}</span></li>";
 		}
 	}
 
