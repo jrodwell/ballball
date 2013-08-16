@@ -162,88 +162,95 @@
                 $promoted_posts = $posts_one;
               }
               
-              ?>
-              
-              <?php $counter=0; foreach($promoted_posts as $promoted_post) { $counter++; ?>
-              
-              <?php
-              
-              // Check article type...
-              
-              if(get_post_type($promoted_post->ID)=='post_set') {
-                $type = "set-article";
-              } else {
-                $type = "text-article";
-                if(get_post_meta($promoted_post->ID, 'ballball_videoid', true)) {
-                  $video_id = get_post_meta($promoted_post->ID, 'ballball_videoid', true);
-                  $type = "video-article";
-                } else if(has_post_thumbnail($promoted_post->ID)) {
-                  $type = "image-article";
-                }
-              }
-              
-              ?>
-              
-              <div id="promoted-item-large-<?php echo $counter; ?>" class="promoted-item-large">
+
+              // IA: Wrapping promo items in 2 columns ?>
+
+
+              <div class="column left">
+
+                <?php $counter=0; foreach($promoted_posts as $promoted_post) { $counter++;
                 
-                <div class="promoted-featured-image-large"> 
-                <?php
-							  if(has_post_thumbnail($promoted_post->ID)) {
-                  $src = wp_get_attachment_image_src(get_post_thumbnail_id($promoted_post->ID), 'promoted');
+                // Check article type...
+                
+                if(get_post_type($promoted_post->ID)=='post_set') {
+                  $type = "set-article";
                 } else {
-                  $src[0] = get_stylesheet_directory_uri().'/library/images/ballball-fallback-large.png';
+                  $type = "text-article";
+                  if(get_post_meta($promoted_post->ID, 'ballball_videoid', true)) {
+                    $video_id = get_post_meta($promoted_post->ID, 'ballball_videoid', true);
+                    $type = "video-article";
+                  } else if(has_post_thumbnail($promoted_post->ID)) {
+                    $type = "image-article";
+                  }
                 }
-                echo '<a href="'.get_permalink($promoted_post->ID).'"><img class="attachment-stream wp-post-image" src="'.$src[0].'"></a>';
-                ?>
-                </div>
-                <?php
-                echo '<h2><a href="'.get_permalink($promoted_post->ID).'">'.get_the_title($promoted_post->ID).'</a></h2>';
-                echo '<p>'.get_the_excerpt().'</p>';
-                ?>						  
-							  
-              </div>
-              
-              <?php } ?>
-              
-              <?php $counter=0; foreach($promoted_posts as $promoted_post) { $counter++; ?>
-              
-              <?php
-              
-              // Check article type...
-              
-              if(get_post_type($promoted_post->ID)=='post_set') {
-                $type = "set-article";
-              } else {
-                $type = "text-article";
-                if(get_post_meta($promoted_post->ID, 'ballball_videoid', true)) {
-                  $video_id = get_post_meta($promoted_post->ID, 'ballball_videoid', true);
-                  $type = "video-article";
-                } else if(has_post_thumbnail($promoted_post->ID)) {
-                  $type = "image-article";
-                }
-              }
-              
-              ?>
-              
-              <div id="promoted-item-small-<?php echo $counter; ?>" class="promoted-item-small">
-              
-                <div class="promoted-featured-image"> 
-                <?php
-							  if(has_post_thumbnail($promoted_post->ID)) {
-                  $src = wp_get_attachment_image_src(get_post_thumbnail_id($promoted_post->ID), 'small');
-                } else {
-                  $src[0] = get_stylesheet_directory_uri().'/library/images/ballball-fallback.jpg';
-                }
-                echo '<img class="attachment-stream wp-post-image" src="'.$src[0].'">';
-                ?>
-                </div>
-                <?php
-                echo '<p>'.get_the_title($promoted_post->ID).'</p>';
+                
                 ?>
                 
-              </div>
+                <div id="promoted-item-large-<?php echo $counter; ?>" class="promoted-item-large">
+                  
+                  <div class="promoted-featured-image-large"> 
+                  <?php
+  							  if(has_post_thumbnail($promoted_post->ID)) {
+                    $src = wp_get_attachment_image_src(get_post_thumbnail_id($promoted_post->ID), 'promoted');
+                  } else {
+                    $src[0] = get_stylesheet_directory_uri().'/library/images/ballball-fallback-large.png';
+                  }
+                  echo '<a href="'.get_permalink($promoted_post->ID).'"><img class="attachment-stream wp-post-image" src="'.$src[0].'"></a>';
+                  ?>
+                  </div>
+                  <?php
+                  echo '<h2><a href="'.get_permalink($promoted_post->ID).'">'.get_the_title($promoted_post->ID).'</a></h2>';
+                  echo '<p>'.get_the_excerpt().'</p>';
+                  ?>						  
+  							  
+                </div>
+                
+                <?php } ?>
+
+              </div><!-- column left -->
+
+              <div class="column right">
               
-              <?php } ?>
+
+                <?php $counter=0; foreach($promoted_posts as $promoted_post) { $counter++;
+                
+                // Check article type...
+                
+                if(get_post_type($promoted_post->ID)=='post_set') {
+                  $type = "set-article";
+                } else {
+                  $type = "text-article";
+                  if(get_post_meta($promoted_post->ID, 'ballball_videoid', true)) {
+                    $video_id = get_post_meta($promoted_post->ID, 'ballball_videoid', true);
+                    $type = "video-article";
+                  } else if(has_post_thumbnail($promoted_post->ID)) {
+                    $type = "image-article";
+                  }
+                }
+                
+                ?>
+                
+                <div id="promoted-item-small-<?php echo $counter; ?>" class="promoted-item-small">
+                
+                  <div class="promoted-featured-image"> 
+                  <?php
+  							  if(has_post_thumbnail($promoted_post->ID)) {
+                    $src = wp_get_attachment_image_src(get_post_thumbnail_id($promoted_post->ID), 'small');
+                  } else {
+                    $src[0] = get_stylesheet_directory_uri().'/library/images/ballball-fallback.jpg';
+                  }
+                  echo '<img class="attachment-stream wp-post-image" src="'.$src[0].'">';
+                  ?>
+                  </div>
+                  <?php
+                  echo '<p>'.get_the_title($promoted_post->ID).'</p>';
+                  ?>
+                  
+                </div>
+                
+                <?php } ?>
+
+              </div><!-- column right -->
               
               </div>
               
