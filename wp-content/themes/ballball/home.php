@@ -6,6 +6,7 @@
         
         $view_matches = array();
         $view_leagues = array();
+        $league_names = array();
         
         // Get current live matches
         
@@ -13,50 +14,57 @@
         
         foreach($menu_items as $menu_item) {
           $term_meta = get_option("taxonomy_$menu_item->object_id");
-          $view_leagues[$menu_item->object_id] = $term_meta['optaid'];
+          if($term_meta['optaid']) {
+            $opta_id = $term_meta['optaid'];
+            $view_leagues[$menu_item->object_id] = $opta_id;
+            $league_names[$opta_id] = $menu_item->title;
+          }
         }
         
         $all_matches = get_terms('match', array('hide_empty' => false));
         $array_matches = array();
         
-        foreach($all_matches as $match) {
-          
-          //$time_now = time();
-          $time_now = current_time('timestamp');
-          $match_name = $match->name;
-          $term_meta = get_option("taxonomy_$match->term_id");
-          $league_tax_id = $term_meta['league'];
-          $league = $view_leagues[$league_tax_id];
-          $live_start = strtotime($term_meta['live_start_time']);
-          $live_end = strtotime($term_meta['live_end_time']);
-          $opta_id = $term_meta['optaid'];
-          $hideflag = $term_meta['live_hideflag'];                  
-          
-          // Filter
-          
-          if(
-            in_array($league, $view_leagues)
-            &&$hideflag!='on'
-            &&$opta_id!=null
-            &&$live_start!=null
-            &&$live_end!=null
-            &&$time_now>$live_start
-            &&$time_now<$live_end
-          ) {
-            if(!array_key_exists($league, $view_matches)) $view_matches[$league] = array();
-            $view_matches[$league][] = $opta_id;
-            $array_matches[$opta_id] = $match->slug; 
+        if(count($view_leagues)>0) {
+          foreach($all_matches as $match) {
+            
+            //$time_now = time();
+            $time_now = current_time('timestamp');
+            $match_name = $match->name;
+            $term_meta = get_option("taxonomy_$match->term_id");
+            $league_tax_id = $term_meta['league'];
+            $league = $view_leagues[$league_tax_id];
+            $live_start = strtotime($term_meta['live_start_time']);
+            $live_end = strtotime($term_meta['live_end_time']);
+            $opta_id = $term_meta['optaid'];
+            $hideflag = $term_meta['live_hideflag'];                  
+            
+            // Filter
+            
+            if(
+              in_array($league, $view_leagues)
+              &&$hideflag!='on'
+              &&$opta_id!=null
+              &&$live_start!=null
+              &&$live_end!=null
+              &&$time_now>$live_start
+              &&$time_now<$live_end
+            ) {
+              if(!array_key_exists($league, $view_matches)) $view_matches[$league] = array();
+              $view_matches[$league][] = $opta_id;
+              $array_matches[$opta_id] = $match->slug; 
+            }
+            
           }
-          
         }
         
-        $show_leagues = array();
+        /*
         $all_leagues = get_terms('league', array('hide_empty' => false));
         foreach($all_leagues as $league) {
           $term_meta = get_option("taxonomy_$league->term_id");
           $league_optaid = $term_meta['optaid'];
-          $show_leagues[$league_optaid] = $league->name;
+          $league_names[$league_optaid] = $league->name;
         }
+        */
         
         $n_matches=0;
         foreach($view_matches as $league) {
@@ -83,7 +91,7 @@
             $counter=0;
             foreach($view_matches as $league=>$matches) {
             ?>
-              <li id="menu-league-<?php echo $counter; ?>" class="league-menu-item clearfix" ><?php echo $show_leagues[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></li>  
+              <li id="menu-league-<?php echo $counter; ?>" class="league-menu-item clearfix" ><?php echo $league_names[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></li>  
             <?php
             $counter++; }        
             ?>
@@ -94,7 +102,7 @@
             $counter=0;
             foreach($view_matches as $league=>$matches) {
             ?>
-              <h3 class="league-menu-item clearfix" ><?php echo $show_leagues[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></h3>  
+              <h3 class="league-menu-item clearfix" ><?php echo $league_names[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></h3>  
               <div id="live-league-<?php echo $counter; ?>" class="live-league clearfix">
                 <opta widget="fixtures" sport="football" competition="<?php echo $league; ?>" season="2013" match="<?php $count=0; foreach($matches as $match) { $count++; echo $match; if($count!=count($matches)) echo ', '; } ?>" live="true" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" pre_match="true" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>             
               </div>
