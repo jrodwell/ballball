@@ -668,6 +668,10 @@ function ballball_save_taxonomy_fields($term_id) {
         $term_meta[$key] = $_POST['term_meta'][$key];
       }
     }
+    if(!isset($_POST['term_meta']['live_hideflag'])) {
+    	$term_meta['live_hideflag'] = ''; // manually reset the checkbox
+    }
+
     update_option("taxonomy_$t_id", $term_meta);
   }
 }
