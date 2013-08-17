@@ -4,13 +4,15 @@
         
         <?php
         
-        $view_matches = array();
+        $view_matches_unordered = array();
         $view_leagues = array();
         $league_names = array();
         
         // Get current live matches
         
         $menu_items = wp_get_nav_menu_items('live-match-menu'); 
+
+        // error_log(print_r($menu_items, true));
         
         foreach($menu_items as $menu_item) {
           $term_meta = get_option("taxonomy_$menu_item->object_id");
@@ -23,7 +25,7 @@
         
         $all_matches = get_terms('match', array('hide_empty' => false));
         $array_matches = array();
-        
+
         if(count($view_leagues)>0) {
           foreach($all_matches as $match) {
             
@@ -49,8 +51,8 @@
               &&$time_now>$live_start
               &&$time_now<$live_end
             ) {
-              if(!array_key_exists($league, $view_matches)) $view_matches[$league] = array();
-              $view_matches[$league][] = $opta_id;
+              if(!array_key_exists($league, $view_matches_unordered)) $view_matches_unordered[$league] = array();
+              $view_matches_unordered[$league][] = $opta_id;
               $array_matches[$opta_id] = $match->slug; 
             }
             
@@ -67,10 +69,18 @@
         */
         
         $n_matches=0;
-        foreach($view_matches as $league) {
+        foreach($view_matches_unordered as $league) {
           $n_matches += count($league);
         }
-        
+
+        // Sorting matches array by league ID's ordered in the CMS
+        $view_matches = array();
+        foreach($view_leagues as $k=>$v) {
+          if(array_key_exists($v, $view_matches_unordered)) {
+            $view_matches[$v] = $view_matches_unordered[$v];
+          }
+        }
+
         ?>               
         
         <?php if(count($view_matches)>0) { ?> 
@@ -85,6 +95,7 @@
               
             <div id="widgetOutput" class="clearfix">
             
+
             <ul id="live-league-menu">
         
             <?php
@@ -309,9 +320,9 @@
                   <div class="featured-image"> 
 								  <?php if($type == "video-article") { ?>
                   <div id="ooyalaplayer-<?php echo $thisid=uniqid(); ?>" class="videoplayer">
-                  <?php if(!wpmd_is_ios()&&wpmd_is_android()&&wpmd_is_tablet()) { ?>
+                  <?php if(function_exists('wpmd_is_ios') && function_exists('wpmd_is_android') && function_exists('wpmd_is_tablet') && !wpmd_is_ios()&&wpmd_is_android()&&wpmd_is_tablet()) { ?>
                   <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/tablet_app-download.jpg'; ?>" /></a>
-                  <?php } else if(!wpmd_is_ios()&&wpmd_is_android()) { ?>
+                  <?php } else if(function_exists('wpmd_is_ios') && function_exists('wpmd_is_android') && !wpmd_is_ios()&&wpmd_is_android()) { ?>
                   <a href="<?php echo get_option('app_link'); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/library/images/mobile_app-download.jpg'; ?>" /></a>
                   <?php } ?>
                   </div>
