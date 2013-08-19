@@ -393,16 +393,60 @@ class Jetpack_Post_Views extends WP_Widget {
 			$posts = get_posts( $args );
 
 			// Print top posts in order
-			echo "<ul>";
-			foreach( $posts as $post ) { ?>
+			echo "<ol class=\"first\">";
+			foreach( $posts as $i=>$post ) { ?>
+
 				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 					<?php if ( $instance['show_views'] ) { 
 						echo " - ".number_format_i18n( get_post_meta( $post->ID, 'jetpack-post-views', true ) )." views";
-					} ?>
+					} 
+
+					if(get_post_type($post)=='post_set') {
+					  $type = "set-article";
+					} else {
+					  $type = "text-article";
+					  if(get_post_meta(get_the_ID(), 'ballball_videoid', true)) {
+					    $video_id = get_post_meta(get_the_ID(), 'ballball_videoid', true);
+					    $type = "video-article";
+					  } else if(has_post_thumbnail(get_the_ID())) {
+					    $type = "image-article";
+					  }
+					} 
+					?>
+
+					<div class="featured-image"> 
+						<?php 
+
+						$src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'small');
+
+						if($type == "video-article") {
+
+							$preview_url = get_ooyala_preview($video_id);
+							// error_log(print_r($preview_url, true));
+						?>
+
+							<a href="<?php get_permalink() ?>"><img src="<?php echo $preview_url ?: get_stylesheet_directory_uri().'/library/images/ballball-fallback.jpg'; ?>"></a>
+
+						<?php } else if($type == "image-article" || $type == "set-article") {
+	
+							echo '<a href="'.get_permalink().'"><img width="100%" height="100%" class="attachment-stream wp-post-image" src="'.$src[0].'"></a>';
+							$posts_group = get_post_meta($post->ID, 're_', true);
+							$set_count = count($posts_group);
+
+							if($type == "set-article") {
+								echo '<span class="set-count">'.$set_count.'</span>';
+							}
+							?>
+						<?php } ?>
+					</div>
 				</li>
-			<?php
+				<?php
+
+				if($i == floor($instance['num_posts']/2-1)) {
+					echo "</ol><ol>";
+				}
 			}
-			echo "</ul>";
+			echo "</ol>";
 		}
 
 		echo $after_widget;

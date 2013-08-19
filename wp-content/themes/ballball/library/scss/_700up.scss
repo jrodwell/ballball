@@ -678,6 +678,7 @@ SIDEBARS & ASIDES
 	margin-top: 20px;
 	h4 {
 		font-size: 28px;
+		padding:7px 0;
 	}
 	.twitter-follow-button, .fb_iframe_widget, #___plusone_0 {
 		float: left;
@@ -697,6 +698,64 @@ SIDEBARS & ASIDES
 	padding: 20px 0;
 	background: $lightGrey;
 	text-align: center;
+}
+
+// Top 10 Posts Widget
+.jetpack-post-views {
+	@include clearfix;
+
+	ol {
+		float:left;
+		width:50%;
+
+		&.first li {
+			border-right:2px solid #fff;
+		}
+
+		li {
+			height:125px;
+			overflow:hidden;
+			position:relative;
+
+			&.left {
+				float:left;
+			}
+
+			&.right {
+				float:right;
+			}
+
+			&:before {
+				color:#2c2c2c;
+				padding:9px 10px;
+			}
+
+			> a {
+				padding:9px 10px 9px 40px;
+				color:#4dbc00;
+				width:140px;
+				height:6em;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font:19px normal normal $header;
+				text-transform:uppercase;
+				float:left;
+			}
+
+			.featured-image {
+				display:block;
+				float:right;
+				padding:9px 10px;
+
+				a {
+					img {
+						width:140px;
+						height:auto;
+					}
+				}
+			}
+		}
+	}
 }
 
 /******************************************************************

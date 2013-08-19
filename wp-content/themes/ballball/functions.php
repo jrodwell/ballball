@@ -942,4 +942,38 @@ function pippin_excerpt_by_id($post, $length = 30, $tags = '<a><em><strong>', $e
 	return apply_filters('the_content', $the_excerpt);
 }
 
+
+/* Ooyala Video Previews */
+
+require_once('library/OoyalaAPI.class.php');
+
+define('OOYALA_API_KEY', 'N2d2kxOqq2Drk_2CQjxdgm3ZH9kg.T9STu');
+define('OOYALA_API_SECRET', 'pdUU3mivSeYkhRfSUJvDSuXaN_vBU-EP6KOs2Xpa');
+
+function get_ooyala_preview($video_id) {
+
+	$api = new OoyalaAPI;
+	$url = $api->generateURL('GET', OOYALA_API_KEY, OOYALA_API_SECRET, 1377820800, '/v2/assets/'.$video_id.'/primary_preview_image/');
+
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	    CURLOPT_RETURNTRANSFER => 1,
+	    CURLOPT_URL => $url
+	));
+
+	$result = json_decode(curl_exec($curl));
+
+	error_log(print_r($result, true));
+
+	curl_close($curl);
+
+	if($result->sizes) foreach($result->sizes as $size) {
+		if($size->width <= 720) {
+			return $size->url;
+		}
+	}
+
+	return $result->url ?: 0;
+}
+
 ?>
