@@ -115,7 +115,35 @@
             ?>
               <h3 class="league-menu-item clearfix" ><?php echo $league_names[$league]; ?> <span class="num-matches">(<?php echo count($matches); ?>)</span></h3>  
               <div id="live-league-<?php echo $counter; ?>" class="live-league clearfix">
-                <opta widget="fixtures" sport="football" competition="<?php echo $league; ?>" season="2013" match="<?php $count=0; foreach($matches as $match) { $count++; echo $match; if($count!=count($matches)) echo ', '; } ?>" live="true" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" pre_match="true" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>             
+                <opta widget="fixtures" 
+                      sport="football" 
+                      competition="<?php echo $league; ?>" 
+                      season="<?php echo date("Y"); ?>" 
+                      match="<?php $count=0; foreach($matches as $match) { $count++; echo $match; if($count!=count($matches)) echo ', '; } ?>" 
+                      live="true" 
+                      order_by="date_asc" 
+                      group_by_date="false" 
+                      group_by_competition="false" 
+                      show_competition_name="false" 
+                      show_group="false" 
+                      show_venue="false" 
+                      show_attendance="false" 
+                      show_referee="false" 
+                      show_time="true" 
+                      show_crest="false" 
+                      show_scorers="false" 
+                      show_cards="false" 
+                      show_subs="false" 
+                      sound="false" 
+                      match_link="ballball.com" 
+                      pre_match="true" 
+                      player_popup="false" 
+                      player_names="full" 
+                      opta_logo="false" 
+                      start_expanded="false" 
+                      team_name="short" 
+                      narrow_limit="400">
+                </opta>
               </div>
             <?php    
             $counter++; }        

@@ -625,8 +625,11 @@ h2, .h2 {
 		margin-top: 10px;
 		border-width: 0!important;
 		padding: 8px 20px;
-		font-weight: normal;
+		font-weight: bold;
+		font-size:16px;
 		color: $bbGreen;
+		margin-right:5px;
+
 		&:hover, &:focus {
 			background: $white;
 			color: $bodyText;
@@ -642,12 +645,25 @@ h2, .h2 {
 		width: 620px;
 		.match, .linked-match, .unlinked-match {
 			.home-side, .away-side {
-				width: 175px;
+				width:180px;
 				font-size: 16px;
 			}
+			.match-score {
+				width:60px;
+
+				span {
+					line-height:36px;
+					height:46px;
+				}
+			}
 			.matchDetails {
-				width: 150px;
-				padding-left: 20px;
+				width:120px;
+				padding-left: 10px;
+
+				a {
+					width:auto;
+					padding-top:14px;
+				}
 			}			
 		}
 	}
