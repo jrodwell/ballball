@@ -202,7 +202,7 @@
                 </div>
                 
                 <div id="results-viewport" class="viewport">
-                  <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" season="2013" status="fulltime" live="false" order_by="date_asc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>
+                  <opta widget="fixtures" sport="football" competition="<?php echo $league_optaid; ?>" season="2013" status="fulltime" live="false" order_by="date_desc" group_by_date="false" group_by_competition="false" show_competition_name="false" show_group="false" show_venue="false" show_attendance="false" show_referee="false" show_time="true" show_crest="false" show_scorers="false" show_cards="false" show_subs="false" sound="false" match_link="ballball.com" player_popup="false" player_names="full" opta_logo="false" start_expanded="false" team_name="short" narrow_limit="400"></opta>
                 </div>
                 
               </div>
