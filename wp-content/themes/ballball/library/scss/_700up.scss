@@ -717,29 +717,25 @@ SIDEBARS & ASIDES
 			overflow:hidden;
 			position:relative;
 
-			&.left {
-				float:left;
-			}
-
-			&.right {
-				float:right;
-			}
-
 			&:before {
 				color:#2c2c2c;
 				padding:9px 10px;
 			}
 
 			> a {
-				padding:9px 10px 9px 40px;
-				color:#4dbc00;
-				width:140px;
+				padding:9px 0 9px 40px;
+				color:$link-color;
+				width:145px;
 				height:6em;
 				overflow: hidden;
 				text-overflow: ellipsis;
 				font:19px normal normal $header;
 				text-transform:uppercase;
 				float:left;
+
+				&:hover {
+					color:$link-color;
+				}
 			}
 
 			.featured-image {
@@ -748,9 +744,21 @@ SIDEBARS & ASIDES
 				padding:9px 10px;
 
 				a {
+					display:block;
+					position:relative;
+
 					img {
 						width:140px;
 						height:auto;
+					}
+				}
+
+				&.video-article {
+					a:before {
+						@include before-after;
+						@include sprite(0, 60, 40, 40);
+						bottom:0;
+						left:0;
 					}
 				}
 			}

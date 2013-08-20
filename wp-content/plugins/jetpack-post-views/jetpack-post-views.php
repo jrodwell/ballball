@@ -383,65 +383,37 @@ class Jetpack_Post_Views extends WP_Widget {
 		}
 		// Else grab the top posts using the post meta
 		else {
-			$args = array( 
-				'numberposts' => $instance['num_posts'], 
-				'orderby' 	  => 'meta_value_num', 
-				'order'       => 'DESC', 
-				'exclude'     => $instance['exclude_posts'],
-				'meta_key' 	  => 'jetpack-post-views'
-			);
-			$posts = get_posts( $args );
+			$posts = icl_get_jetpack_top_posts(ICL_LANGUAGE_CODE, $instance['num_posts'], $instance['exclude_posts']);
 
 			// Print top posts in order
 			echo "<ol class=\"first\">";
 			foreach( $posts as $i=>$post ) { ?>
 
-				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-					<?php if ( $instance['show_views'] ) { 
+				<li>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					<?php
+					if ( $instance['show_views'] ) { 
 						echo " - ".number_format_i18n( get_post_meta( $post->ID, 'jetpack-post-views', true ) )." views";
-					} 
+					}
 
-					if(get_post_type($post)=='post_set') {
-					  $type = "set-article";
+					$type = get_article_type($post);
+					
+					if($type == "video-article") {
+						$video_id = get_video_id($post);
+						$image_url = get_ooyala_preview($video_id);
+						// error_log(print_r($preview_url, true));
 					} else {
-					  $type = "text-article";
-					  if(get_post_meta(get_the_ID(), 'ballball_videoid', true)) {
-					    $video_id = get_post_meta(get_the_ID(), 'ballball_videoid', true);
-					    $type = "video-article";
-					  } else if(has_post_thumbnail(get_the_ID())) {
-					    $type = "image-article";
-					  }
-					} 
+						$src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'small');
+						$image_url = $src[0];
+					}
 					?>
 
-					<div class="featured-image"> 
-						<?php 
-
-						$src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'small');
-
-						if($type == "video-article") {
-
-							$preview_url = get_ooyala_preview($video_id);
-							// error_log(print_r($preview_url, true));
-						?>
-
-							<a href="<?php get_permalink() ?>"><img src="<?php echo $preview_url ?: get_stylesheet_directory_uri().'/library/images/ballball-fallback.jpg'; ?>"></a>
-
-						<?php } else if($type == "image-article" || $type == "set-article") {
-	
-							echo '<a href="'.get_permalink().'"><img width="100%" height="100%" class="attachment-stream wp-post-image" src="'.$src[0].'"></a>';
-							$posts_group = get_post_meta($post->ID, 're_', true);
-							$set_count = count($posts_group);
-
-							if($type == "set-article") {
-								echo '<span class="set-count">'.$set_count.'</span>';
-							}
-							?>
-						<?php } ?>
+					<div class="featured-image <?php echo $type ?>">
+						<a href="<?php the_permalink() ?>"><img class="wp-post-image" src="<?php echo $image_url ?: get_fallback_image_url(); ?>"></a>
 					</div>
 				</li>
-				<?php
 
+				<?php
 				if($i == floor($instance['num_posts']/2-1)) {
 					echo "</ol><ol>";
 				}

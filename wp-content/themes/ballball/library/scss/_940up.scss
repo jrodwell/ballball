@@ -199,10 +199,30 @@ h2.total-match-count {
 		}
 	}
 	
-}	
+}
 .widget_sp_image {
 	padding: 0;
 }
+
+
+// Top 10 Posts Widget
+.jetpack-post-views {
+	ol {
+		float:none;
+		width:100%;
+
+		&.first li {
+			border-right:none;
+		}
+
+		li {
+			> a {
+				width:140px;
+			}
+		}
+	}
+}
+
 
 .footer {
 	.footer-top .inner, #inner-footer {

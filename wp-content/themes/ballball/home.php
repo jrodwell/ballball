@@ -259,18 +259,8 @@
                 <?php $counter=0; foreach($promoted_posts as $promoted_post) { $counter++;
                 
                 // Check article type...
-                
-                if(get_post_type($promoted_post->ID)=='post_set') {
-                  $type = "set-article";
-                } else {
-                  $type = "text-article";
-                  if(get_post_meta($promoted_post->ID, 'ballball_videoid', true)) {
-                    $video_id = get_post_meta($promoted_post->ID, 'ballball_videoid', true);
-                    $type = "video-article";
-                  } else if(has_post_thumbnail($promoted_post->ID)) {
-                    $type = "image-article";
-                  }
-                }
+                $type = get_article_type($post);
+                $video_id = get_video_id($post);
                 
                 ?>
                 

@@ -943,6 +943,72 @@ function pippin_excerpt_by_id($post, $length = 30, $tags = '<a><em><strong>', $e
 }
 
 
+
+function get_article_type($post) {
+	if(get_post_type($post->ID)=='post_set') {
+		$type = "set-article";
+	} else {
+		$type = "text-article";
+
+		if(get_post_meta($post->ID, 'ballball_videoid', true)) {
+			$type = "video-article";
+		} else if(has_post_thumbnail($post->ID)) {
+			$type = "image-article";
+		}
+	}
+
+	return $type;
+}
+
+function get_video_id($post) {
+	if(get_post_meta($post->ID, 'ballball_videoid', true)) {
+		return get_post_meta($post->ID, 'ballball_videoid', true);
+	} else {
+		return;
+	}
+}
+
+function get_fallback_image_url() {
+	return get_stylesheet_directory_uri().'/library/images/ballball-fallback.jpg';
+}
+
+
+/* Disable plugin update notifications for Jetpack Post Views as it's been modified */
+
+function filter_plugin_updates( $value ) {
+    unset( $value->response['jetpack-post-views/jetpack-post-views.php'] );
+    return $value;
+}
+add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
+
+
+/*
+ * Returns the top posts marked by the Jetpack Post Views plugin, filtered by the language set by the WPML Multilingual CMS
+ * $language - the language code, current site language by default
+ * $limit - number of posts
+ * $exclude - comma-separated string of excluded posts
+ */
+function icl_get_jetpack_top_posts($language = ICL_LANGUAGE_CODE, $limit = 10, $exclude = '') {
+  global $wpdb;
+  
+  $exclude_query = $exclude ? "AND wposts.ID NOT IN ( ".$exclude." )" : '';
+
+  $querystr = "
+    SELECT wposts.*
+    FROM $wpdb->posts wposts, $wpdb->postmeta postmeta, wp_icl_translations icl_translations
+    WHERE wposts.ID = icl_translations.element_id
+    AND wposts.ID = postmeta.post_id "
+	.$exclude_query.
+    "AND icl_translations.language_code = '".$language."'
+    AND wposts.post_status = 'publish'
+    AND wposts.post_type = 'post'
+    AND postmeta.meta_key = 'jetpack-post-views'
+    ORDER BY ABS(postmeta.meta_value) DESC LIMIT ".$limit."
+  ";
+  return $wpdb->get_results($querystr, OBJECT);
+}
+
+
 /* Ooyala Video Previews */
 
 require_once('library/OoyalaAPI.class.php');
@@ -953,7 +1019,7 @@ define('OOYALA_API_SECRET', 'pdUU3mivSeYkhRfSUJvDSuXaN_vBU-EP6KOs2Xpa');
 function get_ooyala_preview($video_id) {
 
 	$api = new OoyalaAPI;
-	$url = $api->generateURL('GET', OOYALA_API_KEY, OOYALA_API_SECRET, 1377820800, '/v2/assets/'.$video_id.'/primary_preview_image/');
+	$url = $api->generateURL('GET', OOYALA_API_KEY, OOYALA_API_SECRET, time() + 3600, "/v2/assets/{$video_id}/primary_preview_image/");
 
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
@@ -962,18 +1028,16 @@ function get_ooyala_preview($video_id) {
 	));
 
 	$result = json_decode(curl_exec($curl));
-
-	error_log(print_r($result, true));
-
+	if(curl_error($curl)) return;
 	curl_close($curl);
 
 	if($result->sizes) foreach($result->sizes as $size) {
-		if($size->width <= 720) {
+		if($size->width <= 720) { // assuming 720 or less is the lowest width
 			return $size->url;
 		}
 	}
 
-	return $result->url ?: 0;
+	return $result->url ?: $result[0]->url;
 }
 
 ?>
